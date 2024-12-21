@@ -3,7 +3,8 @@ import "./globals.css";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col min-h-screen w-full">
+        {/* Header */}
         <header>
           <nav>
             <ul className="flex bg-red-400 justify-center space-x-6 list-none">
@@ -25,8 +26,14 @@ export default function RootLayout({ children }) {
             </ul>
           </nav>
         </header>
-        <main>{children}</main>
-        <footer>© 2024 Donna Vino</footer>
+
+        {/* Main content, will adjust its size based on the content */}
+        <main className=" flex-grow">{children}</main>
+
+        {/* Footer, will always stay at the bottom */}
+        <footer className="bg-gray-800 text-white text-center py-4 mt-auto">
+          © 2024 Donna Vino
+        </footer>
       </body>
     </html>
   );
