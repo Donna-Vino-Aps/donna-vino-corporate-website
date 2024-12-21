@@ -1,2 +1,5 @@
-#!/usr/bin/env sh
-. "$(dirname "$0")/h"
+#!/bin/sh
+. "$(dirname "$0")/husky.sh"
+
+# Run prettier and eslint on all files modified before commit
+npx lint-staged
