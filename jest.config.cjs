@@ -1,5 +1,5 @@
 module.exports = {
-  preset: "next/babel",
+  preset: "./jest-preset.js",
   testEnvironment: "jest-environment-jsdom",
   transform: {
     "^.+\\.jsx?$": "babel-jest",
