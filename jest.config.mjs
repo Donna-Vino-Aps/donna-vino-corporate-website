@@ -1,5 +1,5 @@
-module.exports = {
-  preset: "./jest-preset.js",
+export default {
+  preset: "./jest-preset.mjs",
   testEnvironment: "jest-environment-jsdom",
   transform: {
     "^.+\\.jsx?$": "babel-jest",
