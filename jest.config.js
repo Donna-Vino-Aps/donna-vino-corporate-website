@@ -1,12 +1,10 @@
-module.exports = {
-  testEnvironment: "jsdom", // For React testing environment
+export default {
+  testEnvironment: "jsdom",
   transform: {
-    "^.+\\.[t|j]sx?$": "babel-jest", // Use babel-jest for JS/JSX/TS/TSX files
+    "^.+\\.(t|j)sx?$": "babel-jest",
   },
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1", // If you use path aliases
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
-  transformIgnorePatterns: [
-    "/node_modules/(?!tailwindcss|other-module-to-transform)/", // If you need to transform node_modules
-  ],
+  transformIgnorePatterns: ["/node_modules/"],
 };
