@@ -9,10 +9,6 @@ export default function Home() {
           experiences.
         </p>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </footer>
     </div>
   );
 }
