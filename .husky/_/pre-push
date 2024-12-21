@@ -1,5 +1,2 @@
-#!/bin/sh
-. "$(dirname "$0")/husky.sh"
-
-# Run tests before pushing
-npm run test
+#!/usr/bin/env sh
+. "$(dirname "$0")/h"

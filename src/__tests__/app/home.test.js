@@ -16,7 +16,7 @@ describe("Home Page", () => {
     const description = screen.getByTestId("description");
     expect(description).toBeInTheDocument();
     expect(description).toHaveTextContent(
-      "This project is dedicated to developing the website for our innovative eCommerce platform, where premium wine sales meet curated tasting experiences."
+      "This project is dedicated to developing the website for our innovative eCommerce platform, where premium wine sales meet curated tasting experiences.",
     );
   });
 });
