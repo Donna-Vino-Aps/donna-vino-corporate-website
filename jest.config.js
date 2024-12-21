@@ -1,7 +1,7 @@
 module.exports = {
-  testEnvironment: "jsdom", // For React testing
+  testEnvironment: "jest-environment-jsdom", // Use the installed jsdom environment
   transform: {
-    "^.+\\.jsx?$": "babel-jest", // For transforming JSX files
+    "^.+\\.jsx?$": "babel-jest", // Transpile JSX files with Babel
   },
-  moduleFileExtensions: ["js", "jsx", "json", "node"], // Specify file extensions
+  moduleFileExtensions: ["js", "jsx", "json", "node"], // Supported file extensions
 };
