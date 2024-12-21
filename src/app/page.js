@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Home() {
   return (
     <div className="flex min-h-[80vh]  items-center justify-center p-8 gap-16 bg-white-500">
