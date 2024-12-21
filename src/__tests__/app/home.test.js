@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import Home from "../../app/page"; // Adjust the import path to where your Home component is located
 
