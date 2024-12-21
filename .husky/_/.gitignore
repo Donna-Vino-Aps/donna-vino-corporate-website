@@ -1,12 +1,1 @@
-# Ignore temporary or system files
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-*.bak
-*.tmp
-
-# Ignore editor settings
-.vscode/
-.idea/
-*.iml
+*
