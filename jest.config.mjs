@@ -5,6 +5,7 @@ export default {
     "^.+\\.jsx?$": "babel-jest",
     "^.+\\.tsx?$": "babel-jest",
   },
+  transformIgnorePatterns: ["/node_modules/(?!some-esm-library)"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
