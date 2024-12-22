@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Home from "../../app/page"; // Adjust the import path to where your Home component is located
+import Home from "../../app/page";
 
 describe("Home Page", () => {
   it("should render the home page content", () => {
@@ -16,7 +16,7 @@ describe("Home Page", () => {
     const description = screen.getByTestId("description");
     expect(description).toBeInTheDocument();
     expect(description).toHaveTextContent(
-      "This project is dedicated to developing the website for our innovative eCommerce platform, where premium wine sales meet curated tasting experiences.",
+      "This project is dedicated to developing the website for our innovative platform, where premium wine sales meet curated tasting experiences.",
     );
   });
 });
