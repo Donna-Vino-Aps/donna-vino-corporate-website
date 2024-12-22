@@ -99,11 +99,14 @@ To get started locally:
 
 ## Workflow
 
-- **Update main**: Always make sure your main branch is up to date with the latest changes.
-- **Create a new branch**: For each feature, create a new branch from main.
-- **Work on your feature**: Commit your changes to the new branch.
-- **Create a pull request to main**: Once the feature is ready, open a PR to main for review and testing.
-- **Update production from main**: The production branch will be updated only with tested code from main for an extra layer of security.
+1. **Update main**: Always make sure your `main` branch is up to date with the latest changes.
+2. **Create a new branch**: For each feature, create a new branch from `main`.
+3. **Work on your feature**: Commit your changes to the new branch.
+4. **Create a pull request to main**: Once the feature is ready, open a PR to main for review and testing.
+5. **Review-App Deployment**:
+   - Each pull request will first run code-style checks, and only if they pass will it trigger the creation of a corresponding review app deployment, accessible from the pull request page.
+   - Both the developer and the reviewer are responsible for **ensuring the review app deployment is working correctly before merging into `main`.**
+6. **Update production from main**: The `production` branch will be updated only with tested code from `main` for an extra layer of security.
 
 ---
 
