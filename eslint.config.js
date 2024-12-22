@@ -34,7 +34,7 @@ module.exports = defineConfig([
       "no-unused-vars": ["warn", { varsIgnorePattern: "^React$" }],
       "react/jsx-uses-react": "off",
       "react/jsx-uses-vars": "error",
-      "no-console": ["warn", { allow: ["warn", "error", "log"] }],
+      "no-console": ["error", { allow: ["warn", "error"] }],
     },
   },
   {
