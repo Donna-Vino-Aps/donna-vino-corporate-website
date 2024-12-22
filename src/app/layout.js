@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./globals.css";
+import { logInfo } from "@/utils/logging";
 
 const RootLayout = ({ children }) => {
+  logInfo("useInfo example");
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen w-full">
