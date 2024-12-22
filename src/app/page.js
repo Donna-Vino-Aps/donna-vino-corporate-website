@@ -8,8 +8,7 @@ export default function Home() {
         {/* Add test ID */}
         <p data-testid="description">
           This project is dedicated to developing the website for our innovative
-          eCommerce platform, where premium wine sales meet curated tasting
-          experiences.
+          platform, where premium wine sales meet curated tasting experiences.
         </p>
       </main>
     </div>

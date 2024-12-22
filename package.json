@@ -18,7 +18,9 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "prettier": "prettier ./src --check",
-    "prettier:fix": "prettier ./src --write"
+    "prettier:fix": "prettier ./src --write",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
