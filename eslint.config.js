@@ -1,4 +1,8 @@
 const { defineConfig } = require("eslint-define-config");
+const eslintPluginReact = require("eslint-plugin-react");
+const eslintPluginJsxA11y = require("eslint-plugin-jsx-a11y");
+const eslintPluginReactHooks = require("eslint-plugin-react-hooks");
+const eslintPluginCypress = require("eslint-plugin-cypress");
 
 module.exports = defineConfig([
   {
@@ -19,10 +23,10 @@ module.exports = defineConfig([
       },
     },
     plugins: {
-      react: require("eslint-plugin-react"),
-      "jsx-a11y": require("eslint-plugin-jsx-a11y"),
-      "react-hooks": require("eslint-plugin-react-hooks"),
-      cypress: require("eslint-plugin-cypress"),
+      react: eslintPluginReact,
+      "jsx-a11y": eslintPluginJsxA11y,
+      "react-hooks": eslintPluginReactHooks,
+      cypress: eslintPluginCypress,
     },
     settings: {
       react: {
@@ -46,7 +50,7 @@ module.exports = defineConfig([
       },
     },
     plugins: {
-      cypress: require("eslint-plugin-cypress"),
+      cypress: eslintPluginCypress,
     },
     rules: {
       "no-unused-vars": "off",
