@@ -9,7 +9,6 @@
  * logInfo should be used to log anything that can be used for debugging but is not a problem
  */
 export const logInfo = (message) => {
-  // eslint-disable-next-line no-console
   console.log(message);
 };
 
@@ -17,7 +16,6 @@ export const logInfo = (message) => {
  * logWarning should be used to log anything that signals a problem that is not app breaking
  */
 export const logWarning = (message) => {
-  // eslint-disable-next-line no-console
   console.warn(message);
 };
 
