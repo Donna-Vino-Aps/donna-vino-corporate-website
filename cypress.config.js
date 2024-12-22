@@ -1,13 +1,10 @@
-import { defineConfig } from "cypress";
+const { defineConfig } = require("cypress");
 
-export default defineConfig({
+module.exports = defineConfig({
+  defaultCommandTimeout: 10000,
   e2e: {
-    baseUrl: "http://localhost:3000",
-    setupNodeEvents(on, config) {},
-    defaultCommandTimeout: 10000,
-    retries: {
-      runMode: 2,
-      openMode: 0,
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
     },
   },
 });
