@@ -1,4 +1,5 @@
 import React from "react";
+// import { logInfo } from "@/utils/logging";
 
 export default function Home() {
   return (
