@@ -36,6 +36,11 @@ export default {
         bodyMedium: ["14px", { lineHeight: "20px", letterSpacing: "0.25px" }],
         bodySmall: ["12px", { lineHeight: "16px", letterSpacing: "0.4px" }],
       },
+      fontWeight: {
+        regular: "400",
+        medium: "500",
+        semibold: "600",
+      },
     },
   },
   plugins: [],
