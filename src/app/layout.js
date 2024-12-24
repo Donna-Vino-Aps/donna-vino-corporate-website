@@ -8,7 +8,7 @@ const RootLayout = ({ children }) => {
     <html lang="en">
       <body className="flex flex-col min-h-screen w-full font-barlow">
         {/* Header */}
-        <header data-testid="header">
+        <header data-testid="header" className="">
           {/* Added test ID */}
           <nav>
             <ul className="flex bg-red-400 justify-center space-x-6 list-none">
