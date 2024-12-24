@@ -2,6 +2,10 @@
 
 Welcome to the official repository for **Donna Vino ApS**. This project is dedicated to developing the website for our innovative platform, where premium wine sales meet curated tasting experiences.
 
+Deployed Version:
+
+https://donna-vino-aps-corporate-03ca98a66972.herokuapp.com/
+
 ---
 
 ## ✨ Project Overview
