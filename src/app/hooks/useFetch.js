@@ -13,7 +13,9 @@ async function handleResponse(response) {
   if (contentType?.includes("application/json")) {
     return await response.json();
   }
-  if (contentType?.includes("text/plain" || contentType?.includes("text/html"))) {
+  if (
+    contentType?.includes("text/plain" || contentType?.includes("text/html"))
+  ) {
     return await response.text();
   }
 
