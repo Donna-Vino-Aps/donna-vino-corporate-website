@@ -6,20 +6,28 @@ import "./globals.css";
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen w-full">
+      <body className="flex flex-col min-h-screen w-full font-barlow">
         {/* Header */}
         <header data-testid="header">
           {/* Added test ID */}
           <nav>
             <ul className="flex bg-red-400 justify-center space-x-6 list-none">
               <li>
-                <a href="/" className="text-lg" data-testid="home-link">
+                <a
+                  href="/"
+                  className="text-lg font-roboto"
+                  data-testid="home-link"
+                >
                   Home
                 </a>
                 {/* Added test ID */}
               </li>
               <li>
-                <a href="/about" className="text-lg" data-testid="about-link">
+                <a
+                  href="/about"
+                  className="text-lg font-roboto"
+                  data-testid="about-link"
+                >
                   About
                 </a>
                 {/* Added test ID */}
@@ -27,7 +35,7 @@ const RootLayout = ({ children }) => {
               <li>
                 <a
                   href="/contact"
-                  className="text-lg"
+                  className="text-lg font-roboto"
                   data-testid="contact-link"
                 >
                   Contact
