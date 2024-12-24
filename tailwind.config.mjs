@@ -12,8 +12,8 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        barlow: ["Barlow", "sans-serif"],
-        roboto: ["Roboto", "sans-serif"],
+        barlow: ["Barlow", "sans-serif"], // main font
+        roboto: ["Roboto", "sans-serif"], // secondary font
       },
       fontSize: {
         displayLarge: [
