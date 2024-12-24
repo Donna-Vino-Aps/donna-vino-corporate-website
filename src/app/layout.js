@@ -6,20 +6,28 @@ import "./globals.css";
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen w-full">
+      <body className="flex flex-col min-h-screen w-full font-barlow bg-primary-normal text-foreground-normal">
         {/* Header */}
         <header data-testid="header">
           {/* Added test ID */}
           <nav>
-            <ul className="flex bg-red-400 justify-center space-x-6 list-none">
+            <ul className="flex bg-primary-normal justify-center space-x-6 list-none">
               <li>
-                <a href="/" className="text-lg" data-testid="home-link">
+                <a
+                  href="/"
+                  className="text-lg font-roboto"
+                  data-testid="home-link"
+                >
                   Home
                 </a>
                 {/* Added test ID */}
               </li>
               <li>
-                <a href="/about" className="text-lg" data-testid="about-link">
+                <a
+                  href="/about"
+                  className="text-lg font-roboto"
+                  data-testid="about-link"
+                >
                   About
                 </a>
                 {/* Added test ID */}
@@ -27,7 +35,7 @@ const RootLayout = ({ children }) => {
               <li>
                 <a
                   href="/contact"
-                  className="text-lg"
+                  className="text-lg font-roboto"
                   data-testid="contact-link"
                 >
                   Contact
@@ -46,7 +54,7 @@ const RootLayout = ({ children }) => {
 
         {/* Footer, will always stay at the bottom */}
         <footer
-          className="bg-gray-800 text-white text-center py-4 mt-auto"
+          className="bg-primary-dark text-white text-center py-4 mt-auto"
           data-testid="footer"
         >
           {/* Added test ID */}© 2024 Donna Vino
