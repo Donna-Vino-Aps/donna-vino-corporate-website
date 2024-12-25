@@ -81,7 +81,6 @@ describe("useFetch Hook", () => {
       await result.current.performFetch();
     });
 
-    // Verificar que se establece un error y el mensaje indica que la respuesta está vacía
     expect(result.current.error).toBeInstanceOf(Error);
     expect(result.current.error.message).toBe("Empty response from server");
   });
