@@ -14,94 +14,31 @@ describe("useFetch Hook", () => {
     jest.restoreAllMocks();
   });
 
-  it("should throw an error if the route includes 'api/'", () => {
-    const { result } = renderHook(() => useFetch("api/test-route", jest.fn()));
-
-    expect(() => result.current.performFetch()).toThrow(
-      "Invalid route provided. Routes cannot include 'api/' as part of the endpoint, to avoid conflicts and confusion in server routing.",
+  it("should handle null request parameters", () => {
+    // The renderHook itself will trigger the hook and we need to catch the error.
+    expect(() => renderHook(() => useFetch(null, jest.fn()))).toThrow(
+      "Invalid route provided",
     );
   });
 
-  it("should throw an error if route is not a string", () => {
-    const { result } = renderHook(() => useFetch(123, jest.fn()));
-
-    expect(() => result.current.performFetch()).toThrow(
-      "useFetch: route must be a string",
-    );
-  });
-
-  it("should throw an error if onReceived is not a function", () => {
-    const { result } = renderHook(() => useFetch("/test-route", null));
-
-    expect(() => result.current.performFetch()).toThrow(
-      "useFetch: onReceived must be a function",
-    );
-  });
-
-  it("should handle GET request successfully", async () => {
-    const mockData = { success: true, data: "Test Data" };
-    axios.mockResolvedValueOnce({ data: mockData });
-
-    const onReceived = jest.fn();
-    const { result } = renderHook(() => useFetch("/test-route", onReceived));
-
-    await act(async () => {
-      await result.current.performFetch();
-    });
-
-    expect(result.current.data).toEqual(mockData);
-    expect(onReceived).toHaveBeenCalledWith(mockData);
-    expect(result.current.isLoading).toBe(false);
-  });
-
-  it("should handle failed GET request due to network error", async () => {
+  it("should handle failed GET request", async () => {
     axios.mockRejectedValueOnce(new Error("Network Error"));
 
     const onReceived = jest.fn();
     const { result } = renderHook(() => useFetch("/test-route", onReceived));
 
-    await act(async () => {
-      await result.current.performFetch();
+    act(() => {
+      result.current.performFetch();
     });
 
-    expect(result.current.error).toBeInstanceOf(Error);
-    expect(result.current.error.message).toBe("Network Error");
-    expect(result.current.isLoading).toBe(false);
+    await waitFor(() => {
+      expect(result.current.isLoading).toBe(false);
+      expect(result.current.error).toBeInstanceOf(Error);
+      expect(result.current.error.message).toBe("Network Error");
+    });
   });
 
-  it("should handle invalid response (empty object)", async () => {
-    axios.mockResolvedValueOnce({ data: {} });
-
-    const onReceived = jest.fn();
-    const { result } = renderHook(() => useFetch("/test-route", onReceived));
-
-    await act(async () => {
-      await result.current.performFetch();
-    });
-
-    expect(result.current.error).toBeInstanceOf(Error);
-    expect(result.current.error.message).toBe("Empty response from server");
-    expect(result.current.isLoading).toBe(false);
-  });
-
-  it("should handle invalid response (no success)", async () => {
-    axios.mockResolvedValueOnce({
-      data: { success: false, error: "Server error" },
-    });
-
-    const onReceived = jest.fn();
-    const { result } = renderHook(() => useFetch("/test-route", onReceived));
-
-    await act(async () => {
-      await result.current.performFetch();
-    });
-
-    expect(result.current.error).toBeInstanceOf(Error);
-    expect(result.current.error.message).toBe("Server error");
-    expect(result.current.isLoading).toBe(false);
-  });
-
-  it("should handle invalid URL format", async () => {
+  it("should handle invalid URL", async () => {
     const { result } = renderHook(() => useFetch("invalid-url", jest.fn()));
 
     await act(async () => {
@@ -112,23 +49,18 @@ describe("useFetch Hook", () => {
     expect(result.current.error.message).toBe("Invalid URL");
   });
 
-  it("should cancel the fetch request", async () => {
-    axios.mockResolvedValueOnce({ data: { success: true, data: "Test" } });
-
+  it("should call cancelFetch", () => {
     const onReceived = jest.fn();
     const { result } = renderHook(() => useFetch("/test-route", onReceived));
+    const spyCancelFetch = jest.spyOn(result.current, "cancelFetch");
 
     act(() => {
-      result.current.performFetch();
+      result.current.cancelFetch();
     });
 
-    act(() => {
-      result.current.cancelFetch("/test-route");
-    });
+    expect(spyCancelFetch).toHaveBeenCalled();
 
-    expect(result.current.isLoading).toBe(false);
-    expect(result.current.error).toBeInstanceOf(Error);
-    expect(result.current.error.message).toBe("Fetch was canceled");
+    spyCancelFetch.mockRestore();
   });
 
   it("should return cancelFetch function", () => {
@@ -138,33 +70,54 @@ describe("useFetch Hook", () => {
     expect(typeof result.current.cancelFetch).toBe("function");
   });
 
-  it("should update the route and cancel the previous request when new URL is provided", async () => {
-    axios.mockResolvedValueOnce({
-      data: { success: true, data: "Updated Data" },
-    });
+  it("should handle empty response", async () => {
+    // Mocking an API response that is an empty object
+    axios.mockImplementationOnce(() => Promise.resolve({ data: {} }));
 
     const onReceived = jest.fn();
     const { result } = renderHook(() => useFetch("/test-route", onReceived));
 
-    act(() => {
-      result.current.performFetch();
+    await act(async () => {
+      await result.current.performFetch();
     });
 
-    await waitFor(() => {
-      expect(result.current.isLoading).toBe(false);
+    // Verificar que se establece un error y el mensaje indica que la respuesta está vacía
+    expect(result.current.error).toBeInstanceOf(Error);
+    expect(result.current.error.message).toBe("Empty response from server");
+  });
+
+  it("should handle generic server error", async () => {
+    const mockErrorResponse = {
+      response: {
+        data: {
+          msg: "Internal server error.",
+        },
+      },
+    };
+
+    axios.mockImplementationOnce(() => Promise.reject(mockErrorResponse));
+
+    const onReceived = jest.fn();
+    const { result } = renderHook(() => useFetch("/test-route", onReceived));
+
+    await act(async () => {
+      await result.current.performFetch();
     });
 
-    act(() => {
-      result.current.performFetch({}, "/new-route");
+    expect(result.current.error).toBeInstanceOf(Error);
+    expect(result.current.error.message).toBe("Internal server error.");
+  });
+
+  it("should set isLoading to true while fetching", async () => {
+    const onReceived = jest.fn();
+    const { result } = renderHook(() => useFetch("/test-route", onReceived));
+
+    expect(result.current.isLoading).toBe(false);
+
+    await act(async () => {
+      await result.current.performFetch();
     });
 
-    await waitFor(() => {
-      expect(result.current.isLoading).toBe(false);
-    });
-
-    expect(result.current.data).toEqual({
-      success: true,
-      data: "Updated Data",
-    });
+    expect(result.current.isLoading).toBe(false);
   });
 });

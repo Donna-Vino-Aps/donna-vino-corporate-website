@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { baseApiUrl } from "@/config/environment";
+import { logInfo } from "@/utils/logging";
 
 const useFetch = (initialRoute, onReceived) => {
   // Validate initial inputs to avoid confusion with server routing
@@ -72,6 +73,8 @@ const useFetch = (initialRoute, onReceived) => {
       }
 
       const { success, msg, message, error: serverError } = response.data;
+
+      logInfo(`Response Data: ${JSON.stringify(response.data, null, 2)}`);
 
       if (success) {
         setData(response.data);
