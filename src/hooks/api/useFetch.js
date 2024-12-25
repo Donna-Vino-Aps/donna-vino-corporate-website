@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { baseApiUrl } from "@/config/environment";
 
 const useFetch = (initialRoute, onReceived) => {
   // Validate initial inputs to avoid confusion with server routing
@@ -70,7 +71,7 @@ const useFetch = (initialRoute, onReceived) => {
         return;
       }
 
-      const { success, msg, message, user, error: serverError } = response.data;
+      const { success, msg, message, error: serverError } = response.data;
 
       if (success) {
         setData(response.data);
