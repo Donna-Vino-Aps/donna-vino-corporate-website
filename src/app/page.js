@@ -1,4 +1,5 @@
 import React from "react";
+import HeroSection from "@/components/HeroSection/HeroSection";
 // import { logInfo } from "@/utils/logging";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold" data-testid="main-heading">
           Welcome to the official Donna Vino
         </h1>
+        <HeroSection />
         {/* Add test ID */}
         <p className="font-roboto" data-testid="description">
           This project is dedicated to developing the website for our innovative
