@@ -4,13 +4,19 @@ const HeroSection = () => {
   return (
     <section className="relative w-full h-screen">
       {/* Video Background */}
-      <video className="absolute inset-0 w-full h-full object-cover autoPlay loop muted">
+      <video
+        className="absolute inset-0 w-full h-full object-cover autoPlay loop muted"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
         <source src="/videos/Sequence 01.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       {/* Overlay Text*/}
       <div
-        className="absolute"
+        className="absolute
         inset-0
         flex
         flex-col
@@ -18,7 +24,7 @@ const HeroSection = () => {
         items-center
         text-center
         bg-black
-        bg-opacity-50
+        bg-opacity-50"
       >
         <h1 className="text-white text-displayLarge font-barlow mb-4">
           Welcome to Donna Vino, your unique wine experience.
