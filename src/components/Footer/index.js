@@ -3,8 +3,9 @@ import React from "react";
 const Footer = () => {
   return (
     <footer
-      className="flex bg-gray-900 text-white text-center py-4 mt-auto h-100 md:h-40 sm:h-auto items-center justify-center"
+      className="flex text-white text-center py-4 mt-auto h-100 md:h-40 sm:h-auto items-center justify-center"
       data-testid="footer"
+      style={{ backgroundColor: "#2F2E2E" }}
     >
       <img
         className="h-16 rounded"
@@ -12,29 +13,29 @@ const Footer = () => {
         alt="Donna Vino Logo - Red background, white text saying Donna Vino"
       ></img>
       <div className="grid grid-cols-4 gap-4 ml-20 mr-20">
-        <div className="p-2">
-          <h3 className="pb-3">Resources</h3>
-          <p className="text-sm text-zinc-700">Saas Development</p>
-          <p className="text-sm text-zinc-700">Our Products</p>
-          <p className="text-sm text-zinc-700">Our Products</p>
-          <p className="text-sm text-zinc-700">User Strategy</p>
+        <div className="p-2 text-start">
+          <h4 className="pb-3">Resources</h4>
+          <p className="text-sm text-zinc-600 pb-1">Saas Development</p>
+          <p className="text-sm text-zinc-600 pb-1">Our Products</p>
+          <p className="text-sm text-zinc-600 pb-1">Our Products</p>
+          <p className="text-sm text-zinc-600 pb-1">User Strategy</p>
+        </div>
+        <div className="p-2 text-start">
+          <h4 className="pb-3">Company</h4>
+          <p className="text-sm text-zinc-600 pb-1">About Donna Vino</p>
+          <p className="text-sm text-zinc-600 pb-1">Contact</p>
+          <p className="text-sm text-zinc-600 pb-1">Success History</p>
+          <p className="text-sm text-zinc-600 pb-1">Setting & Privacy</p>
+        </div>
+        <div className="p-2 text-start">
+          <h4 className="pb-3">Quick Links</h4>
+          <p className="text-sm text-zinc-600 pb-1">Premium Support</p>
+          <p className="text-sm text-zinc-600 pb-1">Our services</p>
+          <p className="text-sm text-zinc-600 pb-1">Know Our Team</p>
+          <p className="text-sm text-zinc-600 pb-1">Download App</p>
         </div>
         <div className="p-2">
-          <h3 className="pb-3">Company</h3>
-          <p className="text-sm text-zinc-700">About Donna Vino</p>
-          <p className="text-sm text-zinc-700">Contact</p>
-          <p className="text-sm text-zinc-700">Success History</p>
-          <p className="text-sm text-zinc-700">Setting & Privacy</p>
-        </div>
-        <div className="p-2">
-          <h3 className="pb-3">Quick Links</h3>
-          <p className="text-sm text-zinc-700">Premium Support</p>
-          <p className="text-sm text-zinc-700">Our services</p>
-          <p className="text-sm text-zinc-700">Know Our Team</p>
-          <p className="text-sm text-zinc-700">Download App</p>
-        </div>
-        <div className="p-2">
-          <h3 className="pb-3">Follow Us On</h3>
+          <h4 className="pb-3">Follow Us On</h4>
           <div className="flex gap-4 ml-3">
             <a href="#" className="text-white">
               <img
