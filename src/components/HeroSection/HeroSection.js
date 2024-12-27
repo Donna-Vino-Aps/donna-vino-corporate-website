@@ -5,10 +5,13 @@ const HeroSection = () => {
     <section className="relative flex flex-row w-800 h-450 bg-primary-light">
       {/* Overlay Text*/}
       <div className="relative flex flex-col justify-center items-start text-left w-full p-8">
-        <h1 className="text-displayLarge  text-tertiary1-normal font-regular font-barlow mb-4">
+        <h1 className="text-displayLarge  text-tertiary1-normal font-light font-barlow mb-4">
           Welcome to Donna Vino, your unique wine experience.
         </h1>
-        <p className="font-roboto " data-testid="description">
+        <p
+          className="text-bodyLarge text-tertiary1-darker font-light"
+          data-testid="description"
+        >
           Discover unique wine stories told by your sommelier while your private
           chef customizes the menu.
         </p>
