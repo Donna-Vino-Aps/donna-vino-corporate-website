@@ -14,11 +14,87 @@ describe("useFetch Hook", () => {
     jest.restoreAllMocks();
   });
 
+  it("should handle GET request", async () => {
+    const mockResponse = { data: { id: 123 }, success: true };
+    axios.mockResolvedValueOnce({ data: mockResponse });
+
+    const onReceived = jest.fn();
+    const { result } = renderHook(() =>
+      useFetch("/test-route", "GET", null, {}, onReceived),
+    );
+
+    await act(async () => {
+      await result.current.performFetch();
+    });
+
+    expect(result.current.data).toEqual(mockResponse);
+    expect(onReceived).toHaveBeenCalledWith(mockResponse);
+    expect(result.current.isLoading).toBe(false);
+    expect(result.current.error).toBeNull();
+  });
+
+  it("should handle POST request", async () => {
+    const mockResponse = { data: { id: 123 }, success: true };
+    axios.mockResolvedValueOnce({ data: mockResponse });
+
+    const onReceived = jest.fn();
+    const { result } = renderHook(() =>
+      useFetch("/test-route", "POST", { id: 123 }, {}, onReceived),
+    );
+
+    await act(async () => {
+      await result.current.performFetch();
+    });
+
+    expect(result.current.data).toEqual(mockResponse);
+    expect(onReceived).toHaveBeenCalledWith(mockResponse);
+    expect(result.current.isLoading).toBe(false);
+    expect(result.current.error).toBeNull();
+  });
+
+  it("should handle PUT request", async () => {
+    const mockResponse = { data: { id: 123, updated: true }, success: true };
+    axios.mockResolvedValueOnce({ data: mockResponse });
+
+    const onReceived = jest.fn();
+    const { result } = renderHook(() =>
+      useFetch("/test-route", "PUT", { id: 123 }, {}, onReceived),
+    );
+
+    await act(async () => {
+      await result.current.performFetch();
+    });
+
+    expect(result.current.data).toEqual(mockResponse);
+    expect(onReceived).toHaveBeenCalledWith(mockResponse);
+    expect(result.current.isLoading).toBe(false);
+    expect(result.current.error).toBeNull();
+  });
+
   it("should handle null request parameters", () => {
     // The renderHook itself will trigger the hook and we need to catch the error.
     expect(() =>
       renderHook(() => useFetch(null, "GET", null, {}, jest.fn())),
     ).toThrow("Invalid route provided");
+  });
+
+  it("should handle DELETE request", async () => {
+    const mockResponse = { data: { id: 123, deleted: true }, success: true };
+    axios.mockResolvedValueOnce({ data: mockResponse });
+
+    const onReceived = jest.fn();
+    const { result } = renderHook(() =>
+      useFetch("/test-route", "DELETE", null, {}, onReceived),
+    );
+
+    await act(async () => {
+      await result.current.performFetch();
+    });
+
+    expect(result.current.data).toEqual(mockResponse);
+    expect(onReceived).toHaveBeenCalledWith(mockResponse);
+    expect(result.current.isLoading).toBe(false);
+    expect(result.current.error).toBeNull();
   });
 
   it("should handle failed GET request", async () => {
