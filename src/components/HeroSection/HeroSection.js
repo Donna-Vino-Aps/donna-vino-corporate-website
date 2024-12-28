@@ -2,7 +2,11 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="relative flex flex-row justify-between px-8 gap-x-8 w-[1440px] h-[704px] bg-primary-light">
+    <section
+      className="relative flex flex-row justify-between px-8 gap-x-8 w-[1440px] h-[704px] bg-primary-light"
+      role="region"
+      aria-label="Hero Section"
+    >
       {/* Overlay Text */}
       <div className="relative flex flex-col justify-center items-start text-left w-[704px] h-[704px] p-8">
         <h1 className="text-displayLarge text-tertiary1-normal font-light font-barlow mb-4">
@@ -24,7 +28,8 @@ const HeroSection = () => {
           autoPlay
           loop
           muted
-          playsInline
+          role="region" // Definir el rol
+          aria-label="Background video for Hero Section"
         >
           <source src="/videos/Sequence01.mp4" type="video/mp4" />
           Your browser does not support the video tag.
