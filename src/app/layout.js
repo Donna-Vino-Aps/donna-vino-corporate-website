@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./globals.css";
-// import { logInfo } from "@/utils/logging";
 
 const RootLayout = ({ children }) => {
   return (
