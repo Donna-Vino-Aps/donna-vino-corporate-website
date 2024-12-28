@@ -3,9 +3,14 @@ import axios from "axios";
 import { baseApiUrl } from "@/config/environment";
 import { logInfo } from "@/utils/logging";
 
-const useFetch = (initialRoute, onReceived) => {
+const useFetch = (
+  initialRoute,
+  method = "GET",
+  body = null,
+  customHeaders = {},
+  onReceived,
+) => {
   // Validate initial inputs to avoid confusion with server routing
-  // The route cannot include 'api/' as part of the endpoint, to prevent conflicting or ambiguous routes like "api/api/log-in"
   if (!initialRoute || initialRoute.includes("api/")) {
     throw new Error(
       "Invalid route provided. Routes cannot include 'api/' as part of the endpoint, to avoid conflicts and confusion in server routing.",
@@ -46,16 +51,15 @@ const useFetch = (initialRoute, onReceived) => {
     }
 
     const baseOptions = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      method: method, // Allow other HTTP methods (GET, POST, PUT, DELETE)
+      headers: { "Content-Type": "application/json", ...customHeaders },
       withCredentials: true,
       cancelToken: new axios.CancelToken((cancel) => {
         // Use the route as a unique identifier
         cancelTokens.current[route] = cancel;
       }),
-      ...options,
+      ...(body && { data: body }), // Attach the body for POST, PUT, etc.
+      ...options, // Allow additional custom options
     };
 
     try {
@@ -78,7 +82,7 @@ const useFetch = (initialRoute, onReceived) => {
 
       if (success) {
         setData(response.data);
-        onReceived(response.data);
+        onReceived(response.data); // Pass data to the onReceived callback
       } else {
         const errorMsg =
           serverError || msg || message || "Unexpected server error";
