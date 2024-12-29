@@ -3,18 +3,17 @@ import React from "react";
 const HeroSection = () => {
   return (
     <section
-      className="relative flex flex-row justify-between px-8 gap-x-8 w-[1440px] h-[704px] bg-primary-light"
+      className="relative flex flex-col sm:flex-row w-full h-auto bg-primary-light"
       role="banner"
       aria-label="Hero Section"
       aria-labelledby="title"
     >
-      {/* Overlay Text */}
       <div
-        className="relative flex flex-col justify-center items-start text-left w-[704px] h-[704px] p-8"
+        className="relative flex flex-col gap-8 justify-center h-[60%] text-left p-4 pt-8"
         data-testid="hero-text-container"
       >
         <h1
-          className="text-displayLarge text-tertiary1-normal font-light font-barlow mb-4"
+          className="text-displayLarge text-tertiary1-normal font-light text-[45px] leading-[52px] tracking-[0] font-barlow pt-1"
           id="title"
           data-testid="title"
         >
@@ -25,14 +24,27 @@ const HeroSection = () => {
           data-testid="description"
         >
           Discover unique wine stories told by your sommelier while your private
-          chef customizes the menu.
+          chef customises the menu.
         </p>
+        <button
+          className="bg-primary-normal text-white w-[332px] h-[48px] rounded-[6px] px-[24px] py-[12px] flex justify-center items-center"
+          data-testid="get-started-button"
+        >
+          Visit our shop
+        </button>
+        <button
+          className="bg-primary-light border-2 border-primary-normal text-primary-normal w-[332px] h-[48px] rounded-[6px] px-[24px] py-[12px] flex justify-center items-center
+          hover:border-primary-normal-active hover:text-primary-normal-active 
+          active:border-primary-normal-active active:text-primary-normal-active"
+          data-testid="secondary-button"
+        >
+          Contact us
+        </button>
       </div>
 
-      {/* Video Background */}
-      <div className="relative flex flex-col justify-center items-start text-left w-[720px] h-[704px]">
+      <div className="relative justify-center w-full h-[40%]">
         <video
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full object-cover"
           autoPlay
           loop
           muted

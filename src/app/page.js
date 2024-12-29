@@ -4,11 +4,8 @@ import HeroSection from "@/components/HeroSection/HeroSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-[80vh] items-center justify-center p-8 gap-16 bg-white">
-      <main
-        className="flex flex-col gap-8 items-center text-center text-foreground-normal"
-        data-testid="main-heading"
-      >
+    <div className="flex min-h-[80vh] items-center justify-center gap-16 bg-white">
+      <main className="flex flex-col items-center" data-testid="main-heading">
         <HeroSection />
       </main>
     </div>
