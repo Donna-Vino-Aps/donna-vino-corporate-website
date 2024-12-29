@@ -30,6 +30,7 @@ const HeroSection = () => {
           className="bg-primary-normal text-white w-[332px] h-[48px] rounded-[6px] px-[24px] py-[12px] flex justify-center items-center"
           data-testid="get-started-button"
         >
+          <img src="/icons/cart.svg" alt="Cart" className="mr-2" />
           Visit our shop
         </button>
         <button
@@ -38,6 +39,7 @@ const HeroSection = () => {
           active:border-primary-normal-active active:text-primary-normal-active"
           data-testid="secondary-button"
         >
+          <img src="/icons/speech-bubble-19.svg" alt="Cart" className="mr-2" />
           Contact us
         </button>
       </div>
