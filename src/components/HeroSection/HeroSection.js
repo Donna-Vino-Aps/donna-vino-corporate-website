@@ -44,9 +44,9 @@ const HeroSection = () => {
         </button>
       </div>
 
-      <div className="relative justify-center w-full h-[40%]">
+      <div className="relative justify-center w-full h-auto sm:w-40% sm:h-auto">
         <video
-          className="absolute inset-0 w-full object-cover"
+          className="absolute inset-0 w-full sm:h-full object-cover"
           autoPlay
           loop
           muted
