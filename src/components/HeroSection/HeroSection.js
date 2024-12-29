@@ -5,6 +5,7 @@ const HeroSection = () => {
     <section
       className="relative flex flex-row justify-between px-8 gap-x-8 w-[1440px] h-[704px] bg-primary-light"
       role="region"
+      aria-label="Hero Section"
       aria-labelledby="title"
     >
       {/* Overlay Text */}
@@ -14,6 +15,7 @@ const HeroSection = () => {
       >
         <h1
           className="text-displayLarge text-tertiary1-normal font-light font-barlow mb-4"
+          id="title" // Add id here
           data-testid="title"
         >
           Welcome to Donna Vino, your unique wine experience.
