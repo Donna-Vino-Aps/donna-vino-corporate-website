@@ -8,7 +8,7 @@ const useFetch = (
   method = "GET",
   body = null,
   customHeaders = {},
-  onReceived,
+  onReceived = () => {},
 ) => {
   // Validate initial inputs to avoid confusion with server routing
   if (!initialRoute || initialRoute.includes("api/")) {
