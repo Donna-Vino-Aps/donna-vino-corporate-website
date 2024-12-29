@@ -21,9 +21,7 @@ describe("HeroSection Component", () => {
     );
 
     // Check that the video is present
-    const video = screen.getByRole("region", {
-      name: "Background video for Hero Section",
-    });
+    const video = screen.getByTestId("hero-video");
     expect(video).toBeInTheDocument();
   });
 });

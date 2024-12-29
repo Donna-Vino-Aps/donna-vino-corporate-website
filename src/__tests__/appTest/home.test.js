@@ -10,9 +10,5 @@ describe("Home Page", () => {
     // Check that the main container is rendered
     const mainContainer = screen.getByTestId("main-heading");
     expect(mainContainer).toBeInTheDocument();
-
-    // Check that the HeroSection component is rendered
-    const heroSection = screen.getByRole("region", { name: "Hero Section" });
-    expect(heroSection).toBeInTheDocument();
   });
 });

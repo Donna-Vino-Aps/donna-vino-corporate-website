@@ -24,7 +24,7 @@ const HeroSection = () => {
           data-testid="description"
         >
           Discover unique wine stories told by your sommelier while your private
-          chef customises the menu.
+          chef customizes the menu.
         </p>
         <button
           className="bg-primary-normal text-white w-[332px] h-[48px] rounded-[6px] px-[24px] py-[12px] flex justify-center items-center"
@@ -53,6 +53,7 @@ const HeroSection = () => {
           role="region"
           aria-label="Background video for Hero Section"
           aria-hidden="true"
+          data-testid="hero-video"
         >
           <source src="/videos/Sequence01.mp4" type="video/mp4" />
           Your browser does not support the video tag.
