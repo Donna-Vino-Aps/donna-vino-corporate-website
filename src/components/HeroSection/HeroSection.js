@@ -55,7 +55,10 @@ const HeroSection = () => {
           aria-hidden="true"
           data-testid="hero-video"
         >
-          <source src="/videos/Sequence01.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/dxnptdhrp/video/upload/v1735508300/sgx733bdfjq7rvcv9x7p.mp4"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
       </div>
