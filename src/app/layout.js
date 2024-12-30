@@ -6,57 +6,53 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen w-full font-barlow bg-primary-normal text-foreground-normal">
-        {/* Header */}
-        <header data-testid="header">
-          {/* Added test ID */}
-          <nav>
+        <header data-testid="header" role="banner">
+          <nav role="navigation">
             <ul className="flex bg-primary-normal justify-center space-x-6 list-none">
               <li>
                 <a
                   href="/"
                   className="text-lg font-roboto"
                   data-testid="home-link"
+                  aria-label="Go to home page"
                 >
                   Home
                 </a>
-                {/* Added test ID */}
               </li>
               <li>
                 <a
                   href="/about"
                   className="text-lg font-roboto"
                   data-testid="about-link"
+                  aria-label="Go to about page"
                 >
                   About
                 </a>
-                {/* Added test ID */}
               </li>
               <li>
                 <a
                   href="/contact"
                   className="text-lg font-roboto"
                   data-testid="contact-link"
+                  aria-label="Go to contact page"
                 >
                   Contact
                 </a>
-                {/* Added test ID */}
               </li>
             </ul>
           </nav>
         </header>
 
-        {/* Main content, will adjust its size based on the content */}
-        <main className="flex-grow" data-testid="main-content">
-          {/* Added test ID */}
+        <main className="flex-grow" role="main" data-testid="main-content">
           {children}
         </main>
 
-        {/* Footer, will always stay at the bottom */}
         <footer
           className="bg-primary-dark text-white text-center py-4 mt-auto"
+          role="content-info"
           data-testid="footer"
         >
-          {/* Added test ID */}© 2024 Donna Vino
+          © 2024 Donna Vino
         </footer>
       </body>
     </html>
@@ -64,7 +60,7 @@ const RootLayout = ({ children }) => {
 };
 
 RootLayout.propTypes = {
-  children: PropTypes.node.isRequired, // This ensures "children" is a valid React node
+  children: PropTypes.node.isRequired,
 };
 
 export default RootLayout;
