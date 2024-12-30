@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./globals.css";
+import Footer from "../components/Footer/Footer.js";
+// import { logInfo } from "@/utils/logging";
 
 const RootLayout = ({ children }) => {
   return (
@@ -47,13 +49,8 @@ const RootLayout = ({ children }) => {
           {children}
         </main>
 
-        <footer
-          className="bg-primary-dark text-white text-center py-4 mt-auto"
-          role="content-info"
-          data-testid="footer"
-        >
-          © 2024 Donna Vino
-        </footer>
+        <Footer />
+          
       </body>
     </html>
   );
