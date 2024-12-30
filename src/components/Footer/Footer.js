@@ -9,34 +9,30 @@ const Footer = () => {
     >
       <img
         className="h-16 rounded"
-        src="https://thehub-io.imgix.net/files/s3/20241209183833-4571ce47897c5631412b3cd584fbd674.jpg?fit=crop&w=300&h=300&auto=format&q=60"
+        src="/images/donna-vino-logo-transparent.png"
         alt="Donna Vino Logo - Red background, white text saying Donna Vino"
       ></img>
       <div className="grid grid-cols-4 gap-4 ml-20 mr-20">
         <div className="p-2 text-start">
-          <h4 className="pb-3">Resources</h4>
-          <p className="text-sm text-zinc-600 pb-1">Saas Development</p>
+          <h4 className="pb-3 font-semibold footerHeading">Resources</h4>
           <p className="text-sm text-zinc-600 pb-1">Our Products</p>
-          <p className="text-sm text-zinc-600 pb-1">Our Products</p>
-          <p className="text-sm text-zinc-600 pb-1">User Strategy</p>
-        </div>
-        <div className="p-2 text-start">
-          <h4 className="pb-3">Company</h4>
-          <p className="text-sm text-zinc-600 pb-1">About Donna Vino</p>
           <p className="text-sm text-zinc-600 pb-1">Contact</p>
-          <p className="text-sm text-zinc-600 pb-1">Success History</p>
-          <p className="text-sm text-zinc-600 pb-1">Setting & Privacy</p>
         </div>
         <div className="p-2 text-start">
-          <h4 className="pb-3">Quick Links</h4>
-          <p className="text-sm text-zinc-600 pb-1">Premium Support</p>
-          <p className="text-sm text-zinc-600 pb-1">Our services</p>
+          <h4 className="pb-3 font-semibold footerHeading">Company</h4>
+          <a>
+            <p className="text-sm text-zinc-600 pb-1">About Donna Vino</p>
+          </a>
           <p className="text-sm text-zinc-600 pb-1">Know Our Team</p>
-          <p className="text-sm text-zinc-600 pb-1">Download App</p>
+        </div>
+        <div className="p-2 text-start">
+          <h4 className="pb-3 font-semibold footerHeading">Quick Links</h4>
+          <p className="text-sm text-zinc-600 pb-1">Wine Tastings</p>
+          <p className="text-sm text-zinc-600 pb-1">To The Shop</p>
         </div>
         <div className="p-2">
-          <h4 className="pb-3">Follow Us On</h4>
-          <div className="flex gap-4 ml-3">
+          <h4 className="pb-3 font-semibold footerHeading">Follow Us On</h4>
+          <div className="flex gap-4 ml-3 relative right-1">
             <a href="#" className="text-white">
               <img
                 src="https://www.svgrepo.com/show/341809/facebook-f.svg"

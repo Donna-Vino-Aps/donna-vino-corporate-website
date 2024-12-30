@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./globals.css";
+import Footer from "../components/Footer/Footer.js";
+// import { logInfo } from "@/utils/logging";
 
 const RootLayout = ({ children }) => {
   return (
@@ -52,12 +54,7 @@ const RootLayout = ({ children }) => {
         </main>
 
         {/* Footer, will always stay at the bottom */}
-        <footer
-          className="bg-primary-dark text-white text-center py-4 mt-auto"
-          data-testid="footer"
-        >
-          {/* Added test ID */}© 2024 Donna Vino
-        </footer>
+        <Footer />
       </body>
     </html>
   );
