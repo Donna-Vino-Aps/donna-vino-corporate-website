@@ -3,7 +3,7 @@ import React from "react";
 const HeroSection = () => {
   return (
     <section
-      className="relative flex flex-col sm:flex-row w-full h-auto bg-primary-light"
+      className="relative flex flex-col w-full sm:flex-row h-auto bg-primary-light"
       role="banner"
       aria-label="Hero Section"
       aria-labelledby="title"

@@ -5,7 +5,7 @@ import HeroSection from "@/components/HeroSection/HeroSection";
 export default function Home() {
   return (
     <div className="flex min-h-[80vh] justify-center gap-16 bg-white">
-      <main className="flex flex-col items-center" data-testid="main-heading">
+      <main data-testid="main-heading">
         <HeroSection />
       </main>
     </div>
