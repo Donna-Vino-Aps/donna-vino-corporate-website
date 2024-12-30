@@ -7,6 +7,12 @@ import Footer from "../components/Footer/Footer.js";
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700&family=Roboto:wght@300;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="flex flex-col min-h-screen w-full font-barlow bg-primary-normal text-foreground-normal">
         <header data-testid="header" role="banner">
           <nav role="navigation">
