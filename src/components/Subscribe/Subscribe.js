@@ -8,14 +8,19 @@ const Subscribe = () => {
 
   const { isLoading, error, performFetch } = useFetch("/subscribe", "POST");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!agreed) {
       alert("Please agree to the terms and conditions.");
       return;
     }
 
-    performFetch({}, { email });
+    const success = await performFetch({}, { email });
+
+    if (success) {
+      setEmail("");
+      setAgreed(false);
+    }
   };
   return (
     <div className="my-6 flex flex-col justify-center items-center font-barlow text-displayLarge bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm">
