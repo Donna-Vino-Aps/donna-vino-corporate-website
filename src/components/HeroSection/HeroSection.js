@@ -12,6 +12,21 @@ const HeroSection = () => {
         className="relative flex flex-col gap-8 justify-center h-[60%] text-left p-4 pt-8 m-0"
         data-testid="hero-text-container"
       >
+        <div className="flex justify-start">
+          <div className="relative w-[10.35rem] h-[6.93rem]">
+            <img
+              src="/design-elements/Dotted Shape.svg"
+              alt="Dotted Shape 1"
+              className="absolute top-0 right-0 w-[4.6rem] [h-4.6rem]"
+            />
+            <img
+              src="/design-elements/Dotted Shape.svg"
+              alt="Dotted Shape 2"
+              className="absolute bottom-0 left-0 w-[4.6rem] [h-4.6rem]"
+            />
+          </div>
+        </div>
+
         <h1
           className="text-displayLarge text-tertiary1-normal font-light text-[45px] leading-[52px] tracking-[0] font-barlow pt-1"
           id="title"
@@ -47,6 +62,20 @@ const HeroSection = () => {
             />
             Contact us
           </button>
+          <div className="flex justify-end">
+            <div className="relative w-[13.75rem] h-[8.68rem]">
+              <img
+                src="/design-elements/Dotted Shape.svg"
+                alt="Dotted Shape 1"
+                className="absolute top-0 right-0 w-[5.8rem] h-[5.8rem]"
+              />
+              <img
+                src="/design-elements/Dotted Shape.svg"
+                alt="Dotted Shape 2"
+                className="absolute bottom-0 left-0 w-[5.8rem] h-[5.8rem]"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
