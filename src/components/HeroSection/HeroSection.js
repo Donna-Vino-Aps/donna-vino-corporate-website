@@ -3,7 +3,7 @@ import React from "react";
 const HeroSection = () => {
   return (
     <section
-      className="relative flex flex-col w-screen sm:flex-row h-auto bg-primary-light overflow-hidden"
+      className="relative flex flex-col w-screen sm:flex-row h-auto bg-primary-light"
       role="banner"
       aria-label="Hero Section"
       aria-labelledby="title"
@@ -62,7 +62,7 @@ const HeroSection = () => {
           data-testid="hero-video"
         >
           <source
-            src="https://res.cloudinary.com/dxnptdhrp/video/upload/v1735508300/sgx733bdfjq7rvcv9x7p.mp4"
+            src="https://res.cloudinary.com/dmjo57kua/video/upload/v1735578255/Sequence_01_dnkdcc.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
