@@ -1,13 +1,17 @@
 .photoDiv {
-  width: "44rem";
-  height: "33.5rem";
+  width: 44rem;
+  height: 33.5rem;
 }
 
 .cardImg {
-  width: "25.75rem";
+  width: 25.75rem;
 }
 
 .photoBtn {
-  width: "12.125rem";
-  height: "3rem";
+  width: 12.125rem;
+  height: 3rem;
+}
+
+.textContainer {
+  flex: 1;
 }

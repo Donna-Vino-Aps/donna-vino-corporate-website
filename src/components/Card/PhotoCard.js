@@ -15,31 +15,27 @@ const PhotoCard = ({
 }) => {
   return (
     <div
-      className="border-1 rounded-3xl flex flex-row photoDiv"
+      className="photoDiv flex flex-row rounded-3xl overflow-hidden"
       style={{
         backgroundColor: backgroundColor,
       }}
     >
-      <img
-        src={imageUrl}
-        alt={title}
-        className="rounded-3xl object-fill h-full object-center cardImg"
-      ></img>
-      <div className="w-auto">
+      <img src={imageUrl} alt={title} className="cardImg object-cover"></img>
+      <div className="textContainer flex flex-col justify-center p-6">
         <h3
-          className="text-displayMedium font-barlow pl-6 pb-8 pt-14"
+          className="text-displayMedium font-barlow mb-6 mt-2"
           style={{ color: fontColor }}
         >
           {title}
         </h3>
         <p
-          className="font-barlow text-bodyLarge font-regular pl-6 pb-8"
+          className="font-barlow text-bodyLarge font-regular mb-8"
           style={{ color: fontColor }}
         >
           {description}
         </p>
         <button
-          className="flex items-center justify-center gap-2 px-4 py-2 ml-5 mt-2 rounded photoBtn"
+          className="photoBtn flex items-center justify-center gap-2 px-4 py-2 rounded"
           style={{
             backgroundColor: buttonBgColor,
           }}

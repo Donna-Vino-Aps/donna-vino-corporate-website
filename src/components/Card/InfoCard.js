@@ -16,19 +16,19 @@ const InfoCard = ({
 }) => {
   return (
     <div
-      className="border-1 p-4 rounded-3xl flex flex-col infoDiv"
+      className="infoDiv border-1 p-4 rounded-3xl flex flex-col"
       style={{
         backgroundColor: backgroundColor,
       }}
     >
       <h3
-        className="text-displayLarge font-regular pl-4 pb-6 pt-8"
+        className="text-displayLarge font-regular pl-4 pb-8 pt-8"
         style={{ color: fontColor }}
       >
         {title}
       </h3>
       <p
-        className="font-barlow text-bodyLarge font-regular pl-4"
+        className="font-barlow text-bodyLarge font-regular pl-4 pb-1"
         style={{ color: fontColor }}
       >
         {descriptionPart1}
