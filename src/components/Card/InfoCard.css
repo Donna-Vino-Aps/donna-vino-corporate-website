@@ -19,7 +19,7 @@
 
 /* Responsive Styles */
 /* Mobile */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .infoDiv {
   }
 
@@ -37,7 +37,7 @@
 }
 
 /* Tablet */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .infoDiv {
   }
 
@@ -52,7 +52,8 @@
 
   .infoBtnLbl {
   }
-}
+} 
+*/
 
 /* font-size: 12px;
 line-height: 16px;
