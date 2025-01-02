@@ -5,16 +5,10 @@ import "./ContentGridPhotoCards.css";
 const ContentGridPhotoCards = () => {
   return (
     <div className="gridContainer">
-      <div className="grid grid-cols-2 gap-4 p-4">
+      <div className="gridDiv grid grid-cols-2 gap-4 p-4">
         <PhotoCard
           imageUrl="/images/card-unsplash-wine-tasting.jpg"
-          title={
-            <span>
-              Wine
-              <br />
-              tasting with dinner
-            </span>
-          }
+          title="Wine tasting with dinner"
           description="Experience an unforgettable Italian wine dinner guided by sommelier Katrine Giorgio. Discover rare wines paired with antipasti, pasta, and dessert prepared by our chef Riccardo Lara."
           buttonIcon="/icons/calender-alt-1-gray.svg"
           buttonLabel="Book in the shop"
@@ -25,13 +19,7 @@ const ContentGridPhotoCards = () => {
         />
         <PhotoCard
           imageUrl="/images/card-unsplash-wine-table.jpg"
-          title={
-            <span>
-              Wine
-              <br />
-              tasting with dinner for companies
-            </span>
-          }
+          title="Wine tasting with dinner for companies"
           description="Strengthen team bonds with a tailored Italian wine tasting experience. Perfect for team building, networking, or a relaxing evening with dinner."
           buttonIcon="/icons/phone.svg"
           buttonLabel="Contact us"

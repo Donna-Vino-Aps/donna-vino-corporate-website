@@ -23,13 +23,13 @@ const PhotoCard = ({
       <img src={imageUrl} alt={title} className="cardImg object-cover"></img>
       <div className="textContainer flex flex-col justify-center p-6">
         <h3
-          className="text-displayMedium font-barlow mb-6 mt-2"
+          className="cardTitle text-displayMedium font-barlow mb-6 mt-2"
           style={{ color: fontColor }}
         >
           {title}
         </h3>
         <p
-          className="font-barlow text-bodyLarge font-regular mb-8"
+          className="cardDescription font-barlow text-bodyLarge font-regular mb-8"
           style={{ color: fontColor }}
         >
           {description}
@@ -41,7 +41,9 @@ const PhotoCard = ({
           }}
         >
           <img src={buttonIcon} alt={`${buttonLabel} icon`}></img>
-          <span style={{ color: buttonFontColor }}>{buttonLabel}</span>
+          <span className="photoBtnLbl" style={{ color: buttonFontColor }}>
+            {buttonLabel}
+          </span>
         </button>
       </div>
     </div>

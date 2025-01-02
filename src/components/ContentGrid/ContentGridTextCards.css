@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-/* Custom */
+/* Responsivity */
 @media (max-width: 1224px) {
   .gridDiv {
     grid-template-columns: 1fr;

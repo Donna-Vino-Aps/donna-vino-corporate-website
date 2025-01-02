@@ -19,17 +19,21 @@
 
 /* Responsive Styles */
 /* Mobile */
-/* @media (max-width: 768px) {
+@media (max-width: 854px) {
   .infoDiv {
+    max-width: 26.72rem;
   }
 
   .cardTitle {
+    padding-top: 12px;
   }
 
   .cardDescription {
+    padding-top: 16px;
   }
 
   .infoBtn {
+    margin-top: 16px;
   }
 
   .infoBtnLbl {
@@ -37,28 +41,26 @@
 }
 
 /* Tablet */
-/* @media (min-width: 768px) {
+@media (min-width: 854px) and (max-width: 1224px) {
   .infoDiv {
+    width: 50vw !important;
   }
 
   .cardTitle {
+    padding-top: 24px;
   }
 
   .cardDescription {
+    margin-top: 12px;
   }
 
   .infoBtn {
+    margin-top: 16px;
   }
 
   .infoBtnLbl {
   }
-} 
-*/
-
-/* font-size: 12px;
-line-height: 16px;
-letter-spacing: 0.4px;
-bottom: 16px; */
+}
 
 /* Desktop */
 @media (max-width: 1500px) {
@@ -115,7 +117,7 @@ bottom: 16px; */
   }
 
   .infoBtn {
-    width: 10.9125rem; /* 90% of 12.125rem */
+    width: 10.9125rem;
     height: 2.7rem;
     bottom: 32px;
   }
