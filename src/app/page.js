@@ -5,7 +5,7 @@ import Subscribe from "@/components/Subscribe/Subscribe";
 
 export default function Home() {
   return (
-    <div className="flex min-h-[80vh] justify-center gap-16 bg-white">
+    <div className="flex w-[100%] justify-center gap-16 bg-white">
       <main data-testid="main-heading">
         <HeroSection />
         <Subscribe />
