@@ -5,7 +5,7 @@ import "./ContentGridTextCards.css";
 const ContentGridTextCards = () => {
   return (
     <div className="gridContainer">
-      <div className="grid grid-cols-2 gap-4 p-4">
+      <div className="gridDiv grid grid-cols-2 gap-4 p-4">
         <InfoCard
           title="Wine tasting with dinner"
           descriptionPart1="Treat your senses to an unforgettable experience by attending a unique Italian wine dinner at the idyllic ‘Slottet’, located in a picturesque courtyard in Christianshavn, just a stone's throw from the metro."

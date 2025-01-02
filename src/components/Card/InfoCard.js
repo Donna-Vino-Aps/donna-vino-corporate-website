@@ -16,19 +16,19 @@ const InfoCard = ({
 }) => {
   return (
     <div
-      className="infoDiv border-1 p-4 rounded-3xl flex flex-col"
+      className="infoDiv border-1 p-4 rounded-3xl flex flex-col justify-between"
       style={{
         backgroundColor: backgroundColor,
       }}
     >
       <h3
-        className="text-displayLarge font-regular pl-4 pb-8 pt-8"
+        className="cardTitle text-displayLarge font-regular pl-4 pb-2 pt-8"
         style={{ color: fontColor }}
       >
         {title}
       </h3>
       <p
-        className="font-barlow text-bodyLarge font-regular pl-4 pb-1"
+        className="cardDescription font-barlow text-bodyLarge font-regular pl-4"
         style={{ color: fontColor }}
       >
         {descriptionPart1}
@@ -42,13 +42,15 @@ const InfoCard = ({
         <br />
       </p>
       <button
-        className="flex items-center justify-center gap-2 px-4 py-2 ml-5 rounded infoBtn"
+        className="infoBtn flex items-center justify-center gap-2 px-4 py-2 ml-5 rounded relative bottom-5"
         style={{
           backgroundColor: buttonBgColor,
         }}
       >
         <img src={buttonIcon} alt={`${buttonLabel} icon`}></img>
-        <span style={{ color: buttonFontColor }}>{buttonLabel}</span>
+        <span className="infoBtnLbl" style={{ color: buttonFontColor }}>
+          {buttonLabel}
+        </span>
       </button>
     </div>
   );
