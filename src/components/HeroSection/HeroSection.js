@@ -3,46 +3,48 @@ import React from "react";
 const HeroSection = () => {
   return (
     <section
-      className="sm:my-6 relative flex justify-between flex-col h-[53.2rem] w-screen sm:w-screen sm:h-[44rem] sm:flex-row  bg-primary-light"
+      className="sm:mt-6 relative flex justify-between flex-col h-[53.2rem] w-screen sm:h-[44rem] sm:flex-row  bg-primary-light "
       role="banner"
       aria-label="Hero Section"
       aria-labelledby="title"
     >
       <div
-        className="relative flex flex-col p-4 pt-8 gap-8 h-[31.6rem] justify-center sm:w-[44rem] sm:h-[44rem] sm:justify-center text-left sm:gap-8 p-4 pt-8 m-0"
+        className="relative flex flex-col p-4 pt-8 sm:pt-4 gap-8 h-[31.6rem] justify-center sm:w-[44rem] sm:h-[44rem] sm:justify-center text-left sm:gap-8 m-0"
         data-testid="hero-text-container"
       >
-        <div className="relative flex justify-end sm:justify-start">
+        <div className="absolute top-[0.7rem] right-[0.5rem] sm:top-[0rem] sm:right-[0rem] sm:relative flex justify-end sm:justify-start z-0 overflow-hidden">
           <div className="relative w-[4.5rem] h-[6.75rem] sm:w-[10.35rem] sm:h-[6.93rem]">
             <img
               src="/design-elements/Dotted Shape.svg"
               alt="Dotted Shape 1"
-              className="absolute top-0 right-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
+              className="absolute top-0 left:0 sm:top-auto sm:top-0 sm:right-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
+              data-testid="dotted-shape-1"
             />
             <img
               src="/design-elements/Dotted Shape.svg"
               alt="Dotted Shape 2"
-              className="absolute bottom-0 left-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
+              className="absolute bottom-0 right-0 sm:bottom-0 sm:left-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
+              data-testid="dotted-shape-2"
             />
           </div>
         </div>
 
         <h1
-          className="text-displayMedium sm:text-displayLarge text-tertiary1-normal font-barlow "
+          className="text-displayMedium sm:text-displayLarge text-tertiary1-normal font-barlow z-10"
           id="title"
           data-testid="title"
         >
           Welcome to Donna Vino, your unique wine experience.
         </h1>
         <p
-          className="text-bodyLarge text-tertiary1-darker"
+          className="text-bodyLarge text-tertiary1-darker z-10"
           data-testid="description"
         >
           Discover unique wine stories told by your sommelier while your private
           chef customizes the menu.
         </p>
         <div className="flex flex-col w-full">
-          <div className="flex flex-col w-full gap-4 sm:flex-row">
+          <div className="flex flex-col w-full gap-4 sm:flex-row z-10">
             <button
               className="bg-primary-normal flex justify-center items-center text-white h-[3rem] sm:w-[10.8rem] rounded-[0.3rem]"
               data-testid="get-started-button"
@@ -62,17 +64,19 @@ const HeroSection = () => {
               Contact us
             </button>
           </div>
-          <div className="flex justify-end">
-            <div className="relative w-[7.5] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem]">
+          <div className="absolute top-[15.8rem] right-[0.5rem] sm:top-auto sm:right-auto sm:relative flex justify-end overflow-hidden">
+            <div className="relative w-[7.5rem] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem] mb-[1rem] sm:mb-[0rem] z-0">
               <img
                 src="/design-elements/Dotted Shape.svg"
-                alt="Dotted Shape 1"
-                className="absolute sm:top-0 sm:right-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
+                alt="Dotted Shape 3"
+                className="absolute top-0 right-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
+                data-testid="dotted-shape-3"
               />
               <img
                 src="/design-elements/Dotted Shape.svg"
-                alt="Dotted Shape 2"
-                className="absolute sm:bottom-0 sm:left-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
+                alt="Dotted Shape 4"
+                className="absolute bottom-0 left-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
+                data-testid="dotted-shape-4"
               />
             </div>
           </div>
