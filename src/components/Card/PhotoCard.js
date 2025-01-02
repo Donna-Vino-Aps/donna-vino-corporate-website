@@ -1,10 +1,13 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./PhotoCard.css";
 
 const PhotoCard = ({
   imageUrl,
   title,
+  smallScreenTitle,
   description,
   buttonIcon,
   buttonLabel,
@@ -13,38 +16,59 @@ const PhotoCard = ({
   buttonBgColor,
   buttonFontColor,
 }) => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1280); // Tailwind xl breakpoint = 1280px
+    };
+
+    handleResize(); // Initialize on component mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div
-      className="photoDiv flex flex-row rounded-3xl overflow-hidden"
+      className="photoDiv flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[37.5rem] xl:flex-row xl:flex-row xl:w-[35.2rem] xl:h-[26.8rem] 2xl:w-[39.6rem] 2xl:h-[30.15rem] 3xl:w-[44rem] 3xl:h-[33.5rem]"
       style={{
         backgroundColor: backgroundColor,
       }}
     >
-      <img src={imageUrl} alt={title} className="cardImg object-cover"></img>
-      <div className="textContainer flex flex-col justify-center p-6">
+      <img
+        src={imageUrl}
+        alt={title}
+        className="cardImg object-cover h-[12.375rem] w-[21.5rem] xl:h-full xl:w-[20.6rem] 2xl:w-[23.175rem] 3xl:w-[25.75rem]"
+      ></img>
+      <div className="flex flex-col justify-center p-6">
         <h3
-          className="cardTitle text-displayMedium font-barlow mb-6 mt-2"
+          className="cardTitle text-headlineMedium md:text-headlineMedium xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 mt-2"
           style={{ color: fontColor }}
         >
-          {title}
+          {isSmallScreen ? smallScreenTitle : title}
         </h3>
         <p
-          className="cardDescription font-barlow text-bodyLarge font-regular mb-8"
+          className="cardDescription font-barlow text-bodyLarge xl:text-bodyMedium 2xl:text-bodyLarge font-regular mb-8"
           style={{ color: fontColor }}
         >
           {description}
         </p>
-        <button
-          className="photoBtn flex items-center justify-center gap-2 px-4 py-2 rounded"
-          style={{
-            backgroundColor: buttonBgColor,
-          }}
-        >
-          <img src={buttonIcon} alt={`${buttonLabel} icon`}></img>
-          <span className="photoBtnLbl" style={{ color: buttonFontColor }}>
-            {buttonLabel}
-          </span>
-        </button>
+        <div className="flex justify-center items-center mt-2 xl:mt-0">
+          <button
+            className="photoBtn flex items-center justify-center w-[12.125rem] h-[2.8rem] xl:w-[10.9125rem] xl:h-[2.5rem] 2xl:w-[10.9125rem] 2xl:h-[2.7rem] 3xl:w-[12.125rem] 3xl:h-[3rem] gap-2 px-4 py-2 rounded"
+            style={{
+              backgroundColor: buttonBgColor,
+            }}
+          >
+            <img src={buttonIcon} alt={`${buttonLabel} icon`}></img>
+            <span
+              className="font-medium text-labelLarge xl:text-labelMedium 3xl:text-labelLarge"
+              style={{ color: buttonFontColor }}
+            >
+              {buttonLabel}
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -54,6 +78,7 @@ const PhotoCard = ({
 PhotoCard.propTypes = {
   imageUrl: PropTypes.string.isRequired, // Image URL must be a string and is required
   title: PropTypes.string.isRequired, // Title must be a string and is required
+  smallScreenTitle: PropTypes.string, // Title must be a string and is required
   description: PropTypes.string.isRequired, // Description must be a string and is required
   buttonIcon: PropTypes.string, // Icon URL should be a string (optional)
   buttonLabel: PropTypes.string.isRequired, // Button label must be a string and is required

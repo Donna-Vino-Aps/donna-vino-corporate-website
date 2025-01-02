@@ -1,160 +1,33 @@
-.photoDiv {
-  width: 44rem;
-  height: 33.5rem;
-}
-
-.cardImg {
+/* .cardImg {
   width: 25.75rem;
-}
+} */
 
-.cardDescription {
-  position: relative;
-}
-
-.photoBtn {
+/* .photoBtn {
   width: 12.125rem;
   height: 3rem;
-  position: relative;
-}
+} */
 
-.textContainer {
-  flex: 1;
-}
-
-/* Responsive Styles */
-/* Mobile */
-@media (max-width: 854px) {
-  .photoDiv {
-    max-width: 26.68rem;
-    flex-direction: column;
-  }
-
+/* Responsivity  */
+/* @media (min-width: 1780px) {
   .cardImg {
-    min-width: 26.68rem;
-    max-height: 35%;
-  }
-
-  .cardTitle {
-    bottom: 16px;
-    margin-bottom: 0px;
-  }
-
-  .cardDescription {
-    bottom: 32px;
-  }
-
-  .photoBtn {
-    margin-top: 32px;
-    margin-bottom: 12px;
-  }
-
-  .photoBtnLbl {
+    width: 25.75rem;
   }
 }
 
-/* Tablet */
-@media (min-width: 854px) and (max-width: 1224px) {
-  .photoDiv {
-    width: 50vw !important;
-    flex-direction: column;
-  }
-
+@media (min-width: 1536px) and (max-width: 1780px) {
   .cardImg {
-    width: 50vw !important;
-    object-fit: cover;
-    max-height: 35%;
-  }
-
-  .cardTitle {
-    bottom: 16px;
-    margin-bottom: 0px;
-  }
-
-  .cardDescription {
-    bottom: 32px;
-  }
-
-  .photoBtn {
-    bottom: 2px;
-  }
-
-  .photoBtnLbl {
+    width: 23.175rem;
   }
 }
 
-/* Desktop */
-@media (max-width: 1500px) {
-  .photoDiv {
-    width: 35.2rem;
-    height: 26.8rem;
-  }
-
+@media (max-width: 1536px) {
   .cardImg {
-    width: 21.5rem;
-  }
-
-  .cardTitle {
-    font-size: 36px;
-    line-height: 44px;
-    letter-spacing: 0px;
-    padding-bottom: 20px;
-  }
-
-  .cardDescription {
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.4px;
-    margin-bottom: 16px;
-  }
-
-  .photoBtn {
-    width: 9.094rem;
-    height: 2.25rem;
-    bottom: 42px;
-  }
-
-  .photoBtnLbl {
-    font-size: 10px;
-    line-height: 12px;
-    letter-spacing: 0.4px;
+    width: 20.6rem;
   }
 }
 
-/* Custom */
-@media (min-width: 1500px) and (max-width: 1780px) {
-  .photoDiv {
-    width: 39.6rem;
-    height: 30.15rem;
-  }
-
+@media (max-width: 1280px) {
   .cardImg {
-    width: 21.35rem;
+    width: 20.6rem;
   }
-
-  .cardTitle {
-    font-size: 45px;
-    line-height: 52px;
-    letter-spacing: 0px;
-    margin-bottom: 12px;
-  }
-
-  .cardDescription {
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.25px;
-    margin-bottom: 24px;
-    padding-top: 12px;
-  }
-
-  .photoBtn {
-    width: 10.9125rem;
-    height: 2.7rem;
-    bottom: 20px;
-  }
-
-  .photoBtnLbl {
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.25px;
-  }
-}
+} */

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import PhotoCard from "../Card/PhotoCard";
 import "./ContentGridPhotoCards.css";
@@ -5,10 +7,23 @@ import "./ContentGridPhotoCards.css";
 const ContentGridPhotoCards = () => {
   return (
     <div className="gridContainer">
-      <div className="gridDiv grid grid-cols-2 gap-4 p-4">
+      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2">
         <PhotoCard
           imageUrl="/images/card-unsplash-wine-tasting.jpg"
-          title="Wine tasting with dinner"
+          title={
+            <span>
+              Wine
+              <br />
+              tasting with dinner
+            </span>
+          }
+          smallScreenTitle={
+            <span>
+              Wine tasting with
+              <br />
+              dinner
+            </span>
+          }
           description="Experience an unforgettable Italian wine dinner guided by sommelier Katrine Giorgio. Discover rare wines paired with antipasti, pasta, and dessert prepared by our chef Riccardo Lara."
           buttonIcon="/icons/calender-alt-1-gray.svg"
           buttonLabel="Book in the shop"
@@ -19,7 +34,22 @@ const ContentGridPhotoCards = () => {
         />
         <PhotoCard
           imageUrl="/images/card-unsplash-wine-table.jpg"
-          title="Wine tasting with dinner for companies"
+          title={
+            <span>
+              Wine
+              <br />
+              tasting with dinner for companies
+            </span>
+          }
+          smallScreenTitle={
+            <span>
+              Wine tasting with
+              <br />
+              dinner for
+              <br />
+              companies
+            </span>
+          }
           description="Strengthen team bonds with a tailored Italian wine tasting experience. Perfect for team building, networking, or a relaxing evening with dinner."
           buttonIcon="/icons/phone.svg"
           buttonLabel="Contact us"
