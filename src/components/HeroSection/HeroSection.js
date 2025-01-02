@@ -47,6 +47,7 @@ const HeroSection = () => {
           <div className="flex flex-col w-full gap-4 sm:flex-row z-10">
             <button
               className="bg-primary-normal flex justify-center items-center text-white h-[3rem] sm:w-[10.8rem] rounded-[0.3rem]"
+              aria-label="Visit our shop"
               data-testid="get-started-button"
             >
               <img src="/icons/cart.svg" alt="Cart" className="mr-2" />
@@ -54,6 +55,7 @@ const HeroSection = () => {
             </button>
             <button
               className="bg-primary-light border-2 border-primary-normal text-primary-normal h-[3rem] sm:w-[10.8rem] rounded-[0.3rem] flex justify-center items-center"
+              aria-label="Contact us"
               data-testid="secondary-button"
             >
               <img
