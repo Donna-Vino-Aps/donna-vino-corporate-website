@@ -7,7 +7,7 @@ import "./ContentGridPhotoCards.css";
 const ContentGridPhotoCards = () => {
   return (
     <div className="gridContainer">
-      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 mt-4">
         <PhotoCard
           imageUrl="/images/card-unsplash-wine-tasting.jpg"
           title={

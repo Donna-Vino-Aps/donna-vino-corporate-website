@@ -5,7 +5,7 @@ import "./ContentGridTextCards.css";
 const ContentGridTextCards = () => {
   return (
     <div className="gridContainer">
-      <div className="gridDiv grid grid-cols-2 gap-4 p-4">
+      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2">
         <InfoCard
           title="Wine tasting with dinner"
           descriptionPart1="Treat your senses to an unforgettable experience by attending a unique Italian wine dinner at the idyllic ‘Slottet’, located in a picturesque courtyard in Christianshavn, just a stone's throw from the metro."
@@ -19,7 +19,7 @@ const ContentGridTextCards = () => {
           buttonFontColor="#ffffff" // When passing as a prop, color has to be in hex
         />
         <InfoCard
-          title="Wine tastings with dinner for companies"
+          title="Wine tasting with dinner for companies"
           descriptionPart1="Corporate wine tasting is a unique opportunity to strengthen team relationships while exploring the world of Italian wines."
           descriptionPart2="With over 15 years of experience in fine dining restaurants, wine selection and wine levels are customised to your preferences, ensuring a high standard and quality experience."
           descriptionPart3="This event is ideal for team building, networking or just a relaxing evening where you can immerse yourself in the fascinating world of wine while enjoying an accompanying dinner."

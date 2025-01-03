@@ -28,7 +28,15 @@ export default {
         labelMedium: ["12px", { lineHeight: "16px", letterSpacing: "0.5px" }],
         labelSmall: ["11px", { lineHeight: "16px", letterSpacing: "0.5px" }],
         bodyLarge: ["16px", { lineHeight: "24px", letterSpacing: "0.5px" }],
+        bodyMediumLarge: [
+          "15px",
+          { lineHeight: "22px", letterSpacing: "0.375px" },
+        ],
         bodyMedium: ["14px", { lineHeight: "20px", letterSpacing: "0.25px" }],
+        bodySmallMedium: [
+          "13px",
+          { lineHeight: "18px", letterSpacing: "0.32px" },
+        ],
         bodySmall: ["12px", { lineHeight: "16px", letterSpacing: "0.4px" }],
       },
       fontWeight: {
