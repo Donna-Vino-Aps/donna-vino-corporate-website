@@ -22,7 +22,7 @@ const RootLayout = ({ children }) => {
 };
 
 RootLayout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default RootLayout;
