@@ -12,26 +12,26 @@ module.exports = defineConfig([
         "cypress/globals": true,
         browser: true,
         es2021: true,
-        jest: true,
+        jest: true
       },
       parserOptions: {
         ecmaVersion: 2021,
         sourceType: "module",
         ecmaFeatures: {
-          jsx: true,
-        },
-      },
+          jsx: true
+        }
+      }
     },
     plugins: {
       react: eslintPluginReact,
       "jsx-a11y": eslintPluginJsxA11y,
       "react-hooks": eslintPluginReactHooks,
-      cypress: eslintPluginCypress,
+      cypress: eslintPluginCypress
     },
     settings: {
       react: {
-        version: "detect",
-      },
+        version: "detect"
+      }
     },
     rules: {
       "react/prop-types": ["warn"],
@@ -39,30 +39,34 @@ module.exports = defineConfig([
       "react/jsx-uses-react": "off",
       "react/jsx-uses-vars": "error",
       "no-console": ["error", { allow: ["warn", "error"] }],
-    },
+      indent: ["warn", 2],
+      quotes: ["warn", "double"],
+      "comma-dangle": ["warn", "never"],
+      semi: ["warn", "always"]
+    }
   },
   {
     // Specific configuration for .cy.js files
     files: ["**/*.cy.js", "cypress.config.js"],
     languageOptions: {
       globals: {
-        "cypress/globals": true,
-      },
+        "cypress/globals": true
+      }
     },
     plugins: {
-      cypress: eslintPluginCypress,
+      cypress: eslintPluginCypress
     },
     rules: {
       "no-unused-vars": "off",
       "no-console": "off",
-      "cypress/no-assertion-after-screenshot": "off",
-    },
+      "cypress/no-assertion-after-screenshot": "off"
+    }
   },
   {
     // Specific configuration for logging.js
     files: ["src/utils/logging.js"],
     rules: {
-      "no-console": "off",
-    },
-  },
+      "no-console": "off"
+    }
+  }
 ]);

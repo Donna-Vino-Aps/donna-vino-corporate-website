@@ -1,7 +1,7 @@
 "use client";
-import Link from 'next/link';
-import React, { useState } from 'react';
-import LanguageSwitch from './LanguageSwitch';
+import Link from "next/link";
+import React, { useState } from "react";
+import LanguageSwitch from "./LanguageSwitch";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,10 +11,10 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { id: 'home', href: '/', label: 'Home' },
-    { id: 'our-values', href: '/our-values', label: 'Our Values' },
-    { id: 'our-team', href: '/our-team', label: 'Our Team' },
-    { id: 'contact', href: '/contact', label: 'Contact' },
+    { id: "home", href: "/", label: "Home" },
+    { id: "our-values", href: "/our-values", label: "Our Values" },
+    { id: "our-team", href: "/our-team", label: "Our Team" },
+    { id: "contact", href: "/contact", label: "Contact" }
   ];
 
   return (
@@ -34,11 +34,11 @@ const Navbar = () => {
         </div>
         <div
           className={`md:flex md:items-center md:space-x-4 ${
-            isMenuOpen ? 'block' : 'hidden'
+            isMenuOpen ? "block" : "hidden"
           }`}
         >
           {navLinks.map((link) => (
-            <Link 
+            <Link
               data-testid={link.id}
               key={link.label}
               href={link.href}
@@ -56,12 +56,12 @@ const Navbar = () => {
 
       <div
         className={`fixed right-0 top-0 w-full h-full md:hidden z-40 ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex-col h-full pt-6 px-6 bg-white">
           <div className="flex justify-between pb-6">
-          <div className="flex items-center">
+            <div className="flex items-center">
               <img
                 src="/images/donna-vino-logo-transparent.png"
                 alt=""
@@ -88,27 +88,27 @@ const Navbar = () => {
             ))}
             <hr className="my-2 border-t-slate-300" />
             <div className="pt-12">
-            <h4 className="pb-3 font-semibold footerHeading">Follow Us On</h4>
-            <div className="flex gap-4 m-1 relative right-1">
-              <a href="#" className="text-black">
-                <img
-                  src="/icons/instagram-original.svg"
-                  className="h-4 filter brightness-0"
-                />
-              </a>
-              <a href="#" className="text-black">
-                <img
-                  src="/icons/linkedin-alt.svg"
-                  className="h-4 filter brightness-0"
-                />
-              </a>
-              <a href="#" className="text-black">
-                <img
-                  src="/icons/facebook-line.svg"
-                  className="h-4 filter brightness-0"
-                />
-              </a>
-            </div>
+              <h4 className="pb-3 font-semibold footerHeading">Follow Us On</h4>
+              <div className="flex gap-4 m-1 relative right-1">
+                <a href="#" className="text-black">
+                  <img
+                    src="/icons/instagram-original.svg"
+                    className="h-4 filter brightness-0"
+                  />
+                </a>
+                <a href="#" className="text-black">
+                  <img
+                    src="/icons/linkedin-alt.svg"
+                    className="h-4 filter brightness-0"
+                  />
+                </a>
+                <a href="#" className="text-black">
+                  <img
+                    src="/icons/facebook-line.svg"
+                    className="h-4 filter brightness-0"
+                  />
+                </a>
+              </div>
             </div>
           </ul>
         </div>
