@@ -27,7 +27,7 @@ const Navbar = () => {
             className="h-16 rounded logo"
           />
         </Link>
-        <div className="md:hidden">
+        <div className="md:hidden mx-4">
           <button className="block" onClick={toggleMenu}>
             <img src="/icons/menu.svg" alt="" className="mr-2" />
           </button>
@@ -68,7 +68,7 @@ const Navbar = () => {
                 className="h-16 rounded logo"
               />
             </div>
-            <button className="self-end mb-6" onClick={toggleMenu}>
+            <button className="self-end mb-6 mx-4" onClick={toggleMenu}>
               <div>
                 <img src="/icons/close.svg" alt="close" className="mr-2 w-5" />
               </div>
@@ -87,6 +87,9 @@ const Navbar = () => {
               </li>
             ))}
             <hr className="my-2 border-t-slate-300" />
+            <div className="mt-12 flex col-6">
+              <LanguageSwitch />
+            </div>
             <div className="pt-12">
               <h4 className="pb-3 font-semibold footerHeading">Follow Us On</h4>
               <div className="flex gap-4 m-1 relative right-1">
