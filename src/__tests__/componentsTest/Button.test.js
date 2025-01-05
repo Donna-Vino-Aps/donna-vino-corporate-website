@@ -29,6 +29,8 @@ describe("Button Component", () => {
     );
     const button = container.querySelector("button");
     expect(button).toHaveClass("bg-primary-normal");
+    expect(button).toHaveClass("text-primary-light");
+    expect(button).toHaveClass("bodyLarge");
   });
 
   it("should disable the button when disabled is true", () => {
@@ -47,5 +49,46 @@ describe("Button Component", () => {
     const { container } = render(<Button text="Submit" variant="submit" />);
     const button = container.querySelector("button");
     expect(button.type).toBe("submit");
+  });
+
+  it("should apply the correct class for secondary variant", () => {
+    const { container } = render(
+      <Button text="Visit our shop" variant="secondary" />,
+    );
+    const button = container.querySelector("button");
+    expect(button).toHaveClass("bg-transparent");
+    expect(button).toHaveClass("border-2");
+    expect(button).toHaveClass("text-primary-active_normal");
+    expect(button).toHaveClass("bodyLarge");
+  });
+
+  it("should apply the correct class for secondary-darker variant", () => {
+    const { container } = render(
+      <Button text="Visit our shop" variant="secondary-darker" />,
+    );
+    const button = container.querySelector("button");
+    expect(button).toHaveClass("bg-secondary-darker");
+    expect(button).toHaveClass("text-white");
+    expect(button).toHaveClass("bodyLarge");
+  });
+
+  it("should apply the correct class for secondary-light variant", () => {
+    const { container } = render(
+      <Button text="Visit our shop" variant="secondary-light" />,
+    );
+    const button = container.querySelector("button");
+    expect(button).toHaveClass("bg-secondary-light");
+    expect(button).toHaveClass("text-secondary-darker");
+    expect(button).toHaveClass("bodyLarge");
+  });
+
+  it("should apply the correct class for primary-submit variant", () => {
+    const { container } = render(
+      <Button text="Visit our shop" variant="primary-submit" />,
+    );
+    const button = container.querySelector("button");
+    expect(button).toHaveClass("bg-primary-normal");
+    expect(button).toHaveClass("text-white");
+    expect(button).toHaveClass("bodyLarge");
   });
 });
