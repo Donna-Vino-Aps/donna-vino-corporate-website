@@ -7,7 +7,6 @@ const Button = ({
   text,
   icon,
   variant = "primary",
-  size = "medium",
   onClick,
   disabled = false,
   ariaLabel,
@@ -15,22 +14,16 @@ const Button = ({
   isLoading = false,
 }) => {
   const buttonClass = `flex justify-center items-center h-[3rem] rounded-[0.3rem] ${
-    size === "large"
-      ? "sm:w-[10.8rem]"
-      : size === "small"
-        ? "sm:w-[8rem]"
-        : "sm:w-[10rem]"
-  } ${
     variant === "primary"
-      ? "bg-primary-normal hover:bg-primary-hover_normal text-primary-light bodyLarge"
+      ? "bg-primary-normal hover:bg-primary-hover_normal text-primary-light bodyLarge sm:w-[10.8rem] h-[3rem]"
       : variant === "secondary"
-        ? "bg-transparent border-2 hover:bg-primary-hover border-primary-active_normal text-primary-active_normal bodyLarge"
+        ? "bg-transparent border-2 hover:bg-primary-hover border-primary-active_normal text-primary-active_normal bodyLarge sm:w-[10.8rem] h-[3rem]"
         : variant === "secondary-darker"
-          ? "bg-secondary-darker hover:bg-secondary-hover_dark text-white bodyLarge"
+          ? "bg-secondary-darker hover:bg-secondary-hover_dark text-white bodyLarge sm:w-[10.8rem] h-[3rem]"
           : variant === "secondary-light"
-            ? "bg-secondary-light hover:bg-secondary-hover text-secondary-darker bodyLarge"
+            ? "bg-secondary-light hover:bg-secondary-hover text-secondary-darker bodyLarge sm:w-[10.8rem] h-[3rem]"
             : variant === "primary-submit"
-              ? "bg-primary-normal hover:bg-primary-hover_normal text-white rounded-lg bodyLarge"
+              ? "bg-primary-normal hover:bg-primary-hover_normal text-white rounded-lg bodyLarge sm:w-[10.8rem] h-[3rem]"
               : ""
   } ${disabled || isLoading ? "opacity-50 cursor-not-allowed" : ""}`;
 
@@ -65,10 +58,7 @@ Button.propTypes = {
     "secondary-darker",
     "secondary-light",
     "primary-submit",
-    "transparentRed",
-    "submit",
   ]),
-  size: PropTypes.oneOf(["small", "medium", "large"]),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   ariaLabel: PropTypes.string,

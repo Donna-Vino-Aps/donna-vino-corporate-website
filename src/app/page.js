@@ -12,7 +12,7 @@ export default function Home() {
         <HeroSection />
         <Subscribe />
         {/* Rendering the 8 buttons */}
-        <div className="mt-12 flex flex-wrap justify-center gap-8 bg-primary-light">
+        <div className="mt-12 flex flex-wrap justify-center gap-8 bg-primary-light p-8">
           <Button
             text="Visit Our Shop"
             icon="/icons/cart.svg"
@@ -50,7 +50,7 @@ export default function Home() {
             data-testid="submit-button"
           />
         </div>
-        <div className="mt-12 flex flex-wrap justify-center gap-8 ">
+        <div className="mt-12 flex flex-wrap justify-center gap-8 p-8">
           <Button
             text="Read More"
             variant="secondary-light"
