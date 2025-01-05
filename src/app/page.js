@@ -22,12 +22,14 @@ export default function Home() {
           />
           <Button
             text="Contact Us"
+            icon="/icons/speech-bubble-19.svg"
             variant="secondary"
             ariaLabel="Contact us"
             data-testid="secondary-button"
           />
           <Button
             text="Book in the Shop"
+            icon="/icons/calender-alt-1.svg"
             variant="black"
             ariaLabel="Book in the shop"
             data-testid="book-in-shop-button"
@@ -35,13 +37,14 @@ export default function Home() {
           <Button
             text="Book in the Shop"
             variant="gray"
+            icon="/icons/phone.svg"
             ariaLabel="Book in the shop"
             data-testid="book-in-shop-gray-button"
           />
           <Button
             text="Submit"
             variant="submit"
-            isLoading={false} // Cambia este valor a true para simular el estado de carga
+            isLoading={false}
             onClick={() => alert("Submitting...")}
             ariaLabel="Submit form"
             data-testid="submit-button"
@@ -49,17 +52,20 @@ export default function Home() {
           <Button
             text="Read More"
             variant="gray"
+            icon="/icons/team.svg"
             ariaLabel="Read more"
             data-testid="read-more-gray-button"
           />
           <Button
             text="Read More"
             variant="black"
+            icon="/icons/diamond-alt.svg"
             ariaLabel="Read more"
             data-testid="read-more-black-button"
           />
           <Button
             text="Go Back"
+            icon="/icons/back-arrow.svg"
             variant="transparentRed"
             ariaLabel="Go back"
             data-testid="go-back-button"
