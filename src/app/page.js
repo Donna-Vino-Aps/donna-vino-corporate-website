@@ -12,7 +12,7 @@ export default function Home() {
         <HeroSection />
         <Subscribe />
         {/* Rendering the 8 buttons */}
-        <div className="mt-12 flex flex-wrap justify-center gap-8">
+        <div className="mt-12 flex flex-wrap justify-center gap-8 bg-primary-light">
           <Button
             text="Visit Our Shop"
             icon="/icons/cart.svg"
@@ -30,35 +30,37 @@ export default function Home() {
           <Button
             text="Book in the Shop"
             icon="/icons/calender-alt-1.svg"
-            variant="black"
+            variant="secondary-darker"
             ariaLabel="Book in the shop"
             data-testid="book-in-shop-button"
           />
           <Button
-            text="Book in the Shop"
-            variant="gray"
+            text="Contact Us"
+            variant="secondary-light"
             icon="/icons/phone.svg"
             ariaLabel="Book in the shop"
             data-testid="book-in-shop-gray-button"
           />
           <Button
             text="Submit"
-            variant="submit"
+            variant="primary-submit"
             isLoading={false}
             onClick={() => alert("Submitting...")}
             ariaLabel="Submit form"
             data-testid="submit-button"
           />
+        </div>
+        <div className="mt-12 flex flex-wrap justify-center gap-8 ">
           <Button
             text="Read More"
-            variant="gray"
+            variant="secondary-light"
             icon="/icons/team.svg"
             ariaLabel="Read more"
             data-testid="read-more-gray-button"
           />
           <Button
             text="Read More"
-            variant="black"
+            variant="secondary-darker"
             icon="/icons/diamond-alt.svg"
             ariaLabel="Read more"
             data-testid="read-more-black-button"
@@ -66,7 +68,7 @@ export default function Home() {
           <Button
             text="Go Back"
             icon="/icons/back-arrow.svg"
-            variant="transparentRed"
+            variant="secondary"
             ariaLabel="Go back"
             data-testid="go-back-button"
           />

@@ -22,20 +22,16 @@ const Button = ({
         : "sm:w-[10rem]"
   } ${
     variant === "primary"
-      ? "bg-primary-normal hover:bg-primary-hover_normal text-white"
+      ? "bg-primary-normal hover:bg-primary-hover_normal text-primary-light bodyLarge"
       : variant === "secondary"
-        ? "bg-primary-light border-2 border-primary-normal text-primary-normal"
-        : variant === "black"
-          ? "bg-black text-white"
-          : variant === "gray"
-            ? "bg-gray-500 text-black"
-            : variant === "darkRed"
-              ? "bg-dark-red text-white"
-              : variant === "transparentRed"
-                ? "bg-transparent border-2 border-red-500 text-red-500"
-                : variant === "submit"
-                  ? "bg-primary-normal hover:bg-primary-hover_normal text-white rounded-lg"
-                  : "bg-transparent border-2 border-primary-normal text-primary-normal"
+        ? "bg-transparent border-2 hover:bg-primary-hover border-primary-active_normal text-primary-active_normal bodyLarge"
+        : variant === "secondary-darker"
+          ? "bg-secondary-darker hover:bg-secondary-hover_dark text-white bodyLarge"
+          : variant === "secondary-light"
+            ? "bg-secondary-light hover:bg-secondary-hover text-secondary-darker bodyLarge"
+            : variant === "primary-submit"
+              ? "bg-primary-normal hover:bg-primary-hover_normal text-white rounded-lg bodyLarge"
+              : ""
   } ${disabled || isLoading ? "opacity-50 cursor-not-allowed" : ""}`;
 
   return (
@@ -66,10 +62,9 @@ Button.propTypes = {
   variant: PropTypes.oneOf([
     "primary",
     "secondary",
-    "tertiary",
-    "black",
-    "gray",
-    "darkRed",
+    "secondary-darker",
+    "secondary-light",
+    "primary-submit",
     "transparentRed",
     "submit",
   ]),
