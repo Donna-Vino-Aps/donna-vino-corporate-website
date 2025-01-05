@@ -36,4 +36,16 @@ describe("Button Component", () => {
     const button = screen.getByText(/Visit our shop/i);
     expect(button).toBeDisabled();
   });
+
+  it("should show loading text when isLoading is true", () => {
+    render(<Button text="Submit" isLoading={true} />);
+    const button = screen.getByText(/Submitting.../i);
+    expect(button).toBeInTheDocument();
+  });
+
+  it("should render a button with 'submit' type when variant is 'submit'", () => {
+    const { container } = render(<Button text="Submit" variant="submit" />);
+    const button = container.querySelector("button");
+    expect(button.type).toBe("submit");
+  });
 });
