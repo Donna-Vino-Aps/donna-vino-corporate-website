@@ -14,7 +14,7 @@ const Button = ({
   testId,
   isLoading = false,
 }) => {
-  const buttonClass = `flex justify-center items-center text-white h-[3rem] rounded-[0.3rem] ${
+  const buttonClass = `flex justify-center items-center h-[3rem] rounded-[0.3rem] ${
     size === "large"
       ? "sm:w-[10.8rem]"
       : size === "small"
@@ -33,7 +33,9 @@ const Button = ({
               ? "bg-dark-red text-white"
               : variant === "transparentRed"
                 ? "bg-transparent border-2 border-red-500 text-red-500"
-                : "bg-transparent border-2 border-primary-normal text-primary-normal"
+                : variant === "submit"
+                  ? "bg-primary-normal hover:bg-primary-hover_normal text-white rounded-lg"
+                  : "bg-transparent border-2 border-primary-normal text-primary-normal"
   } ${disabled || isLoading ? "opacity-50 cursor-not-allowed" : ""}`;
 
   return (
