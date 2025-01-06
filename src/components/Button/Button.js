@@ -15,7 +15,7 @@ const Button = ({
 }) => {
   const buttonClass = `flex justify-center items-center h-[3rem] rounded-[0.3rem] ${
     variant === "primary"
-      ? "bg-primary-normal hover:bg-primary-hover_normal text-primary-light bodyLarge sm:w-[10.8rem] h-[3rem]"
+      ? "bg-primary-normal hover:bg-primary-hover_normal text-primary-light  bodyLarge sm:w-[10.8rem] h-[3rem]"
       : variant === "secondary"
         ? "bg-transparent border-2 hover:bg-primary-hover border-primary-active_normal text-primary-active_normal bodyLarge sm:w-[10.8rem] h-[3rem]"
         : variant === "secondary-darker"

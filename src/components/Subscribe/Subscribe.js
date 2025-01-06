@@ -1,6 +1,7 @@
 "use client";
 import useFetch from "@/hooks/api/useFetch";
 import React, { useState } from "react";
+import Button from "../Button/Button";
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ const Subscribe = () => {
   };
   return (
     <div
-      className="my-6 flex flex-col justify-center items-center font-barlow text-displayLarge bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
+      className="my-6 flex flex-col justify-center items-center font-barlow bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
       aria-labelledby="newsletter-title"
       aria-describedby="newsletter-description"
     >
@@ -52,14 +53,16 @@ const Subscribe = () => {
                 required
                 aria-required="true"
               />
-              <button
-                type="submit"
-                className="text-titleMedium flex-shrink-0 h-[50px] md:w-[107px] w-full bg-primary-normal hover:bg-primary-hover_normal text-white rounded-lg"
-                disabled={isLoading}
-                aria-disabled={isLoading}
-              >
-                {isLoading ? "Submitting..." : "Submit"}
-              </button>
+
+              <Button
+                text={isLoading ? "Submitting..." : "Submit"}
+                variant="primary-submit"
+                isLoading={isLoading}
+                onClick={handleSubmit}
+                disabled={isLoading || !agreed}
+                ariaLabel="Submit form"
+                data-testid="submit-button"
+              />
             </div>
           </form>
           {/* temporary display error message here as plain text */}
