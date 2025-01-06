@@ -1,27 +1,27 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ContentGridPhotoCards from "@/components/ContentGrid/PhotoCardsWineTasting";
+import PhotoCardsWineTasting from "@/components/ContentGrid/PhotoCardsWineTasting";
 
-describe("ContentGridPhotoCards Component", () => {
-  it("should render the ContentGridPhotoCards content", () => {
-    render(<ContentGridPhotoCards />);
+describe("PhotoCardsWineTasting Component", () => {
+  it("renders without crashing", () => {
+    render(<PhotoCardsWineTasting />);
+  });
 
-    // Check the heading text
-    const heading = screen.getByText(
-      /Welcome to Donna Vino, your unique wine experience\./i,
-    );
-    expect(heading).toBeInTheDocument();
+  it("renders the correct number of PhotoCard components", () => {
+    render(<PhotoCardsWineTasting />);
+    const photoCards = screen.getAllByTestId("photoDiv");
+    expect(photoCards).toHaveLength(2);
+  });
 
-    // Check the description text
-    const description = screen.getByTestId("description");
-    expect(description).toBeInTheDocument();
-    expect(description).toHaveTextContent(
-      "Discover unique wine stories told by your sommelier while your private chef customizes the menu.",
-    );
-
-    // Check that the video is present
-    const video = screen.getByTestId("hero-video");
-    expect(video).toBeInTheDocument();
+  it("renders the grid layout correctly for screen-sizes BELOW md", async () => {
+    Object.defineProperty(window, "innerWidth", { value: 600 });
+    global.dispatchEvent(new Event("resize"));
+    render(<PhotoCardsWineTasting />);
+    const grid = await screen.getByTestId("testGrid");
+    await waitFor(() => {
+      expect(grid).toBeInTheDocument();
+      expect(grid).toHaveClass("grid-cols-1");
+    });
   });
 });

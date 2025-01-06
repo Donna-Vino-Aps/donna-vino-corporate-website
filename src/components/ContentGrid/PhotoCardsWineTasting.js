@@ -6,7 +6,10 @@ import PhotoCard from "../Card/PhotoCard";
 const ContentGridPhotoCards = () => {
   return (
     <div className="flex justify-center items-center">
-      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 mt-4">
+      <div
+        data-testid="testGrid"
+        className="grid-cols-1 grid gap-4 p-4 md:grid-cols-2 mt-4"
+      >
         <PhotoCard
           imageUrl="/images/card-unsplash-wine-tasting.jpg"
           title={

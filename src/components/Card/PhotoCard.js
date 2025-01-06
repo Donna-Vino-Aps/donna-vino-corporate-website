@@ -30,6 +30,7 @@ const PhotoCard = ({
   return (
     <div
       className="photoDiv relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[37.5rem] xl:flex-row xl:flex-row xl:w-[35.2rem] xl:h-[26.8rem] 2xl:w-[39.6rem] 2xl:h-[30.15rem] 3xl:w-[44rem] 3xl:h-[33.5rem]"
+      data-testid="photoDiv"
       style={{
         backgroundColor: backgroundColor,
       }}
@@ -41,7 +42,7 @@ const PhotoCard = ({
       ></img>
       <div className="flex flex-col justify-center p-6">
         <h3
-          className="relative text-headlineLarge xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 mt-1 xl:mb-3 xl:mt-1 xl:mb-5 2xl:mb-6 xl:bottom-2 2xl:bottom-1 3xl:mb-7"
+          className="cardHeading relative text-headlineLarge xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 mt-1 xl:mb-3 xl:mt-1 xl:mb-5 2xl:mb-6 xl:bottom-2 2xl:bottom-1 3xl:mb-7"
           style={{ color: fontColor }}
         >
           {isSmallScreen ? smallScreenTitle : title}
