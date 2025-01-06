@@ -51,14 +51,15 @@ const HeroSection = () => {
               icon="/icons/cart.svg"
               variant="primary"
               ariaLabel="Visit our shop"
-              data-testid="get-started-button"
+              testId="get-started-button"
             />
+
             <Button
               text="Contact Us"
               icon="/icons/speech-bubble-19.svg"
               variant="secondary"
               ariaLabel="Contact us"
-              data-testid="secondary-button"
+              testId="secondary-button"
             />
           </div>
           <div className="absolute top-[15.8rem] right-[0.5rem] sm:top-auto sm:right-auto sm:relative flex justify-end overflow-hidden">
