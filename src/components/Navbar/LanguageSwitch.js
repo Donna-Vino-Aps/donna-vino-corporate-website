@@ -1,8 +1,7 @@
-import React from "react";
-import useStickyState from "@/hooks/helpers/useStickyState";
+import React, { useState } from "react";
 
 function LanguageSwitch() {
-  const [selectedLanguage, setLanguage] = useStickyState("en", "pageLanguage");
+  const [selectedLanguage, setLanguage] = useState("en", "pageLanguage");
 
   return (
     <div className="flag-switch flex">
