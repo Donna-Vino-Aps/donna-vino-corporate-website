@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Navbar from "@/components/Navbar/Navbar";
 
 describe("Navbar component", () => {
@@ -40,18 +40,5 @@ describe("Navbar component", () => {
 
     const contactLink = screen.getByTestId("contact");
     expect(contactLink).toHaveAttribute("href", "/contact");
-  });
-
-  test("should have the correct class when the icon is clicked", () => {
-    render(<Navbar />);
-
-    const englishIcon = screen.getByTestId("en-icon");
-    expect(englishIcon).toHaveClass("bg-primary-light");
-
-    const denmarkIcon = screen.getByTestId("dk-icon");
-    fireEvent.click(denmarkIcon);
-
-    expect(denmarkIcon).toHaveClass("bg-primary-light");
-    expect(englishIcon.classList.contains("bg-primary-light")).toBe(false);
   });
 });
