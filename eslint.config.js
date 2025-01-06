@@ -6,7 +6,7 @@ const eslintPluginCypress = require("eslint-plugin-cypress");
 
 module.exports = defineConfig([
   {
-    ignores: ["/.next/"],
+    ignores: ["**/.next/**"],
     languageOptions: {
       globals: {
         "cypress/globals": true,
@@ -43,7 +43,7 @@ module.exports = defineConfig([
   },
   {
     // Specific configuration for .cy.js files
-    files: ["/.cy.js", "cypress.config.js"],
+    files: ["**/*.cy.js", "cypress.config.js"],
     languageOptions: {
       globals: {
         "cypress/globals": true,
