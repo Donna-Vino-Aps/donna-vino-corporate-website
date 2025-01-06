@@ -61,7 +61,7 @@ const Subscribe = () => {
                 onClick={handleSubmit}
                 disabled={isLoading}
                 ariaLabel="Submit form"
-                data-testid="submit-button"
+                testId="submit-button"
               />
             </div>
           </form>
