@@ -20,15 +20,20 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="container py-6 px-6 flex justify-between items-center">
-        <Link href="/" className="navbar-brand">
+        <Link href="/" className="navbar-brand" aria-label="logo">
           <img
             src="/images/donna-vino-logo-transparent.png"
-            alt="logo"
+            alt="Donna Vino's logo"
             className="h-16 rounded logo"
           />
         </Link>
         <div className="md:hidden mx-4">
-          <button className="block" onClick={toggleMenu}>
+          <button
+            className="block"
+            onClick={toggleMenu}
+            role="button"
+            aria-label="menu"
+          >
             <img src="/icons/menu.svg" alt="" className="mr-2" />
           </button>
         </div>
@@ -43,7 +48,7 @@ const Navbar = () => {
               key={link.label}
               href={link.href}
               className="rounded-md px-3 py-2 text-titleMedium text-tertiary1"
-              aria-current="page"
+              role="navigation"
             >
               {link.label}
             </Link>
@@ -64,13 +69,18 @@ const Navbar = () => {
             <div className="flex items-center">
               <img
                 src="/images/donna-vino-logo-transparent.png"
-                alt=""
+                alt="Donna Vino's logo"
                 className="h-16 rounded logo"
               />
             </div>
-            <button className="self-end mb-6 mx-4" onClick={toggleMenu}>
+            <button
+              className="self-end mb-6 mx-4"
+              onClick={toggleMenu}
+              role="button"
+              aria-label="close"
+            >
               <div>
-                <img src="/icons/close.svg" alt="close" className="mr-2 w-5" />
+                <img src="/icons/close.svg" alt="" className="mr-2 w-5" />
               </div>
             </button>
           </div>
@@ -81,6 +91,7 @@ const Navbar = () => {
                   href={link.href}
                   onClick={toggleMenu}
                   className="block py-2 text-bodyLarge text-tertiary1"
+                  role="navigation"
                 >
                   {link.label}
                 </Link>
@@ -92,23 +103,29 @@ const Navbar = () => {
             </div>
             <div className="pt-12">
               <h4 className="pb-3 font-semibold footerHeading">Follow Us On</h4>
-              <div className="flex gap-4 m-1 relative right-1">
+              <div
+                className="flex gap-4 m-1 relative right-1"
+                aria-label="Social media icons"
+              >
                 <a href="#" className="text-black">
                   <img
                     src="/icons/instagram-original.svg"
                     className="h-4 filter brightness-0"
+                    alt="Instagram"
                   />
                 </a>
                 <a href="#" className="text-black">
                   <img
                     src="/icons/linkedin-alt.svg"
                     className="h-4 filter brightness-0"
+                    alt="LinkedIn"
                   />
                 </a>
                 <a href="#" className="text-black">
                   <img
                     src="/icons/facebook-line.svg"
                     className="h-4 filter brightness-0"
+                    alt="Facebook"
                   />
                 </a>
               </div>
