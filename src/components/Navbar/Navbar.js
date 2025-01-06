@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
             src="/images/donna-vino-logo-transparent.png"
-            alt="Donna Vino's logo"
+            alt="logo"
             className="h-16 rounded logo"
           />
         </Link>
