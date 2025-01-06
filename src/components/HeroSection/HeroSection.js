@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button/Button";
 
 const HeroSection = () => {
   return (
@@ -45,26 +46,20 @@ const HeroSection = () => {
         </p>
         <div className="flex flex-col w-full">
           <div className="flex flex-col w-full gap-4 sm:flex-row z-10">
-            <button
-              className="bg-primary-normal flex justify-center items-center text-white h-[3rem] sm:w-[10.8rem] rounded-[0.3rem]"
-              aria-label="Visit our shop"
+            <Button
+              text="Visit Our Shop"
+              icon="/icons/cart.svg"
+              variant="primary"
+              ariaLabel="Visit our shop"
               data-testid="get-started-button"
-            >
-              <img src="/icons/cart.svg" alt="Cart" className="mr-2" />
-              Visit our shop
-            </button>
-            <button
-              className="bg-primary-light border-2 border-primary-normal text-primary-normal h-[3rem] sm:w-[10.8rem] rounded-[0.3rem] flex justify-center items-center"
-              aria-label="Contact us"
+            />
+            <Button
+              text="Contact Us"
+              icon="/icons/speech-bubble-19.svg"
+              variant="secondary"
+              ariaLabel="Contact us"
               data-testid="secondary-button"
-            >
-              <img
-                src="/icons/speech-bubble-19.svg"
-                alt="Cart"
-                className="mr-2"
-              />
-              Contact us
-            </button>
+            />
           </div>
           <div className="absolute top-[15.8rem] right-[0.5rem] sm:top-auto sm:right-auto sm:relative flex justify-end overflow-hidden">
             <div className="relative w-[7.5rem] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem] mb-[1rem] sm:mb-[0rem] z-0">

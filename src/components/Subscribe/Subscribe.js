@@ -59,7 +59,7 @@ const Subscribe = () => {
                 variant="primary-submit"
                 isLoading={isLoading}
                 onClick={handleSubmit}
-                disabled={isLoading || !agreed}
+                disabled={isLoading}
                 ariaLabel="Submit form"
                 data-testid="submit-button"
               />
