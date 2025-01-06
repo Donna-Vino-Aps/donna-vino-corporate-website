@@ -3,6 +3,19 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import LanguageSwitch from "@/components/Navbar/LanguageSwitch";
 
 describe("LanguageSwitch component", () => {
+  test("should render the LanguageSwitch component correctly", () => {
+    render(<LanguageSwitch />);
+
+    const languageSwitch = screen.getByTestId("language-switch");
+    expect(languageSwitch).toBeInTheDocument();
+
+    const englishIcon = screen.getByTestId("en-icon");
+    expect(englishIcon).toBeInTheDocument();
+
+    const denmarkIcon = screen.getByTestId("dk-icon");
+    expect(denmarkIcon).toBeInTheDocument();
+  });
+
   test("should have the correct class when the icon is clicked", () => {
     render(<LanguageSwitch />);
 
