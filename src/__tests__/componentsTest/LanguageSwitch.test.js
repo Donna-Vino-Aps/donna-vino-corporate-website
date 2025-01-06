@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import LanguageSwitch from "@/components/Navbar/LanguageSwitch";
 
 describe("LanguageSwitch component", () => {
-  test("should render the LanguageSwitch component correctly", () => {
+  test("should render LanguageSwitch component correctly", () => {
     render(<LanguageSwitch />);
 
     const languageSwitch = screen.getByTestId("language-switch");

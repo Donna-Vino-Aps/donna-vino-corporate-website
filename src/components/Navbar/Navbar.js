@@ -19,12 +19,12 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      <div className="container py-6 px-6 flex justify-between items-center">
+      <div className="container py-8 px-6 flex justify-between items-center">
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
             src="/images/donna-vino-logo-transparent.png"
             alt="logo"
-            className="h-16 rounded logo"
+            className="w-[86px] rounded logo"
           />
         </Link>
         <div className="md:hidden mx-4">

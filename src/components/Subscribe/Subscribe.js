@@ -23,7 +23,11 @@ const Subscribe = () => {
     }
   };
   return (
-    <div className="my-6 flex flex-col justify-center items-center font-barlow text-displayLarge bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm">
+    <div
+      className="my-6 flex flex-col justify-center items-center font-barlow text-displayLarge bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
+      aria-labelledby="newsletter-title"
+      aria-describedby="newsletter-description"
+    >
       <div className="flex flex-col justify-center items-center md:py-24 py-4 mx-2">
         <h2 className="text-displayMedium md:text-displayLarge text-center">
           Subscribe to our newsletter
@@ -46,18 +50,24 @@ const Subscribe = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="text-titleMedium w-full mx-2 h-[50px] py-2 px-4 text-tertiary1-normal border border-tertiary2-hover_normal rounded-lg"
                 required
+                aria-required="true"
               />
               <button
                 type="submit"
                 className="text-titleMedium flex-shrink-0 h-[50px] md:w-[107px] w-full bg-primary-normal hover:bg-primary-hover_normal text-white rounded-lg"
                 disabled={isLoading}
+                aria-disabled={isLoading}
               >
                 {isLoading ? "Submitting..." : "Submit"}
               </button>
             </div>
           </form>
           {/* temporary display error message here as plain text */}
-          {error && <div className="text-lg text-red-500">{error.message}</div>}
+          {error && (
+            <div className="text-lg text-red-500" aria-live="assertive">
+              {error.message}
+            </div>
+          )}
 
           <div className="md:my-4 my-2 mb-4">
             <label className="flex items-center text-titleMedium">

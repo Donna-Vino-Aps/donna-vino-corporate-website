@@ -3,50 +3,91 @@ import React from "react";
 const HeroSection = () => {
   return (
     <section
-      className="relative flex flex-col w-full sm:flex-row h-auto bg-primary-light"
+      className="sm:mt-6 relative flex justify-between flex-col h-[53.2rem] w-screen sm:h-[44rem] sm:flex-row  bg-primary-light "
       role="banner"
       aria-label="Hero Section"
       aria-labelledby="title"
     >
       <div
-        className="relative flex flex-col gap-8 justify-center h-[60%] text-left p-4 pt-8"
+        className="relative flex flex-col p-4 pt-8 sm:pt-4 gap-8 h-[31.6rem] justify-center sm:w-[44rem] sm:h-[44rem] sm:justify-center text-left sm:gap-8 m-0"
         data-testid="hero-text-container"
       >
+        <div className="absolute top-[0.7rem] right-[0.5rem] sm:top-[0rem] sm:right-[0rem] sm:relative flex justify-end sm:justify-start z-0 overflow-hidden">
+          <div className="relative w-[4.5rem] h-[6.75rem] sm:w-[10.35rem] sm:h-[6.93rem]">
+            <img
+              src="/design-elements/Dotted Shape.svg"
+              alt=""
+              className="absolute top-0 left:0 sm:top-auto sm:top-0 sm:right-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
+              data-testid="dotted-shape-1"
+            />
+            <img
+              src="/design-elements/Dotted Shape.svg"
+              alt=""
+              className="absolute bottom-0 right-0 sm:bottom-0 sm:left-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
+              data-testid="dotted-shape-2"
+            />
+          </div>
+        </div>
+
         <h1
-          className="text-displayLarge text-tertiary1-normal font-light text-[45px] leading-[52px] tracking-[0] font-barlow pt-1"
+          className="text-displayMedium sm:text-displayLarge text-tertiary1-normal font-barlow z-10"
           id="title"
           data-testid="title"
         >
           Welcome to Donna Vino, your unique wine experience.
         </h1>
         <p
-          className="text-bodyLarge text-tertiary1-darker font-light"
+          className="text-bodyLarge text-tertiary1-darker z-10"
           data-testid="description"
         >
           Discover unique wine stories told by your sommelier while your private
           chef customizes the menu.
         </p>
-        <button
-          className="bg-primary-normal text-white w-[332px] h-[48px] rounded-[6px] px-[24px] py-[12px] flex justify-center items-center"
-          data-testid="get-started-button"
-        >
-          <img src="/icons/cart.svg" alt="Cart" className="mr-2" />
-          Visit our shop
-        </button>
-        <button
-          className="bg-primary-light border-2 border-primary-normal text-primary-normal w-[332px] h-[48px] rounded-[6px] px-[24px] py-[12px] flex justify-center items-center
-          hover:border-primary-normal-active hover:text-primary-normal-active 
-          active:border-primary-normal-active active:text-primary-normal-active"
-          data-testid="secondary-button"
-        >
-          <img src="/icons/speech-bubble-19.svg" alt="Cart" className="mr-2" />
-          Contact us
-        </button>
+        <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full gap-4 sm:flex-row z-10">
+            <button
+              className="bg-primary-normal flex justify-center items-center text-white h-[3rem] sm:w-[10.8rem] rounded-[0.3rem]"
+              aria-label="Visit our shop"
+              data-testid="get-started-button"
+            >
+              <img src="/icons/cart.svg" alt="Cart" className="mr-2" />
+              Visit our shop
+            </button>
+            <button
+              className="bg-primary-light border-2 border-primary-normal text-primary-normal h-[3rem] sm:w-[10.8rem] rounded-[0.3rem] flex justify-center items-center"
+              aria-label="Contact us"
+              data-testid="secondary-button"
+            >
+              <img
+                src="/icons/speech-bubble-19.svg"
+                alt="Cart"
+                className="mr-2"
+              />
+              Contact us
+            </button>
+          </div>
+          <div className="absolute top-[15.8rem] right-[0.5rem] sm:top-auto sm:right-auto sm:relative flex justify-end overflow-hidden">
+            <div className="relative w-[7.5rem] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem] mb-[1rem] sm:mb-[0rem] z-0">
+              <img
+                src="/design-elements/Dotted Shape.svg"
+                alt=""
+                className="absolute top-0 right-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
+                data-testid="dotted-shape-3"
+              />
+              <img
+                src="/design-elements/Dotted Shape.svg"
+                alt=""
+                className="absolute bottom-0 left-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
+                data-testid="dotted-shape-4"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="relative justify-center w-full h-auto sm:w-40% sm:h-auto">
+      <div className="relative justify-center h-[22rem] sm:w-[45rem] sm:h-[44rem]">
         <video
-          className="inset-0 w-full sm:h-full object-cover"
+          className="inset-0 h-[22rem] rounded-t-[6.8rem] sm:w-[45rem] sm:h-[44rem] sm:rounded-tl-[6.8rem] sm:rounded-tr-none object-cover"
           autoPlay
           loop
           muted
@@ -56,7 +97,7 @@ const HeroSection = () => {
           data-testid="hero-video"
         >
           <source
-            src="https://res.cloudinary.com/dxnptdhrp/video/upload/v1735508300/sgx733bdfjq7rvcv9x7p.mp4"
+            src="https://res.cloudinary.com/dmjo57kua/video/upload/v1735578255/Sequence_01_dnkdcc.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
