@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import Subscribe from "@/components/Subscribe/Subscribe";
-import ContentGridPhotoCards from "@/components/ContentGrid/ContentGridPhotoCards";
+import PhotoCardsWineTasting from "@/components/ContentGrid/PhotoCardsWineTasting";
 // import { logInfo } from "@/utils/logging";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex min-h-[80vh] justify-center gap-16 bg-white">
       <main data-testid="main-heading">
         <HeroSection />
-        <ContentGridPhotoCards />
+        <PhotoCardsWineTasting />
         <Subscribe />
       </main>
     </div>

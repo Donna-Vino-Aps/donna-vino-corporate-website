@@ -41,18 +41,18 @@ const PhotoCard = ({
       ></img>
       <div className="flex flex-col justify-center p-6">
         <h3
-          className="cardTitle relative top-2 xl:top-0 text-headlineLarge xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 mt-1 lg:mb-7 xl:mt-1 xl:mb-5 2xl:mb-6 xl:bottom-2 2xl:bottom-1 3xl:bottom-2"
+          className="relative text-headlineLarge xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 mt-1 xl:mb-3 xl:mt-1 xl:mb-5 2xl:mb-6 xl:bottom-2 2xl:bottom-1 3xl:mb-7"
           style={{ color: fontColor }}
         >
           {isSmallScreen ? smallScreenTitle : title}
         </h3>
         <p
-          className="cardDescription relative font-barlow text-bodyLarge top-1xl:bottom-2 xl:text-bodyMedium 2xl:text-bodyLarge font-regular mb-8 rounded xl:bottom-2 2xl:bottom-2 3xl:bottom-3"
+          className="cardDescription relative font-barlow text-bodyLarge  xl:text-bodyMedium 2xl:text-bodyLarge font-regular mb-8 rounded xl:bottom-2 2xl:bottom-2 3xl:bottom-3"
           style={{ color: fontColor }}
         >
           {description}
         </p>
-        <div className="absolute bottom-9 left-1/2 transform -translate-x-1/2 flex justify-center items-center mt-2 xl:mt-0 xl:bottom-7 xl:left-auto xl:translate-x-0 xl:justify-start xl:ml-1 2xl:bottom-8 3xl:bottom-8">
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex justify-center items-center mt-2 xl:mt-0 xl:bottom-7 xl:left-auto xl:translate-x-0 xl:justify-start xl:ml-1 2xl:bottom-8 3xl:bottom-8">
           <button
             className="flex items-center justify-center w-[12.125rem] h-[2.8rem] xl:w-[10.9125rem] xl:h-[2.5rem] 2xl:w-[10.9125rem] 2xl:h-[2.7rem] 3xl:w-[12.125rem] 3xl:h-[3rem] gap-2 px-4 py-2 rounded"
             style={{
