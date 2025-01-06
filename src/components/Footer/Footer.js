@@ -1,51 +1,62 @@
+"use client";
+
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
+  const navLinks = [
+    { id: "our-values", href: "/our-values", label: "Our Values" },
+    { id: "our-team", href: "/our-team", label: "Our Team" },
+    { id: "contact", href: "/contact", label: "Contact" },
+  ];
   return (
     <footer
-      className="flex text-white text-center py-4 mt-auto h-100 md:h-40 sm:h-auto items-center justify-center"
+      className="flex text-white text-center py-4 h-96 md:flex-row md:h-[26.625rem] items-center justify-center"
       data-testid="footer"
       style={{ backgroundColor: "#2F2E2E" }}
     >
-      <img
-        className="h-16 rounded"
-        src="/images/donna-vino-logo-transparent.png"
-        alt="Donna Vino Logo - Red background, white text saying Donna Vino"
-      ></img>
-      <div className="grid grid-cols-4 gap-4 ml-20 mr-20">
-        <div className="p-2 text-start">
-          <h4 className="pb-3 font-semibold footerHeading">Resources</h4>
-          <p className="text-sm text-zinc-600 pb-1">Our Products</p>
-          <p className="text-sm text-zinc-600 pb-1">Contact</p>
-        </div>
-        <div className="p-2 text-start">
-          <h4 className="pb-3 font-semibold footerHeading">Company</h4>
-          <a>
-            <p className="text-sm text-zinc-600 pb-1">About Donna Vino</p>
-          </a>
-          <p className="text-sm text-zinc-600 pb-1">Know Our Team</p>
-        </div>
-        <div className="p-2 text-start">
-          <h4 className="pb-3 font-semibold footerHeading">Quick Links</h4>
-          <p className="text-sm text-zinc-600 pb-1">Wine Tastings</p>
-          <p className="text-sm text-zinc-600 pb-1">To The Shop</p>
-        </div>
+      <div className="grid md:grid-cols-5 sm:grid-cols-1 gap-1 md:gap-5 lg:gap-7 xl:gap-9">
+        <img
+          className="h-16 rounded relative"
+          src="/images/donna-vino-logo-transparent.png"
+          alt="Donna Vino Logo - Red background, white text saying Donna Vino"
+        ></img>
+        {navLinks.map((link) => (
+          <Link
+            data-testid={link.id}
+            key={link.label}
+            href={link.href}
+            className="rounded-md px-3 py-2 text-bodyLarge text-semibold"
+            role="navigation"
+          >
+            {link.label}
+          </Link>
+        ))}
         <div className="p-2">
-          <h4 className="pb-3 font-semibold footerHeading">Follow Us On</h4>
-          <div className="flex gap-4 ml-3 relative right-1">
-            <a href="#" className="text-white">
+          <h4 className="pb-3 text-bodyLarge text-semibold">Follow Us On</h4>
+          <div className="flex gap-4 ml-3 mt-3 relative right-1">
+            <a
+              href="https://www.facebook.com/donnavino.dk/"
+              className="text-white"
+            >
               <img
                 src="https://www.svgrepo.com/show/341809/facebook-f.svg"
                 className="h-4 filter brightness-0 invert"
               ></img>
             </a>
-            <a href="#" className="text-white">
+            <a
+              href="https://www.instagram.com/donna_vino_winetastings/"
+              className="text-white"
+            >
               <img
                 src="https://www.svgrepo.com/show/378429/instagram-fill.svg"
                 className="h-4 filter brightness-0 invert"
               ></img>
             </a>
-            <a href="#" className="text-white">
+            <a
+              href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Aorganization%3A105748835&keywords=donna%20vino%20aps&origin=RICH_QUERY_SUGGESTION&position=1&searchId=00b4548c-20b3-4ff2-a651-e9e4156e57f2&sid=fqg&spellCorrectionEnabled=false"
+              className="text-white"
+            >
               <img
                 src="https://www.svgrepo.com/show/25824/linked-in-logo-of-two-letters.svg"
                 className="h-4 filter brightness-0 invert"
