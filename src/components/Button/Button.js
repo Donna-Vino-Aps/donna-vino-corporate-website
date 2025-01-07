@@ -48,7 +48,6 @@ const Button = ({
   );
 };
 
-// PropTypes validation
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   icon: PropTypes.string,
