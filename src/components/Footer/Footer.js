@@ -21,6 +21,7 @@ const Footer = () => {
             className="h-20 rounded relative mt-4 mb-4 md:mt-0 md:mb-0 md:right-4"
             src="/images/donna-vino-logo-transparent.png"
             alt="Donna Vino Logo - Red background, white text saying 'Donna Vino'"
+            data-testid="logo-footer"
           ></img>
         </Link>
         {navLinks.map((link) => (
@@ -61,13 +62,10 @@ const Footer = () => {
                 className="h-4 filter brightness-0 invert"
               ></img>
             </a>
-            <a
-              src="/icons/footer/linkedin-alt.svg"
-              alt="LinkedIn Logo"
-              className="text-white"
-            >
+            <a href="/icons/footer/linkedin-alt.svg" className="text-white">
               <img
-                src="https://www.svgrepo.com/show/25824/linked-in-logo-of-two-letters.svg"
+                src="/icons/footer/linkedin-alt.svg"
+                alt="LinkedIn Logo"
                 className="h-4 filter brightness-0 invert"
               ></img>
             </a>
