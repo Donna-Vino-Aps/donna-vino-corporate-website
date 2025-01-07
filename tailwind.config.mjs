@@ -28,21 +28,24 @@ export default {
         labelMedium: ["12px", { lineHeight: "16px", letterSpacing: "0.5px" }],
         labelSmall: ["11px", { lineHeight: "16px", letterSpacing: "0.5px" }],
         bodyLarge: ["16px", { lineHeight: "24px", letterSpacing: "0.5px" }],
-        bodyMediumLarge: [
-          "15px",
-          { lineHeight: "22px", letterSpacing: "0.375px" },
-        ],
         bodyMedium: ["14px", { lineHeight: "20px", letterSpacing: "0.25px" }],
-        bodySmallMedium: [
-          "13px",
-          { lineHeight: "18px", letterSpacing: "0.32px" },
-        ],
         bodySmall: ["12px", { lineHeight: "16px", letterSpacing: "0.4px" }],
       },
       fontWeight: {
         regular: "400",
         medium: "500",
         semibold: "600",
+      },
+      letterSpacing: {
+        tightest: "-.075em",
+        tighter: "-.05em",
+        tight: "-.025em",
+        normal: "0",
+        wide: ".025em",
+        wider: ".05em",
+        widest: ".1em",
+        custom1: "0.15em",
+        custom2: "0.1em",
       },
       colors: {
         primary: {

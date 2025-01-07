@@ -34,22 +34,26 @@ const PhotoCard = ({
       style={{
         backgroundColor: backgroundColor,
       }}
+      aria-label={`Photo card with title: ${title}`}
     >
       <img
         src={imageUrl}
         alt={title}
         className="cardImg object-cover h-[12.375rem] w-[21.5rem] xl:h-full xl:w-[20.6rem] 2xl:w-[23.175rem] 3xl:w-[25.75rem]"
+        aria-label={`Image representing ${title}`}
       ></img>
       <div className="flex flex-col justify-center p-6">
         <h3
           className="cardHeading relative text-headlineLarge xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 mt-1 xl:mb-3 xl:mt-1 xl:mb-5 2xl:mb-6 xl:bottom-2 2xl:bottom-1 3xl:mb-7"
           style={{ color: fontColor }}
+          aria-label={`Card title: ${isSmallScreen ? smallScreenTitle : title}`}
         >
           {isSmallScreen ? smallScreenTitle : title}
         </h3>
         <p
-          className="cardDescription relative font-barlow text-bodyLarge  xl:text-bodyMedium 2xl:text-bodyLarge font-regular mb-8 rounded xl:bottom-2 2xl:bottom-2 3xl:bottom-3"
+          className="cardDescription relative font-barlow text-bodyLarge xl:text-bodyMedium 2xl:text-bodyLarge font-regular mb-8 rounded xl:bottom-2 2xl:bottom-2 3xl:bottom-3"
           style={{ color: fontColor }}
+          aria-label={`Card description: ${description}`}
         >
           {description}
         </p>
@@ -59,6 +63,7 @@ const PhotoCard = ({
             style={{
               backgroundColor: buttonBgColor,
             }}
+            aria-label={`Click to ${buttonLabel}`}
           >
             <img src={buttonIcon} alt={`${buttonLabel} icon`}></img>
             <span
