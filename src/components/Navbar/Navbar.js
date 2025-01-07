@@ -5,7 +5,6 @@ import LanguageSwitch from "./LanguageSwitch";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const [activeLink, setActiveLink] = useState("/");
 
   const toggleMenu = () => {
@@ -50,8 +49,8 @@ const Navbar = () => {
               href={link.href}
               className={`rounded-md px-3 py-2 text-titleMedium ${
                 activeLink === link.href
-                  ? "text-tertiary1-darker"
-                  : "text-tertiary1-gray"
+                  ? "text-tertiary1-gray"
+                  : "text-tertiary2-active_dark"
               }`}
               onClick={() => handleClick(link.href)}
               role="navigation"

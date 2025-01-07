@@ -1,13 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const TeamCard = () => {
+const TeamCard = (props) => {
   return (
     <div
       className="relative rounded overflow-hidden shadow-lg m-2"
       aria-label="Team Card"
       data-testid="team-card"
     >
-      <img className="w-full" src="/images/foto-katrine.png" alt="" />
+      <img className="w-full" src={props.img} alt="img" />
       <button
         role="button"
         className="absolute bottom-0 left-0 right-0 mb-4 mx-4 bg-primary-normal text-white 
@@ -25,6 +26,10 @@ const TeamCard = () => {
       </button>
     </div>
   );
+};
+
+TeamCard.propTypes = {
+  img: PropTypes.string.isRequired,
 };
 
 export default TeamCard;
