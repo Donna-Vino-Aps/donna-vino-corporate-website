@@ -11,16 +11,18 @@ const Footer = () => {
   ];
   return (
     <footer
-      className="flex text-white text-center py-4 h-96 md:flex-row md:h-[26.625rem] items-center justify-center"
+      className="flex text-white text-center py-4 h-96 md:h-[26.625rem] items-start justify-center"
       data-testid="footer"
       style={{ backgroundColor: "#2F2E2E" }}
     >
-      <div className="grid md:grid-cols-5 sm:grid-cols-1 gap-1 md:gap-5 lg:gap-7 xl:gap-9">
-        <img
-          className="h-16 rounded relative"
-          src="/images/donna-vino-logo-transparent.png"
-          alt="Donna Vino Logo - Red background, white text saying Donna Vino"
-        ></img>
+      <div className="grid grid-cols-1 relative top-2 gap-1 md:top-0 md:grid-cols-5 md:mt-24 md:gap-5 lg:gap-8 xl:gap-11 ">
+        <Link href="/" className="navbar-brand" aria-label="logo">
+          <img
+            className="h-20 rounded relative mt-4 mb-4 md:mt-0 md:mb-0 md:right-4"
+            src="/images/donna-vino-logo-transparent.png"
+            alt="Donna Vino Logo - Red background, white text saying Donna Vino"
+          ></img>
+        </Link>
         {navLinks.map((link) => (
           <Link
             data-testid={link.id}
