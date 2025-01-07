@@ -12,7 +12,7 @@ const MapSection = () => {
       description: "Wildersgade 23, 1408 København K",
     },
     {
-      icon: "/icons/phone.svg",
+      icon: "/icons/phone-map.svg",
       title: "Phone Number",
       description: "+45 12 34 56 78",
     },

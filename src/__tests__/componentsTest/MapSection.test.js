@@ -37,7 +37,7 @@ describe("MapSection Component", () => {
     const emailIcon = screen.getByAltText("Email Address");
 
     expect(locationIcon).toHaveAttribute("src", "/icons/location.svg");
-    expect(phoneIcon).toHaveAttribute("src", "/icons/phone.svg");
+    expect(phoneIcon).toHaveAttribute("src", "/icons/phone-map.svg");
     expect(emailIcon).toHaveAttribute("src", "/icons/email.svg");
   });
 
