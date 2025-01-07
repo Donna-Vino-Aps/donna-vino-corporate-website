@@ -11,9 +11,8 @@ const Footer = () => {
   ];
   return (
     <footer
-      className="flex text-white text-center py-4 h-96 md:h-[26.625rem] items-start justify-center"
+      className="flex text-white text-center py-4 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-start justify-center"
       data-testid="footer"
-      style={{ backgroundColor: "#2F2E2E" }}
     >
       <div className="grid grid-cols-1 relative top-2 gap-1 md:top-0 md:grid-cols-5 md:mt-24 md:gap-5 lg:gap-8 xl:gap-11 ">
         <Link href="/" className="navbar-brand" aria-label="logo">
@@ -42,7 +41,8 @@ const Footer = () => {
               className="text-white"
             >
               <img
-                src="https://www.svgrepo.com/show/341809/facebook-f.svg"
+                src="/icons/footer/facebook-line.svg"
+                alt="Facebook Logo"
                 className="h-4 filter brightness-0 invert"
               ></img>
             </a>
@@ -51,12 +51,14 @@ const Footer = () => {
               className="text-white"
             >
               <img
-                src="https://www.svgrepo.com/show/378429/instagram-fill.svg"
+                src="/icons/footer/instagram-original.svg"
+                alt="Instagram Logo"
                 className="h-4 filter brightness-0 invert"
               ></img>
             </a>
             <a
-              href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Aorganization%3A105748835&keywords=donna%20vino%20aps&origin=RICH_QUERY_SUGGESTION&position=1&searchId=00b4548c-20b3-4ff2-a651-e9e4156e57f2&sid=fqg&spellCorrectionEnabled=false"
+              src="/icons/footer/linkedin-alt.svg"
+              alt="LinkedIn Logo"
               className="text-white"
             >
               <img
