@@ -2,7 +2,7 @@ name: CI - Tests and Code Style
 
 on:
   pull_request:
-    branches: [production, main]
+    branches: [develop, main]
 
 jobs:
   build:
