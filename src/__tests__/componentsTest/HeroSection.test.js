@@ -23,5 +23,29 @@ describe("HeroSection Component", () => {
     // Check that the video is present
     const video = screen.getByTestId("hero-video");
     expect(video).toBeInTheDocument();
+
+    // Check that the dotted shapes images are present
+    const dottedShape1 = screen.getByTestId("dotted-shape-1");
+    expect(dottedShape1).toBeInTheDocument();
+
+    const dottedShape2 = screen.getByTestId("dotted-shape-2");
+    expect(dottedShape2).toBeInTheDocument();
+
+    const dottedShape3 = screen.getByTestId("dotted-shape-3");
+    expect(dottedShape3).toBeInTheDocument();
+
+    const dottedShape4 = screen.getByTestId("dotted-shape-4");
+    expect(dottedShape4).toBeInTheDocument();
+
+    // Check that the buttons are rendered
+    const getStartedButton = screen.getByTestId("get-started-button");
+    expect(getStartedButton).toBeInTheDocument();
+
+    const secondaryButton = screen.getByTestId("secondary-button");
+    expect(secondaryButton).toBeInTheDocument();
+
+    // Check the video presence
+    const heroVideo = screen.getByTestId("hero-video");
+    expect(heroVideo).toBeInTheDocument();
   });
 });

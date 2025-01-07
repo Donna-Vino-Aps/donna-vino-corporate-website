@@ -50,7 +50,7 @@ export default {
       colors: {
         primary: {
           light: "#FDE8E9",
-          hover: "#FCDDDD",
+          hover: "#FCDDDE",
           active: "#F9B9BB",
           normal: "#ED1C24",
           hover_normal: "#D51920",
@@ -76,8 +76,7 @@ export default {
           light: "#EAEAEA",
           hover: "#E0E0E0",
           active: "#BFBEBE",
-          gray: "#637381",
-          normal: "#242E2E",
+          normal: "#2F2E2E",
           hover_normal: "#2A2929",
           active_normal: "#262525",
           dark: "#232323",
@@ -89,7 +88,7 @@ export default {
           light: "#FEFEFE",
           hover: "#FDFDFD",
           active: "#FBFBFB",
-          normal: "#F1F181",
+          normal: "#F1F1F1",
           hover_normal: "#D9D9D9",
           active_normal: "#C1C1C1",
           dark: "#B5B5B5",
