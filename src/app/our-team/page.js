@@ -21,6 +21,7 @@ const OurTeam = () => {
           <TeamCard img="/images/team/photo-ricardo.png" />
           <TeamCard img="/images/team/photo-andrea.png" />
           <TeamCard img="/images/team/photo-pablo.png" />
+          <TeamCard img="/images/team/photo-diana.png" />
           <TeamCard img="/images/team/photo-rick.png" />
         </div>
       </div>
