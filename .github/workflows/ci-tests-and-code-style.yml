@@ -2,10 +2,10 @@ name: CI - Tests and Code Style
 
 on:
   pull_request:
-    branches: [develop, main]
+    branches: [production, main]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
