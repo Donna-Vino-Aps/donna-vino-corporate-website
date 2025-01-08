@@ -36,13 +36,3 @@ const PhotoCardsTeamValues = () => {
 };
 
 export default PhotoCardsTeamValues;
-
-{
-  /* <Button
-  text="Visit Our Shop"
-  icon="/icons/cart.svg"
-  variant="primary"
-  ariaLabel="Visit our shop"
-  testId="get-started-button"
-/>; */
-}
