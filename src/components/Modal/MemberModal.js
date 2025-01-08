@@ -57,7 +57,7 @@ const MemberModal = (props) => {
 
 MemberModal.propTypes = {
   img: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   onClose: PropTypes.func,
   title: PropTypes.string,
   description: PropTypes.string,

@@ -1,21 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import TeamCard from "@/components/Card/TeamCard";
-import MemberModal from "@/components/Modal/MemberModal";
 
 const OurTeam = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTeamMember, setSelectedTeamMember] = useState(null);
-
-  const handleTeamCardClick = (teamMember) => {
-    setSelectedTeamMember(teamMember);
-    setIsModalOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsModalOpen(false);
-  };
-
   const teamMembers = [
     {
       tabindex: 0,
@@ -75,15 +62,10 @@ const OurTeam = () => {
               name={teamMembers.name}
               title={teamMembers.title}
               links={teamMembers.links}
-              handleClick={handleTeamCardClick}
             />
           ))}
         </div>
       </div>
-
-      {isModalOpen && (
-        <MemberModal teamMember={selectedTeamMember} onClose={handleClose} />
-      )}
     </div>
   );
 };

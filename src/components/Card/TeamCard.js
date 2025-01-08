@@ -1,8 +1,19 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import MemberModal from "@/components/Modal/MemberModal";
 
 const TeamCard = (props) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div
       className="relative overflow-hidden shadow-lg m-2"
@@ -13,8 +24,8 @@ const TeamCard = (props) => {
       <button
         role="button"
         className="absolute bottom-0 left-0 right-0 mb-4 mx-4 bg-primary-normal text-white 
-             rounded px-6 py-2 hover:bg-primary-dark"
-        onClick={props.handleClick}
+             rounded px-6 hover:bg-primary-dark"
+        onClick={openModal}
       >
         <img
           src="/design-elements/Dotted Shape.svg"
@@ -22,7 +33,7 @@ const TeamCard = (props) => {
           alt="Dotted Shape"
           data-testid="dotted-shape"
         />
-        <p className="text-bodyLarge" aria-label="name">
+        <p className="text-bodyLarge pt-2" aria-label="name">
           {props.name}
         </p>
         <p className="m-2 text-labelMedium" aria-label="title">
@@ -39,6 +50,14 @@ const TeamCard = (props) => {
           data-testid="circle-shape"
         />
       </button>
+      {isModalOpen && (
+        <MemberModal
+          name={props.name}
+          title={props.title}
+          links={props.links}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 };
@@ -46,7 +65,6 @@ const TeamCard = (props) => {
 TeamCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  handleClick: PropTypes.func,
   title: PropTypes.string,
   links: PropTypes.string,
 };
