@@ -1,73 +1,107 @@
 import React from "react";
+import Button from "../Button/Button";
 
-const OurValues = () => {
+const HeroSection = () => {
   return (
     <section
-      className="relative flex flex-col sm:flex-row justify-between bg-primary-light py-10 sm:py-16 px-4 sm:px-8"
-      role="region"
-      aria-label="Our Values Section"
+      className="sm:mt-6 relative flex justify-between flex-col h-[53.2rem] w-screen sm:h-[44rem] sm:flex-row  bg-primary-light "
+      role="banner"
+      aria-label="Hero Section"
+      aria-labelledby="title"
+      data-testid="hero-section"
     >
-      {/* Column 1: Two Images */}
       <div
-        className="flex flex-col gap-4 sm:gap-8 justify-center items-center sm:w-1/3"
-        data-testid="our-values-images-1"
+        className="relative flex flex-col p-4 pt-8 sm:pt-4 gap-8 h-[31.6rem] justify-center sm:w-[44rem] sm:h-[44rem] sm:justify-center text-left sm:gap-8 m-0"
+        data-testid="hero-text-container"
       >
-        <img
-          src="Img.png"
-          alt="Description of image 1"
-          className="w-[12rem] h-[12rem] sm:w-[16rem] sm:h-[16rem] object-cover rounded-lg"
-          data-testid="image-1"
-        />
-        <img
-          src="/path/to/image2.jpg"
-          alt="Description of image 2"
-          className="w-[12rem] h-[12rem] sm:w-[16rem] sm:h-[16rem] object-cover rounded-lg"
-          data-testid="image-2"
-        />
-      </div>
+        <div className="absolute top-[0.7rem] right-[0.5rem] sm:top-[0rem] sm:right-[0rem] sm:relative flex justify-end sm:justify-start z-0 overflow-hidden">
+          <div className="relative w-[4.5rem] h-[6.75rem] sm:w-[10.35rem] sm:h-[6.93rem]">
+            <img
+              src="/design-elements/Dotted Shape.svg"
+              alt=""
+              className="absolute top-0 left:0 sm:top-auto sm:top-0 sm:right-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
+              data-testid="dotted-shape-1"
+            />
+            <img
+              src="/design-elements/Dotted Shape.svg"
+              alt=""
+              className="absolute bottom-0 right-0 sm:bottom-0 sm:left-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
+              data-testid="dotted-shape-2"
+            />
+          </div>
+        </div>
 
-      {/* Column 2: Single Image */}
-      <div
-        className="flex justify-center items-center sm:w-1/3"
-        data-testid="our-values-image-2"
-      >
-        <img
-          src="/path/to/image3.jpg"
-          alt="Description of image 3"
-          className="w-[18rem] h-[18rem] sm:w-[22rem] sm:h-[22rem] object-cover rounded-lg"
-          data-testid="image-3"
-        />
-      </div>
-
-      {/* Column 3: Text Content */}
-      <div
-        className="flex flex-col justify-center items-start gap-4 sm:w-1/3"
-        data-testid="our-values-text"
-      >
+        <h1
+          className="text-displayMedium sm:text-displayLarge text-tertiary1-normal font-barlow z-10"
+          id="title"
+          data-testid="title"
+        >
+          Welcome to Donna Vino, your unique wine experience.
+        </h1>
         <p
-          className="text-bodySmall sm:text-bodyMedium text-tertiary1-normal font-semibold"
-          aria-label="Small red text"
+          className="text-bodyLarge text-tertiary1-darker z-10"
+          data-testid="description"
         >
-          Our Values
+          Discover unique wine stories told by your sommelier while your private
+          chef customizes the menu.
         </p>
-        <h2
-          className="text-displaySmall sm:text-displayMedium text-tertiary1-darker font-barlow"
-          aria-labelledby="section-title"
+        <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full gap-4 sm:flex-row z-10">
+            <Button
+              text="Visit Our Shop"
+              icon="/icons/cart.svg"
+              variant="primary"
+              ariaLabel="Visit our shop"
+              testId="get-started-button"
+            />
+
+            <Button
+              text="Contact Us"
+              icon="/icons/speech-bubble-19.svg"
+              variant="secondary"
+              ariaLabel="Contact us"
+              testId="secondary-button"
+            />
+          </div>
+          <div className="absolute top-[15.8rem] right-[0.5rem] sm:top-auto sm:right-auto sm:relative flex justify-end overflow-hidden">
+            <div className="relative w-[7.5rem] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem] mb-[1rem] sm:mb-[0rem] z-0">
+              <img
+                src="/design-elements/Dotted Shape.svg"
+                alt=""
+                className="absolute top-0 right-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
+                data-testid="dotted-shape-3"
+              />
+              <img
+                src="/design-elements/Dotted Shape.svg"
+                alt=""
+                className="absolute bottom-0 left-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
+                data-testid="dotted-shape-4"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative justify-center h-[22rem] sm:w-[45rem] sm:h-[44rem]">
+        <video
+          className="inset-0 h-[22rem] rounded-t-[6.8rem] sm:w-[45rem] sm:h-[44rem] sm:rounded-tl-[6.8rem] sm:rounded-tr-none object-cover"
+          autoPlay
+          loop
+          muted
+          role="region"
+          aria-label="Background video for Hero Section"
+          aria-hidden="true"
+          data-testid="hero-video"
         >
-          Donna Vino Values
-        </h2>
-        <p className="text-bodySmall sm:text-bodyMedium text-tertiary1-normal leading-relaxed">
-          Welcome to Donna Vino, your destination for authentic Italian
-          flavours. Donna Vino is the result of former Michelin sommelier
-          Katrine Giorgio's passion for unique Italian wine. The vision is to
-          provide guests with unique Italian flavours and the opportunity to
-          discover wines from passionate winemakers who prioritize sustainable
-          production. Unique flavours and sustainability go hand in hand for
-          several reasons.
-        </p>
+          <source
+            src="https://res.cloudinary.com/dmjo57kua/video/upload/v1735578255/Sequence_01_dnkdcc.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </section>
   );
 };
 
-export default OurValues;
+export default HeroSection;
