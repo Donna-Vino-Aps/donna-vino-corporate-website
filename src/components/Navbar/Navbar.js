@@ -5,6 +5,7 @@ import LanguageSwitch from "./LanguageSwitch";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("/");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,6 +18,10 @@ const Navbar = () => {
     { id: "contact", href: "/contact", label: "Contact" },
   ];
 
+  const handleClick = (href) => {
+    setActiveLink(href);
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="container py-8 px-6 flex justify-between items-center">
@@ -28,12 +33,7 @@ const Navbar = () => {
           />
         </Link>
         <div className="md:hidden mx-4">
-          <button
-            className="block"
-            onClick={toggleMenu}
-            role="button"
-            aria-label="menu"
-          >
+          <button onClick={toggleMenu} role="button" aria-label="menu">
             <img src="/icons/menu.svg" alt="" className="mr-2" />
           </button>
         </div>
@@ -47,7 +47,12 @@ const Navbar = () => {
               data-testid={link.id}
               key={link.label}
               href={link.href}
-              className="rounded-md px-3 py-2 text-titleMedium text-tertiary1"
+              className={`rounded-md px-3 py-2 text-titleMedium ${
+                activeLink === link.href
+                  ? "text-tertiary1-gray"
+                  : "text-tertiary2-active_dark"
+              }`}
+              onClick={() => handleClick(link.href)}
               role="navigation"
             >
               {link.label}
