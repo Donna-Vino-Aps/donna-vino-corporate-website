@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 
 const Carousel = () => {
@@ -29,20 +30,28 @@ const Carousel = () => {
   };
 
   return (
-    <div className="w-full max-w-[30.25rem] mx-auto">
-      <div className="relative w-full h-[25rem] rounded-[15px] overflow-hidden">
+    <div className="w-full max-w-[30.25rem] mx-auto" data-testid="carousel">
+      <div
+        className="relative w-full h-[25rem] rounded-[15px] overflow-hidden"
+        data-testid="carousel-image-container"
+      >
         <img
           src={images[currentImageIndex].src}
           alt={images[currentImageIndex].alt}
           className="w-full h-full object-cover"
+          data-testid="carousel-image"
         />
       </div>
 
-      <div className="flex justify-center mt-4 space-x-4">
+      <div
+        className="flex justify-center mt-4 space-x-4"
+        data-testid="carousel-controls"
+      >
         <button
           onClick={handlePrevious}
           className="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center"
           aria-label="Previous image"
+          data-testid="carousel-previous-button"
         >
           ←
         </button>
@@ -50,6 +59,7 @@ const Carousel = () => {
           onClick={handleNext}
           className="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center"
           aria-label="Next image"
+          data-testid="carousel-next-button"
         >
           →
         </button>
