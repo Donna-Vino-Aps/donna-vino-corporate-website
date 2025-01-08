@@ -19,9 +19,6 @@ const PhotoCardSmaller = ({
     <div
       className="photoDiv relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[32.125rem] xl:flex-row xl:flex-row xl:w-[35.2rem] xl:h-[22.8rem] 2xl:w-[39.6rem] 2xl:h-[25.65rem] 3xl:w-[44rem] 3xl:h-[28.5rem]"
       data-testid="photoDiv"
-      style={{
-        backgroundColor: backgroundColor,
-      }}
       aria-label={`Photo card with title: ${title}`}
     >
       <img
@@ -30,7 +27,12 @@ const PhotoCardSmaller = ({
         className="cardImg object-cover h-[12.375rem] w-[21.5rem] xl:h-full xl:w-[20.6rem] 2xl:w-[23.175rem] 3xl:w-[25.75rem]"
         aria-label={`Image representing ${title}`}
       ></img>
-      <div className="flex flex-col justify-center p-6">
+      <div
+        className="flex flex-col justify-center p-6"
+        style={{
+          backgroundColor: backgroundColor,
+        }}
+      >
         <h3
           className="cardHeading relative text-displaySmall mt-2 xl:mt-0 xl:text-headlineLarge 2xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 xl:bottom-5 xl:mb-3 xl:mb-2 2xl:mb-3 3xl:mb-4"
           style={{ color: fontColor }}
