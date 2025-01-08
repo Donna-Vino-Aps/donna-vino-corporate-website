@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -13,6 +14,7 @@ const TeamCard = (props) => {
         role="button"
         className="absolute bottom-0 left-0 right-0 mb-4 mx-4 bg-primary-normal text-white 
              rounded px-6 py-2 hover:bg-primary-dark"
+        onClick={props.handleClick}
       >
         <img
           src="/design-elements/Dotted Shape.svg"
@@ -44,6 +46,7 @@ const TeamCard = (props) => {
 TeamCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  handleClick: PropTypes.func,
   title: PropTypes.string,
   links: PropTypes.string,
 };
