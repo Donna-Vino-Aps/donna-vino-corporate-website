@@ -5,48 +5,58 @@ import PhotoGallery from "../PhotoGallery/PhotoGallery";
 const OurValues = () => {
   return (
     <main
-      className="bg-primary-light w-full h-auto p-[0.5rem] pt-[1rem] gap-10"
+      className="relative flex flex-col items-center justify-start w-full h-auto gap-4 p-[0.5rem] pt-[1rem] bg-primary-light z-10"
       role="main"
       aria-labelledby="our-values-title"
       data-testid="our-values-main"
     >
-      {/* PhotoGallery Component */}
-      <PhotoGallery data-testid="photo-gallery" />
-
+      <PhotoGallery />
       <article
-        className=""
+        className="flex flex-col gap-4 justify-start z-20"
         data-testid="text-column"
         aria-labelledby="our-values-title"
       >
-        <img
-          src="/design-elements/Dotted Shape 2.svg"
-          alt=""
-          className="absolute top-[11.3rem] right-[0rem] w-[8.3rem] h-[6.6rem] "
-          data-testid="dotted-shape-4"
-        />
         {/* absolute bottom-0 left-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem] */}
-        <header>
+        <div className="subtitle-container">
           <p
-            className="text-sm text-red-500"
+            className="text-headlineMedium text-primary-normal"
             aria-label="Our Values Section Subtitle"
             data-testid="subtitle"
           >
             Our Values
           </p>
+        </div>
+        <header className="relative">
           <h2
-            id="our-values-title"
-            className="text-2xl font-bold text-black"
+            className="relative text-displayLarge text-tertiary1-darker"
             data-testid="title"
           >
             Donna Vino Values
           </h2>
+          <img
+            src="/design-elements/Dotted Shape 2.svg"
+            alt=""
+            className="absolute top-[4.75rem] right-[0rem] w-[8.3rem] h-[6.6rem] z-1"
+            data-testid="dotted-shape-4"
+          />
         </header>
-        <p data-testid="intro-paragraph">
+        <p
+          className="text-titleMedium text-tertiary1-darker"
+          data-testid="intro-paragraph "
+        >
           Welcome to Donna Vino
-          <br />
+        </p>
+        <p
+          className="text-titleMedium text-tertiary1-darker"
+          data-testid="intro-paragraph-description"
+        >
           Your destination for authentic Italian flavours.
         </p>
-        <p data-testid="description-paragraph">
+
+        <p
+          className="text-titleMedium text-tertiary1-darker"
+          data-testid="description-paragraph"
+        >
           Donna Vino is the result of former Michelin sommelier Katrine
           Giorgio's passion for unique Italian wine. The vision is to provide
           guests with unique Italian flavours and the opportunity to discover
@@ -56,7 +66,6 @@ const OurValues = () => {
         </p>
       </article>
 
-      {/* Carousel Component */}
       <Carousel />
     </main>
   );

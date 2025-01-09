@@ -3,7 +3,7 @@ import React from "react";
 const PhotoGallery = () => {
   return (
     <section
-      className="w-[37.5rem] h-[41.8rem] flex justify-between"
+      className="w-[37.5rem] h-[41.8rem] flex justify-between hidden"
       data-testid="photo-gallery"
       aria-labelledby="photo-gallery"
     >

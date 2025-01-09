@@ -39,6 +39,14 @@ describe("OurValues Component", () => {
     expect(introParagraph).toBeInTheDocument();
     expect(introParagraph).toHaveTextContent("Welcome to Donna Vino");
 
+    const introParagraphDescription = screen.getByTestId(
+      "intro-paragraph-description",
+    );
+    expect(introParagraphDescription).toBeInTheDocument();
+    expect(introParagraphDescription).toHaveTextContent(
+      "Your destination for authentic Italian flavours.",
+    );
+
     const descriptionParagraph = screen.getByTestId("description-paragraph");
     expect(descriptionParagraph).toBeInTheDocument();
     expect(descriptionParagraph).toHaveTextContent(
