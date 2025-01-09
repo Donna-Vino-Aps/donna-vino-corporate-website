@@ -1,7 +1,12 @@
 import React from "react";
+import OurValues from "../../components/OurValues/OurValues";
 
-const OurValues = () => {
-  return <h1 className="mt-10">Our Values page</h1>;
+const OurValuesPage = () => {
+  return (
+    <div className="w-full">
+      <OurValues />
+    </div>
+  );
 };
 
-export default OurValues;
+export default OurValuesPage;

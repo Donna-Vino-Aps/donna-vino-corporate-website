@@ -8,6 +8,7 @@ const HeroSection = () => {
       role="banner"
       aria-label="Hero Section"
       aria-labelledby="title"
+      data-testid="hero-section"
     >
       <div
         className="relative flex flex-col p-4 pt-8 sm:pt-4 gap-8 h-[31.6rem] justify-center sm:w-[44rem] sm:h-[44rem] sm:justify-center text-left sm:gap-8 m-0"
