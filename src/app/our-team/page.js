@@ -9,6 +9,8 @@ const OurTeam = () => {
       img: "/images/team/photo-katrine.png",
       name: "Katrine Giogio",
       title: "Founder",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -16,6 +18,8 @@ const OurTeam = () => {
       img: "/images/team/photo-davide.png",
       name: "Davide Zampieri",
       title: "Co-Founder & Project Manager",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -23,6 +27,8 @@ const OurTeam = () => {
       img: "/images/team/photo-ricardo.png",
       name: "Ricardo Lara",
       title: "Head Chef & Cibi e Vini Owner",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -30,6 +36,8 @@ const OurTeam = () => {
       img: "/images/team/photo-rick.png",
       name: "Andrea Braschi",
       title: "Sales & BDR",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -37,6 +45,17 @@ const OurTeam = () => {
       img: "/images/team/photo-diana.png",
       name: "Diana Lorens",
       title: "FullStack Developer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      links: "/icons/linkedin-alt-light.svg",
+    },
+    {
+      tabindex: 5,
+      img: "/images/team/photo-pablo.png",
+      name: "Pablo Diaz",
+      title: "Product Owner",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
   ];
@@ -60,6 +79,7 @@ const OurTeam = () => {
               key={teamMembers.tabindex}
               img={teamMembers.img}
               name={teamMembers.name}
+              description={teamMembers.description}
               title={teamMembers.title}
               links={teamMembers.links}
             />
