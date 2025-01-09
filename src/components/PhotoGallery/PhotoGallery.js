@@ -3,12 +3,12 @@ import React from "react";
 const PhotoGallery = () => {
   return (
     <section
-      className="w-[37.5rem] h-[41.8rem] flex justify-between hidden"
-      data-testid="main-container"
+      className="w-[37.5rem] h-[41.8rem] flex justify-between"
+      data-testid="photo-gallery"
       aria-labelledby="photo-gallery"
     >
       {/* Column 1: Two images */}
-      <div>
+      <div data-testid="column-1">
         <figure className="mb-4" data-testid="image-1-container">
           <img
             src="/images/our-values/photo-1.png"
