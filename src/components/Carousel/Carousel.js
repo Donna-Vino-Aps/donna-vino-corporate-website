@@ -31,7 +31,7 @@ const Carousel = () => {
 
   return (
     <div
-      className="relative flex flex-col w-full h-[30.25rem] gap-6"
+      className="relative flex flex-col w-full h-[30.25rem] gap-6 sm:hidden"
       data-testid="carousel"
       role="region"
       aria-label="Image carousel"
@@ -52,14 +52,14 @@ const Carousel = () => {
       </div>
 
       <div
-        className="flex justify-center"
+        className="flex justify-center gap-4"
         data-testid="carousel-controls"
         role="group"
         aria-label="Carousel controls"
       >
         <button
           onClick={handlePrevious}
-          className="w-[3.75rem] h-[3.75rem] rounded-full bg-primary-dark text-primary-light flex items-center justify-center active:bg-primary-hover_normal"
+          className="w-[3.75rem] h-[3.75rem] rounded-full bg-primary-dark text-primary-light flex items-center justify-center active:bg-primary-hover_normal mr-[4px]"
           aria-label="Previous image"
           data-testid="carousel-previous-button"
         >
@@ -67,7 +67,7 @@ const Carousel = () => {
         </button>
         <button
           onClick={handleNext}
-          className="w-[3.75rem] h-[3.75rem]  rounded-full bg-primary-dark text-primary-light flex items-center justify-center active:bg-primary-hover_normal"
+          className="w-[3.75rem] h-[3.75rem]  rounded-full bg-primary-dark text-primary-light flex items-center justify-center active:bg-primary-hover_normal ml-[4px]"
           aria-label="Next image"
           data-testid="carousel-next-button"
         >

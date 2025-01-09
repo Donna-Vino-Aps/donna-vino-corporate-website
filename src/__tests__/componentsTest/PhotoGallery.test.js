@@ -56,4 +56,18 @@ describe("PhotoGallery Component", () => {
       "/images/our-values/photo-3.png",
     );
   });
+
+  it("uses lazy loading for images", () => {
+    render(<PhotoGallery />);
+    const images = screen.getAllByRole("img");
+    images.forEach((image) => {
+      expect(image).toHaveAttribute("loading", "lazy");
+    });
+  });
+
+  it('correctly uses role="presentation" for decorative SVG', () => {
+    render(<PhotoGallery />);
+    const dottedShape = screen.getByTestId("dotted-shape-4");
+    expect(dottedShape).toHaveAttribute("role", "presentation");
+  });
 });
