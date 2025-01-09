@@ -6,7 +6,7 @@ import PhotoCard from "../Card/PhotoCard";
 const PhotoCardsWineTasting = () => {
   return (
     <div
-      className="flex justify-center items-center"
+      className="flex w-full justify-center items-center"
       data-testid="photo-cards-wine-tasting"
     >
       <div
