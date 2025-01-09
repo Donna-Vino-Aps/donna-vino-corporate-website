@@ -6,15 +6,18 @@ import Button from "../Button/Button";
 const OurValues = () => {
   return (
     <main className="relative">
-      <Button
-        text="Visit Our Shop"
-        icon="/icons/cart.svg"
-        variant="primary"
-        ariaLabel="Visit our shop"
-        testId="get-started-button"
-      />
+      <div className="px-2 py-4 sm:mx-8">
+        <Button
+          text="Go back"
+          icon="/icons/back-arrow.svg"
+          variant="secondary"
+          ariaLabel="Go back"
+          testId="go-back-button"
+        />
+      </div>
+
       <section
-        className="relative flex flex-col items-center justify-start w-full h-auto gap-8 p-4 pt-4 bg-primary-light z-10 sm:grid sm:grid-cols-2"
+        className="relative flex flex-col items-center justify-start w-full h-auto  p-4 pt-4 bg-primary-light z-10 sm:grid sm:grid-cols-2"
         role="main"
         aria-labelledby="our-values-title"
         data-testid="our-values-main"

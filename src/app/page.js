@@ -8,10 +8,7 @@ import PhotoCardsTeamValues from "@/components/ContentGrid/PhotoCardsTeamValues"
 
 export default function Home() {
   return (
-    <div
-      className="flex w-[100%] justify-center gap-16"
-      data-testid="home-container"
-    >
+    <div className="flex w-[100%]" data-testid="home-container">
       <main data-testid="main-heading">
         <HeroSection />
         <PhotoCardsWineTasting />

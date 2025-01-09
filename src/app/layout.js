@@ -8,14 +8,10 @@ import Navbar from "../components/Navbar/Navbar.js";
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen w-full font-barlow bg-white text-foreground-normal gap-4">
+      <body className="flex flex-col min-h-screen w-full font-barlow bg-white text-foreground-normal">
         <Navbar />
 
-        <main
-          className="flex-grow mt-32"
-          role="main"
-          data-testid="main-content"
-        >
+        <main className="flex-grow" role="main" data-testid="main-content">
           {children}
         </main>
 
