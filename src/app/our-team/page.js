@@ -47,7 +47,7 @@ const OurTeam = () => {
       title: "FullStack Developer",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-      links: "/icons/linkedin-alt-light.svg",
+      links: "/icons/github.svg",
     },
     {
       tabindex: 5,
