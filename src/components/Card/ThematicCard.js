@@ -1,30 +1,111 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const ThematicCard = ({ imageUrl, title, description, backgroundColor }) => {
+const ThematicCard = ({
+  imageUrl,
+  imgPos,
+  smallCardSize,
+  title,
+  descriptionStart,
+  descriptionEnd,
+  backgroundColor,
+}) => {
   const [expanded, setExpanded] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1024); // sets to `true` if screen size is below `md`
+    };
+
+    // Set initial
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div
-      className="thematicDiv relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[30.75rem] xl:flex-row xl:flex-row xl:w-[35.2rem] xl:h-[22.8rem] 2xl:w-[39.6rem] 2xl:h-[25.65rem] 3xl:w-[44rem] 3xl:h-[28.5rem]"
+      className={`thematicDiv relative flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-md mb-1 w-[21.5rem] transition-all duration-300 ${
+        expanded
+          ? smallCardSize === "small"
+            ? "h-[51.75rem]"
+            : smallCardSize === "small2"
+              ? "h-[53rem]"
+              : smallCardSize === "medium"
+                ? "h-[49.75rem]"
+                : smallCardSize === "big"
+                  ? "h-[58.75rem]"
+                  : "h-[49.75rem]" // Default height if no conditions match
+          : smallCardSize === "small"
+            ? "h-[30.75rem]"
+            : smallCardSize === "small2"
+              ? "h-[30.75rem]"
+              : smallCardSize === "medium"
+                ? "h-[33.5rem]"
+                : smallCardSize === "big"
+                  ? "h-[33.5rem]"
+                  : "h-[33.5rem]" // Default height if not expanded
+      } lg:h-[18.5rem] lg:w-auto lg:ml-1 lg:mr-1 lg:mb-2`}
       data-testid="thematicDiv"
       style={{
         backgroundColor: backgroundColor,
       }}
-      aria-label={`Photo card with title: ${title}`}
+      aria-label={`Thematic card with title: ${title}`}
     >
       <img
         src={imageUrl}
         alt={title}
-        className="cardImg object-cover h-[12.375rem] w-[21.5rem] md:w-full md:h-[18.5rem] xl:h-full"
+        className="cardImg object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[18.5rem]"
         aria-label={`Image representing ${title}`}
       ></img>
-      <div className="flex flex-col justify-center p-4">
-        <h3>{title}</h3>
-        <p className="text-bodyLarge text-tertiary1-darker">{description}</p>
-        <button onClick={() => setExpanded(!expanded)}>
-          {expanded ? "Show less" : "Show more"}
-        </button>
+      <div className="flex flex-col justify-center p-6">
+        <h3
+          className="text-displaySmall text-tertiary1-darker relative font-roboto mb-6 mt-2 lg:mt-1 lg:text-headlineLarge"
+          aria-label={`Card title: ${title}`}
+        >
+          {title}
+        </h3>
+        <p
+          className={`text-bodyLarge text-tertiary1-darker ${expanded ? "line-clamp-none" : "line-clamp-4"} lg:text-bodyMedium xl:text-bodyLarge lg:line-clamp-none lg:relative md:top-1`}
+          aria-label={`Card description`}
+        >
+          {descriptionStart}
+          {!expanded && isSmallScreen ? "..." : ""}
+          <span
+            className={`${expanded || !isSmallScreen ? "inline" : "hidden"} lg:inline`}
+          >
+            {descriptionEnd}
+          </span>
+        </p>
+        {isSmallScreen && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className={`mx-auto mt-6 lg-hidden relative top-1`}
+          >
+            {expanded ? (
+              <div className="flex">
+                <img className="" src="/icons/chevron-up-circle.svg"></img>
+                <p className="text-titleMedium font-medium mb-[3px] ml-2">
+                  Show less
+                </p>
+              </div>
+            ) : (
+              <div className="flex">
+                <img className="" src="/icons/chevron-down-circle.svg"></img>
+                <p className="text-titleMedium font-medium mb-[3px] ml-2">
+                  Show more
+                </p>
+              </div>
+            )}
+          </button>
+        )}
       </div>
     </div>
   );
