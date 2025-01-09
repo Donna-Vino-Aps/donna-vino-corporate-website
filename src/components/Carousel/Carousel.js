@@ -30,26 +30,36 @@ const Carousel = () => {
   };
 
   return (
-    <div className="w-full max-w-[30.25rem] mx-auto" data-testid="carousel">
+    <div
+      className="w-full max-w-[30.25rem] mx-auto"
+      data-testid="carousel"
+      role="region"
+      aria-label="Image carousel"
+    >
       <div
         className="relative w-full h-[25rem] rounded-[15px] overflow-hidden"
         data-testid="carousel-image-container"
+        role="img"
+        aria-labelledby={`carousel-image-${currentImageIndex}`}
       >
         <img
           src={images[currentImageIndex].src}
           alt={images[currentImageIndex].alt}
           className="w-full h-full object-cover"
           data-testid="carousel-image"
+          id={`carousel-image-${currentImageIndex}`}
         />
       </div>
 
       <div
         className="flex justify-center mt-4 space-x-4"
         data-testid="carousel-controls"
+        role="group"
+        aria-label="Carousel controls"
       >
         <button
           onClick={handlePrevious}
-          className="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center"
+          className="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-red-700"
           aria-label="Previous image"
           data-testid="carousel-previous-button"
         >
@@ -57,7 +67,7 @@ const Carousel = () => {
         </button>
         <button
           onClick={handleNext}
-          className="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center"
+          className="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-red-700"
           aria-label="Next image"
           data-testid="carousel-next-button"
         >
