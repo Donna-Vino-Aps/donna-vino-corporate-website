@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import TeamCard from "@/components/Card/TeamCard";
+import TeamCard from "@/components/Card/MemberCard";
 
 const OurTeam = () => {
   const teamMembers = [

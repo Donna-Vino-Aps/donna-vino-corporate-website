@@ -16,9 +16,9 @@ const MemberModal = (props) => {
       ></div>
 
       <div className="fixed inset-0 z-10 overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
-          <div className="relative p-4 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
-            <div className="bg-white mx-4 sm:p-2">
+        <div className="flex min-h-full items-end justify-center text-center sm:items-center">
+          <div className="relative p-4 mx-6 transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
+            <div className="bg-white mx-4 sm:p-6">
               <div className="flex justify-between">
                 <h3
                   className="text-headlineLarge text-tertiary1-normal"
@@ -27,7 +27,7 @@ const MemberModal = (props) => {
                   {props.name}
                 </h3>
                 <button
-                  className="self-end mb-6"
+                  className=""
                   role="button"
                   aria-label="close"
                   onClick={props.onClose}
@@ -36,19 +36,18 @@ const MemberModal = (props) => {
                 </button>
               </div>
               <div className="mt-3 flex flex-col sm:flex-row justify-between sm:mt-2 sm:text-left">
-                <div className="mt-2 sm:mr-6">
+                <div className="mt-2 sm:mr-20">
                   <p className="text-headlineSmall pb-4">{props.title}</p>
                   <div className="h-[0.10rem] bg-primary-normal"></div>
                   <p className="text-bodyLarge pt-4">{props.description}</p>
-                  <div className="flex space-x-2 mt-4">
+                  <div className="flex items-center justify-center sm:justify-start space-x-2 mt-4">
                     <FloatingButton />
                     <FloatingButton />
                     <FloatingButton />
                   </div>
                 </div>
-
                 <img
-                  className="w-50 h-50 mt-2 rounded-lg py-4"
+                  className="md:w-[10rem] mt-6 rounded-lg"
                   src={props.img}
                   alt="img"
                   data-testid="image"

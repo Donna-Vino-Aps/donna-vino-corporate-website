@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TeamCard from "../../components/Card/TeamCard";
+import TeamCard from "../../components/Card/MemberCard";
 
 describe("TeamCard Component", () => {
   const teamMembers = [
