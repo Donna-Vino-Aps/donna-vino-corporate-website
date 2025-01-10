@@ -19,10 +19,10 @@ const PhotoCard = ({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 1280); // Tailwind xl breakpoint = 1280px
+      setIsSmallScreen(window.innerWidth < 1280);
     };
 
-    handleResize(); // Initialize on component mount
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
