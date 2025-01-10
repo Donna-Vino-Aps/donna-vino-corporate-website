@@ -1,13 +1,14 @@
 import React from "react";
+import OurValues from "../../components/OurValues/OurValues";
 import ThematicCardsValues from "@/components/ContentGrid/ThematicCardsValues";
 
-const OurValues = () => {
+const OurValuesPage = () => {
   return (
-    <div>
-      <h1 className="mt-10">Our Values page</h1>
+    <div className="w-full flex flex-col gap-16">
+      <OurValues />
       <ThematicCardsValues />
     </div>
   );
 };
 
-export default OurValues;
+export default OurValuesPage;

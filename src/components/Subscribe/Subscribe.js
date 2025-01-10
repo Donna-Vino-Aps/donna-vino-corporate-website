@@ -28,6 +28,7 @@ const Subscribe = () => {
       className="my-6 flex flex-col justify-center items-center font-barlow bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
       aria-labelledby="newsletter-title"
       aria-describedby="newsletter-description"
+      data-testid="subscribe-section"
     >
       <div className="flex flex-col justify-center items-center md:py-24 py-4 mx-2">
         <h2 className="text-displayMedium md:text-displayLarge text-center">

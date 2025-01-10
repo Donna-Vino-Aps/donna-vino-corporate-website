@@ -24,7 +24,10 @@ const MapSection = () => {
   ];
 
   return (
-    <div className="flex md:m-6 m-2 flex-col lg:flex-row bg-tertiary1-hover max-w-full md:rounded-[32px] rounded-[32px] ">
+    <div
+      className="flex md:m-6 m-2 flex-col lg:flex-row bg-tertiary1-hover max-w-full md:rounded-[32px] rounded-[32px]"
+      data-testid="map-section"
+    >
       <div className="flex-1 md:rounded-[32px] rounded-none w-full">
         <iframe
           src={locationUrl}

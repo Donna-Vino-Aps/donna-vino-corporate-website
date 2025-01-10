@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+    <nav className="w-full z-50 bg-white shadow-md">
       <div className="container py-8 px-6 flex justify-between items-center">
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img

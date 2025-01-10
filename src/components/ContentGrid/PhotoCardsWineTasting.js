@@ -5,7 +5,10 @@ import PhotoCard from "../Card/PhotoCard";
 
 const PhotoCardsWineTasting = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div
+      className="flex w-full justify-center items-center"
+      data-testid="photo-cards-wine-tasting"
+    >
       <div
         data-testid="testGrid"
         className="grid-cols-1 grid gap-4 p-4 md:grid-cols-2 mt-2 xl:mt-4 -mb-4 xl:mb-0"

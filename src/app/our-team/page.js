@@ -41,26 +41,46 @@ const OurTeam = () => {
   ];
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center" data-testid="our-team-container">
       <div className="mt-10">
-        <p className="text-center text-primary-normal mt-6">#OneTeamOneDream</p>
-        <h2 className="text-displayMedium md:text-displayLarge text-center">
+        {/* Add data-testid for the page title */}
+        <p
+          className="text-center text-primary-normal mt-6"
+          data-testid="our-team-tagline"
+        >
+          #OneTeamOneDream
+        </p>
+
+        <h2
+          className="text-displayMedium md:text-displayLarge text-center"
+          data-testid="our-team-title"
+        >
           Our Awesome Team
         </h2>
+
         <div className="flex flex-col justify-center items-center w-full">
-          <p className="text-titleMedium text-tertiary1-gray mt-4 text-center mb-4 max-w-[476px]">
+          <p
+            className="text-titleMedium text-tertiary1-gray mt-4 text-center mb-4 max-w-[476px]"
+            data-testid="our-team-description"
+          >
             There are many variations of passages of Lorem Ipsum available but
             the majority have suffered alteration in some form.
           </p>
         </div>
-        <div className="flex flex-wrap mx-6 gap-4 justify-center">
-          {teamMembers.map((teamMembers) => (
+
+        {/* Team cards container */}
+        <div
+          className="flex flex-wrap mx-6 gap-4 justify-center"
+          data-testid="team-cards-container"
+        >
+          {teamMembers.map((teamMember) => (
             <TeamCard
-              key={teamMembers.tabindex}
-              img={teamMembers.img}
-              name={teamMembers.name}
-              title={teamMembers.title}
-              links={teamMembers.links}
+              key={teamMember.tabindex}
+              img={teamMember.img}
+              name={teamMember.name}
+              title={teamMember.title}
+              links={teamMember.links}
+              data-testid="team-card"
             />
           ))}
         </div>
