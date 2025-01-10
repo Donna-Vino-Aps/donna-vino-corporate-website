@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
-import TeamCard from "@/components/Card/TeamCard";
+import MemberCard from "@/components/Card/MemberCard";
+import Button from "@/components/Button/Button";
 
 const OurTeam = () => {
   const teamMembers = [
@@ -8,6 +10,8 @@ const OurTeam = () => {
       img: "/images/team/photo-katrine.png",
       name: "Katrine Giogio",
       title: "Founder",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -15,6 +19,8 @@ const OurTeam = () => {
       img: "/images/team/photo-davide.png",
       name: "Davide Zampieri",
       title: "Co-Founder & Project Manager",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -22,6 +28,8 @@ const OurTeam = () => {
       img: "/images/team/photo-ricardo.png",
       name: "Ricardo Lara",
       title: "Head Chef & Cibi e Vini Owner",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -29,6 +37,8 @@ const OurTeam = () => {
       img: "/images/team/photo-rick.png",
       name: "Andrea Braschi",
       title: "Sales & BDR",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -36,14 +46,36 @@ const OurTeam = () => {
       img: "/images/team/photo-diana.png",
       name: "Diana Lorens",
       title: "FullStack Developer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      links: "/icons/github.svg",
+    },
+    {
+      tabindex: 5,
+      img: "/images/team/photo-pablo.png",
+      name: "Pablo Diaz",
+      title: "Product Owner",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       links: "/icons/linkedin-alt-light.svg",
     },
   ];
 
   return (
     <div className="flex justify-center" data-testid="our-team-container">
-      <div className="mt-10">
-        {/* Add data-testid for the page title */}
+      <div className="w-full">
+        <div className="px-2 py-4 sm:mx-8">
+          <Button
+            text="Go back"
+            icon="/icons/back-arrow.svg"
+            variant="secondary"
+            ariaLabel="Go back"
+            testId="go-back-button"
+            onClick={() => {
+              history.go(-1);
+            }}
+          />
+        </div>
         <p
           className="text-center text-primary-normal mt-6"
           data-testid="our-team-tagline"
@@ -67,20 +99,18 @@ const OurTeam = () => {
             the majority have suffered alteration in some form.
           </p>
         </div>
-
-        {/* Team cards container */}
         <div
           className="flex flex-wrap mx-6 gap-4 justify-center"
           data-testid="team-cards-container"
         >
           {teamMembers.map((teamMember) => (
-            <TeamCard
+            <MemberCard
               key={teamMember.tabindex}
               img={teamMember.img}
               name={teamMember.name}
+              description={teamMember.description}
               title={teamMember.title}
               links={teamMember.links}
-              data-testid="team-card"
             />
           ))}
         </div>

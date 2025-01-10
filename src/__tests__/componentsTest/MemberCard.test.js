@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TeamCard from "../../components/Card/TeamCard";
+import MemberCard from "../../components/Card/MemberCard";
 
-describe("TeamCard Component", () => {
+describe("MemberCard Component", () => {
   const teamMembers = [
     {
       tabindex: 0,
@@ -41,16 +41,16 @@ describe("TeamCard Component", () => {
     },
   ];
 
-  test("should renders the TeamCard component correctly", () => {
-    render(<TeamCard />);
+  test("should renders the MemberCard component correctly", () => {
+    render(<MemberCard />);
 
     const teamImage = screen.getByAltText("img");
     expect(teamImage).toBeInTheDocument();
   });
 
-  test("should renders TeamCard with correct names and titles", () => {
+  test("should renders MemberCard with correct names and titles", () => {
     teamMembers.forEach((member) => {
-      render(<TeamCard name={member.name} title={member.title} />);
+      render(<MemberCard name={member.name} title={member.title} />);
 
       const teamNameElement = screen.getByText(member.name);
       expect(teamNameElement).toBeInTheDocument();
