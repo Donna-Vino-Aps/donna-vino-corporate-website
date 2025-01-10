@@ -23,6 +23,7 @@ const MemberModal = (props) => {
                 <h3
                   className="text-headlineLarge text-tertiary1-normal"
                   data-testid="member-name"
+                  arial-label="Team member name"
                 >
                   {props.name}
                 </h3>
@@ -38,6 +39,7 @@ const MemberModal = (props) => {
               <div className="pt-4 md:w-[20rem]">
                 <p
                   className="text-headlineSmall pb-4"
+                  aria-lebel="Team member title"
                   data-testid="member-title"
                 >
                   {props.title}
@@ -48,6 +50,7 @@ const MemberModal = (props) => {
                 <div className="mt-4 md:w-[20rem] order-2 md:order-1 sm:order-1">
                   <p
                     className="text-bodyLarge"
+                    aria-label="Description about the member"
                     data-testid="member-description"
                   >
                     {props.description}
