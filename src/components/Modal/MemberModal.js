@@ -15,7 +15,7 @@ const MemberModal = (props) => {
         aria-hidden="true"
       ></div>
 
-      <div className="fixed inset-0 z-10 ">
+      <div className="fixed inset-0 z-10 transition-opacity duration-1000">
         <div className="flex min-h-full items-end justify-center text-center sm:items-center">
           <div className="relative p-4 mx-6 transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
             <div className="bg-white mx-4 sm:p-6">
