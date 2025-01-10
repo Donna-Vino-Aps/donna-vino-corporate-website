@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import MemberModal from "@/components/Modal/MemberModal";
 
-const TeamCard = (props) => {
+const MemberCard = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -13,20 +13,6 @@ const TeamCard = (props) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-  const outsideClick = (event) => {
-    if (isModalOpen && !modalRef.current.contains(event.target)) {
-      closeModal();
-    }
-  };
-
-  const modalRef = React.createRef();
-
-  useEffect(() => {
-    document.addEventListener("click", outsideClick);
-
-    return () => document.removeEventListener("click", outsideClick);
-  }, [isModalOpen]);
 
   return (
     <div
@@ -41,7 +27,6 @@ const TeamCard = (props) => {
         className="absolute bottom-0 left-0 right-0 mb-4 mx-4 bg-primary-normal text-white 
              rounded px-6 hover:bg-primary-dark"
         onClick={openModal}
-        ref={modalRef}
       >
         <img
           src="/design-elements/Dotted Shape.svg"
@@ -69,6 +54,7 @@ const TeamCard = (props) => {
           data-testid="circle-shape"
         />
       </button>
+
       {isModalOpen && (
         <MemberModal
           name={props.name}
@@ -83,7 +69,7 @@ const TeamCard = (props) => {
   );
 };
 
-TeamCard.propTypes = {
+MemberCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
@@ -91,4 +77,4 @@ TeamCard.propTypes = {
   links: PropTypes.string,
 };
 
-export default TeamCard;
+export default MemberCard;

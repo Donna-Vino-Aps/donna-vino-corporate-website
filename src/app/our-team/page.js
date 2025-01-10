@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import TeamCard from "@/components/Card/MemberCard";
+import MemberCard from "@/components/Card/MemberCard";
+import Button from "@/components/Button/Button";
 
 const OurTeam = () => {
   const teamMembers = [
@@ -62,8 +63,19 @@ const OurTeam = () => {
 
   return (
     <div className="flex justify-center" data-testid="our-team-container">
-      <div className="mt-10">
-        {/* Add data-testid for the page title */}
+      <div className="w-full">
+        <div className="px-2 py-4 sm:mx-8">
+          <Button
+            text="Go back"
+            icon="/icons/back-arrow.svg"
+            variant="secondary"
+            ariaLabel="Go back"
+            testId="go-back-button"
+            onClick={() => {
+              history.go(-1);
+            }}
+          />
+        </div>
         <p
           className="text-center text-primary-normal mt-6"
           data-testid="our-team-tagline"
@@ -87,20 +99,18 @@ const OurTeam = () => {
             the majority have suffered alteration in some form.
           </p>
         </div>
-
-        {/* Team cards container */}
         <div
           className="flex flex-wrap mx-6 gap-4 justify-center"
           data-testid="team-cards-container"
         >
           {teamMembers.map((teamMember) => (
-            <TeamCard
-              key={teamMembers.tabindex}
-              img={teamMembers.img}
-              name={teamMembers.name}
-              description={teamMembers.description}
-              title={teamMembers.title}
-              links={teamMembers.links}
+            <MemberCard
+              key={teamMember.tabindex}
+              img={teamMember.img}
+              name={teamMember.name}
+              description={teamMember.description}
+              title={teamMember.title}
+              links={teamMember.links}
             />
           ))}
         </div>
