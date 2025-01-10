@@ -113,7 +113,7 @@ const ThematicCard = ({
 };
 
 // Prop validation
-PhotoCardSmaller.propTypes = {
+ThematicCard.propTypes = {
   imageUrl: PropTypes.string.isRequired, // Image URL must be a string and is required
   imgPos: PropTypes.string.isRequired, // Image Position must be a string and is required
   smallCardSize: PropTypes.string.isRequired, // Small card size must be a string and is required
