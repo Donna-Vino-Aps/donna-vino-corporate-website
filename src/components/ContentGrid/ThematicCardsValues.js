@@ -5,14 +5,14 @@ import ThematicCard from "../Card/ThematicCard";
 
 const ThematicCardsValues = () => {
   return (
-    <div className="flex justify-center items-center mt-3 mb-3 lg:mt-4 lg:mb-8 lg:ml-1 lg:mr-2">
+    <div className="flex justify-center items-center mt-3 mb-3 lg:mt-4 lg:mb-8 lg:ml-1 lg:mr-1">
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:gap-3 lg:grid-cols-1 gap-2"
         data-testid="thematicGrid"
       >
         <ThematicCard
-          imageUrl="/images/thematic-cards/thematic-territoriality.svg"
-          imgPos=""
+          imageUrl="/images/thematic-cards/thematic-territoriality.png"
+          imgPos="left"
           smallCardSize="small"
           title="Territoriality"
           descriptionStart="Sustainably farmed vineyards prioritize healthy soil and a thriving ecosystem, fostering biodiversity that enhances the quality and character of the grapes"
@@ -20,8 +20,8 @@ const ThematicCardsValues = () => {
           backgroundColor="#E8ECE9"
         />
         <ThematicCard
-          imageUrl="/images/thematic-cards/thematic-craftsmanship.svg"
-          imgPos=""
+          imageUrl="/images/thematic-cards/thematic-craftsmanship.png"
+          imgPos="right"
           smallCardSize="small2"
           title="Craftsmanship"
           descriptionStart="A meticulous approach to every step of the winemaking process, from vineyard to bottle, ensures a richer flavor profile, greater complexity, and unique"
@@ -29,8 +29,8 @@ const ThematicCardsValues = () => {
           backgroundColor="#B7C3BC"
         />
         <ThematicCard
-          imageUrl="/images/thematic-cards/thematic-yeast.svg"
-          imgPos=""
+          imageUrl="/images/thematic-cards/thematic-yeast.png"
+          imgPos="left"
           smallCardSize="big"
           title="Natural yeast strains"
           descriptionStart="The use of natural yeast strains, naturally present on the grapes and within the winery, rather than commercial yeast strains"
@@ -38,8 +38,9 @@ const ThematicCardsValues = () => {
           backgroundColor="#E8ECE9"
         />
         <ThematicCard
-          imageUrl="/images/thematic-cards/thematic-minimal.svg"
-          imgPos="medium"
+          imageUrl="/images/thematic-cards/thematic-minimal.png"
+          imgPos="right"
+          smallCardSize="medium"
           title="Minimal intervention"
           descriptionStart="The winemakers prioritize a minimalist approach, allowing the grapes and the unique qualities of the vineyard to take center stage"
           descriptionEnd=". By avoiding excessive manipulation, additives, or chemicals, they craft wines that reflect the true essence of their origin. The result is a genuine and authentic flavor profile, showcasing the purity of the fruit and the natural character of the terroir. This commitment to letting nature lead creates wines that are both expressive and harmonious, offering an honest representation of the vineyard's identity."

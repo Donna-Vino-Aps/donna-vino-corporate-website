@@ -35,13 +35,13 @@ const ThematicCard = ({
       className={`thematicDiv relative flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-md mb-1 w-[21.5rem] transition-all duration-300 ${
         expanded
           ? smallCardSize === "small"
-            ? "h-[51.75rem]"
+            ? "h-[51.25rem]"
             : smallCardSize === "small2"
-              ? "h-[53rem]"
+              ? "h-[52.5rem]"
               : smallCardSize === "medium"
                 ? "h-[49.75rem]"
                 : smallCardSize === "big"
-                  ? "h-[58.75rem]"
+                  ? "h-[58.5rem]"
                   : "h-[49.75rem]" // Default height if no conditions match
           : smallCardSize === "small"
             ? "h-[30.75rem]"
@@ -62,18 +62,18 @@ const ThematicCard = ({
       <img
         src={imageUrl}
         alt={title}
-        className="cardImg object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[18.5rem]"
+        className={`cardImg object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[18.5rem] ${imgPos == "right" ? "lg:order-1" : "lg:order-0"}`}
         aria-label={`Image representing ${title}`}
       ></img>
-      <div className="flex flex-col justify-center p-6">
+      <div className="flex flex-col justifycenter p-6 lg:pr-12 xl:pr-10 2xl:pr-20">
         <h3
-          className="text-displaySmall text-tertiary1-darker relative font-roboto mb-6 mt-2 lg:mt-1 lg:text-headlineLarge"
+          className="text-displaySmall text-tertiary1-darker relative font-roboto mb-6 mt-2 lg:mt-4 lg:mb-5 lg:text-headlineMedium xl:mt-6 xl:text-headlineLarge" // 3xl:mt-1 3xl:mb-2
           aria-label={`Card title: ${title}`}
         >
           {title}
         </h3>
         <p
-          className={`text-bodyLarge text-tertiary1-darker ${expanded ? "line-clamp-none" : "line-clamp-4"} lg:text-bodyMedium xl:text-bodyLarge lg:line-clamp-none lg:relative md:top-1`}
+          className={`text-bodyLarge text-tertiary1-darker ${expanded ? "line-clamp-none" : "line-clamp-4"} md:top-1 lg:text-bodyMedium lg:line-clamp-none lg:relative xl:text-bodyLarge`}
           aria-label={`Card description`}
         >
           {descriptionStart}
