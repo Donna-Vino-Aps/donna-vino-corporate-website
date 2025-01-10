@@ -10,7 +10,6 @@ const PhotoCardSmaller = ({
   description,
   fontColor,
   backgroundColor,
-  buttonIconUrl,
   buttonLabel,
   buttonVariant,
   buttonTestId,
@@ -66,14 +65,9 @@ PhotoCardSmaller.propTypes = {
   description: PropTypes.string.isRequired, // Description must be a string and is required
   fontColor: PropTypes.string.isRequired, // Font color must be a string and is required
   backgroundColor: PropTypes.string.isRequired, // Background color must be a string and is required
-  buttonIconUrl: PropTypes.string.isRequired, // Icon URL should be a string (optional)
   buttonLabel: PropTypes.string.isRequired, // Button label must be a string and is required
   buttonVariant: PropTypes.string.isRequired, // Background color must be a string and is required
   buttonTestId: PropTypes.string.isRequired, // Font color must be a string and is required
-};
-
-PhotoCardSmaller.defaultProps = {
-  buttonIconUrl: null, // Default value for the optional buttonIcon
 };
 
 export default PhotoCardSmaller;

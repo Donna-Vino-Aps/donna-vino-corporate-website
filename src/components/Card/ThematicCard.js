@@ -112,4 +112,15 @@ const ThematicCard = ({
   );
 };
 
+// Prop validation
+PhotoCardSmaller.propTypes = {
+  imageUrl: PropTypes.string.isRequired, // Image URL must be a string and is required
+  imgPos: PropTypes.string.isRequired, // Image Position must be a string and is required
+  smallCardSize: PropTypes.string.isRequired, // Small card size must be a string and is required
+  title: PropTypes.string.isRequired, // Title must be a string and is required
+  descriptionStart: PropTypes.string.isRequired, // Description-start must be a string and is required
+  descriptionEnd: PropTypes.string.isRequired, // Description-end must be a string and is required
+  backgroundColor: PropTypes.string.isRequired, // Background color must be a string and is required
+};
+
 export default ThematicCard;
