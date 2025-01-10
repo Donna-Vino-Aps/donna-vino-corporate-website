@@ -53,7 +53,6 @@ const Subscribe = () => {
                 required
                 aria-required="true"
               />
-
               <Button
                 text={isLoading ? "Submitting..." : "Submit"}
                 variant="primary-submit"
@@ -62,6 +61,7 @@ const Subscribe = () => {
                 disabled={isLoading}
                 ariaLabel="Submit form"
                 testId="submit-button"
+                customWidth="w-full md:w-[107px]"
               />
             </div>
           </form>

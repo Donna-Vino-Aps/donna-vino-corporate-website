@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Button from "../Button/Button";
 
 const MapSection = () => {
   const locationUrl =
@@ -63,13 +64,14 @@ const MapSection = () => {
               </div>
             </div>
           ))}
-          <button
-            aria-label="Check our location on Google Maps"
-            className="bg-tertiary1-normal text-tertiary1-light text-titleMedium rounded-[5px] py-3 px-6 flex items-center justify-center md:w-auto w-full"
-          >
-            <img src="/icons/map.svg" alt="" className="w-5 h-5 mr-2" />
-            Check on Maps
-          </button>
+          <Button
+            text={"Check on Maps"}
+            icon="/icons/map.svg"
+            onClick={() => {}}
+            variant="secondary-darker"
+            ariaLabel="Check our location on Google Maps"
+            testId="submit-button"
+          />
         </div>
       </div>
     </div>
