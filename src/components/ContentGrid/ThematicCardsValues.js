@@ -5,7 +5,10 @@ import ThematicCard from "../Card/ThematicCard";
 
 const ThematicCardsValues = () => {
   return (
-    <div className="flex justify-center items-center mt-3 mb-3 lg:mt-4 lg:mb-8 lg:ml-1 lg:mr-1">
+    <div
+      className="flex justify-center items-center mt-3 mb-3 lg:mt-4 lg:mb-8 lg:ml-1 lg:mr-1"
+      data-testid="thematicGrid"
+    >
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:gap-3 lg:grid-cols-1 gap-2"
         data-testid="thematicGrid"

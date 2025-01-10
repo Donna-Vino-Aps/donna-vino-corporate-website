@@ -88,6 +88,7 @@ const ThematicCard = ({
           <button
             onClick={() => setExpanded(!expanded)}
             className={`mx-auto mt-6 lg-hidden relative top-1`}
+            data-testid="thematic-button"
           >
             {expanded ? (
               <div className="flex">
