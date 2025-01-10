@@ -39,7 +39,7 @@ const MemberModal = (props) => {
               <div className="pt-4 md:w-[20rem]">
                 <p
                   className="text-headlineSmall pb-4"
-                  aria-lebel="Team member title"
+                  aria-label="Team member title"
                   data-testid="member-title"
                 >
                   {props.title}

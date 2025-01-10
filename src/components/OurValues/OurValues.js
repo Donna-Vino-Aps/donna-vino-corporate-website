@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Carousel from "../Carousel/Carousel";
 import PhotoGallery from "../PhotoGallery/PhotoGallery";
@@ -13,6 +14,9 @@ const OurValues = () => {
           variant="secondary"
           ariaLabel="Go back"
           testId="go-back-button"
+          onClick={() => {
+            history.go(-1);
+          }}
         />
       </div>
 
