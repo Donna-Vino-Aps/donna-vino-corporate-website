@@ -16,6 +16,10 @@ describe("OurValues Component", () => {
     expect(title).toBeInTheDocument();
     expect(title).toHaveTextContent("Donna Vino Values");
 
+    // Check the PhotoGallery container
+    const photoGalleryContainer = screen.getByTestId("photoGallery-container");
+    expect(photoGalleryContainer).toBeInTheDocument();
+
     // Check the PhotoGallery component
     const photoGallery = screen.getByTestId("photo-gallery");
     expect(photoGallery).toBeInTheDocument();
@@ -33,6 +37,10 @@ describe("OurValues Component", () => {
 
     const image3 = screen.getByTestId("image-3");
     expect(image3).toBeInTheDocument();
+    expect(image3).toHaveAttribute(
+      "alt",
+      "A woman smiling while enjoying a glass of wine",
+    );
 
     // Check the text content in the article
     const introParagraph = screen.getByTestId("intro-paragraph");
@@ -56,5 +64,10 @@ describe("OurValues Component", () => {
     // Check the Carousel component
     const carousel = screen.getByTestId("carousel");
     expect(carousel).toBeInTheDocument();
+
+    // Check the Go back button
+    const goBackButton = screen.getByTestId("go-back-button");
+    expect(goBackButton).toBeInTheDocument();
+    expect(goBackButton).toHaveTextContent("Go back");
   });
 });
