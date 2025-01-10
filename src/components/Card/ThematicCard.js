@@ -1,0 +1,126 @@
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
+const ThematicCard = ({
+  imageUrl,
+  imgPos,
+  smallCardSize,
+  title,
+  descriptionStart,
+  descriptionEnd,
+  backgroundColor,
+}) => {
+  const [expanded, setExpanded] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1024); // sets to `true` if screen size is below `md`
+    };
+
+    // Set initial
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <div
+      className={`thematicDiv relative flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-md mb-1 w-[21.5rem] transition-all duration-300 ${
+        expanded
+          ? smallCardSize === "small"
+            ? "h-[51.25rem]"
+            : smallCardSize === "small2"
+              ? "h-[52.5rem]"
+              : smallCardSize === "medium"
+                ? "h-[49.75rem]"
+                : smallCardSize === "big"
+                  ? "h-[58.5rem]"
+                  : "h-[49.75rem]" // Default height if no conditions match
+          : smallCardSize === "small"
+            ? "h-[30.75rem]"
+            : smallCardSize === "small2"
+              ? "h-[30.75rem]"
+              : smallCardSize === "medium"
+                ? "h-[33.5rem]"
+                : smallCardSize === "big"
+                  ? "h-[33.5rem]"
+                  : "h-[33.5rem]" // Default height if not expanded
+      } lg:h-[18.5rem] lg:w-auto lg:ml-1 lg:mr-1 lg:mb-2`}
+      data-testid="thematicDiv"
+      style={{
+        backgroundColor: backgroundColor,
+      }}
+      aria-label={`Thematic card with title: ${title}`}
+    >
+      <img
+        src={imageUrl}
+        alt={title}
+        className={`cardImg object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[18.5rem] ${imgPos == "right" ? "lg:order-1" : "lg:order-0"}`}
+        aria-label={`Image representing ${title}`}
+      ></img>
+      <div className="flex flex-col justifycenter p-6 lg:pr-12 xl:pr-10 2xl:pr-20">
+        <h3
+          className="text-displaySmall text-tertiary1-darker relative font-roboto mb-6 mt-2 lg:mt-4 lg:mb-5 lg:text-headlineMedium xl:mt-6 xl:text-headlineLarge" // 3xl:mt-1 3xl:mb-2
+          aria-label={`Card title: ${title}`}
+        >
+          {title}
+        </h3>
+        <p
+          className={`text-bodyLarge text-tertiary1-darker ${expanded ? "line-clamp-none" : "line-clamp-4"} md:top-1 lg:text-bodyMedium lg:line-clamp-none lg:relative xl:text-bodyLarge`}
+          aria-label={`Card description`}
+        >
+          {descriptionStart}
+          {!expanded && isSmallScreen ? "..." : ""}
+          <span
+            className={`${expanded || !isSmallScreen ? "inline" : "hidden"} lg:inline`}
+          >
+            {descriptionEnd}
+          </span>
+        </p>
+        {isSmallScreen && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className={`mx-auto mt-6 lg-hidden relative top-1`}
+            data-testid="thematic-button"
+          >
+            {expanded ? (
+              <div className="flex">
+                <img className="" src="/icons/chevron-up-circle.svg"></img>
+                <p className="text-titleMedium font-medium mb-[3px] ml-2">
+                  Show less
+                </p>
+              </div>
+            ) : (
+              <div className="flex">
+                <img className="" src="/icons/chevron-down-circle.svg"></img>
+                <p className="text-titleMedium font-medium mb-[3px] ml-2">
+                  Show more
+                </p>
+              </div>
+            )}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// Prop validation
+ThematicCard.propTypes = {
+  imageUrl: PropTypes.string.isRequired, // Image URL must be a string and is required
+  imgPos: PropTypes.string.isRequired, // Image Position must be a string and is required
+  smallCardSize: PropTypes.string.isRequired, // Small card size must be a string and is required
+  title: PropTypes.string.isRequired, // Title must be a string and is required
+  descriptionStart: PropTypes.string.isRequired, // Description-start must be a string and is required
+  descriptionEnd: PropTypes.string.isRequired, // Description-end must be a string and is required
+  backgroundColor: PropTypes.string.isRequired, // Background color must be a string and is required
+};
+
+export default ThematicCard;
