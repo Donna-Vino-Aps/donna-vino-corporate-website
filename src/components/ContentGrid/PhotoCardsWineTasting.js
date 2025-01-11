@@ -15,53 +15,27 @@ const PhotoCardsWineTasting = () => {
       >
         <PhotoCard
           imageUrl="/images/card-unsplash-wine-tasting.jpg"
-          title={
-            <span>
-              Wine
-              <br />
-              tasting with dinner
-            </span>
-          }
-          smallScreenTitle={
-            <span>
-              Wine tasting with
-              <br />
-              dinner
-            </span>
-          }
+          title="Wine tasting with dinner"
+          smallScreenTitle="Wine tasting with dinner"
           description="Experience an unforgettable Italian wine dinner guided by sommelier Katrine Giorgio. Discover rare wines paired with antipasti, pasta, and dessert prepared by our chef Riccardo Lara."
           buttonIcon="/icons/calender-alt-1-gray.svg"
           buttonLabel="Book in the shop"
           backgroundColor="#E0E0E0"
           fontColor="#101010"
-          buttonBgColor="#2f2e2e"
-          buttonFontColor="#ffffff"
+          buttonVariant="primary"
+          buttonTestId="book-in-shop-button"
         />
         <PhotoCard
           imageUrl="/images/card-unsplash-wine-table.jpg"
-          title={
-            <span>
-              Wine
-              <br />
-              tasting with dinner for companies
-            </span>
-          }
-          smallScreenTitle={
-            <span>
-              Wine tasting with
-              <br />
-              dinner for
-              <br />
-              companies
-            </span>
-          }
+          title="Wine tasting with dinner for companies"
+          smallScreenTitle="Wine tasting with dinner for companies"
           description="Strengthen team bonds with a tailored Italian wine tasting experience. Perfect for team building, networking, or a relaxing evening with dinner."
           buttonIcon="/icons/phone.svg"
           buttonLabel="Contact us"
           backgroundColor="#183F27"
           fontColor="#E8ECE9"
-          buttonBgColor="#E8ECE9"
-          buttonFontColor="#08160E"
+          buttonVariant="secondary-darker"
+          buttonTestId="contact-us-button"
         />
       </div>
     </div>
