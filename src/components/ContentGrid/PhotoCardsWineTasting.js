@@ -6,7 +6,7 @@ import PhotoCard from "../Card/PhotoCard";
 const PhotoCardsWineTasting = () => {
   return (
     <div
-      className="grid grid-col-1 md:grid-cols-2 w-full justify-center items-center gap-2 "
+      className="grid grid-col-1 sm:grid-cols-2 w-full justify-center items-center gap-2 "
       data-testid="photo-cards-wine-tasting"
     >
       <PhotoCard
