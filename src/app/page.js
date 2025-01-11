@@ -9,7 +9,7 @@ import PhotoCardsTeamValues from "@/components/ContentGrid/PhotoCardsTeamValues"
 export default function Home() {
   return (
     <div className="flex w-[100%]" data-testid="home-container">
-      <main data-testid="main-heading">
+      <main className="flex flex-col gap-4" data-testid="main-heading">
         <HeroSection />
         <PhotoCardsWineTasting />
         <Subscribe />
