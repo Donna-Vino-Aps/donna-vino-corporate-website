@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import Button from "../Button/Button";
 
 const PhotoCard = ({
   imageUrl,
@@ -12,8 +13,8 @@ const PhotoCard = ({
   buttonLabel,
   backgroundColor,
   fontColor,
-  buttonBgColor,
-  buttonFontColor,
+  buttonVariant,
+  buttonTestId,
 }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -29,7 +30,7 @@ const PhotoCard = ({
 
   return (
     <div
-      className="photoDiv relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[37.5rem] xl:flex-row xl:flex-row xl:w-[35.2rem] xl:h-[26.8rem] 2xl:w-[39.6rem] 2xl:h-[30.15rem] 3xl:w-[44rem] 3xl:h-[33.5rem]"
+      className="photoDiv relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[37.5rem] xl:flex-row xl:w-[35.2rem] xl:h-[26.8rem] 2xl:w-[39.6rem] 2xl:h-[30.15rem] 3xl:w-[44rem] 3xl:h-[33.5rem]"
       data-testid="photoDiv"
       style={{
         backgroundColor: backgroundColor,
@@ -58,43 +59,34 @@ const PhotoCard = ({
           {description}
         </p>
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex justify-center items-center mt-2 xl:mt-0 xl:bottom-7 xl:left-auto xl:translate-x-0 xl:justify-start xl:ml-1 2xl:bottom-8 3xl:bottom-8">
-          <button
-            className="flex items-center justify-center w-[12.125rem] h-[2.8rem] xl:w-[10.9125rem] xl:h-[2.5rem] 2xl:w-[10.9125rem] 2xl:h-[2.7rem] 3xl:w-[12.125rem] 3xl:h-[3rem] gap-2 px-4 py-2 rounded"
-            style={{
-              backgroundColor: buttonBgColor,
-            }}
-            aria-label={`Click to ${buttonLabel}`}
-          >
-            <img src={buttonIcon} alt={`${buttonLabel} icon`}></img>
-            <span
-              className="font-medium text-labelLarge xl:text-labelMedium 3xl:text-labelLarge"
-              style={{ color: buttonFontColor }}
-            >
-              {buttonLabel}
-            </span>
-          </button>
+          <Button
+            text={buttonLabel}
+            icon={buttonIcon}
+            variant={buttonVariant}
+            testId={buttonTestId}
+            ariaLabel={buttonLabel}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-// Prop validation
 PhotoCard.propTypes = {
-  imageUrl: PropTypes.string.isRequired, // Image URL must be a string and is required
-  title: PropTypes.string.isRequired, // Title must be a string and is required
-  smallScreenTitle: PropTypes.string, // Title must be a string and is required
-  description: PropTypes.string.isRequired, // Description must be a string and is required
-  buttonIcon: PropTypes.string, // Icon URL should be a string (optional)
-  buttonLabel: PropTypes.string.isRequired, // Button label must be a string and is required
-  backgroundColor: PropTypes.string.isRequired, // Background color must be a string and is required
-  fontColor: PropTypes.string.isRequired, // Font color must be a string and is required
-  buttonBgColor: PropTypes.string.isRequired, // Button background color must be a string and is required
-  buttonFontColor: PropTypes.string.isRequired, // Button font color must be a string and is required
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  smallScreenTitle: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  buttonIcon: PropTypes.string,
+  buttonLabel: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
+  fontColor: PropTypes.string.isRequired,
+  buttonVariant: PropTypes.string.isRequired,
+  buttonTestId: PropTypes.string.isRequired,
 };
 
 PhotoCard.defaultProps = {
-  buttonIcon: null, // Default value for the optional buttonIcon
+  buttonIcon: null,
 };
 
 export default PhotoCard;
