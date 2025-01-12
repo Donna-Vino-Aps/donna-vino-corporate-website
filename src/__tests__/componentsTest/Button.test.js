@@ -23,16 +23,6 @@ describe("Button Component", () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it("should apply the correct class based on variant", () => {
-    const { container } = render(
-      <Button text="Visit our shop" variant="primary" />,
-    );
-    const button = container.querySelector("button");
-    expect(button).toHaveClass("bg-primary-normal");
-    expect(button).toHaveClass("text-primary-light");
-    expect(button).toHaveClass("bodyLarge");
-  });
-
   it("should disable the button when disabled is true", () => {
     render(<Button text="Visit our shop" disabled />);
     const button = screen.getByText(/Visit our shop/i);
@@ -51,44 +41,81 @@ describe("Button Component", () => {
     expect(button.type).toBe("submit");
   });
 
-  it("should apply the correct class for secondary variant", () => {
-    const { container } = render(
-      <Button text="Visit our shop" variant="secondary" />,
-    );
-    const button = container.querySelector("button");
-    expect(button).toHaveClass("bg-transparent");
-    expect(button).toHaveClass("border-2");
-    expect(button).toHaveClass("text-primary-active_normal");
-    expect(button).toHaveClass("bodyLarge");
-  });
+  const variantTests = [
+    {
+      variant: "red",
+      expectedClasses: [
+        "bg-primary-normal",
+        "hover:bg-primary-hover_normal",
+        "text-primary-light",
+        "w-full",
+        "sm:w-[10.8rem]",
+      ],
+    },
+    {
+      variant: "redLine",
+      expectedClasses: [
+        "bg-transparent",
+        "border-2",
+        "hover:bg-primary-hover",
+        "border-primary-active_normal",
+        "text-primary-active_normal",
+        "w-full",
+        "sm:w-[10.8rem]",
+      ],
+    },
+    {
+      variant: "darkGreen",
+      expectedClasses: [
+        "bg-secondary-darker",
+        "hover:bg-secondary-hover_dark",
+        "text-white",
+        "w-full",
+        "sm:w-[10.8rem]",
+      ],
+    },
+    {
+      variant: "grayGreen",
+      expectedClasses: [
+        "bg-secondary-light",
+        "hover:bg-secondary-hover",
+        "text-secondary-darker",
+        "w-full",
+        "sm:w-[10.8rem]",
+      ],
+    },
+    {
+      variant: "redSubmit",
+      expectedClasses: [
+        "bg-primary-normal",
+        "hover:bg-primary-hover_normal",
+        "text-white",
+        "rounded-lg",
+        "w-full",
+        "sm:w-[10.8rem]",
+      ],
+    },
+    {
+      variant: "gray",
+      expectedClasses: [
+        "bg-tertiary1-normal",
+        "hover:bg-tertiary1-dark",
+        "text-tertiary1-light",
+        "w-full",
+        "sm:w-[10.8rem]",
+      ],
+    },
+  ];
 
-  it("should apply the correct class for secondary-darker variant", () => {
-    const { container } = render(
-      <Button text="Visit our shop" variant="secondary-darker" />,
-    );
-    const button = container.querySelector("button");
-    expect(button).toHaveClass("bg-secondary-darker");
-    expect(button).toHaveClass("text-white");
-    expect(button).toHaveClass("bodyLarge");
-  });
-
-  it("should apply the correct class for secondary-light variant", () => {
-    const { container } = render(
-      <Button text="Visit our shop" variant="secondary-light" />,
-    );
-    const button = container.querySelector("button");
-    expect(button).toHaveClass("bg-secondary-light");
-    expect(button).toHaveClass("text-secondary-darker");
-    expect(button).toHaveClass("bodyLarge");
-  });
-
-  it("should apply the correct class for primary-submit variant", () => {
-    const { container } = render(
-      <Button text="Visit our shop" variant="primary-submit" />,
-    );
-    const button = container.querySelector("button");
-    expect(button).toHaveClass("bg-primary-normal");
-    expect(button).toHaveClass("text-white");
-    expect(button).toHaveClass("bodyLarge");
+  variantTests.forEach(({ variant, expectedClasses }) => {
+    it(`should apply the correct classes for ${variant} variant`, () => {
+      const { container } = render(
+        <Button text="Button Text" variant={variant} />,
+      );
+      const button = container.querySelector("button");
+      expectedClasses.forEach((className) => {
+        expect(button).toHaveClass(className);
+      });
+    });
   });
 });

@@ -16,7 +16,7 @@ const PhotoCardsTeamValues = () => {
           backgroundColor="#183F27"
           buttonIconUrl="/icons/team.svg"
           buttonLabel="Read More"
-          buttonVariant="secondary-light"
+          buttonVariant="grayGreen"
           buttonTestId="read-more-button-team"
         />
         <PhotoCardSmaller
@@ -27,7 +27,7 @@ const PhotoCardsTeamValues = () => {
           backgroundColor="#E0E0E0"
           buttonIconUrl="/icons/diamond-alt.svg"
           buttonLabel="Read More"
-          buttonVariant="secondary-darker"
+          buttonVariant="darkGreen"
           buttonTestId="read-more-button-values"
         />
       </div>
