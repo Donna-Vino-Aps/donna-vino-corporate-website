@@ -18,24 +18,29 @@ describe("PhotoCard Component", () => {
   it("renders without crashing", () => {
     render(<PhotoCard {...defaultProps} />);
 
-    expect(screen.getByTestId("photoDiv")).toBeInTheDocument();
+    expect(screen.getByTestId("photo-card")).toBeInTheDocument();
   });
 
   it("displays the correct title", () => {
     render(<PhotoCard {...defaultProps} />);
 
-    expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
+    expect(screen.getByTestId("photo-card-title")).toHaveTextContent(
+      defaultProps.title,
+    );
   });
 
   it("displays the correct description", () => {
     render(<PhotoCard {...defaultProps} />);
 
-    expect(screen.getByText(defaultProps.description)).toBeInTheDocument();
+    expect(screen.getByTestId("photo-card-description")).toHaveTextContent(
+      defaultProps.description,
+    );
   });
 
   it("displays the image with the correct src and alt attributes", () => {
     render(<PhotoCard {...defaultProps} />);
-    const img = screen.getByAltText(defaultProps.title);
+
+    const img = screen.getByTestId("card-image");
     expect(img).toHaveAttribute("src", defaultProps.imageUrl);
     expect(img).toHaveAttribute("alt", defaultProps.title);
   });
@@ -43,12 +48,15 @@ describe("PhotoCard Component", () => {
   it("displays the button with the correct label", () => {
     render(<PhotoCard {...defaultProps} />);
 
-    expect(screen.getByText(defaultProps.buttonLabel)).toBeInTheDocument();
+    expect(screen.getByTestId("test-button")).toHaveTextContent(
+      defaultProps.buttonLabel,
+    );
   });
 
   it("applies correct styles based on the cardVariant", () => {
     render(<PhotoCard {...defaultProps} />);
-    const photoCard = screen.getByTestId("photoDiv");
+
+    const photoCard = screen.getByTestId("photo-card");
 
     if (defaultProps.cardVariant === "variant1") {
       expect(photoCard).toHaveClass(
