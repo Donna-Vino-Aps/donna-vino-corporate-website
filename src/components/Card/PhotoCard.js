@@ -22,50 +22,55 @@ const PhotoCard = ({
   const variantClass = VARIANT_CLASSES[cardVariant] || VARIANT_CLASSES.variant1; // Default to variant1
 
   return (
-    <div
-      className={`relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[37.5rem] xl:flex-row xl:w-[35.2rem] xl:h-[26.8rem] 2xl:w-[39.6rem] 2xl:h-[30.15rem] 3xl:w-[44rem] 3xl:h-[33.5rem] ${variantClass}`}
-      data-testid="photoDiv"
-      aria-label={`Photo card with title: ${title}`}
+    <article
+      className={`relative flex flex-col rounded-[2rem] w-full h-auto sm:h-[33.5rem] sm:flex-row ${variantClass}`}
+      data-testid="photo-card"
+      aria-labelledby="photo-card-title"
+      aria-describedby="photo-card-description"
     >
-      <img
-        src={imageUrl}
-        alt={title}
-        className="object-cover h-[12.375rem] w-[21.5rem] xl:h-full xl:w-[20.6rem] 2xl:w-[23.175rem] 3xl:w-[25.75rem]"
-        data-testid="card-image"
-        aria-label={`Image representing ${title}`}
-      />
+      <figure
+        className={`overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem] w-full h-auto sm:h-[33.5rem] sm:flex-row ${variantClass}`}
+        data-testid="photo-card-image"
+        aria-labelledby="photo-card-title"
+      >
+        <img
+          src={imageUrl}
+          alt={title}
+          className="object-cover h-[12.375rem] w-[21.5rem] sm:h-[33.5rem] sm:w-[25.75rem]"
+          data-testid="card-image"
+          aria-label={`Image representing ${title}`}
+        />
+      </figure>
+
       <div
-        className="flex flex-col justify-center p-6"
-        data-testid="card-content"
+        className="flex flex-col justify-center gap-8 sm:p-6 sm:py-8 sm:w-[18.25rem]"
+        data-testid="photo-card-content"
       >
         <h3
-          className="relative text-headlineLarge xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 mt-1 xl:mb-3 xl:mt-1 xl:mb-5 2xl:mb-6 xl:bottom-2 2xl:bottom-1 3xl:mb-7"
-          data-testid="card-title"
+          className="text-displaySmall font-barlow font-medium justify-center"
+          id="photo-card-title"
+          data-testid="photo-card-title"
           aria-label={`Card title: ${title}`}
         >
           {title}
         </h3>
         <p
-          className="relative font-barlow text-bodyLarge xl:text-bodyMedium 2xl:text-bodyLarge font-regular mb-8 rounded xl:bottom-2 2xl:bottom-2 3xl:bottom-3"
-          data-testid="card-description"
+          className="relative font-barlow text-bodyLarge sm:text-bodyMedium"
+          id="photo-card-description"
+          data-testid="photo-card-description"
           aria-label={`Card description: ${description}`}
         >
           {description}
         </p>
-        <div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex justify-center items-center mt-2 xl:mt-0 xl:bottom-7 xl:left-auto xl:translate-x-0 xl:justify-start xl:ml-1 2xl:bottom-8 3xl:bottom-8"
-          data-testid="card-button-container"
-        >
-          <Button
-            text={buttonLabel}
-            icon={buttonIcon}
-            variant={buttonVariant}
-            testId={buttonTestId}
-            ariaLabel={buttonLabel}
-          />
-        </div>
+        <Button
+          text={buttonLabel}
+          icon={buttonIcon}
+          variant={buttonVariant}
+          testId={buttonTestId}
+          ariaLabel={buttonLabel}
+        />
       </div>
-    </div>
+    </article>
   );
 };
 

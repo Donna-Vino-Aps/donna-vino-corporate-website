@@ -12,24 +12,24 @@ describe("PhotoCard Component", () => {
     buttonLabel: "Test Button",
     buttonVariant: "secondary-darker",
     buttonTestId: "test-button",
-    cardVariant: "variant1", // Cambiar la variante si es necesario
+    cardVariant: "variant1",
   };
 
   it("renders without crashing", () => {
     render(<PhotoCard {...defaultProps} />);
-    // Verificamos que el contenedor de la tarjeta se haya renderizado
+
     expect(screen.getByTestId("photoDiv")).toBeInTheDocument();
   });
 
   it("displays the correct title", () => {
     render(<PhotoCard {...defaultProps} />);
-    // Verificamos que el título esté presente
+
     expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
   });
 
   it("displays the correct description", () => {
     render(<PhotoCard {...defaultProps} />);
-    // Verificamos que la descripción esté presente
+
     expect(screen.getByText(defaultProps.description)).toBeInTheDocument();
   });
 
