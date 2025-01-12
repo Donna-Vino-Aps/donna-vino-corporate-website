@@ -10,7 +10,7 @@ const OurValues = () => {
         <Button
           text="Go back"
           icon="/icons/back-arrow.svg"
-          variant="secondary"
+          variant="darkGreen"
           ariaLabel="Go back"
           testId="go-back-button"
         />

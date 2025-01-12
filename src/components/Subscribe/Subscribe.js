@@ -57,7 +57,7 @@ const Subscribe = () => {
 
               <Button
                 text={isLoading ? "Submitting..." : "Submit"}
-                variant="primary-submit"
+                variant="redSubmit"
                 isLoading={isLoading}
                 onClick={handleSubmit}
                 disabled={isLoading}

@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Button from "../Button/Button";
 
 const MapSection = () => {
   const locationUrl =
@@ -25,7 +26,7 @@ const MapSection = () => {
 
   return (
     <div
-      className="flex md:m-6 m-2 flex-col lg:flex-row bg-tertiary1-hover max-w-full md:rounded-[32px] rounded-[32px]"
+      className="flex md:m-6 m-2 flex-col md:flex-row bg-tertiary1-hover max-w-full md:rounded-[32px] rounded-[32px]"
       data-testid="map-section"
     >
       <div className="flex-1 md:rounded-[32px] rounded-none w-full">
@@ -66,13 +67,14 @@ const MapSection = () => {
               </div>
             </div>
           ))}
-          <button
-            aria-label="Check our location on Google Maps"
-            className="bg-tertiary1-normal text-tertiary1-light text-titleMedium rounded-[5px] py-3 px-6 flex items-center justify-center md:w-auto w-full"
-          >
-            <img src="/icons/map.svg" alt="" className="w-5 h-5 mr-2" />
-            Check on Maps
-          </button>
+          <Button
+            text={"Check on Maps"}
+            icon="/icons/map.svg"
+            onClick={() => {}}
+            variant="gray"
+            ariaLabel="Check our location on Google Maps"
+            testId="submit-button"
+          />
         </div>
       </div>
     </div>

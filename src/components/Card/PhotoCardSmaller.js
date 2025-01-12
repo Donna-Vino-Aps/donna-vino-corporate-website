@@ -45,7 +45,8 @@ const PhotoCardSmaller = ({
         >
           {description}
         </p>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center items-center mt-2 xl:mt-0 xl:bottom-11 xl:left-auto xl:translate-x-0 xl:justify-start 2xl:bottom-12 3xl:bottom-16">
+        {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center items-center mt-2 xl:mt-0 xl:bottom-11 xl:left-auto xl:translate-x-0 xl:justify-start 2xl:bottom-12 3xl:bottom-16"> */}
+        <div className="flex justify-center items-center">
           <Button
             text={buttonLabel}
             icon={buttonIconUrl}
