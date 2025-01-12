@@ -6,7 +6,7 @@ import PhotoCard from "../Card/PhotoCard";
 const PhotoCardsWineTasting = () => {
   return (
     <div
-      className="grid grid-col-1 sm:grid-cols-2 w-full justify-center items-center gap-2 "
+      className="grid grid-col-1 sm:grid-cols-2 w-full justify-center items-center gap-2"
       data-testid="photo-cards-wine-tasting"
     >
       <PhotoCard
@@ -17,6 +17,7 @@ const PhotoCardsWineTasting = () => {
         buttonLabel="Book in the shop"
         buttonVariant="secondary-darker"
         buttonTestId="book-in-shop-button"
+        cardVariant="variant1"
       />
       <PhotoCard
         imageUrl="/images/card-unsplash-wine-table.jpg"
@@ -26,6 +27,7 @@ const PhotoCardsWineTasting = () => {
         buttonLabel="Contact us"
         buttonVariant="secondary-light"
         buttonTestId="contact-us-button"
+        cardVariant="variant2"
       />
     </div>
   );
