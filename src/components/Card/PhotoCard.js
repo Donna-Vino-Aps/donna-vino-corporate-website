@@ -23,13 +23,13 @@ const PhotoCard = ({
 
   return (
     <article
-      className={`relative flex flex-col rounded-[2rem] w-full h-auto sm:h-[33.5rem] sm:flex-row ${variantClass}`}
+      className={`relative flex flex-col rounded-[2rem] w-full h-[37.5rem] sm:h-[33.5rem] sm:flex-row gap-8 items-center ${variantClass}`}
       data-testid="photo-card"
       aria-labelledby="photo-card-title"
       aria-describedby="photo-card-description"
     >
       <figure
-        className={`overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem] w-full h-auto sm:h-[33.5rem] sm:flex-row ${variantClass}`}
+        className={`overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem] ${variantClass}`}
         data-testid="photo-card-image"
         aria-labelledby="photo-card-title"
       >
@@ -43,11 +43,11 @@ const PhotoCard = ({
       </figure>
 
       <div
-        className="flex flex-col justify-center gap-8 sm:p-6 sm:py-8 sm:w-[18.25rem]"
+        className="flex flex-col w-[18.5rem] sm:w-[18.25] gap-8 sm:p-6 sm:py-8 "
         data-testid="photo-card-content"
       >
         <h3
-          className="text-displaySmall font-barlow font-medium justify-center"
+          className="text-displaySmall font-barlow font-medium "
           id="photo-card-title"
           data-testid="photo-card-title"
           aria-label={`Card title: ${title}`}

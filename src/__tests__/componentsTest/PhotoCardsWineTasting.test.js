@@ -11,7 +11,7 @@ describe("PhotoCardsWineTasting Component", () => {
 
   it("renders the correct number of PhotoCard components", () => {
     render(<PhotoCardsWineTasting />);
-    const photoCards = screen.getAllByTestId("photoDiv");
+    const photoCards = screen.getAllByTestId("photo-card");
     expect(photoCards.length).toBe(2);
   });
 
@@ -31,14 +31,14 @@ describe("PhotoCardsWineTasting Component", () => {
 
   it("checks if the background and text color classes are correct in variant 1", () => {
     render(<PhotoCardsWineTasting />);
-    const photoCard = screen.getAllByTestId("photoDiv")[0];
+    const photoCard = screen.getAllByTestId("photo-card")[0];
 
     expect(photoCard).toHaveClass("bg-tertiary1-hover text-tertiary1-darker");
   });
 
   it("checks if the background and text color classes are correct in variant 2", () => {
     render(<PhotoCardsWineTasting />);
-    const photoCard = screen.getAllByTestId("photoDiv")[1];
+    const photoCard = screen.getAllByTestId("photo-card")[1];
 
     expect(photoCard).toHaveClass("bg-secondary-normal text-secondary-light");
   });
