@@ -28,4 +28,18 @@ describe("PhotoCardsWineTasting Component", () => {
     const grid = screen.getByTestId("photo-cards-wine-tasting");
     expect(grid).toHaveClass("sm:grid-cols-2");
   });
+
+  it("checks if the background and text color classes are correct in variant 1", () => {
+    render(<PhotoCardsWineTasting />);
+    const photoCard = screen.getAllByTestId("photoDiv")[0];
+
+    expect(photoCard).toHaveClass("bg-tertiary1-hover text-tertiary1-darker");
+  });
+
+  it("checks if the background and text color classes are correct in variant 2", () => {
+    render(<PhotoCardsWineTasting />);
+    const photoCard = screen.getAllByTestId("photoDiv")[1];
+
+    expect(photoCard).toHaveClass("bg-secondary-normal text-secondary-light");
+  });
 });
