@@ -98,7 +98,7 @@ const ContactUs = () => {
                 ></textarea>
                 <Button
                   text="Send Message"
-                  variant="secondary-normal"
+                  variant="greenSubmit"
                   ariaLabel="Send Message"
                   testId="secondary-normal-send-message-button"
                 />
