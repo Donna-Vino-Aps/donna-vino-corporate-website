@@ -1,5 +1,6 @@
 "use client";
 import MapSection from "@/components/Map/MapSection";
+import ContactUs from "@/components/ContactUs/ContactUs";
 import React from "react";
 import Button from "@/components/Button/Button";
 
@@ -18,6 +19,7 @@ const Contact = () => {
           }}
         />
       </div>
+      <ContactUs />
       <MapSection data-testid="map-section" />
     </div>
   );
