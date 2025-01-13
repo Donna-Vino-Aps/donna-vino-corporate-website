@@ -21,7 +21,7 @@ const MemberCard = (props) => {
       data-testid="team-card"
     >
       <img
-        className="w-full cursor-pointer"
+        className="w-full cursor-pointer "
         src={props.img}
         alt="img"
         data-testid="image"
@@ -63,6 +63,7 @@ const MemberCard = (props) => {
 
       {isModalOpen && (
         <MemberModal
+          isOpen={isModalOpen}
           name={props.name}
           title={props.title}
           img={props.img}

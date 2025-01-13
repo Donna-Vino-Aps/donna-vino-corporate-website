@@ -16,3 +16,16 @@ body {
 footer {
   margin-top: auto;
 }
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.opacity-transition {
+  animation: opacity 800ms;
+}
