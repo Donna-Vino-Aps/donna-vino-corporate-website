@@ -68,7 +68,7 @@ const OurTeam = () => {
           <Button
             text="Go back"
             icon="/icons/back-arrow.svg"
-            variant="darkGreen"
+            variant="redLine"
             ariaLabel="Go back"
             testId="go-back-button"
             onClick={() => {

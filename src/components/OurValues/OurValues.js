@@ -1,21 +1,11 @@
+"use client";
 import React from "react";
 import Carousel from "../Carousel/Carousel";
 import PhotoGallery from "../PhotoGallery/PhotoGallery";
-import Button from "../Button/Button";
 
 const OurValues = () => {
   return (
     <main className="relative pb-[2rem]">
-      <div className="px-2 py-4 sm:mx-8">
-        <Button
-          text="Go back"
-          icon="/icons/back-arrow.svg"
-          variant="darkGreen"
-          ariaLabel="Go back"
-          testId="go-back-button"
-        />
-      </div>
-
       <section
         className="relative flex flex-col items-center justify-center justify-start w-full h-auto sm:min-h-[56.87rem] p-4 pt-4 sm:p-0 sm:pt-0 bg-primary-light z-10"
         role="main"

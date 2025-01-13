@@ -11,13 +11,13 @@ const MemberModal = (props) => {
       aria-modal="true"
     >
       <div
-        className="fixed inset-0 bg-tertiary1-darker/50 transition-opacity"
+        className="fixed inset-0 bg-tertiary1-darker/50 opacity-transition"
         aria-hidden="true"
       ></div>
 
-      <div className="fixed inset-0 z-10 ">
+      <div className="fixed inset-0 z-10">
         <div className="flex min-h-full items-end justify-center text-center sm:items-center">
-          <div className="relative p-4 mx-6 transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
+          <div className="relative p-4 mx-6 transform overflow-hidden rounded-2xl bg-white text-left shadow-xl sm:my-8 sm:w-full sm:max-w-2xl">
             <div className="bg-white mx-4 sm:p-6">
               <div className="flex justify-between">
                 <h3
@@ -28,7 +28,6 @@ const MemberModal = (props) => {
                   {props.name}
                 </h3>
                 <button
-                  className=""
                   role="button"
                   aria-label="close"
                   onClick={props.onClose}
@@ -39,7 +38,7 @@ const MemberModal = (props) => {
               <div className="pt-4 md:w-[20rem]">
                 <p
                   className="text-headlineSmall pb-4"
-                  aria-lebel="Team member title"
+                  aria-label="Team member title"
                   data-testid="member-title"
                 >
                   {props.title}

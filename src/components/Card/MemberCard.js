@@ -20,7 +20,13 @@ const MemberCard = (props) => {
       aria-label="Team Card"
       data-testid="team-card"
     >
-      <img className="w-full" src={props.img} alt="img" data-testid="image" />
+      <img
+        className="w-full cursor-pointer "
+        src={props.img}
+        alt="img"
+        data-testid="image"
+        onClick={openModal}
+      />
 
       <button
         role="button"
@@ -35,7 +41,7 @@ const MemberCard = (props) => {
           data-testid="dotted-shape"
         />
         <div className="mb-2">
-          <p className="text-bodyLarge pt-2" aria-label="name">
+          <p className="text-bodyLarge pt-2" aria-labelledby="name">
             {props.name}
           </p>
           <p className="m-2 text-labelMedium" aria-label="title">
@@ -57,6 +63,7 @@ const MemberCard = (props) => {
 
       {isModalOpen && (
         <MemberModal
+          isOpen={isModalOpen}
           name={props.name}
           title={props.title}
           img={props.img}
