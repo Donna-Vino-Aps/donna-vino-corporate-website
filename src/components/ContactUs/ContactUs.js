@@ -26,7 +26,9 @@ const ContactUs = () => {
         <img
           src="/design-elements/OvalSmall.png"
           className="lg:hidden block absolute right-0"
+          alt="Decorative oval shape small"
           data-testid="oval"
+          aria-hidden="true"
         />
         <div className="lg:w-[526px] w-full lg:pr-12">
           <h2 className="text-headlineMedium text-primary-normal pt-3.5">
@@ -56,6 +58,7 @@ const ContactUs = () => {
                       src={item.icon}
                       alt={item.title}
                       className="md:w-8 md:h-8 w-4 h-4"
+                      aria-hidden="true"
                     />
                   </div>
                   <div className="ml-6 flex md:mt-1 flex-col justify-center h-full space-y-2">
@@ -75,24 +78,45 @@ const ContactUs = () => {
         <div className="lg:w-[470px] mt-4 md:mt-0">
           <div className="relative pb-3.5">
             <div className="bg-white p-8 rounded-lg shadow-md relative z-10">
-              <form action="#" method="POST" className="space-y-4 z-50">
+              <form
+                action="#"
+                method="POST"
+                className="space-y-4 z-50"
+                aria-labelledby="contact-us-form"
+              >
+                <label htmlFor="name" className="sr-only">
+                  Your Name
+                </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your name"
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
+                <label htmlFor="email" className="sr-only">
+                  Your Email
+                </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your email"
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
+                <label htmlFor="phone" className="sr-only">
+                  Your Phone
+                </label>
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Your phone"
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
+                <label htmlFor="message" className="sr-only">
+                  Your Message
+                </label>
                 <textarea
                   placeholder="Your message"
+                  name="message"
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                   rows="4"
                 ></textarea>
@@ -106,23 +130,30 @@ const ContactUs = () => {
             </div>
             <img
               src="/design-elements/DottedShapeSmall.svg"
+              alt="Decorative dotted shape small"
               className="lg:hidden block absolute right-0 top-[-26px]"
               data-testid="oval"
             />
             <img
               src="/design-elements/Oval.svg"
+              alt="Decorative oval"
               className="absolute z-0 -top-[50px] -right-[50px] hidden lg:block"
               data-testid="oval"
+              aria-hidden="true"
             />
             <img
               src="/design-elements/DottedShapeBig.svg"
+              alt="Decorative dotted shape big"
               className="absolute right-[-3rem] top-[5rem] w-28 h-28 hidden lg:block"
               data-testid="dotted-shape-big"
+              aria-hidden="true"
             />
             <img
               src="/design-elements/DottedShapeBig.svg"
+              alt="Decorative dotted shape big"
               className="absolute left-[-2rem] bottom-[-22px] w-28 h-28 hidden lg:block"
               data-testid="dotted-shape-big"
+              aria-hidden="true"
             />
           </div>
         </div>
