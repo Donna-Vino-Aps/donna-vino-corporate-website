@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import Button from "../Button/Button";
 
 const VARIANT_CLASSES = {
-  variant1: "bg-tertiary1-hover text-tertiary1-darker",
-  variant2: "bg-secondary-normal text-secondary-light",
+  variant1: "bg-secondary-light text-secondary-normal",
+  variant2: "bg-tertiary1-hover text-tertiary1-darker",
 };
 
 const PhotoCardSmaller = ({

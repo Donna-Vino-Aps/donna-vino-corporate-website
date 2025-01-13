@@ -15,7 +15,7 @@ const PhotoCardsWineTasting = () => {
         description="Experience an unforgettable Italian wine dinner guided by sommelier Katrine Giorgio. Discover rare wines paired with antipasti, pasta, and dessert prepared by our chef Riccardo Lara."
         buttonIcon="/icons/calender-alt-1-gray.svg"
         buttonLabel="Book in the shop"
-        buttonVariant="darkGreen"
+        buttonVariant="secondary-darker"
         buttonTestId="book-in-shop-button"
         cardVariant="variant1"
       />
@@ -25,7 +25,7 @@ const PhotoCardsWineTasting = () => {
         description="Strengthen team bonds with a tailored Italian wine tasting experience. Perfect for team building, networking, or a relaxing evening with dinner."
         buttonIcon="/icons/phone.svg"
         buttonLabel="Contact us"
-        buttonVariant="grayGreen"
+        buttonVariant="secondary-light"
         buttonTestId="contact-us-button"
         cardVariant="variant2"
       />
