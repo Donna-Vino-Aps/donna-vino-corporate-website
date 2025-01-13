@@ -64,10 +64,5 @@ describe("OurValues Component", () => {
     // Check the Carousel component
     const carousel = screen.getByTestId("carousel");
     expect(carousel).toBeInTheDocument();
-
-    // Check the Go back button
-    const goBackButton = screen.getByTestId("go-back-button");
-    expect(goBackButton).toBeInTheDocument();
-    expect(goBackButton).toHaveTextContent("Go back");
   });
 });

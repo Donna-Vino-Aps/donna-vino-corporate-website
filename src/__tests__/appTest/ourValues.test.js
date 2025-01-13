@@ -9,10 +9,22 @@ jest.mock("../../components/OurValues/OurValues", () => {
 });
 
 describe("OurValuesPage", () => {
-  it("should render the OurValuesPage with the mocked OurValues component", () => {
+  beforeEach(() => {
     render(<OurValuesPage />);
+  });
 
+  it("should render the OurValuesPage with the mocked OurValues component", () => {
     expect(screen.getByTestId("our-values-mock")).toBeInTheDocument();
     expect(screen.getByText("Our Values Content")).toBeInTheDocument();
+
+    const goBackButton = screen.getByTestId("go-back-button");
+    expect(goBackButton).toBeInTheDocument();
+    expect(goBackButton).toHaveTextContent("Go back");
+  });
+
+  it("should render goBackButton", () => {
+    const goBackButton = screen.getByTestId("go-back-button");
+    expect(goBackButton).toBeInTheDocument();
+    expect(goBackButton).toHaveTextContent("Go back");
   });
 });
