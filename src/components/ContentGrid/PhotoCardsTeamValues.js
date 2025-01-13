@@ -4,8 +4,8 @@ import PhotoCardSmaller from "../Card/PhotoCardSmaller";
 const PhotoCardsTeamValues = () => {
   return (
     <div
-      className="grid-cols-1 grid gap-4 p-4 md:grid-cols-2 xl:mb-1 xl:-mt-1 -mt-5 mb-1"
-      data-testid="testGrid"
+      className="grid grid-col-1 sm:grid-cols-2 w-full justify-center items-center gap-2 px-2 sm:p-2 place-items-center"
+      data-testid="photo-cards-team-values"
     >
       <PhotoCardSmaller
         imageUrl="/images/card-unsplash-team-meeting.svg"
