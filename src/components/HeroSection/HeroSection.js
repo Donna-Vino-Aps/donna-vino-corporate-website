@@ -50,7 +50,7 @@ const HeroSection = () => {
             <Button
               text="Visit Our Shop"
               icon="/icons/cart.svg"
-              variant="primary"
+              variant="red"
               ariaLabel="Visit our shop"
               testId="get-started-button"
             />
@@ -58,7 +58,7 @@ const HeroSection = () => {
             <Button
               text="Contact Us"
               icon="/icons/speech-bubble-19.svg"
-              variant="secondary"
+              variant="redLine"
               ariaLabel="Contact us"
               testId="secondary-button"
             />
