@@ -47,7 +47,7 @@ const ContactUs = () => {
             tempor incididunt ut labore et dolore magna aliqua. Ut enim adiqua
             minim veniam quis nostrud exercitation ullamco
           </p>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full hidden lg:block">
             <div className="mt-6">
               {infoItems.map((item, index) => (
                 <div className="flex items-start mb-6" key={index}>
@@ -72,7 +72,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className="lg:w-[470px] mt-12 md:mt-0">
+        <div className="lg:w-[470px] mt-4 md:mt-0">
           <div className="relative pb-3.5">
             <div className="bg-white p-8 rounded-lg shadow-md relative z-10">
               <form action="#" method="POST" className="space-y-4 z-50">
