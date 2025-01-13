@@ -7,46 +7,67 @@ describe("PhotoCard Component", () => {
   const defaultProps = {
     imageUrl: "/test-image.jpg",
     title: "Test Title",
-    smallScreenTitle: "Small Screen Title",
     description: "Test description for PhotoCard.",
     buttonIcon: "/test-icon.svg",
     buttonLabel: "Test Button",
-    backgroundColor: "#ffffff",
-    fontColor: "#000000",
-    buttonBgColor: "#123456",
-    buttonFontColor: "#abcdef",
+    buttonVariant: "secondary-darker",
+    buttonTestId: "test-button",
+    cardVariant: "variant1",
   };
 
   it("renders without crashing", () => {
     render(<PhotoCard {...defaultProps} />);
+
+    expect(screen.getByTestId("photo-card")).toBeInTheDocument();
   });
 
-  it("displays the correct title for large screens", () => {
-    global.innerWidth = 1320;
-    global.dispatchEvent(new Event("resize"));
+  it("displays the correct title", () => {
     render(<PhotoCard {...defaultProps} />);
-    expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
+
+    expect(screen.getByTestId("photo-card-title")).toHaveTextContent(
+      defaultProps.title,
+    );
   });
 
-  it("displays the small screen title when the screen width is small", () => {
-    global.innerWidth = 600; // Simulate a small screen
-    global.dispatchEvent(new Event("resize")); // Trigger resize event
+  it("displays the correct description", () => {
     render(<PhotoCard {...defaultProps} />);
-    expect(screen.getByText(defaultProps.smallScreenTitle)).toBeInTheDocument();
+
+    expect(screen.getByTestId("photo-card-description")).toHaveTextContent(
+      defaultProps.description,
+    );
   });
 
   it("displays the image with the correct src and alt attributes", () => {
     render(<PhotoCard {...defaultProps} />);
-    const img = screen.getByAltText(defaultProps.title);
+
+    const img = screen.getByTestId("card-image");
     expect(img).toHaveAttribute("src", defaultProps.imageUrl);
+    expect(img).toHaveAttribute("alt", defaultProps.title);
   });
 
-  it("displays the button with the correct label and styles", () => {
+  it("displays the button with the correct label", () => {
     render(<PhotoCard {...defaultProps} />);
-    const button = screen.getByText(defaultProps.buttonLabel);
-    expect(button).toBeInTheDocument();
-    expect(button.closest("button")).toHaveStyle(
-      `background-color: ${defaultProps.buttonBgColor}`,
+
+    expect(screen.getByTestId("test-button")).toHaveTextContent(
+      defaultProps.buttonLabel,
     );
+  });
+
+  it("applies correct styles based on the cardVariant", () => {
+    render(<PhotoCard {...defaultProps} />);
+
+    const photoCard = screen.getByTestId("photo-card");
+
+    if (defaultProps.cardVariant === "variant1") {
+      expect(photoCard).toHaveClass(
+        "bg-tertiary1-hover",
+        "text-tertiary1-darker",
+      );
+    } else if (defaultProps.cardVariant === "variant2") {
+      expect(photoCard).toHaveClass(
+        "bg-secondary-normal",
+        "text-secondary-light",
+      );
+    }
   });
 });
