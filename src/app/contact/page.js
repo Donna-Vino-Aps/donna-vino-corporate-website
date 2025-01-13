@@ -10,7 +10,7 @@ const Contact = () => {
         <Button
           text="Go back"
           icon="/icons/back-arrow.svg"
-          variant="secondary"
+          variant="redLine"
           ariaLabel="Go back"
           testId="go-back-button"
           onClick={() => {
