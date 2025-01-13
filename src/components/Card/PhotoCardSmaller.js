@@ -4,55 +4,70 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
 
+const VARIANT_CLASSES = {
+  variant1: "bg-tertiary1-hover text-tertiary1-darker",
+  variant2: "bg-secondary-normal text-secondary-light",
+};
+
 const PhotoCardSmaller = ({
   imageUrl,
   title,
   description,
-  fontColor,
-  backgroundColor,
-  buttonIconUrl,
+  buttonIcon,
   buttonLabel,
   buttonVariant,
   buttonTestId,
+  cardVariant,
 }) => {
+  const variantClass = VARIANT_CLASSES[cardVariant] || VARIANT_CLASSES.variant1; // Default to variant1
+
   return (
     <div
-      className="photoDiv relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[32.125rem] xl:flex-row xl:flex-row xl:w-[35.2rem] xl:h-[22.8rem] 2xl:w-[39.6rem] 2xl:h-[25.65rem] 3xl:w-[44rem] 3xl:h-[28.5rem]"
-      data-testid="photoDiv"
-      style={{
-        backgroundColor: backgroundColor,
-      }}
-      aria-label={`Photo card with title: ${title}`}
+      className={`relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[32.125rem] xl:flex-row xl:w-[35.2rem] xl:h-[22.8rem] 2xl:w-[39.6rem] 2xl:h-[25.65rem] 3xl:w-[44rem] 3xl:h-[28.5rem] ${variantClass}`}
+      data-testid="photo-card-smaller"
+      aria-labelledby="photo-card-title"
+      aria-describedby="photo-card-description"
     >
-      <img
-        src={imageUrl}
-        alt={title}
-        className="cardImg object-cover h-[12.375rem] w-[21.5rem] xl:h-full xl:w-[20.6rem] 2xl:w-[23.175rem] 3xl:w-[25.75rem]"
-        aria-label={`Image representing ${title}`}
-      ></img>
-      <div className="flex flex-col justify-center p-6">
+      <figure
+        className="overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem]"
+        data-testid="photo-card-image"
+        aria-labelledby="photo-card-title"
+      >
+        <img
+          src={imageUrl}
+          alt={title}
+          className="cardImg object-cover h-[12.375rem] w-[21.5rem] xl:h-full xl:w-[20.6rem] 2xl:w-[23.175rem] 3xl:w-[25.75rem]"
+          aria-label={`Image representing ${title}`}
+        />
+      </figure>
+
+      <div
+        className="flex flex-col justify-center p-6"
+        data-testid="photo-card-content"
+      >
         <h3
           className="cardHeading relative text-displaySmall mt-2 xl:mt-0 xl:text-headlineLarge 2xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 xl:bottom-5 xl:mb-3 xl:mb-2 2xl:mb-3 3xl:mb-4"
-          style={{ color: fontColor }}
+          id="photo-card-title"
+          data-testid="photo-card-title"
           aria-label={`Card title: ${title}`}
         >
           {title}
         </h3>
         <p
           className="cardDescription relative font-barlow text-bodyLarge xl:text-bodyMedium 2xl:text-bodyLarge font-regular mb-7 xl:mt-1 rounded xl:bottom-2 2xl:bottom-2 3xl:bottom-3"
-          style={{ color: fontColor }}
+          id="photo-card-description"
+          data-testid="photo-card-description"
           aria-label={`Card description: ${description}`}
         >
           {description}
         </p>
-        {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center items-center mt-2 xl:mt-0 xl:bottom-11 xl:left-auto xl:translate-x-0 xl:justify-start 2xl:bottom-12 3xl:bottom-16"> */}
         <div className="flex justify-center items-center">
           <Button
             text={buttonLabel}
-            icon={buttonIconUrl}
+            icon={buttonIcon}
             variant={buttonVariant}
-            ariaLabel={buttonLabel}
             testId={buttonTestId}
+            ariaLabel={buttonLabel}
           />
         </div>
       </div>
@@ -60,21 +75,20 @@ const PhotoCardSmaller = ({
   );
 };
 
-// Prop validation
 PhotoCardSmaller.propTypes = {
-  imageUrl: PropTypes.string.isRequired, // Image URL must be a string and is required
-  title: PropTypes.string.isRequired, // Title must be a string and is required
-  description: PropTypes.string.isRequired, // Description must be a string and is required
-  fontColor: PropTypes.string.isRequired, // Font color must be a string and is required
-  backgroundColor: PropTypes.string.isRequired, // Background color must be a string and is required
-  buttonIconUrl: PropTypes.string.isRequired, // Icon URL should be a string (optional)
-  buttonLabel: PropTypes.string.isRequired, // Button label must be a string and is required
-  buttonVariant: PropTypes.string.isRequired, // Background color must be a string and is required
-  buttonTestId: PropTypes.string.isRequired, // Font color must be a string and is required
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  buttonIcon: PropTypes.string,
+  buttonLabel: PropTypes.string.isRequired,
+  buttonVariant: PropTypes.string.isRequired,
+  buttonTestId: PropTypes.string.isRequired,
+  cardVariant: PropTypes.oneOf(["variant1", "variant2"]),
 };
 
 PhotoCardSmaller.defaultProps = {
-  buttonIconUrl: null, // Default value for the optional buttonIcon
+  buttonIcon: null,
+  cardVariant: "variant1",
 };
 
 export default PhotoCardSmaller;
