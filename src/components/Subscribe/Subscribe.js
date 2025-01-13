@@ -2,6 +2,7 @@
 import useFetch from "@/hooks/api/useFetch";
 import React, { useState } from "react";
 import Button from "../Button/Button";
+import SomeComponent from "../AAATestComponents/SomeComponent";
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");
@@ -90,6 +91,7 @@ const Subscribe = () => {
           </div>
         </div>
       </div>
+      <SomeComponent />
     </div>
   );
 };

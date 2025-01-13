@@ -3,20 +3,23 @@ import PropTypes from "prop-types";
 import "./globals.css";
 import Footer from "../components/Footer/Footer.js";
 import Navbar from "../components/Navbar/Navbar.js";
+import { LanguageProvider } from "./context/LanguageContext";
 // import { logInfo } from "@/utils/logging";
 
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen w-full font-barlow bg-white text-foreground-normal">
-        <Navbar />
+      <LanguageProvider>
+        <body className="flex flex-col min-h-screen w-full font-barlow bg-white text-foreground-normal">
+          <Navbar />
 
-        <main className="flex-grow" role="main" data-testid="main-content">
-          {children}
-        </main>
+          <main className="flex-grow" role="main" data-testid="main-content">
+            {children}
+          </main>
 
-        <Footer />
-      </body>
+          <Footer />
+        </body>
+      </LanguageProvider>
     </html>
   );
 };
