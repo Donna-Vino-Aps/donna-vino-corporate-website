@@ -8,8 +8,8 @@ import dkTranslations from "../../translations/dk.json";
 const MockLanguageProvider = ({ children, language = "en" }) => {
   const translations = language === "en" ? enTranslations : dkTranslations;
 
-  render(
-    <LanguageProvider value={{ translations }}>{children}</LanguageProvider>,
+  return (
+    <LanguageProvider value={{ translations }}>{children}</LanguageProvider>
   );
 };
 
@@ -55,10 +55,10 @@ describe("ContactUs Component", () => {
   test("renders the form with all correct input fields", () => {
     renderWithProvider("en");
 
-    const nameInput = screen.getByPlaceholderText("Your name");
-    const emailInput = screen.getByPlaceholderText("Your email");
-    const phoneInput = screen.getByPlaceholderText("Your phone");
-    const messageTextarea = screen.getByPlaceholderText("Your message");
+    const nameInput = screen.getByPlaceholderText("Your Name");
+    const emailInput = screen.getByPlaceholderText("Your Email");
+    const phoneInput = screen.getByPlaceholderText("Your Phone Number");
+    const messageTextarea = screen.getByPlaceholderText("Your Message");
 
     expect(nameInput).toBeInTheDocument();
     expect(nameInput).toHaveAttribute("type", "text");
