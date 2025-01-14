@@ -67,9 +67,17 @@
   "team.dia.description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
   "team.pab.title": "Product Owner",
   "team.pab.description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+  "contact.upper.heading": "Get in touch with us",
+  "contact.upper.subheading": "Contact Us",
+  "contact.upper.paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua. Ut enim adiqua minim veniam quis nostrud exercitation ullamco.",
   "contact.heading": "Where can you find us?",
   "contact.subheading1": "Our Location",
   "contact.subheading2": "Phone Number",
   "contact.subheading3": "Email Adress",
-  "contact.button": "Check on Maps"
+  "contact.label-name": "Your Name",
+  "contact.label-mail": "Your Email",
+  "contact.label-phone": "Your Phone Number",
+  "contact.label-message": "Your Message",
+  "contact.button-submit": "Send Message",
+  "contact.button-check": "Check on Maps"
 }

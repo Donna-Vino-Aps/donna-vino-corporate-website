@@ -4,13 +4,15 @@ import OurValues from "../../components/OurValues/OurValues";
 import ThematicCardsValues from "@/components/ContentGrid/ThematicCardsValues";
 
 import Button from "@/components/Button/Button";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const OurValuesPage = () => {
+  const { translations } = useLanguage();
   return (
     <div className="w-full flex flex-col gap-8">
       <div className="px-2 pt-4 sm:mx-8">
         <Button
-          text="Go back"
+          text={translations["button.go-back"]}
           icon="/icons/back-arrow.svg"
           variant="redLine"
           ariaLabel="Go back"

@@ -1,13 +1,29 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import ContactUs from "@/components/ContactUs/ContactUs";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
+import dkTranslations from "../../translations/dk.json";
+
+const MockLanguageProvider = ({ children, language = "en" }) => {
+  const translations = language === "en" ? enTranslations : dkTranslations;
+
+  render(
+    <LanguageProvider value={{ translations }}>{children}</LanguageProvider>,
+  );
+};
 
 describe("ContactUs Component", () => {
-  beforeEach(() => {
-    render(<ContactUs />);
-  });
-
+  const renderWithProvider = (language = "en") => {
+    render(
+      <MockLanguageProvider language={language}>
+        <ContactUs />
+      </MockLanguageProvider>,
+    );
+  };
   test("renders all info items correctly", () => {
+    renderWithProvider("en");
+
     const locationTitle = screen.getByText("Our Location");
     const locationDescription = screen.getByText("Christianshavn, Copenhagen");
     expect(locationTitle).toBeInTheDocument();
@@ -25,6 +41,8 @@ describe("ContactUs Component", () => {
   });
 
   test("renders correct icons for each info item", () => {
+    renderWithProvider("en");
+
     const locationIcon = screen.getByAltText("Our Location");
     const phoneIcon = screen.getByAltText("Phone Number");
     const emailIcon = screen.getByAltText("Email Address");
@@ -35,6 +53,8 @@ describe("ContactUs Component", () => {
   });
 
   test("renders the form with all correct input fields", () => {
+    renderWithProvider("en");
+
     const nameInput = screen.getByPlaceholderText("Your name");
     const emailInput = screen.getByPlaceholderText("Your email");
     const phoneInput = screen.getByPlaceholderText("Your phone");
@@ -54,6 +74,8 @@ describe("ContactUs Component", () => {
   });
 
   test("renders the Send Message button", () => {
+    renderWithProvider("en");
+
     const button = screen.getByTestId("secondary-normal-send-message-button");
     expect(button).toBeInTheDocument();
     expect(button).toHaveTextContent("Send Message");

@@ -67,9 +67,17 @@
   "team.dia.description": "Lorem Ipsum er simpelthen en dummy tekst fra trykkeri- og sætningsindustrien. Lorem Ipsum er simpelthen en dummy tekst fra trykkeri- og sætningsindustrien.",
   "team.pab.title": "Produktejer",
   "team.pab.description": "Lorem Ipsum er simpelthen en dummy tekst fra trykkeri- og sætningsindustrien. Lorem Ipsum er simpelthen en dummy tekst fra trykkeri- og sætningsindustrien.",
+  "contact.upper.heading": "Kom i kontakt med os",
+  "contact.upper.subheading": "Kontakt Os",
+  "contact.upper.paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua. Ut enim adiqua minim veniam quis nostrud exercitation ullamco.",
   "contact.heading": "Hvor kan du finde os?",
   "contact.subheading1": "Vores placering",
   "contact.subheading2": "Telefonnummer",
   "contact.subheading3": "E-mailadresse",
+  "contact.label-name": "Dit Navn",
+  "contact.label-mail": "Din E-mail",
+  "contact.label-phone": "Dit Telefonnummer",
+  "contact.label-message": "Din Besked",
+  "contact.button-submit": "Sende Besked",
   "contact.button": "Tjek på Maps"
 }

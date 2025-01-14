@@ -62,7 +62,7 @@ const OurTeam = () => {
       <div className="w-full">
         <div className="px-2 py-4 sm:mx-8">
           <Button
-            text="Go back"
+            text={translations["button.go-back"]}
             icon="/icons/back-arrow.svg"
             variant="redLine"
             ariaLabel="Go back"
