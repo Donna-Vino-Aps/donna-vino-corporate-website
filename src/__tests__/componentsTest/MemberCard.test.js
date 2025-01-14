@@ -1,6 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import MemberCard from "../../components/Card/MemberCard";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
+import dkTranslations from "../../translations/dk.json";
 
 describe("MemberCard Component", () => {
   const teamMembers = [
@@ -41,16 +44,44 @@ describe("MemberCard Component", () => {
     },
   ];
 
-  test("should renders the MemberCard component correctly", () => {
-    render(<MemberCard />);
+  const renderMemberCard = (locale, member) => {
+    const translations = locale === "en" ? enTranslations : dkTranslations;
+
+    render(
+      <LanguageProvider locale={locale} translations={translations}>
+        <MemberCard
+          name={member.name}
+          title={member.title}
+          img={member.img}
+          links={member.links}
+        />
+      </LanguageProvider>,
+    );
+  };
+
+  test("should render MemberCard component with image", () => {
+    const member = teamMembers[0];
+    renderMemberCard("en", member);
 
     const teamImage = screen.getByAltText("img");
     expect(teamImage).toBeInTheDocument();
   });
 
-  test("should renders MemberCard with correct names and titles", () => {
+  test("should render MemberCard with correct names and titles in English", () => {
     teamMembers.forEach((member) => {
-      render(<MemberCard name={member.name} title={member.title} />);
+      renderMemberCard("en", member);
+
+      const teamNameElement = screen.getByText(member.name);
+      expect(teamNameElement).toBeInTheDocument();
+
+      const teamNameTitleElement = screen.getByText(member.title);
+      expect(teamNameTitleElement).toBeInTheDocument();
+    });
+  });
+
+  test("should render MemberCard with correct names and titles in Danish", () => {
+    teamMembers.forEach((member) => {
+      renderMemberCard("dk", member);
 
       const teamNameElement = screen.getByText(member.name);
       expect(teamNameElement).toBeInTheDocument();
