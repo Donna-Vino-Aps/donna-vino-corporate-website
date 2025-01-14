@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full z-50 bg-white shadow-md">
+    <nav className="w-full z-50 bg-black shadow-md">
       <div className="container py-8 px-6 flex justify-between items-center">
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
@@ -65,13 +65,13 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:block">
+        <div className="hidden  sm:block">
           <LanguageSwitch />
         </div>
       </div>
 
       <div
-        className={`fixed right-0 top-0 w-full h-full md:hidden z-40 ${
+        className={`fixed right-0 top-0 w-full  h-full sm:hidden z-40 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
