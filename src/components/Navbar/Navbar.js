@@ -30,27 +30,37 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex flex-col-1 w-full h-[7.18rem] sm:h-[14.37rem] z-50 shadow-md justify-between items-center px-8 py-6 gap-2">
-      <Link href="/" data-testid="navbar-brand" aria-label="logo">
+    <nav
+      className="flex flex-col-1 w-full h-[7.18rem] sm:h-[14.37rem] justify-between items-center px-8 py-6 gap-2 shadow-md z-50"
+      aria-label="Main Navigation"
+    >
+      <Link href="/" data-testid="navbar-brand" aria-label="Go to home">
         <img
           src="/images/donna-vino-logo-transparent.png"
-          alt="logo"
+          alt="Donna Vino logo"
           className="w-[6.25rem] h-[4.31rem]"
         />
       </Link>
       <div className="sm:hidden w-[1.5rem] h-[1.5rem]">
-        <button onClick={toggleMenu} role="button" aria-label="menu">
-          <img src="/icons/menu.svg" alt="" className="" />
+        <button
+          onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          data-testid="menu-toggle"
+        >
+          <img src="/icons/menu.svg" alt="" />
         </button>
       </div>
       <div
+        id="desktop-menu"
+        role="menu"
         className={`sm:flex sm:items-center sm:space-x-4 ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
         {navLinks.map((link) => (
           <Link
-            data-testid={link.id}
             key={link.label}
             href={link.href}
             className={`rounded-md px-3 py-2 text-titleMedium ${
@@ -59,7 +69,7 @@ const Navbar = () => {
                 : "text-tertiary2-active_dark"
             }`}
             onClick={() => handleClick(link.href)}
-            role="navigation"
+            data-testid={`nav-link-${link.id}`}
           >
             {link.label}
           </Link>
@@ -69,6 +79,7 @@ const Navbar = () => {
         <LanguageSwitch />
       </div>
       <MobileMenu
+        id="mobile-menu"
         isMenuOpen={isMenuOpen}
         toggleMenu={toggleMenu}
         navLinks={navLinks}
