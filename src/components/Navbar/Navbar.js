@@ -30,7 +30,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex flex-col-1 w-full h-[7.18rem] z-50 shadow-md justify-between items-center gap-2">
+    <nav className="flex flex-col-1 w-full h-[7.18rem] sm:h-[14.37rem] z-50 shadow-md justify-between items-center px-8 py-6 gap-2">
       <Link href="/" data-testid="navbar-brand" aria-label="logo">
         <img
           src="/images/donna-vino-logo-transparent.png"
@@ -38,9 +38,9 @@ const Navbar = () => {
           className="w-[6.25rem] h-[4.31rem]"
         />
       </Link>
-      <div className="sm:hidden mx-4">
+      <div className="sm:hidden w-[1.5rem] h-[1.5rem]">
         <button onClick={toggleMenu} role="button" aria-label="menu">
-          <img src="/icons/menu.svg" alt="" className="mr-2" />
+          <img src="/icons/menu.svg" alt="" className="" />
         </button>
       </div>
       <div
@@ -65,7 +65,7 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <div className="hidden sm:block">
+      <div className="hidden sm:block w-[5.12rem] h-[2.87rem]">
         <LanguageSwitch />
       </div>
       <MobileMenu
