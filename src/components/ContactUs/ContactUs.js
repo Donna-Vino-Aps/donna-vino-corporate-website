@@ -2,26 +2,27 @@ import React from "react";
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 
-const infoItems = [
-  {
-    icon: "/icons/location-red.svg",
-    title: "Our Location",
-    description: "Christianshavn, Copenhagen",
-  },
-  {
-    icon: "/icons/phone-map-red.svg",
-    title: "Phone Number",
-    description: "(+45) 12 34 56 78",
-  },
-  {
-    icon: "/icons/email-red.svg",
-    title: "Email Address",
-    description: "info@donnvino.dk",
-  },
-];
-
 const ContactUs = () => {
   const { translations } = useLanguage();
+
+  const infoItems = [
+    {
+      icon: "/icons/location-red.svg",
+      title: translations["contact.subheading1"],
+      description: "Christianshavn, Copenhagen",
+    },
+    {
+      icon: "/icons/phone-map-red.svg",
+      title: translations["contact.subheading2"],
+      description: "(+45) 12 34 56 78",
+    },
+    {
+      icon: "/icons/email-red.svg",
+      title: translations["contact.subheading3"],
+      description: "info@donnvino.dk",
+    },
+  ];
+
   return (
     <section>
       <div className="flex flex-col lg:flex-row items-center justify-between lg:px-36 bg-primary-light lg:h-[829px] px-1.5">

@@ -16,7 +16,7 @@ const PhotoCardsWineTasting = () => {
         title={translations["pcard.big-left.heading"]}
         description={translations["pcard.big-left.paragraph"]}
         buttonIcon="/icons/calender-alt-1-gray.svg"
-        buttonLabel="Book in the shop"
+        buttonLabel={translations["pcard.big-left.button"]}
         buttonVariant="darkGreen"
         buttonTestId="book-in-shop-button"
         cardVariant="variant1"
