@@ -1,3 +1,6 @@
+// components/MobileMenu.js
+import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import Link from "next/link";
 import LanguageSwitch from "./LanguageSwitch";
 
@@ -78,6 +81,18 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
       </div>
     </div>
   );
+};
+
+MobileMenu.propTypes = {
+  isMenuOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  navLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default MobileMenu;
