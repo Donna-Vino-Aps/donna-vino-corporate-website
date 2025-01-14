@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import PhotoCardSmaller from "../Card/PhotoCardSmaller";
 
 const PhotoCardsTeamValues = () => {
   return (
     <div
-      className="grid grid-col-1 sm:grid-cols-2 w-full justify-center items-center gap-2 px-2 sm:p-2 place-items-center"
+      className="grid grid-col-1 sm:grid-cols-2 w-full justify-center items-center gap-4 px-2 sm:p-2 place-items-center"
       data-testid="photo-cards-team-values"
     >
       <PhotoCardSmaller

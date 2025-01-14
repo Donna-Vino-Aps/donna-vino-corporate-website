@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Button from "../Button/Button";
 
 const VARIANT_CLASSES = {
-  variant1: "bg-secondary-light text-secondary-normal",
+  variant1: "bg-secondary-normal text-secondary-light",
   variant2: "bg-tertiary1-hover text-tertiary1-darker",
 };
 
@@ -23,30 +23,31 @@ const PhotoCardSmaller = ({
 
   return (
     <div
-      className={`relative flex flex-col rounded-3xl overflow-hidden w-[21.5rem] h-[32.125rem] xl:flex-row xl:w-[35.2rem] xl:h-[22.8rem] 2xl:w-[39.6rem] 2xl:h-[25.65rem] 3xl:w-[44rem] 3xl:h-[28.5rem] ${variantClass}`}
+      className={`relative flex flex-col rounded-[2rem] w-full h-[32.125rem] sm:h-[28.5rem] sm:flex-row items-center ${variantClass}`}
       data-testid="photo-card-smaller"
       aria-labelledby="photo-card-title"
       aria-describedby="photo-card-description"
     >
       <figure
-        className="overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem]"
+        className={`overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem]`}
         data-testid="photo-card-image"
         aria-labelledby="photo-card-title"
       >
         <img
           src={imageUrl}
           alt={title}
-          className="cardImg object-cover h-[12.375rem] w-[21.5rem] xl:h-full xl:w-[20.6rem] 2xl:w-[23.175rem] 3xl:w-[25.75rem]"
+          className="object-cover w-[21.25rem] h-[12.375rem] sm:w-[25.75rem] sm:h-[28.5rem]"
+          data-testid="card-image"
           aria-label={`Image representing ${title}`}
         />
       </figure>
 
       <div
-        className="flex flex-col justify-center p-6"
+        className="flex flex-col w-[18.5rem] sm:h-[28.5rem] gap-8 sm:p-6 sm:py-8 justify-center h-[19.75rem]"
         data-testid="photo-card-content"
       >
         <h3
-          className="cardHeading relative text-displaySmall mt-2 xl:mt-0 xl:text-headlineLarge 2xl:text-displaySmall 3xl:text-displayMedium font-barlow font-medium mb-7 xl:bottom-5 xl:mb-3 xl:mb-2 2xl:mb-3 3xl:mb-4"
+          className="text-displaySmall font-barlow font-medium"
           id="photo-card-title"
           data-testid="photo-card-title"
           aria-label={`Card title: ${title}`}
@@ -54,7 +55,7 @@ const PhotoCardSmaller = ({
           {title}
         </h3>
         <p
-          className="cardDescription relative font-barlow text-bodyLarge xl:text-bodyMedium 2xl:text-bodyLarge font-regular mb-7 xl:mt-1 rounded xl:bottom-2 2xl:bottom-2 3xl:bottom-3"
+          className="relative font-barlow text-bodyLarge sm:text-bodyMedium"
           id="photo-card-description"
           data-testid="photo-card-description"
           aria-label={`Card description: ${description}`}
