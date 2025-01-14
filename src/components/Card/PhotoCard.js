@@ -29,21 +29,21 @@ const PhotoCard = ({
       aria-describedby="photo-card-description"
     >
       <figure
-        className={`overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem] ${variantClass}`}
+        className={`overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem]`}
         data-testid="photo-card-image"
         aria-labelledby="photo-card-title"
       >
         <img
           src={imageUrl}
           alt={title}
-          className="object-cover h-[12.375rem] w-[21.5rem] sm:h-[33.5rem] sm:w-[25.75rem]"
+          className="object-cover w-[21.5rem] h-[12.375rem] sm:w-[25.75rem] sm:h-[33.5rem]"
           data-testid="card-image"
           aria-label={`Image representing ${title}`}
         />
       </figure>
 
       <div
-        className="flex flex-col w-[18.5rem] sm:w-[18.25] gap-8 sm:p-6 sm:py-8 "
+        className="flex flex-col w-[18.5rem] sm:h-[33.5rem] gap-8 sm:p-6 sm:py-8 justify-center"
         data-testid="photo-card-content"
       >
         <h3
@@ -62,13 +62,15 @@ const PhotoCard = ({
         >
           {description}
         </p>
-        <Button
-          text={buttonLabel}
-          icon={buttonIcon}
-          variant={buttonVariant}
-          testId={buttonTestId}
-          ariaLabel={buttonLabel}
-        />
+        <div className="flex justify-center items-center">
+          <Button
+            text={buttonLabel}
+            icon={buttonIcon}
+            variant={buttonVariant}
+            testId={buttonTestId}
+            ariaLabel={buttonLabel}
+          />
+        </div>
       </div>
     </article>
   );
