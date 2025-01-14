@@ -1,8 +1,7 @@
-// components/MobileMenu.js
 import React from "react";
-import PropTypes from "prop-types"; // Import PropTypes
+import PropTypes from "prop-types";
 import Link from "next/link";
-import LanguageSwitch from "./LanguageSwitch";
+import LanguageSwitch from "../Navbar/LanguageSwitch";
 
 const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
   return (
@@ -10,6 +9,7 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
       className={`fixed right-0 top-0 w-full h-full sm:hidden z-40 ${
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
+      data-testid="mobile-menu"
     >
       <div className="flex-col h-full pt-6 px-6 bg-white">
         <div className="flex justify-between pb-6">
