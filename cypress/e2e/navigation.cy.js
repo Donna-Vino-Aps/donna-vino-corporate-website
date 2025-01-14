@@ -1,6 +1,6 @@
 import { footer, navbar, sidebar } from "./pages";
 
-describe.skip("Navbar Component Test", () => {
+describe("Navbar Component Test", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
@@ -37,7 +37,7 @@ describe.skip("Navbar Component Test", () => {
   });
 });
 
-describe.skip("Footer Component Test", () => {
+describe("Footer Component Test", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
