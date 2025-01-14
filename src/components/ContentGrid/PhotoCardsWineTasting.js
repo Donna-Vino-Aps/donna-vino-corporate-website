@@ -16,8 +16,8 @@ const PhotoCardsWineTasting = () => {
         title={translations["pcard.big-left.heading"]}
         description={translations["pcard.big-left.paragraph"]}
         buttonIcon="/icons/calender-alt-1-gray.svg"
-        buttonLabel={translations["pcard.big-left.button"]}
-        buttonVariant="secondary-darker"
+        buttonLabel="Book in the shop"
+        buttonVariant="darkGreen"
         buttonTestId="book-in-shop-button"
         cardVariant="variant1"
       />
@@ -27,7 +27,7 @@ const PhotoCardsWineTasting = () => {
         description={translations["pcard.big-right.paragraph"]}
         buttonIcon="/icons/phone.svg"
         buttonLabel={translations["pcard.big-right.button"]}
-        buttonVariant="secondary-light"
+        buttonVariant="grayGreen"
         buttonTestId="contact-us-button"
         cardVariant="variant2"
       />
