@@ -2,8 +2,10 @@
 import React from "react";
 import Carousel from "../Carousel/Carousel";
 import PhotoGallery from "../PhotoGallery/PhotoGallery";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const OurValues = () => {
+  const { translations } = useLanguage();
   return (
     <main className="relative pb-[2rem]">
       <section
@@ -28,7 +30,7 @@ const OurValues = () => {
                 aria-label="Our Values Section Subtitle"
                 data-testid="subtitle"
               >
-                Our Values
+                {translations["values.subheading"]}
               </p>
             </div>
             <header className="relative">
@@ -36,7 +38,7 @@ const OurValues = () => {
                 className="relative text-displayLarge text-tertiary1-darker"
                 data-testid="title"
               >
-                Donna Vino Values
+                {translations["values.heading"]}
               </h2>
               <img
                 src="/design-elements/Dotted Shape 2.svg"
@@ -49,25 +51,20 @@ const OurValues = () => {
               className="text-titleMedium text-tertiary1-darker"
               data-testid="intro-paragraph "
             >
-              Welcome to Donna Vino
+              {translations["values.p1"]}
             </p>
             <p
               className="text-titleMedium text-tertiary1-darker"
               data-testid="intro-paragraph-description"
             >
-              Your destination for authentic Italian flavours.
+              {translations["values.p2"]}
             </p>
 
             <p
               className="text-titleMedium text-tertiary1-darker"
               data-testid="description-paragraph"
             >
-              Donna Vino is the result of former Michelin sommelier Katrine
-              Giorgio's passion for unique Italian wine. The vision is to
-              provide guests with unique Italian flavours and the opportunity to
-              discover wines from passionate winemakers who prioritise
-              sustainable production. Unique flavours and sustainability go hand
-              in hand for several reasons.
+              {translations["values.p3"]}
             </p>
           </article>
         </div>

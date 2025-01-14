@@ -2,12 +2,18 @@
 
 import React from "react";
 import Link from "next/link";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const Footer = () => {
+  const { translations } = useLanguage();
   const navLinks = [
-    { id: "our-values", href: "/our-values", label: "Our Values" },
-    { id: "our-team", href: "/our-team", label: "Our Team" },
-    { id: "contact", href: "/contact", label: "Contact" },
+    {
+      id: "our-values",
+      href: "/our-values",
+      label: translations["footer.values"],
+    },
+    { id: "our-team", href: "/our-team", label: translations["footer.team"] },
+    { id: "contact", href: "/contact", label: translations["footer.contact"] },
   ];
   return (
     <footer
@@ -37,7 +43,9 @@ const Footer = () => {
           </Link>
         ))}
         <div className="p-2">
-          <h4 className="pb-3 text-bodyLarge text-semibold">Follow Us On</h4>
+          <h4 className="pb-3 text-bodyLarge text-semibold">
+            {translations["footer.follow"]}
+          </h4>
           <div
             className="flex gap-4 ml-3 mt-3 relative right-1"
             aria-label="Social media icons"
