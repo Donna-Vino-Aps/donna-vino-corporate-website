@@ -1,4 +1,4 @@
-import { footer, navbar, sidebar } from "./pages";
+import { footer, navbar, sidebar } from "./pages/navigation";
 
 describe("Navbar Component Test", () => {
   beforeEach(() => {
