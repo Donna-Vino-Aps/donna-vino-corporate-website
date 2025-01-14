@@ -11,7 +11,11 @@ const RootLayout = ({ children }) => {
       <body className="flex flex-col min-h-screen w-full font-barlow bg-white text-foreground-normal">
         <Navbar />
 
-        <main className="flex-grow" role="main" data-testid="main-content">
+        <main
+          className="flex-grow flex flex-col gap-4"
+          role="main"
+          data-testid="main-content"
+        >
           {children}
         </main>
 
