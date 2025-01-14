@@ -24,7 +24,10 @@ const Navbar = () => {
 
   return (
     <nav className="w-full z-50 bg-white shadow-md">
-      <div className="container py-8 px-6 flex justify-between items-center">
+      <div
+        className="w-full py-8 px-6 flex justify-between items-center"
+        data-testid="header"
+      >
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
             src="/images/donna-vino-logo-transparent.png"
@@ -89,14 +92,14 @@ const Navbar = () => {
               </div>
             </button>
           </div>
-          <ul>
+          <ul data-testid="sidebar">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
                   onClick={toggleMenu}
                   className="block py-2 text-bodyLarge text-tertiary1"
-                  role="navigation"
+                  role="sidebar"
                 >
                   {link.label}
                 </Link>
