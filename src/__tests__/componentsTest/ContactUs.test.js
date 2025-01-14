@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { render, screen } from "@testing-library/react";
 import ContactUs from "@/components/ContactUs/ContactUs";
 import { LanguageProvider } from "@/app/context/LanguageContext";
@@ -11,6 +12,11 @@ const MockLanguageProvider = ({ children, language = "en" }) => {
   return (
     <LanguageProvider value={{ translations }}>{children}</LanguageProvider>
   );
+};
+
+MockLanguageProvider.propTypes = {
+  children: PropTypes.node.isRequired, // Ensure children is provided and is a valid React node
+  language: PropTypes.oneOf(["en", "dk"]), // Restrict language to "en" or "dk"
 };
 
 describe("ContactUs Component", () => {

@@ -1,10 +1,35 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import MapSection from "@/components/Map/MapSection";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
+import dkTranslations from "../../translations/dk.json";
+import PropTypes from "prop-types";
+
+const MockLanguageProvider = ({ children, language = "en" }) => {
+  const translations = language === "en" ? enTranslations : dkTranslations;
+
+  return (
+    <LanguageProvider value={{ translations }}>{children}</LanguageProvider>
+  );
+};
+
+MockLanguageProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  language: PropTypes.oneOf(["en", "dk"]),
+};
+
+const renderWithProvider = (language = "en") => {
+  render(
+    <MockLanguageProvider language={language}>
+      <MapSection />
+    </MockLanguageProvider>,
+  );
+};
 
 describe("MapSection Component", () => {
   test("renders all info items correctly", () => {
-    render(<MapSection />);
+    renderWithProvider();
 
     const locationTitle = screen.getByText("Our Location");
     const locationDescription = screen.getByText(
@@ -25,13 +50,13 @@ describe("MapSection Component", () => {
   });
 
   test("renders correct number of info items", () => {
-    render(<MapSection />);
+    renderWithProvider();
     const infoItems = screen.getAllByRole("heading", { level: 3 });
     expect(infoItems.length).toBe(3);
   });
 
   test("renders correct icons for each info item", () => {
-    render(<MapSection />);
+    renderWithProvider();
     const locationIcon = screen.getByAltText("Our Location");
     const phoneIcon = screen.getByAltText("Phone Number");
     const emailIcon = screen.getByAltText("Email Address");
@@ -42,7 +67,7 @@ describe("MapSection Component", () => {
   });
 
   test("renders the map iframe", () => {
-    render(<MapSection />);
+    renderWithProvider();
     const mapIframe = screen.getByTitle("Map");
     expect(mapIframe).toBeInTheDocument();
     expect(mapIframe).toHaveAttribute(
@@ -52,7 +77,7 @@ describe("MapSection Component", () => {
   });
 
   test("displays the correct information items", () => {
-    render(<MapSection />);
+    renderWithProvider();
 
     const locationTitle = screen.getByText(/Our Location/i);
     const locationDescription = screen.getByText(
@@ -72,7 +97,7 @@ describe("MapSection Component", () => {
   });
 
   test('checks if the "Check on Maps" button is present and clickable', () => {
-    render(<MapSection />);
+    renderWithProvider();
 
     const checkMapsButton = screen.getByText(/Check on Maps/i);
 

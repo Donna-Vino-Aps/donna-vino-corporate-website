@@ -1,11 +1,36 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
+import dkTranslations from "../../translations/dk.json";
+
+const MockLanguageProvider = ({ children, language = "en" }) => {
+  const translations = language === "en" ? enTranslations : dkTranslations;
+
+  return (
+    <LanguageProvider value={{ translations }}>{children}</LanguageProvider>
+  );
+};
+
+MockLanguageProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  language: PropTypes.oneOf(["en", "dk"]),
+};
+
+const renderWithProvider = (language = "en") => {
+  render(
+    <MockLanguageProvider language={language}>
+      <HeroSection />
+    </MockLanguageProvider>,
+  );
+};
 
 describe("HeroSection Component", () => {
   it("should render the HeroSection content", () => {
-    render(<HeroSection />);
+    renderWithProvider();
 
     // Check the heading text
     const heading = screen.getByText(

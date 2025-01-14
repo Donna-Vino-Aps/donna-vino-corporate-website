@@ -70,7 +70,7 @@ const MapSection = () => {
             </div>
           ))}
           <Button
-            text={translations["contact.button"]}
+            text={translations["contact.button-check"]}
             icon="/icons/map.svg"
             onClick={() => {}}
             variant="gray"
