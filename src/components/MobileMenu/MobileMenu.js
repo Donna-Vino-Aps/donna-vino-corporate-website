@@ -10,6 +10,9 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
       data-testid="mobile-menu"
+      role="dialog"
+      aria-hidden={!isMenuOpen}
+      aria-labelledby="mobile-menu-heading"
     >
       <div className="flex-col h-full pt-6 px-6 bg-white">
         <div className="flex justify-between pb-6">
@@ -23,14 +26,14 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
           <button
             className="self-end mb-6 mx-4"
             onClick={toggleMenu}
-            role="button"
-            aria-label="close"
+            aria-label="Close menu"
           >
-            <div>
-              <img src="/icons/close.svg" alt="" className="mr-2 w-5" />
-            </div>
+            <img src="/icons/close.svg" alt="Close icon" className="mr-2 w-5" />
           </button>
         </div>
+        <h2 id="mobile-menu-heading" className="sr-only">
+          Mobile navigation menu
+        </h2>
         <ul>
           {navLinks.map((link) => (
             <li key={link.label}>
@@ -38,7 +41,6 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
                 href={link.href}
                 onClick={toggleMenu}
                 className="block py-2 text-bodyLarge text-tertiary1"
-                role="navigation"
               >
                 {link.label}
               </Link>
@@ -54,21 +56,21 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
               className="flex gap-4 m-1 relative right-1"
               aria-label="Social media icons"
             >
-              <a href="#" className="text-black">
+              <a href="#" className="text-black" aria-label="Instagram">
                 <img
                   src="/icons/instagram-original.svg"
                   className="h-4 filter brightness-0"
                   alt="Instagram"
                 />
               </a>
-              <a href="#" className="text-black">
+              <a href="#" className="text-black" aria-label="LinkedIn">
                 <img
                   src="/icons/linkedin-alt.svg"
                   className="h-4 filter brightness-0"
                   alt="LinkedIn"
                 />
               </a>
-              <a href="#" className="text-black">
+              <a href="#" className="text-black" aria-label="Facebook">
                 <img
                   src="/icons/facebook-line.svg"
                   className="h-4 filter brightness-0"
