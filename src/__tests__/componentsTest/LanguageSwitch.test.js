@@ -1,10 +1,15 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import LanguageSwitch from "@/components/Navbar/LanguageSwitch";
+import { LanguageProvider } from "@/app/context/LanguageContext";
 
 describe("LanguageSwitch component", () => {
   test("should render LanguageSwitch component correctly", () => {
-    render(<LanguageSwitch />);
+    render(
+      <LanguageProvider>
+        <LanguageSwitch />
+      </LanguageProvider>,
+    );
 
     const languageSwitch = screen.getByTestId("language-switch");
     expect(languageSwitch).toBeInTheDocument();
@@ -17,7 +22,11 @@ describe("LanguageSwitch component", () => {
   });
 
   test("should have the correct class when the icon is clicked", () => {
-    render(<LanguageSwitch />);
+    render(
+      <LanguageProvider>
+        <LanguageSwitch />
+      </LanguageProvider>,
+    );
 
     const englishIcon = screen.getByTestId("en-icon");
     expect(englishIcon).toHaveClass("bg-primary-light");

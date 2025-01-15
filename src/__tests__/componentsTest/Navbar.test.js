@@ -1,10 +1,15 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Navbar from "@/components/Navbar/Navbar";
+import { LanguageProvider } from "@/app/context/LanguageContext";
 
 describe("Navbar component", () => {
   test("should render the Navbar component correctly", () => {
-    render(<Navbar />);
+    render(
+      <LanguageProvider>
+        <Navbar />
+      </LanguageProvider>,
+    );
 
     const logo = screen.getByAltText("logo");
     expect(logo).toBeInTheDocument();
@@ -27,7 +32,11 @@ describe("Navbar component", () => {
   });
 
   test("should have the correct links to pages", () => {
-    render(<Navbar />);
+    render(
+      <LanguageProvider>
+        <Navbar />
+      </LanguageProvider>,
+    );
 
     const homeLink = screen.getByTestId("home");
     expect(homeLink).toHaveAttribute("href", "/");

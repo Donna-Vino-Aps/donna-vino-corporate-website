@@ -2,8 +2,10 @@
 
 import React from "react";
 import PhotoCardSmaller from "../Card/PhotoCardSmaller";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const PhotoCardsTeamValues = () => {
+  const { translations } = useLanguage();
   return (
     <div
       className="grid grid-col-1 sm:grid-cols-2 w-full justify-center items-center gap-4 px-2 sm:p-2 place-items-center"
@@ -11,20 +13,20 @@ const PhotoCardsTeamValues = () => {
     >
       <PhotoCardSmaller
         imageUrl="/images/card-unsplash-team-meeting.svg"
-        title="Our Team"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        title={translations["pcard.small-left.heading"]}
+        description={translations["pcard.small-left.paragraph"]}
         buttonIcon="/icons/team.svg"
-        buttonLabel="Read More"
+        buttonLabel={translations["pcard.small-left.button"]}
         buttonVariant="grayGreen"
         buttonTestId="read-more-button-team"
         cardVariant="variant1"
       />
       <PhotoCardSmaller
         imageUrl="/images/card-unsplash-wine-glasses.svg"
-        title="Our Values"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        title={translations["pcard.small-right.heading"]}
+        description={translations["pcard.small-right.paragraph"]}
         buttonIcon="/icons/diamond-alt.svg"
-        buttonLabel="Read More"
+        buttonLabel={translations["pcard.small-right.button"]}
         buttonVariant="darkGreen"
         buttonTestId="read-more-button-values"
         cardVariant="variant2"
@@ -32,5 +34,6 @@ const PhotoCardsTeamValues = () => {
     </div>
   );
 };
+("Read More");
 
 export default PhotoCardsTeamValues;

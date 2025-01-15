@@ -2,8 +2,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import LanguageSwitch from "./LanguageSwitch";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const Navbar = () => {
+  const { translations } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
 
@@ -12,10 +14,14 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { id: "home", href: "/", label: "Home" },
-    { id: "our-values", href: "/our-values", label: "Our Values" },
-    { id: "our-team", href: "/our-team", label: "Our Team" },
-    { id: "contact", href: "/contact", label: "Contact" },
+    { id: "home", href: "/", label: translations["navbar.home"] },
+    {
+      id: "our-values",
+      href: "/our-values",
+      label: translations["navbar.values"],
+    },
+    { id: "our-team", href: "/our-team", label: translations["navbar.team"] },
+    { id: "contact", href: "/contact", label: translations["navbar.contact"] },
   ];
 
   const handleClick = (href) => {

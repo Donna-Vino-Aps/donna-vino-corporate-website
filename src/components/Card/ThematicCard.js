@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const ThematicCard = ({
   imageUrl,
@@ -30,6 +31,7 @@ const ThematicCard = ({
     };
   }, []);
 
+  const { translations } = useLanguage();
   return (
     <div
       className={`thematicDiv relative flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-md mb-1 w-[21.5rem] transition-all duration-300 ${
@@ -94,14 +96,14 @@ const ThematicCard = ({
               <div className="flex">
                 <img className="" src="/icons/chevron-up-circle.svg"></img>
                 <p className="text-titleMedium font-medium mb-[3px] ml-2">
-                  Show less
+                  {translations["thematic.button-less"]}
                 </p>
               </div>
             ) : (
               <div className="flex">
                 <img className="" src="/icons/chevron-down-circle.svg"></img>
                 <p className="text-titleMedium font-medium mb-[3px] ml-2">
-                  Show more
+                  {translations["thematic.button-more"]}
                 </p>
               </div>
             )}

@@ -1,25 +1,27 @@
 "use client";
 import React from "react";
 import Button from "../Button/Button";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const MapSection = () => {
+  const { translations } = useLanguage();
   const locationUrl =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5241.493541829231!2d12.58358672190343!3d55.67324322733157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652533e8d361235%3A0xc1ba3e3332796500!2sWildersgade%2023%2C%201408%20K%C3%B8benhavn!5e0!3m2!1sen!2sdk!4v1736181373995!5m2!1sen!2sdk";
 
   const infoItems = [
     {
       icon: "/icons/location.svg",
-      title: "Our Location",
+      title: translations["contact.subheading1"],
       description: "Wildersgade 23, 1408 København K",
     },
     {
       icon: "/icons/phone-map.svg",
-      title: "Phone Number",
+      title: translations["contact.subheading2"],
       description: "+45 12 34 56 78",
     },
     {
       icon: "/icons/email.svg",
-      title: "Email Address",
+      title: translations["contact.subheading3"],
       description: "info@donnvino.dk",
     },
   ];
@@ -45,7 +47,7 @@ const MapSection = () => {
 
       <div className="flex-1 bg-tertiary1-hover md:rounded-[32px] md:my-6 my-2 rounded-b-[32px] w-full">
         <h2 className="md:text-displayMedium text-displaySmall font-medium my-4 ml-8">
-          Where can you find us?
+          {translations["contact.heading"]}
         </h2>
         <div className="space-y-8 mt-6 mb-4 md:mx-8 m-6">
           {infoItems.map((item, index) => (
@@ -68,7 +70,7 @@ const MapSection = () => {
             </div>
           ))}
           <Button
-            text={"Check on Maps"}
+            text={translations["contact.button-check"]}
             icon="/icons/map.svg"
             onClick={() => {}}
             variant="gray"

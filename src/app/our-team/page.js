@@ -2,61 +2,57 @@
 import React from "react";
 import MemberCard from "@/components/Card/MemberCard";
 import Button from "@/components/Button/Button";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const OurTeam = () => {
+  const { translations } = useLanguage();
   const teamMembers = [
     {
       tabindex: 0,
       img: "/images/team/photo-katrine.png",
       name: "Katrine Giogio",
-      title: "Founder",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      title: translations["team.kat.title"],
+      description: translations["team.kat.description"],
       links: "/icons/linkedin-alt-light.svg",
     },
     {
       tabindex: 1,
       img: "/images/team/photo-davide.png",
       name: "Davide Zampieri",
-      title: "Co-Founder & Project Manager",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      title: translations["team.dav.title"],
+      description: translations["team.dav.description"],
       links: "/icons/linkedin-alt-light.svg",
     },
     {
       tabindex: 2,
       img: "/images/team/photo-ricardo.png",
       name: "Ricardo Lara",
-      title: "Head Chef & Cibi e Vini Owner",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      title: translations["team.ric.title"],
+      description: translations["team.ric.description"],
       links: "/icons/linkedin-alt-light.svg",
     },
     {
       tabindex: 3,
       img: "/images/team/photo-rick.png",
       name: "Andrea Braschi",
-      title: "Sales & BDR",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      title: translations["team.and.title"],
+      description: translations["team.and.description"],
       links: "/icons/linkedin-alt-light.svg",
     },
     {
       tabindex: 4,
       img: "/images/team/photo-diana.png",
       name: "Diana Lorens",
-      title: "FullStack Developer",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      title: translations["team.dia.title"],
+      description: translations["team.dia.description"],
       links: "/icons/github.svg",
     },
     {
       tabindex: 5,
       img: "/images/team/photo-pablo.png",
       name: "Pablo Diaz",
-      title: "Product Owner",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      title: translations["team.pab.title"],
+      description: translations["team.pab.description"],
       links: "/icons/linkedin-alt-light.svg",
     },
   ];
@@ -66,7 +62,7 @@ const OurTeam = () => {
       <div className="w-full">
         <div className="px-2 py-4 sm:mx-8">
           <Button
-            text="Go back"
+            text={translations["button.go-back"]}
             icon="/icons/back-arrow.svg"
             variant="redLine"
             ariaLabel="Go back"
@@ -80,14 +76,14 @@ const OurTeam = () => {
           className="text-center text-primary-normal mt-6"
           data-testid="our-team-tagline"
         >
-          #OneTeamOneDream
+          {translations["team.hashtag"]}
         </p>
 
         <h2
           className="text-displayMedium md:text-displayLarge text-center"
           data-testid="our-team-title"
         >
-          Our Awesome Team
+          {translations["team.heading"]}
         </h2>
 
         <div className="flex flex-col justify-center items-center w-full">
@@ -95,8 +91,7 @@ const OurTeam = () => {
             className="text-titleMedium text-tertiary1-gray mt-4 text-center mb-4 max-w-[476px]"
             data-testid="our-team-description"
           >
-            There are many variations of passages of Lorem Ipsum available but
-            the majority have suffered alteration in some form.
+            {translations["team.paragraph"]}
           </p>
         </div>
         <div

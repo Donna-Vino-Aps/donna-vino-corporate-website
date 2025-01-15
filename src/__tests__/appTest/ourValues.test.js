@@ -1,6 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import OurValuesPage from "@/app/our-values/page";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
 
 jest.mock("../../components/OurValues/OurValues", () => {
   return jest.fn(() => (
@@ -9,8 +11,17 @@ jest.mock("../../components/OurValues/OurValues", () => {
 });
 
 describe("OurValuesPage", () => {
+  // Mock the screen size adjustment for small screens
+  const renderWithLanguage = (translations = enTranslations) => {
+    return render(
+      <LanguageProvider value={translations}>
+        <OurValuesPage />
+      </LanguageProvider>,
+    );
+  };
+
   beforeEach(() => {
-    render(<OurValuesPage />);
+    renderWithLanguage();
   });
 
   it("should render the OurValuesPage with the mocked OurValues component", () => {
