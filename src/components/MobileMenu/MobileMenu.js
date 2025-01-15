@@ -2,8 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import LanguageSwitch from "../Navbar/LanguageSwitch";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
+  const { translations } = useLanguage();
+
   return (
     <div
       className={`fixed right-0 top-0 w-full h-full sm:hidden z-40 ${
@@ -15,7 +18,6 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
       aria-labelledby="mobile-menu-heading"
     >
       <div className="flex flex-col h-full gap-16 p-8 bg-white">
-        {/* Header */}
         <div className="flex justify-between items-center">
           <img
             src="/images/donna-vino-logo-transparent.png"
@@ -35,7 +37,6 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
           Mobile navigation menu
         </h2>
 
-        {/* Menu Links */}
         <ul className="flex flex-col space-y-4">
           {navLinks.map((link) => (
             <li key={link.label}>
@@ -56,7 +57,9 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
         </div>
 
         <div className="flex flex-col gap-6">
-          <h4 className="text-labelXLarge font-semibold">Follow Us On</h4>
+          <h4 className="text-labelXLarge font-semibold">
+            {translations["footer.follow"]}{" "}
+          </h4>{" "}
           <div
             className="flex gap-4 justify-start"
             aria-label="Social media icons"
