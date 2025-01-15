@@ -95,24 +95,31 @@ describe("Subscribe Component", () => {
     expect(submitButton).toBeDisabled();
   });
 
-  // test("enables the submit button once loading is complete", () => {
-  //   useFetch.mockReturnValueOnce({
-  //     isLoading: true,
-  //     error: null,
-  //     performFetch: performFetchMock,
-  //   });
-  //   useFetch.mockReturnValueOnce({
-  //     isLoading: false,
-  //     error: null,
-  //     performFetch: performFetchMock,
-  //   });
+  test("enables the submit button once loading is complete", async () => {
+    useFetch.mockReturnValueOnce({
+      isLoading: true,
+      error: null,
+      performFetch: jest.fn(),
+    });
 
-  //   const { rerender } = renderWithProvider();
-  //   expect(screen.getByText(/Submitting.../i)).toBeDisabled();
+    const { rerender } = renderWithProvider();
+    expect(screen.getByText(/Submitting.../i)).toBeDisabled();
 
-  //   rerender(<Subscribe />);
-  //   expect(screen.getByText(/Submit/i)).not.toBeDisabled();
-  // });
+    useFetch.mockReturnValueOnce({
+      isLoading: false,
+      error: null,
+      performFetch: jest.fn(),
+    });
+
+    rerender(
+      <MockLanguageProvider language="en">
+        <Subscribe />
+      </MockLanguageProvider>,
+    );
+    await waitFor(() => {
+      expect(screen.getByText(/Submit/i)).not.toBeDisabled();
+    });
+  });
 
   test("calls performFetch with correct parameters on form submit", () => {
     renderWithProvider();
