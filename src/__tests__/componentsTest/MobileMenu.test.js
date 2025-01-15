@@ -21,15 +21,14 @@ describe("MobileMenu Component", () => {
       />,
     );
 
-    // Check if nav links are rendered
     navLinksMock.forEach((link) => {
       expect(screen.getByText(link.label)).toBeInTheDocument();
     });
 
-    // Check if the close button is rendered
-    expect(screen.getByRole("button", { name: "close" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Close menu" }),
+    ).toBeInTheDocument();
 
-    // Check if the social media icons are rendered
     expect(screen.getByAltText("Instagram")).toBeInTheDocument();
     expect(screen.getByAltText("LinkedIn")).toBeInTheDocument();
     expect(screen.getByAltText("Facebook")).toBeInTheDocument();
@@ -44,7 +43,6 @@ describe("MobileMenu Component", () => {
       />,
     );
 
-    // Ensure the menu container is not visible
     const mobileMenu = screen.getByTestId("mobile-menu");
     expect(mobileMenu).toHaveClass("translate-x-full");
     expect(mobileMenu).not.toHaveClass("translate-x-0");
@@ -59,10 +57,8 @@ describe("MobileMenu Component", () => {
       />,
     );
 
-    // Simulate clicking the close button
-    fireEvent.click(screen.getByRole("button", { name: "close" }));
+    fireEvent.click(screen.getByRole("button", { name: "Close menu" }));
 
-    // Ensure the toggleMenu function is called
     expect(mockToggleMenu).toHaveBeenCalledTimes(1);
   });
 
@@ -75,10 +71,8 @@ describe("MobileMenu Component", () => {
       />,
     );
 
-    // Simulate clicking a nav link
     fireEvent.click(screen.getByText("Our Values"));
 
-    // Ensure the toggleMenu function is called when a link is clicked
     expect(mockToggleMenu).toHaveBeenCalled();
   });
 });
