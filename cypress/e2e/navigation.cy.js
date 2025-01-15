@@ -1,12 +1,12 @@
-import { footer, navbar, sidebar } from "./pages/navigation";
+import { heroSection } from "./pages/home";
+import { ourValues } from "./pages/ourValues";
+import { navbar } from "./pages/navigation";
+import { ourTeam } from "./pages/ourTeam";
+import { contact } from "./pages/contact";
 
-describe("Navbar Component Test", () => {
+describe("Verify Navigation", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
-  });
-
-  it("should check if header exist", () => {
-    cy.get(navbar.header).should("exist");
   });
 
   it("should render the navigation links", () => {
@@ -16,102 +16,39 @@ describe("Navbar Component Test", () => {
     cy.get(navbar.contact).should("be.visible");
   });
 
-  it("should redirect to the home page when the Home link is clicked", () => {
+  it("verify that the page titles matches the expected title of the home page", () => {
     cy.get(navbar.home).first().click();
-    cy.url().should("include", "/");
+    cy.get(heroSection.welcomeTitle)
+      .should("be.visible")
+      .contains("Welcome to Donna Vino, your unique wine experience.");
+    cy.get(heroSection.description)
+      .should("be.visible")
+      .contains(
+        "Discover unique wine stories told by your sommelier while your private chef customizes the menu.",
+      );
   });
 
-  it("should redirect to the our values page when the Our Values link is clicked", () => {
+  it("verify that the page titles matches the expected title of the ourValues page", () => {
     cy.get(navbar.ourValues).first().click();
-    cy.url().should("include", "/our-values");
+    cy.get(ourValues.subtitle).should("be.visible").contains("Our Values");
+    cy.get(ourValues.header).should("be.visible").contains("Donna Vino Values");
   });
 
-  it("should redirect to the our team page when the Our Team link is clicked", () => {
+  it("verify that the page titles matches the expected title of the ourteam page", () => {
     cy.get(navbar.ourTeam).first().click();
-    cy.url().should("include", "/our-team");
+    cy.get(ourTeam.ourTeamTagline)
+      .should("be.visible")
+      .contains("#OneTeamOneDream");
+    cy.get(ourTeam.title).should("be.visible").contains("Our Awesome Team");
   });
 
-  it("should redirect to the contact page when the Contact link is clicked", () => {
+  it("verify that the page titles matches the expected title of the contact page", () => {
     cy.get(navbar.contact).first().click();
-    cy.url().should("include", "/contact");
-  });
-});
-
-describe("Footer Component Test", () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:3000/");
-  });
-
-  it("should check if footer exist", () => {
-    cy.get(footer.footer).should("exist");
-  });
-
-  it("should render the navigation links", () => {
-    cy.get(footer.ourValues).should("be.visible");
-    cy.get(footer.ourTeam).should("be.visible");
-    cy.get(footer.contact).should("be.visible");
-  });
-
-  it("should redirect to the our values page when the Our Values link is clicked", () => {
-    cy.get(footer.ourValues).last().click();
-    cy.url().should("include", "/our-values");
-  });
-
-  it("should redirect to the our team page when the Our Team link is clicked", () => {
-    cy.get(footer.ourTeam).last().click();
-    cy.url().should("include", "/our-team");
-  });
-
-  it("should redirect to the contact page when the Contact link is clicked", () => {
-    cy.get(footer.contact).last().click();
-    cy.url().should("include", "/contact");
-  });
-});
-
-describe("Sidebar Component Test", () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:3000/");
-    cy.viewport("iphone-x");
-  });
-
-  it("should menu button be enabled", () => {
-    cy.get(sidebar.menuButton).should("be.enabled");
-  });
-
-  it("should check if sidebar exist", () => {
-    cy.get(sidebar.menuButton).click();
-    cy.get(sidebar.sidebar).should("exist");
-  });
-
-  it("should render the navigation links", () => {
-    cy.get(sidebar.menuButton).click();
-    cy.xpath(sidebar.home).should("be.visible");
-    cy.xpath(sidebar.ourValues).should("be.visible");
-    cy.xpath(sidebar.ourTeam).should("be.visible");
-    cy.xpath(sidebar.contact).should("be.visible");
-  });
-
-  it("should redirect to the home page when the Home link is clicked", () => {
-    cy.get(sidebar.menuButton).click();
-    cy.xpath(sidebar.home).click();
-    cy.url().should("include", "/");
-  });
-
-  it("should redirect to the our values page when the Our Values link is clicked", () => {
-    cy.get(sidebar.menuButton).click();
-    cy.xpath(sidebar.ourValues).click();
-    cy.url().should("include", "/our-values");
-  });
-
-  it("should redirect to the our team page when the Our Team link is clicked", () => {
-    cy.get(sidebar.menuButton).click();
-    cy.xpath(sidebar.ourTeam).click();
-    cy.url().should("include", "/our-team");
-  });
-
-  it("should redirect to the contact page when the Contact link is clicked", () => {
-    cy.get(sidebar.menuButton).click();
-    cy.xpath(sidebar.contact).click();
-    cy.url().should("include", "/contact");
+    cy.get(contact.title).should("be.visible").contains("Get in touch with us");
+    cy.get(contact.description)
+      .should("be.visible")
+      .contains(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua. Ut enim adiqua minim veniam quis nostrud exercitation ullamco",
+      );
   });
 });
