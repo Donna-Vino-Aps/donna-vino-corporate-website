@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="grid grid-cols-1 relative top-2 gap-1 md:top-0 md:grid-cols-5 md:mt-24 md:gap-5 lg:gap-8 xl:gap-11">
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
-            className="h-20 rounded relative mt-4 mb-4 md:mt-0 md:mb-0 md:right-4"
+            className="h-[5.351rem] w-[7.75rem] rounded relative mt-4 mb-4 md:mt-0 md:mb-0 md:right-4"
             src="/images/donna-vino-logo-transparent.png"
             alt="Donna Vino Logo - Red background, white text saying 'Donna Vino'"
             data-testid="logo-footer"
@@ -53,7 +53,7 @@ const Footer = () => {
           {translations["footer.contact"]}
         </Link>
         <div className="p-2 order-1 md:order-4">
-          <h4 className="pb-3 text-bodyLarge text-semibold">
+          <h4 className="pb-2 md:pb-3 text-bodyLarge text-semibold">
             {translations["footer.follow"]}
           </h4>
           <div
@@ -67,7 +67,7 @@ const Footer = () => {
               <img
                 src="/icons/footer/facebook-line.svg"
                 alt="Facebook Logo"
-                className="h-4 filter brightness-0 invert"
+                className="h-[1.5rem] w-[1.5rem] filter brightness-0 invert"
               ></img>
             </a>
             <a
@@ -77,14 +77,14 @@ const Footer = () => {
               <img
                 src="/icons/footer/instagram-original.svg"
                 alt="Instagram Logo"
-                className="h-4 filter brightness-0 invert"
+                className="h-[1.5rem] w-[1.5rem] filter brightness-0 invert"
               ></img>
             </a>
             <a href="/icons/footer/linkedin-alt.svg" className="text-white">
               <img
                 src="/icons/footer/linkedin-alt.svg"
                 alt="LinkedIn Logo"
-                className="h-4 filter brightness-0 invert"
+                className="h-[1.5rem] w-[1.5rem] filter brightness-0 invert"
               ></img>
             </a>
           </div>
