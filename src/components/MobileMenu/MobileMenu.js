@@ -19,69 +19,97 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
     >
       <div className="flex flex-col h-full gap-16 p-8 bg-white">
         <div className="flex justify-between items-center">
-          <img
-            src="/images/donna-vino-logo-transparent.png"
-            alt="Donna Vino's logo"
-            className="w-[7.65rem] h-[5.37rem]"
-          />
+          <a href="/">
+            <img
+              src="/images/donna-vino-logo-transparent.png"
+              alt="Donna Vino's logo"
+              className="w-[7.65rem] h-[5.37rem]"
+            />
+          </a>
           <button
+            role="button"
             className="self-start"
             onClick={toggleMenu}
-            aria-label="Close menu"
+            aria-label="Close navigation menu"
           >
-            <img src="/icons/close.svg" alt="Close icon" className="w-5" />
+            <img
+              src="/icons/close.svg"
+              alt="Close icon"
+              className="w-[1.12rem] h-[1.12rem]"
+            />
           </button>
         </div>
 
-        <h2 id="mobile-menu-heading" className="sr-only">
-          Mobile navigation menu
-        </h2>
-
-        <ul className="flex flex-col space-y-4">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                onClick={toggleMenu}
-                className="block py-2 text-bodyLarge text-tertiary1"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <hr className="my-2 border-t-slate-300" />
+        <div className="flex flex-col gap-8">
+          <h2 id="mobile-menu-heading" className="sr-only">
+            Mobile navigation menu
+          </h2>
+          <h2
+            className="text-labelXLarge font-semibold"
+            data-testid="mobile-menu-heading"
+          >
+            Menu
+          </h2>
+          <nav role="navigation">
+            <ul className="flex flex-col">
+              {navLinks.map((link) => (
+                <li key={link.id}>
+                  <Link
+                    href={link.href}
+                    onClick={toggleMenu}
+                    className="block py-2 text-bodyLarge text-tertiary1"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <hr className="border-t-slate-300" />
+        </div>
 
         <div className="w-[5.12rem] h-[2.87rem]">
           <LanguageSwitch />
         </div>
 
         <div className="flex flex-col gap-6">
-          <h4 className="text-labelXLarge font-semibold">
-            {translations["footer.follow"]}{" "}
-          </h4>{" "}
+          <h3 className="text-labelXLarge font-semibold">
+            {translations["footer.follow"]}
+          </h3>
           <div
-            className="flex gap-4 justify-start"
+            className="flex gap-6 justify-start"
             aria-label="Social media icons"
           >
-            <a href="#" className="text-black" aria-label="Instagram">
+            <a
+              href="#"
+              data-testid="social-icon-instagram-link"
+              aria-label="Instagram"
+            >
               <img
                 src="/icons/instagram-original.svg"
-                className="h-4 filter brightness-0"
+                className="h-[1.5rem] filter brightness-0"
                 alt="Instagram"
               />
             </a>
-            <a href="#" className="text-black" aria-label="LinkedIn">
+            <a
+              href="#"
+              data-testid="social-icon-linkedin-link"
+              aria-label="LinkedIn"
+            >
               <img
                 src="/icons/linkedin-alt.svg"
-                className="h-4 filter brightness-0"
+                className="h-[1.5rem] filter brightness-0"
                 alt="LinkedIn"
               />
             </a>
-            <a href="#" className="text-black" aria-label="Facebook">
+            <a
+              href="#"
+              data-testid="social-icon-facebook-link"
+              aria-label="Facebook"
+            >
               <img
                 src="/icons/facebook-line.svg"
-                className="h-4 filter brightness-0"
+                className="h-[1.5rem] filter brightness-0"
                 alt="Facebook"
               />
             </a>
