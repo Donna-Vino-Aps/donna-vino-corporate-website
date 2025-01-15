@@ -4,7 +4,19 @@ import { useLanguage } from "@/app/context/LanguageContext";
 import React, { useEffect } from "react";
 
 function LanguageSwitch() {
-  const [selectedLanguage, setLanguage] = useState("en");
+  const { language, setLanguage } = useLanguage();
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("pageLanguage");
+    if (savedLanguage) {
+      setLanguage(savedLanguage);
+    }
+  }, [setLanguage]);
+
+  const handleLanguageChange = (newLanguage) => {
+    setLanguage(newLanguage);
+    localStorage.setItem("pageLanguage", newLanguage);
+  };
 
   return (
     <div
@@ -20,11 +32,11 @@ function LanguageSwitch() {
         <button
           data-testid="en-icon"
           aria-label="Switch to English"
-          aria-pressed={selectedLanguage === "en"}
+          aria-pressed={language === "en"}
           className={`flex items-center justify-center w-[2.25rem] h-[2.25rem] rounded-md hover:bg-primary-light ${
-            selectedLanguage === "en" ? "bg-primary-light" : ""
+            language === "en" ? "bg-primary-light" : ""
           }`}
-          onClick={() => setLanguage("en")}
+          onClick={() => handleLanguageChange("en")}
         >
           <img
             src="/images/ic_en.png"
@@ -35,11 +47,11 @@ function LanguageSwitch() {
         <button
           data-testid="dk-icon"
           aria-label="Switch to Danish"
-          aria-pressed={selectedLanguage === "dk"}
+          aria-pressed={language === "dk"}
           className={`flex items-center justify-center w-[2.25rem] h-[2.25rem] rounded-md hover:bg-primary-light ${
-            selectedLanguage === "dk" ? "bg-primary-light" : ""
+            language === "dk" ? "bg-primary-light" : ""
           }`}
-          onClick={() => setLanguage("dk")}
+          onClick={() => handleLanguageChange("dk")}
         >
           <img
             src="/images/ic_dk.png"

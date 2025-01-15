@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import MobileMenu from "../../components/MobileMenu/MobileMenu";
+import { LanguageProvider } from "@/app/context/LanguageContext";
 import "@testing-library/jest-dom";
 
 describe("MobileMenu Component", () => {
@@ -14,11 +15,13 @@ describe("MobileMenu Component", () => {
 
   it("renders correctly when menu is open", () => {
     render(
-      <MobileMenu
-        isMenuOpen={true}
-        toggleMenu={mockToggleMenu}
-        navLinks={navLinksMock}
-      />,
+      <LanguageProvider>
+        <MobileMenu
+          isMenuOpen={true}
+          toggleMenu={mockToggleMenu}
+          navLinks={navLinksMock}
+        />
+      </LanguageProvider>,
     );
 
     navLinksMock.forEach((link) => {
@@ -36,11 +39,14 @@ describe("MobileMenu Component", () => {
 
   it("does not render the menu when isMenuOpen is false", () => {
     render(
-      <MobileMenu
-        isMenuOpen={false}
-        toggleMenu={mockToggleMenu}
-        navLinks={navLinksMock}
-      />,
+      <LanguageProvider>
+        {" "}
+        <MobileMenu
+          isMenuOpen={false}
+          toggleMenu={mockToggleMenu}
+          navLinks={navLinksMock}
+        />
+      </LanguageProvider>,
     );
 
     const mobileMenu = screen.getByTestId("mobile-menu");
@@ -50,11 +56,13 @@ describe("MobileMenu Component", () => {
 
   it("calls toggleMenu when the close button is clicked", () => {
     render(
-      <MobileMenu
-        isMenuOpen={true}
-        toggleMenu={mockToggleMenu}
-        navLinks={navLinksMock}
-      />,
+      <LanguageProvider>
+        <MobileMenu
+          isMenuOpen={true}
+          toggleMenu={mockToggleMenu}
+          navLinks={navLinksMock}
+        />
+      </LanguageProvider>,
     );
 
     fireEvent.click(screen.getByRole("button", { name: "Close menu" }));
@@ -64,11 +72,13 @@ describe("MobileMenu Component", () => {
 
   it("navigates correctly when a nav link is clicked", () => {
     render(
-      <MobileMenu
-        isMenuOpen={true}
-        toggleMenu={mockToggleMenu}
-        navLinks={navLinksMock}
-      />,
+      <LanguageProvider>
+        <MobileMenu
+          isMenuOpen={true}
+          toggleMenu={mockToggleMenu}
+          navLinks={navLinksMock}
+        />
+      </LanguageProvider>,
     );
 
     fireEvent.click(screen.getByText("Our Values"));

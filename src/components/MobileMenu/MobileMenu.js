@@ -14,22 +14,20 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
       aria-hidden={!isMenuOpen}
       aria-labelledby="mobile-menu-heading"
     >
-      <div className="flex flex-col h-full pt-6 px-6 bg-white">
-        {/* Logo and Close Button Container */}
-        <div className="flex justify-between mb-6">
-          <div className="flex items-center">
-            <img
-              src="/images/donna-vino-logo-transparent.png"
-              alt="Donna Vino's logo"
-              className="h-16 rounded logo"
-            />
-          </div>
+      <div className="flex flex-col h-full gap-16 p-8 bg-white">
+        {/* Header */}
+        <div className="flex justify-between items-center">
+          <img
+            src="/images/donna-vino-logo-transparent.png"
+            alt="Donna Vino's logo"
+            className="w-[7.65rem] h-[5.37rem]"
+          />
           <button
             className="self-start"
             onClick={toggleMenu}
             aria-label="Close menu"
           >
-            <img src="/icons/close.svg" alt="Close icon" className="mr-2 w-5" />
+            <img src="/icons/close.svg" alt="Close icon" className="w-5" />
           </button>
         </div>
 
@@ -37,33 +35,32 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
           Mobile navigation menu
         </h2>
 
-        {/* Menu Links Container */}
-        <div className="flex flex-col space-y-4">
-          <ul>
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  onClick={toggleMenu}
-                  className="block py-2 text-bodyLarge text-tertiary1"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <hr className="my-2 border-t-slate-300" />
-        </div>
+        {/* Menu Links */}
+        <ul className="flex flex-col space-y-4">
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                onClick={toggleMenu}
+                className="block py-2 text-bodyLarge text-tertiary1"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <hr className="my-2 border-t-slate-300" />
 
-        {/* Language Switch Container */}
-        <div className="mt-12">
+        <div className="w-[5.12rem] h-[2.87rem]">
           <LanguageSwitch />
         </div>
 
-        {/* Follow Us Container */}
-        <div className="pt-12">
-          <h4 className="pb-3 font-semibold footerHeading">Follow Us On</h4>
-          <div className="flex gap-4 m-1" aria-label="Social media icons">
+        <div className="flex flex-col gap-6">
+          <h4 className="text-labelXLarge font-semibold">Follow Us On</h4>
+          <div
+            className="flex gap-4 justify-start"
+            aria-label="Social media icons"
+          >
             <a href="#" className="text-black" aria-label="Instagram">
               <img
                 src="/icons/instagram-original.svg"

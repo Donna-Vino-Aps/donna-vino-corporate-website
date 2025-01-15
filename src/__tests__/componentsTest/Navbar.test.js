@@ -54,7 +54,11 @@ describe("Navbar component", () => {
   });
 
   test("should toggle the mobile menu when the menu button is clicked", () => {
-    render(<Navbar />);
+    render(
+      <LanguageProvider>
+        <Navbar />
+      </LanguageProvider>,
+    );
 
     const menuToggleButton = screen.getByTestId("menu-toggle");
     expect(menuToggleButton).toBeInTheDocument();
