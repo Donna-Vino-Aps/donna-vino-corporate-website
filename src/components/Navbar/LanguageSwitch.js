@@ -5,7 +5,7 @@ function LanguageSwitch() {
 
   return (
     <div
-      className="flex w-[5.12rem] h-[2.87rem] items-center justify-center gap-2 shadow-md rounded-sm absolute right-[3.44rem]"
+      className="flex w-[5.12rem] h-[2.87rem] items-center justify-center gap-2 shadow-sm rounded-sm absolute right-[3.44rem]"
       data-testid="language-switch-container"
       role="group"
       aria-label="Language Switch"
