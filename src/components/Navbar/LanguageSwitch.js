@@ -22,7 +22,7 @@ function LanguageSwitch() {
     <div
       className="flex w-[5.12rem] h-[2.87rem] items-center justify-center gap-2 shadow-sm rounded-sm sm:absolute sm:right-[3.44rem]"
       data-testid="language-switch-container"
-      role="group"
+      role="toolbar"
       aria-label="Language Switch"
     >
       <div

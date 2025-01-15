@@ -11,11 +11,9 @@ describe("Navbar component", () => {
       </LanguageProvider>,
     );
 
-    // Verificar que el logo esté presente y tenga el atributo alt correcto
     const logo = screen.getByAltText("Donna Vino logo");
     expect(logo).toBeInTheDocument();
 
-    // Verificar que los enlaces del menú estén presentes
     const homeLink = screen.getByTestId("nav-link-home");
     expect(homeLink).toBeInTheDocument();
     expect(homeLink).toHaveTextContent("Home");
