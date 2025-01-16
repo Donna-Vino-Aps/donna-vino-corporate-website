@@ -1,10 +1,10 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import MobileMenu from "../../components/MobileMenu/MobileMenu";
+import SideBar from "@/components/Sidebar/Sidebar";
 import { LanguageProvider } from "@/app/context/LanguageContext";
 import "@testing-library/jest-dom";
 
-describe("MobileMenu Component", () => {
+describe("SideBar Component", () => {
   const mockToggleMenu = jest.fn();
   const navLinksMock = [
     { id: "home", href: "/", label: "Home" },
@@ -13,10 +13,10 @@ describe("MobileMenu Component", () => {
     { id: "contact", href: "/contact", label: "Contact" },
   ];
 
-  it("renders correctly when menu is open", () => {
+  it("renders correctly when sidebar is open", () => {
     render(
       <LanguageProvider>
-        <MobileMenu
+        <SideBar
           isMenuOpen={true}
           toggleMenu={mockToggleMenu}
           navLinks={navLinksMock}
@@ -29,7 +29,7 @@ describe("MobileMenu Component", () => {
     });
 
     expect(
-      screen.getByRole("button", { name: "Close navigation menu" }),
+      screen.getByRole("button", { name: "Close sidebar" }),
     ).toBeInTheDocument();
 
     expect(screen.getByAltText("Instagram")).toBeInTheDocument();
@@ -37,10 +37,10 @@ describe("MobileMenu Component", () => {
     expect(screen.getByAltText("Facebook")).toBeInTheDocument();
   });
 
-  it("does not render the menu when isMenuOpen is false", () => {
+  it("does not render the sidebar when isMenuOpen is false", () => {
     render(
       <LanguageProvider>
-        <MobileMenu
+        <SideBar
           isMenuOpen={false}
           toggleMenu={mockToggleMenu}
           navLinks={navLinksMock}
@@ -48,19 +48,19 @@ describe("MobileMenu Component", () => {
       </LanguageProvider>,
     );
 
-    const mobileMenu = screen.getByTestId("mobile-menu");
+    const sideBar = screen.getByTestId("side-bar");
 
-    // Check that the menu is visually hidden
-    expect(mobileMenu).toHaveClass("translate-x-full");
-    expect(mobileMenu).not.toHaveClass("translate-x-0");
+    // Check that the sidebar is visually hidden
+    expect(sideBar).toHaveClass("translate-x-full");
+    expect(sideBar).not.toHaveClass("translate-x-0");
 
-    expect(mobileMenu).toHaveAttribute("inert", "");
+    expect(sideBar).toHaveAttribute("inert", "");
   });
 
   it("calls toggleMenu when the close button is clicked", () => {
     render(
       <LanguageProvider>
-        <MobileMenu
+        <SideBar
           isMenuOpen={true}
           toggleMenu={mockToggleMenu}
           navLinks={navLinksMock}
@@ -68,9 +68,7 @@ describe("MobileMenu Component", () => {
       </LanguageProvider>,
     );
 
-    fireEvent.click(
-      screen.getByRole("button", { name: "Close navigation menu" }),
-    );
+    fireEvent.click(screen.getByRole("button", { name: "Close sidebar" }));
 
     expect(mockToggleMenu).toHaveBeenCalledTimes(1);
   });
@@ -78,7 +76,7 @@ describe("MobileMenu Component", () => {
   it("navigates correctly when a nav link is clicked", () => {
     render(
       <LanguageProvider>
-        <MobileMenu
+        <SideBar
           isMenuOpen={true}
           toggleMenu={mockToggleMenu}
           navLinks={navLinksMock}
@@ -94,7 +92,7 @@ describe("MobileMenu Component", () => {
   it("should have correct aria-labels for social media icons", () => {
     render(
       <LanguageProvider>
-        <MobileMenu
+        <SideBar
           isMenuOpen={true}
           toggleMenu={mockToggleMenu}
           navLinks={navLinksMock}
@@ -119,7 +117,7 @@ describe("MobileMenu Component", () => {
   it("should render the language switch component", () => {
     render(
       <LanguageProvider>
-        <MobileMenu
+        <SideBar
           isMenuOpen={true}
           toggleMenu={mockToggleMenu}
           navLinks={navLinksMock}

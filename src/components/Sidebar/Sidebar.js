@@ -4,7 +4,7 @@ import Link from "next/link";
 import LanguageSwitch from "../Navbar/LanguageSwitch";
 import { useLanguage } from "@/app/context/LanguageContext";
 
-const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
+const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
   const { translations } = useLanguage();
 
   return (
@@ -12,9 +12,9 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
       className={`fixed right-0 top-0 w-full h-full sm:hidden z-40 ${
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
-      data-testid="mobile-menu"
+      data-testid="side-bar"
       role="dialog"
-      aria-labelledby="mobile-menu-heading"
+      aria-labelledby="sidebar-heading"
       inert={!isMenuOpen}
     >
       <div className="flex flex-col h-full gap-16 p-8 bg-white">
@@ -30,7 +30,7 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
             role="button"
             className="self-start"
             onClick={toggleMenu}
-            aria-label="Close navigation menu"
+            aria-label="Close sidebar"
           >
             <img
               src="/icons/close.svg"
@@ -41,14 +41,14 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
         </div>
 
         <div className="flex flex-col gap-8">
-          <h2 id="mobile-menu-heading" className="sr-only">
-            Mobile navigation menu
+          <h2 id="sidebar-heading" className="sr-only">
+            Sidebar navigation
           </h2>
           <h2
             className="text-labelXLarge font-semibold"
-            data-testid="mobile-menu-heading"
+            data-testid="sidebar-heading"
           >
-            Menu
+            Sidebar
           </h2>
           <nav role="navigation">
             <ul className="flex flex-col">
@@ -120,7 +120,7 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
   );
 };
 
-MobileMenu.propTypes = {
+SideBar.propTypes = {
   isMenuOpen: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
   navLinks: PropTypes.arrayOf(
@@ -132,4 +132,4 @@ MobileMenu.propTypes = {
   ).isRequired,
 };
 
-export default MobileMenu;
+export default SideBar;

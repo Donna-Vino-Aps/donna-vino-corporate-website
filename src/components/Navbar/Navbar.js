@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import LanguageSwitch from "./LanguageSwitch";
-import Sidebar from "../components/Sidebar/Sidebar";
+import SideBar from "../Sidebar/Sidebar";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const Navbar = () => {
