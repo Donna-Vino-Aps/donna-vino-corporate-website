@@ -4,7 +4,7 @@ import Link from "next/link";
 import LanguageSwitch from "../Navbar/LanguageSwitch";
 import { useLanguage } from "@/app/context/LanguageContext";
 
-const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
+const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
   const { translations } = useLanguage();
 
   return (
@@ -120,7 +120,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
   );
 };
 
-SideBar.propTypes = {
+MobileMenu.propTypes = {
   isMenuOpen: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
   navLinks: PropTypes.arrayOf(
@@ -132,4 +132,4 @@ SideBar.propTypes = {
   ).isRequired,
 };
 
-export default SideBar;
+export default MobileMenu;
