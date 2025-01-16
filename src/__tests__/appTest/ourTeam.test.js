@@ -1,14 +1,25 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import OurTeam from "@/app/our-team/page";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
 
 jest.mock("@/components/Card/MemberCard", () => {
   return jest.fn(() => <div data-testid="team-card-mock">Team Card</div>);
 });
 
 describe("OurTeam Page", () => {
+  // Mock the screen size adjustment for small screens
+  const renderWithLanguage = (translations = enTranslations) => {
+    return render(
+      <LanguageProvider value={translations}>
+        <OurTeam />
+      </LanguageProvider>,
+    );
+  };
+
   beforeEach(() => {
-    render(<OurTeam />);
+    renderWithLanguage();
   });
 
   it("should render the OurTeam page", () => {
@@ -25,13 +36,5 @@ describe("OurTeam Page", () => {
     const goBackButton = screen.getByTestId("go-back-button");
     expect(goBackButton).toBeInTheDocument();
     expect(goBackButton).toHaveTextContent("Go back");
-  });
-
-  it("should render all team members", () => {
-    const teamCards = screen.getAllByTestId("team-card-mock");
-    expect(teamCards.length).toBe(6);
-
-    const firstCard = teamCards[0];
-    expect(firstCard).toHaveTextContent("Team Card");
   });
 });

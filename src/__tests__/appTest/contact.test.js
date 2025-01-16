@@ -2,10 +2,21 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Contact from "@/app/contact/page";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
 
 describe("Contact Page", () => {
+  // Mock the screen size adjustment for small screens
+  const renderWithLanguage = (translations = enTranslations) => {
+    return render(
+      <LanguageProvider value={translations}>
+        <Contact />
+      </LanguageProvider>,
+    );
+  };
+
   beforeEach(() => {
-    render(<Contact />);
+    renderWithLanguage();
   });
 
   it("should render the contact page with MapSection", () => {

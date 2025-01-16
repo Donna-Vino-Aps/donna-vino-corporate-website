@@ -1,25 +1,28 @@
 import React from "react";
 import Button from "../Button/Button";
-
-const infoItems = [
-  {
-    icon: "/icons/location-red.svg",
-    title: "Our Location",
-    description: "Christianshavn, Copenhagen",
-  },
-  {
-    icon: "/icons/phone-map-red.svg",
-    title: "Phone Number",
-    description: "(+45) 12 34 56 78",
-  },
-  {
-    icon: "/icons/email-red.svg",
-    title: "Email Address",
-    description: "info@donnvino.dk",
-  },
-];
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const ContactUs = () => {
+  const { translations } = useLanguage();
+
+  const infoItems = [
+    {
+      icon: "/icons/location-red.svg",
+      title: translations["contact.subheading1"],
+      description: "Christianshavn, Copenhagen",
+    },
+    {
+      icon: "/icons/phone-map-red.svg",
+      title: translations["contact.subheading2"],
+      description: "(+45) 12 34 56 78",
+    },
+    {
+      icon: "/icons/email-red.svg",
+      title: translations["contact.subheading3"],
+      description: "info@donnvino.dk",
+    },
+  ];
+
   return (
     <section>
       <div className="flex flex-col lg:flex-row items-center justify-between lg:px-36 bg-primary-light lg:h-[829px] px-1.5">
@@ -32,22 +35,20 @@ const ContactUs = () => {
         />
         <div className="lg:w-[526px] w-full lg:pr-12">
           <h2 className="text-headlineMedium text-primary-normal pt-3.5">
-            Contact Us
+            {translations["contact.upper.subheading"]}
           </h2>
           <h1
             className="text-displayLarge text-tertiary1-darker font-barlow mt-0"
             id="title"
             data-testid="title"
           >
-            Get in touch with us
+            {translations["contact.upper.heading"]}
           </h1>
           <p
             className="text-bodyLarge text-tertiary1-darker z-10"
             data-testid="description"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim adiqua
-            minim veniam quis nostrud exercitation ullamco
+            {translations["contact.upper.paragraph"]}
           </p>
           <div className="flex flex-col w-full hidden lg:block">
             <div className="mt-6">
@@ -85,43 +86,43 @@ const ContactUs = () => {
                 aria-labelledby="contact-us-form"
               >
                 <label htmlFor="name" className="sr-only">
-                  Your Name
+                  {translations["contact.label-name"]}
                 </label>
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your name"
+                  placeholder={translations["contact.label-name"]}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
                 <label htmlFor="email" className="sr-only">
-                  Your Email
+                  {translations["contact.label-mail"]}
                 </label>
                 <input
                   type="email"
                   name="email"
-                  placeholder="Your email"
+                  placeholder={translations["contact.label-mail"]}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
                 <label htmlFor="phone" className="sr-only">
-                  Your Phone
+                  {translations["contact.label-phone"]}
                 </label>
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Your phone"
+                  placeholder={translations["contact.label-phone"]}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
                 <label htmlFor="message" className="sr-only">
-                  Your Message
+                  {translations["contact.label-message"]}
                 </label>
                 <textarea
-                  placeholder="Your message"
+                  placeholder={translations["contact.label-message"]}
                   name="message"
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                   rows="4"
                 ></textarea>
                 <Button
-                  text="Send Message"
+                  text={translations["contact.button-submit"]}
                   variant="greenSubmit"
                   ariaLabel="Send Message"
                   testId="secondary-normal-send-message-button"

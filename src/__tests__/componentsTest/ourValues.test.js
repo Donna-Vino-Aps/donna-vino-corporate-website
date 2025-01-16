@@ -1,11 +1,36 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import OurValues from "@/components/OurValues/OurValues";
+import OurValuesPage from "@/app/our-values/page";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
+import dkTranslations from "../../translations/dk.json";
+import PropTypes from "prop-types";
+
+const MockLanguageProvider = ({ children, language = "en" }) => {
+  const translations = language === "en" ? enTranslations : dkTranslations;
+
+  return (
+    <LanguageProvider value={{ translations }}>{children}</LanguageProvider>
+  );
+};
+
+MockLanguageProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  language: PropTypes.oneOf(["en", "dk"]),
+};
+
+const renderWithProvider = (language = "en") => {
+  render(
+    <MockLanguageProvider language={language}>
+      <OurValuesPage />
+    </MockLanguageProvider>,
+  );
+};
 
 describe("OurValues Component", () => {
   it("should render the Our Values section", () => {
-    render(<OurValues />);
+    renderWithProvider();
 
     // Check the main section
     const mainSection = screen.getByTestId("our-values-main");

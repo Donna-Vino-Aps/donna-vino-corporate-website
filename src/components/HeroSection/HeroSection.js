@@ -1,7 +1,9 @@
 import React from "react";
 import Button from "../Button/Button";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const HeroSection = () => {
+  const { translations } = useLanguage();
   return (
     <section
       className="sm:mt-6 relative flex justify-between flex-col h-[53.2rem] w-screen sm:h-[44rem] sm:flex-row  bg-primary-light "
@@ -36,19 +38,18 @@ const HeroSection = () => {
           id="title"
           data-testid="title"
         >
-          Welcome to Donna Vino, your unique wine experience.
+          {translations["hero.heading"]}
         </h1>
         <p
           className="text-bodyLarge text-tertiary1-darker z-10"
           data-testid="description"
         >
-          Discover unique wine stories told by your sommelier while your private
-          chef customizes the menu.
+          {translations["hero.paragraph"]}
         </p>
         <div className="flex flex-col w-full">
           <div className="flex flex-col w-full gap-4 sm:flex-row z-10">
             <Button
-              text="Visit Our Shop"
+              text={translations["hero.button-left"]}
               icon="/icons/cart.svg"
               variant="red"
               ariaLabel="Visit our shop"
@@ -56,7 +57,7 @@ const HeroSection = () => {
             />
 
             <Button
-              text="Contact Us"
+              text={translations["hero.button-right"]}
               icon="/icons/speech-bubble-19.svg"
               variant="redLine"
               ariaLabel="Contact us"

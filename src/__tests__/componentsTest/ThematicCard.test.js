@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   render,
   screen,
@@ -6,8 +7,9 @@ import {
   act,
   waitFor,
 } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import ThematicCard from "@/components/Card/ThematicCard";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import enTranslations from "../../translations/en.json";
 
 describe("ThematicCard Component", () => {
   const defaultProps = {
@@ -20,11 +22,16 @@ describe("ThematicCard Component", () => {
     backgroundColor: "#ffffff",
   };
 
-  beforeEach(() => {
-    // Simulate small screen size
-    global.innerWidth = 800;
+  // Mock the screen size adjustment for small screens
+  const renderWithSize = (size = 1024) => {
+    global.innerWidth = size;
     global.dispatchEvent(new Event("resize"));
-  });
+    return render(
+      <LanguageProvider value={enTranslations}>
+        <ThematicCard {...defaultProps} />
+      </LanguageProvider>,
+    );
+  };
 
   afterEach(() => {
     // Reset window size after each test
@@ -32,8 +39,18 @@ describe("ThematicCard Component", () => {
     global.dispatchEvent(new Event("resize"));
   });
 
+  // Validate that defaultProps match the expected prop types
+  it("should pass prop validation with default props", () => {
+    PropTypes.checkPropTypes(
+      ThematicCard.propTypes,
+      defaultProps,
+      "prop",
+      ThematicCard.name,
+    );
+  });
+
   it("renders without crashing with correct props", () => {
-    render(<ThematicCard {...defaultProps} />);
+    renderWithSize();
     const thematicDiv = screen.getByTestId("thematicDiv");
     const img = screen.getByAltText("Test Title");
     const title = screen.getByText("Test Title");
@@ -47,9 +64,8 @@ describe("ThematicCard Component", () => {
     expect(title).toBeInTheDocument();
   });
 
-  it("toggles description when 'Show more' button is clicked", () => {
-    render(<ThematicCard {...defaultProps} />);
-
+  it("toggles description when 'Show more' button is clicked", async () => {
+    renderWithSize(500); // Ensure small screen size
     const button = screen.getByTestId("thematic-button");
     expect(button).toBeInTheDocument();
 
@@ -92,14 +108,13 @@ describe("ThematicCard Component", () => {
   });
 
   it("renders different layouts for small and large screens", async () => {
-    render(<ThematicCard {...defaultProps} />);
+    renderWithSize(500); // Ensure small screen size
 
     // Ensure the layout for small screen
     expect(screen.queryByText("Show more")).toBeInTheDocument();
 
     // Mock large screen size inside the test and trigger a resize event
-    global.innerWidth = 1200;
-    global.dispatchEvent(new Event("resize"));
+    renderWithSize(1200); // Simulate larger screen size
 
     // Wait for layout to update after resize
     await waitFor(() => {
