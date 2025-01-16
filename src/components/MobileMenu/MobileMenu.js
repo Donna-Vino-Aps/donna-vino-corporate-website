@@ -14,8 +14,8 @@ const MobileMenu = ({ isMenuOpen, toggleMenu, navLinks }) => {
       }`}
       data-testid="mobile-menu"
       role="dialog"
-      aria-hidden={!isMenuOpen}
       aria-labelledby="mobile-menu-heading"
+      inert={!isMenuOpen}
     >
       <div className="flex flex-col h-full gap-16 p-8 bg-white">
         <div className="flex justify-between items-center">

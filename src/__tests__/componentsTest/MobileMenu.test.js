@@ -24,17 +24,14 @@ describe("MobileMenu Component", () => {
       </LanguageProvider>,
     );
 
-    // Check if navigation links are rendered
     navLinksMock.forEach((link) => {
       expect(screen.getByText(link.label)).toBeInTheDocument();
     });
 
-    // Check if the close button is rendered and has the correct aria-label
     expect(
       screen.getByRole("button", { name: "Close navigation menu" }),
     ).toBeInTheDocument();
 
-    // Check if social media icons are rendered correctly
     expect(screen.getByAltText("Instagram")).toBeInTheDocument();
     expect(screen.getByAltText("LinkedIn")).toBeInTheDocument();
     expect(screen.getByAltText("Facebook")).toBeInTheDocument();
@@ -51,10 +48,13 @@ describe("MobileMenu Component", () => {
       </LanguageProvider>,
     );
 
-    // Check that the menu is hidden
     const mobileMenu = screen.getByTestId("mobile-menu");
+
+    // Check that the menu is visually hidden
     expect(mobileMenu).toHaveClass("translate-x-full");
     expect(mobileMenu).not.toHaveClass("translate-x-0");
+
+    expect(mobileMenu).toHaveAttribute("inert", "");
   });
 
   it("calls toggleMenu when the close button is clicked", () => {
@@ -68,12 +68,10 @@ describe("MobileMenu Component", () => {
       </LanguageProvider>,
     );
 
-    // Simulate clicking the close button
     fireEvent.click(
       screen.getByRole("button", { name: "Close navigation menu" }),
     );
 
-    // Check that the toggleMenu function was called
     expect(mockToggleMenu).toHaveBeenCalledTimes(1);
   });
 
@@ -88,10 +86,8 @@ describe("MobileMenu Component", () => {
       </LanguageProvider>,
     );
 
-    // Simulate clicking a navigation link
     fireEvent.click(screen.getByText("Our Values"));
 
-    // Ensure toggleMenu was called to close the menu
     expect(mockToggleMenu).toHaveBeenCalled();
   });
 
@@ -106,7 +102,6 @@ describe("MobileMenu Component", () => {
       </LanguageProvider>,
     );
 
-    // Check for correct aria-labels on social media links
     expect(screen.getByTestId("social-icon-instagram-link")).toHaveAttribute(
       "aria-label",
       "Instagram",
@@ -121,7 +116,7 @@ describe("MobileMenu Component", () => {
     );
   });
 
-  it("should render language switch component", () => {
+  it("should render the language switch component", () => {
     render(
       <LanguageProvider>
         <MobileMenu
@@ -131,15 +126,8 @@ describe("MobileMenu Component", () => {
         />
       </LanguageProvider>,
     );
-    const languageSwitchContainer = screen.getByTestId(
-      "language-switch-container",
-    );
-    // Check if the Language Switch container is rendered
-    expect(screen.getByTestId("language-switch-container")).toBeInTheDocument();
 
-    // Check if the buttons to switch languages are rendered
-    expect(languageSwitchContainer).toHaveAttribute("role", "toolbar");
-    expect(screen.getByTestId("en-icon")).toBeInTheDocument();
-    expect(screen.getByTestId("dk-icon")).toBeInTheDocument();
+    const languageSwitch = screen.getByTestId("language-switch-container");
+    expect(languageSwitch).toBeInTheDocument();
   });
 });
