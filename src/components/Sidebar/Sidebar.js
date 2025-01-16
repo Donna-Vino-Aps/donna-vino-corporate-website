@@ -14,7 +14,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
       }`}
       data-testid="side-bar"
       role="dialog"
-      aria-labelledby="sidebar-heading"
+      aria-labelledby="menu-heading"
       inert={!isMenuOpen}
     >
       <div className="flex flex-col h-full gap-16 p-8 bg-white">
@@ -30,7 +30,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
             role="button"
             className="self-start"
             onClick={toggleMenu}
-            aria-label="Close sidebar"
+            aria-label="Close menu"
           >
             <img
               src="/icons/close.svg"
@@ -41,12 +41,12 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
         </div>
 
         <div className="flex flex-col gap-8">
-          <h2 id="sidebar-heading" className="sr-only">
-            Sidebar navigation
+          <h2 id="menu-heading" className="sr-only">
+            Mobile navigation menu
           </h2>
           <h2
             className="text-labelXLarge font-semibold"
-            data-testid="sidebar-heading"
+            data-testid="menu-heading"
           >
             Menu
           </h2>
