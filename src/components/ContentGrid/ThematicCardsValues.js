@@ -26,7 +26,7 @@ const ThematicCardsValues = () => {
         <ThematicCard
           imageUrl="/images/thematic-cards/thematic-craftsmanship.png"
           cardVariant="variant2"
-          smallCardSize="small2"
+          smallCardSize="small"
           title={translations["thematic.h2"]}
           descriptionStart={translations["thematic.p2-start"]}
           descriptionEnd={translations["thematic.p2-end"]}

@@ -50,22 +50,18 @@ const ThematicCard = ({
         expanded
           ? smallCardSize === "small"
             ? "h-[52.25rem]"
-            : smallCardSize === "small2"
-              ? "h-[52.25rem]"
-              : smallCardSize === "medium"
-                ? "h-[49.75rem]"
-                : smallCardSize === "big"
-                  ? "h-[58.5rem]"
-                  : "h-[49.75rem]" // Default height if no conditions match
+            : smallCardSize === "medium"
+              ? "h-[49.75rem]"
+              : smallCardSize === "big"
+                ? "h-[58.5rem]"
+                : "h-[49.75rem]" // Default height if no conditions match
           : smallCardSize === "small"
             ? "h-[30.75rem]"
-            : smallCardSize === "small2"
-              ? "h-[30.75rem]"
-              : smallCardSize === "medium"
+            : smallCardSize === "medium"
+              ? "h-[33.5rem]"
+              : smallCardSize === "big"
                 ? "h-[33.5rem]"
-                : smallCardSize === "big"
-                  ? "h-[33.5rem]"
-                  : "h-[33.5rem]" // Default height if not expanded
+                : "h-[33.5rem]" // Default height if not expanded
       } lg:h-[18.5rem] lg:w-auto lg:ml-1 lg:mr-1 lg:mb-2 ${variantClass}`}
       data-testid="thematicDiv"
       // style={{
