@@ -48,7 +48,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
             className="text-labelXLarge font-semibold"
             data-testid="sidebar-heading"
           >
-            Sidebar
+            Menu
           </h2>
           <nav role="navigation">
             <ul className="flex flex-col">
