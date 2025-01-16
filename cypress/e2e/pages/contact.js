@@ -1,4 +1,4 @@
 export const contact = {
-  title: "[data-testid=title]",
+  title: "//h1[@id='title']",
   description: "[data-testid=description]",
 };
