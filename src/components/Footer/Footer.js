@@ -9,14 +9,14 @@ const Footer = () => {
 
   return (
     <footer
-      className="flex text-white text-center py-4 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-start justify-center"
+      className="flex text-white text-center py-4 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
       data-testid="footer"
       aria-label="Footer"
     >
-      <div className="grid grid-cols-1 relative top-2 gap-1 md:top-0 md:grid-cols-5 md:mt-24 md:gap-5 lg:gap-8 xl:gap-11">
+      <div className="flex flex-col relative items-center gap-1 bottom-3 md:mb-32 md:flex-row md:gap-6 lg:gap-9 xl:gap-12">
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
-            className="h-[5.351rem] w-[7.75rem] rounded relative mt-4 mb-4 md:mt-0 md:mb-0 md:right-4"
+            className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4 md:top-6"
             src="/images/donna-vino-logo-transparent.png"
             alt="Donna Vino Logo - Red background, white text saying 'Donna Vino'"
             data-testid="logo-footer"
@@ -52,12 +52,12 @@ const Footer = () => {
         >
           {translations["footer.contact"]}
         </Link>
-        <div className="p-2 order-1 md:order-4">
-          <h4 className="pb-2 md:pb-3 text-bodyLarge text-semibold">
+        <div className="flex flex-col order-1 md:order-4 items-center md:relative md:top-5">
+          <h4 className="text-bodyLarge text-semibold mb-1 md:mb-3 md:mt-3">
             {translations["footer.follow"]}
           </h4>
           <div
-            className="flex gap-4 ml-3 mt-3 relative right-1"
+            className="flex gap-4 justify-center mt-3 mb-1"
             aria-label="Social media icons"
           >
             <a
