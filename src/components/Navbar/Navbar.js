@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import LanguageSwitch from "./LanguageSwitch";
-import MobileMenu from "../MobileMenu/MobileMenu";
+import SideBar from "../MobileMenu/Sidebar";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const Navbar = () => {
@@ -78,7 +78,7 @@ const Navbar = () => {
       <div className="hidden sm:block w-[5.12rem] h-[2.87rem]">
         <LanguageSwitch />
       </div>
-      <MobileMenu
+      <SideBar
         id="mobile-menu"
         isMenuOpen={isMenuOpen}
         toggleMenu={toggleMenu}
