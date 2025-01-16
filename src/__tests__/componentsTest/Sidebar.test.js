@@ -29,7 +29,7 @@ describe("SideBar Component", () => {
     });
 
     expect(
-      screen.getByRole("button", { name: "Close sidebar" }),
+      screen.getByRole("button", { name: "Close menu" }),
     ).toBeInTheDocument();
 
     expect(screen.getByAltText("Instagram")).toBeInTheDocument();
@@ -68,7 +68,7 @@ describe("SideBar Component", () => {
       </LanguageProvider>,
     );
 
-    fireEvent.click(screen.getByRole("button", { name: "Close sidebar" }));
+    fireEvent.click(screen.getByRole("button", { name: "Close menu" }));
 
     expect(mockToggleMenu).toHaveBeenCalledTimes(1);
   });
