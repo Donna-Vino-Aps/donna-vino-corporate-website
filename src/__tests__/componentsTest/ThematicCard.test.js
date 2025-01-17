@@ -14,12 +14,11 @@ import enTranslations from "../../translations/en.json";
 describe("ThematicCard Component", () => {
   const defaultProps = {
     imageUrl: "/test-image.jpg",
-    imgPos: "left",
+    cardVariant: "variant1",
     smallCardSize: "medium",
     title: "Test Title",
     descriptionStart: "This is the start of the description.",
     descriptionEnd: "This is the end of the description.",
-    backgroundColor: "#ffffff",
   };
 
   // Mock the screen size adjustment for small screens

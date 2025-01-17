@@ -2,15 +2,27 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useLanguage } from "@/app/context/LanguageContext";
 
+const VARIANT_CLASSES = {
+  variant1: "bg-secondary-active",
+  variant2: "bg-secondary-light",
+};
+
+const VARIANT_CLASSES_ORDER = {
+  variant1: "lg:order-0 lg:rounded-l-3xl",
+  variant2: "lg:order-1 lg:rounded-r-3xl",
+};
+
 const ThematicCard = ({
   imageUrl,
-  imgPos,
+  cardVariant,
   smallCardSize,
   title,
   descriptionStart,
   descriptionEnd,
-  backgroundColor,
 }) => {
+  const variantClass = VARIANT_CLASSES[cardVariant] || VARIANT_CLASSES.variant1; // Default to variant1
+  const variantClassOrder =
+    VARIANT_CLASSES_ORDER[cardVariant] || VARIANT_CLASSES_ORDER.variant1; // Default to variant1
   const [expanded, setExpanded] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(true);
 
@@ -34,42 +46,35 @@ const ThematicCard = ({
   const { translations } = useLanguage();
   return (
     <div
-      className={`thematicDiv relative flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-md mb-1 w-[21.5rem] transition-all duration-300 ${
+      className={`relative flex flex-col gap-2 lg:flex-row rounded-3xl overflow-hidden shadow-md mb-1 w-[21.5rem] transition-all duration-300 ${
         expanded
           ? smallCardSize === "small"
-            ? "h-[51.25rem]"
-            : smallCardSize === "small2"
-              ? "h-[52.5rem]"
-              : smallCardSize === "medium"
-                ? "h-[49.75rem]"
-                : smallCardSize === "big"
-                  ? "h-[58.5rem]"
-                  : "h-[49.75rem]" // Default height if no conditions match
+            ? "h-[52.25rem]"
+            : smallCardSize === "medium"
+              ? "h-[49.75rem]"
+              : smallCardSize === "big"
+                ? "h-[58.5rem]"
+                : "h-[49.75rem]"
           : smallCardSize === "small"
             ? "h-[30.75rem]"
-            : smallCardSize === "small2"
-              ? "h-[30.75rem]"
-              : smallCardSize === "medium"
+            : smallCardSize === "medium"
+              ? "h-[33.5rem]"
+              : smallCardSize === "big"
                 ? "h-[33.5rem]"
-                : smallCardSize === "big"
-                  ? "h-[33.5rem]"
-                  : "h-[33.5rem]" // Default height if not expanded
-      } lg:h-[18.5rem] lg:w-auto lg:ml-1 lg:mr-1 lg:mb-2`}
+                : "h-[33.5rem]"
+      } lg:h-[18.5rem] lg:w-auto lg:ml-1 lg:mr-1 lg:mb-2 ${variantClass}`}
       data-testid="thematicDiv"
-      style={{
-        backgroundColor: backgroundColor,
-      }}
       aria-label={`Thematic card with title: ${title}`}
     >
       <img
         src={imageUrl}
         alt={title}
-        className={`cardImg object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[18.5rem] ${imgPos == "right" ? "lg:order-1" : "lg:order-0"}`}
+        className={`object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[19.5rem] ${variantClassOrder}`}
         aria-label={`Image representing ${title}`}
       ></img>
-      <div className="flex flex-col justifycenter p-6 lg:pr-12 xl:pr-10 2xl:pr-20">
+      <div className="flex flex-col justify-center p-6 lg:pl-4 lg:pr-12 xl:pl-6 xl:pr-10 2xl:pl-8 2xl:pr-20">
         <h3
-          className="text-displaySmall text-tertiary1-darker relative font-roboto mb-6 mt-2 lg:mt-4 lg:mb-5 lg:text-headlineMedium xl:mt-6 xl:text-headlineLarge" // 3xl:mt-1 3xl:mb-2
+          className="text-displaySmall text-tertiary1-darker relative font-roboto mb-5 lg:mb-4 lg:-mt-1 lg:text-headlineMedium xl:text-headlineLarge"
           aria-label={`Card title: ${title}`}
         >
           {title}
@@ -89,7 +94,7 @@ const ThematicCard = ({
         {isSmallScreen && (
           <button
             onClick={() => setExpanded(!expanded)}
-            className={`mx-auto mt-6 lg-hidden relative top-1`}
+            className={`mx-auto mt-auto py-2 px-4 self-center ${expanded ? "py-6" : "py-9"} lg-hidden`}
             data-testid="thematic-button"
           >
             {expanded ? (
@@ -117,12 +122,11 @@ const ThematicCard = ({
 // Prop validation
 ThematicCard.propTypes = {
   imageUrl: PropTypes.string.isRequired, // Image URL must be a string and is required
-  imgPos: PropTypes.string.isRequired, // Image Position must be a string and is required
+  cardVariant: PropTypes.string.isRequired, // Card Variant must be a string and is required
   smallCardSize: PropTypes.string.isRequired, // Small card size must be a string and is required
   title: PropTypes.string.isRequired, // Title must be a string and is required
   descriptionStart: PropTypes.string.isRequired, // Description-start must be a string and is required
   descriptionEnd: PropTypes.string.isRequired, // Description-end must be a string and is required
-  backgroundColor: PropTypes.string.isRequired, // Background color must be a string and is required
 };
 
 export default ThematicCard;
