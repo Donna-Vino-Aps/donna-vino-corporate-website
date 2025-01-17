@@ -8,8 +8,8 @@ const VARIANT_CLASSES = {
 };
 
 const VARIANT_CLASSES_ORDER = {
-  variant1: "lg:order-0",
-  variant2: "lg:order-1",
+  variant1: "lg:order-0 lg:rounded-l-3xl",
+  variant2: "lg:order-1 lg:rounded-r-3xl",
 };
 
 const ThematicCard = ({
@@ -54,25 +54,22 @@ const ThematicCard = ({
               ? "h-[49.75rem]"
               : smallCardSize === "big"
                 ? "h-[58.5rem]"
-                : "h-[49.75rem]" // Default height if no conditions match
+                : "h-[49.75rem]"
           : smallCardSize === "small"
             ? "h-[30.75rem]"
             : smallCardSize === "medium"
               ? "h-[33.5rem]"
               : smallCardSize === "big"
                 ? "h-[33.5rem]"
-                : "h-[33.5rem]" // Default height if not expanded
+                : "h-[33.5rem]"
       } lg:h-[18.5rem] lg:w-auto lg:ml-1 lg:mr-1 lg:mb-2 ${variantClass}`}
       data-testid="thematicDiv"
-      // style={{
-      //   backgroundColor: backgroundColor,
-      // }}
       aria-label={`Thematic card with title: ${title}`}
     >
       <img
         src={imageUrl}
         alt={title}
-        className={`object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[18.5rem] ${variantClassOrder}`}
+        className={`object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[19.5rem] ${variantClassOrder}`}
         aria-label={`Image representing ${title}`}
       ></img>
       <div className="flex flex-col justify-center p-6 lg:pl-4 lg:pr-12 xl:pl-6 xl:pr-10 2xl:pl-8 2xl:pr-20">
