@@ -28,4 +28,8 @@ export const sidebar = {
     "//a[@class='block py-2 text-bodyLarge text-tertiary1'][normalize-space()='Our Team']",
   contact:
     "//a[@class='block py-2 text-bodyLarge text-tertiary1'][normalize-space()='Contact']",
+  followUsTitle: "//h3[normalize-space()='Follow Us On']",
+  facebookIcon: "//img[@alt='Facebook']",
+  instagramIcon: "//img[@alt='Instagram']",
+  linkedinIcon: "//img[@alt='LinkedIn']",
 };
