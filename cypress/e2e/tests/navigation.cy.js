@@ -44,9 +44,7 @@ describe("Verify Navigation", () => {
 
   it("verify that the page titles matches the expected title of the contact page", () => {
     cy.get(navbar.contact).click();
-    cy.xpath(contact.title)
-      .should("be.visible")
-      .contains("Get in touch with us");
+    cy.xpath(contact.title).should("be.visible").contains("Contact Us");
     cy.get(contact.description)
       .should("be.visible")
       .contains(
@@ -97,9 +95,7 @@ describe("Verify Sidebar", () => {
 
   it("verify that the page titles matches the expected title of the contact page", () => {
     cy.xpath(sidebar.contact).click();
-    cy.xpath(contact.title)
-      .should("be.visible")
-      .contains("Get in touch with us");
+    cy.xpath(contact.title).should("be.visible").contains("Contact Us");
     cy.get(contact.description)
       .should("be.visible")
       .contains(
@@ -147,9 +143,7 @@ describe("Verify Footer", () => {
 
   it("verify that the page titles matches the expected title of the contact page", () => {
     cy.get(footer.contact).click();
-    cy.xpath(contact.title)
-      .should("be.visible")
-      .contains("Get in touch with us");
+    cy.xpath(contact.title).should("be.visible").contains("Contact Us");
     cy.get(contact.description)
       .should("be.visible")
       .contains(
@@ -213,9 +207,7 @@ describe("Verify Footer in mobile version", () => {
 
   it("verify that the page titles matches the expected title of the contact page", () => {
     cy.get(footer.contact).click();
-    cy.xpath(contact.title)
-      .should("be.visible")
-      .contains("Get in touch with us");
+    cy.xpath(contact.title).should("be.visible").contains("Contact Us");
     cy.get(contact.description)
       .should("be.visible")
       .contains(
