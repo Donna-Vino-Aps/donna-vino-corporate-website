@@ -6,35 +6,42 @@ const HeroSection = () => {
   const { translations } = useLanguage();
   return (
     <section
-      className="sm:mt-6 relative flex justify-between flex-col h-[53.2rem] w-screen sm:h-[44rem] sm:flex-row  bg-primary-light "
+      className="mt-6 relative flex justify-between flex-col w-full md:h-[44rem] md:flex-row bg-primary-light"
       role="banner"
       aria-label="Hero Section"
       aria-labelledby="title"
       data-testid="hero-section"
     >
       <div
-        className="relative flex flex-col p-4 pt-8 sm:pt-4 gap-8 h-[31.6rem] justify-center sm:w-[44rem] sm:h-[44rem] sm:justify-center text-left sm:gap-8 m-0"
+        className="relative flex flex-col p-4 md:p-8 pt-8 sm:pt-4 gap-8 text-left sm:gap-8 justify-center md:w-1/2"
         data-testid="hero-text-container"
       >
-        <div className="absolute top-[0.7rem] right-[0.5rem] sm:top-[0rem] sm:right-[0rem] sm:relative flex justify-end sm:justify-start z-0 overflow-hidden">
-          <div className="relative w-[4.5rem] h-[6.75rem] sm:w-[10.35rem] sm:h-[6.93rem]">
-            <img
-              src="/design-elements/Dotted Shape.svg"
-              alt=""
-              className="absolute top-0 left:0 sm:top-auto sm:top-0 sm:right-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
-              data-testid="dotted-shape-1"
-            />
-            <img
-              src="/design-elements/Dotted Shape.svg"
-              alt=""
-              className="absolute bottom-0 right-0 sm:bottom-0 sm:left-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
-              data-testid="dotted-shape-2"
-            />
-          </div>
-        </div>
-
+        <img
+          src="/design-elements/Dotted Shape.svg"
+          alt="Decorative dotted shape"
+          className="absolute top-3 md:top-[73px] md:left-8 right-7 w-[3rem] h-[3rem] md:w-[4.8rem] md:h-[4.8rem]"
+          data-testid="dotted-shape-1"
+        />
+        <img
+          src="/design-elements/Dotted Shape.svg"
+          alt="Decorative dotted shape"
+          className="absolute top-[4.375rem] md:top-8 md:left-[133.4px] right-1.5 w-[3rem] h-[3rem] md:w-[4.8rem] md:h-[4.8rem]"
+          data-testid="dotted-shape-2"
+        />
+        <img
+          src="/design-elements/Dotted Shape.svg"
+          alt="Decorative dotted shape"
+          className="absolute top-[294px] md:right-8 md:top-[530px] right-4 w-[3rem] h-[3rem] md:w-[93px] md:h-[93px]"
+          data-testid="dotted-shape-3"
+        />
+        <img
+          src="/design-elements/Dotted Shape.svg"
+          alt="Decorative dotted shape"
+          className="absolute top-[318px] md:top-[579px] right-[82px] md:right-[169px] w-[3rem] h-[3rem] md:w-[93px] md:h-[93px]"
+          data-testid="dotted-shape-4"
+        />
         <h1
-          className="text-displayMedium sm:text-displayLarge text-tertiary1-normal font-barlow z-10"
+          className="text-displayMedium md:text-displayLarge text-tertiary1-darker font-barlow z-10 w-[20.5rem] xl:w-[40rem]"
           id="title"
           data-testid="title"
         >
@@ -55,7 +62,6 @@ const HeroSection = () => {
               ariaLabel="Visit our shop"
               testId="get-started-button"
             />
-
             <Button
               text={translations["hero.button-right"]}
               icon="/icons/speech-bubble-19.svg"
@@ -64,28 +70,12 @@ const HeroSection = () => {
               testId="secondary-button"
             />
           </div>
-          <div className="absolute top-[15.8rem] right-[0.5rem] sm:top-auto sm:right-auto sm:relative flex justify-end overflow-hidden">
-            <div className="relative w-[7.5rem] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem] mb-[1rem] sm:mb-[0rem] z-0">
-              <img
-                src="/design-elements/Dotted Shape.svg"
-                alt=""
-                className="absolute top-0 right-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
-                data-testid="dotted-shape-3"
-              />
-              <img
-                src="/design-elements/Dotted Shape.svg"
-                alt=""
-                className="absolute bottom-0 left-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
-                data-testid="dotted-shape-4"
-              />
-            </div>
-          </div>
         </div>
       </div>
 
-      <div className="relative justify-center h-[22rem] sm:w-[45rem] sm:h-[44rem]">
+      <div className="relative justify-center h-[22rem] md:h-[44rem] md:w-1/2 w-full">
         <video
-          className="inset-0 h-[22rem] rounded-t-[6.8rem] sm:w-[45rem] sm:h-[44rem] sm:rounded-tl-[6.8rem] sm:rounded-tr-none object-cover"
+          className="inset-0 h-[22rem] rounded-t-[6.8rem] md:h-[44rem] md:rounded-tl-[6.8rem] rounded-b-[0.5rem] md:rounded-b-none md:rounded-tr-none object-cover"
           autoPlay
           loop
           muted
