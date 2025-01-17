@@ -74,7 +74,7 @@ const ThematicCard = ({
       ></img>
       <div className="flex flex-col justify-center p-6 lg:pl-4 lg:pr-12 xl:pl-6 xl:pr-10 2xl:pl-8 2xl:pr-20">
         <h3
-          className="text-displaySmall text-tertiary1-darker relative font-roboto mb-5 lg:mb-4 lg:-mt-1 lg:text-headlineMedium xl:text-headlineLarge" // 3xl:mt-1 3xl:mb-2
+          className="text-displaySmall text-tertiary1-darker relative font-roboto mb-5 lg:mb-4 lg:-mt-1 lg:text-headlineMedium xl:text-headlineLarge"
           aria-label={`Card title: ${title}`}
         >
           {title}
