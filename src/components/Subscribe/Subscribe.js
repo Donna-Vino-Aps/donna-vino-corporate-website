@@ -25,6 +25,7 @@ const Subscribe = () => {
       setAgreed(false);
     }
   };
+
   return (
     <div
       className="my-6 flex flex-col justify-center items-center font-barlow bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
@@ -32,7 +33,7 @@ const Subscribe = () => {
       aria-describedby="newsletter-description"
       data-testid="subscribe-section"
     >
-      <div className="flex flex-col justify-center items-center md:py-24 py-4 mx-2">
+      <div className="flex flex-col justify-center items-center sm:py-24 py-4 mx-2">
         <h2 className="text-displayMedium md:text-displayLarge text-center">
           {translations["subscribe.heading"]}
         </h2>
@@ -43,9 +44,9 @@ const Subscribe = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="bg-white shadow-lg rounded-xl flex flex-col justify-center mx-auto md:w-[476px] w-full"
+            className="bg-white shadow-lg rounded-xl flex flex-col justify-center mx-auto sm:w-[476px] w-full"
           >
-            <div className="w-full flex md:flex-row flex-col md:justify-between justify-center items-center p-4 gap-2">
+            <div className="w-full flex sm:flex-row flex-col sm:justify-between justify-center items-center p-4 gap-2">
               <input
                 type="email"
                 placeholder={translations["subscribe.placeholder"]}
@@ -70,13 +71,16 @@ const Subscribe = () => {
                 testId="submit-button"
               />
             </div>
+            {/* temporary display error message here as plain text */}
+            {error && (
+              <div
+                className="sm:mx-8 mx-4 pb-2 text-red-500"
+                aria-live="assertive"
+              >
+                {error.message}
+              </div>
+            )}
           </form>
-          {/* temporary display error message here as plain text */}
-          {error && (
-            <div className="text-lg text-red-500" aria-live="assertive">
-              {error.message}
-            </div>
-          )}
 
           <div className="md:my-4 my-2 mb-4">
             <label className="flex items-center text-titleMedium">
@@ -85,7 +89,7 @@ const Subscribe = () => {
                 checked={agreed}
                 onChange={() => setAgreed(!agreed)}
                 aria-label={translations["subscribe.terms"]}
-                className="form-checkbox h-5 w-5"
+                className="form-checkbox h-5 w-5 accent-secondary-hover_normal"
               />
               <span className="ml-3 w-full text-bodyLarge">
                 {translations["subscribe.terms"]}
