@@ -94,20 +94,22 @@ const OurTeam = () => {
             {translations["team.paragraph"]}
           </p>
         </div>
-        <div
-          className="flex flex-wrap mx-6 gap-4 justify-center"
-          data-testid="team-cards-container"
-        >
-          {teamMembers.map((teamMember) => (
-            <MemberCard
-              key={teamMember.tabindex}
-              img={teamMember.img}
-              name={teamMember.name}
-              description={teamMember.description}
-              title={teamMember.title}
-              links={teamMember.links}
-            />
-          ))}
+        <div className="grid lg:justify-items-center">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:flex-cols 2xl:grid-cols-6"
+            data-testid="team-cards-container"
+          >
+            {teamMembers.map((teamMember) => (
+              <MemberCard
+                key={teamMember.tabindex}
+                img={teamMember.img}
+                name={teamMember.name}
+                description={teamMember.description}
+                title={teamMember.title}
+                links={teamMember.links}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
