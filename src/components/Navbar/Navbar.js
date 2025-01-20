@@ -31,14 +31,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className="flex flex-col-1 w-full h-[7.18rem] sm:h-[14.37rem] justify-between items-center px-8 py-6 gap-2 z-50"
+      className="flex flex-col-1 w-full h-[7.18rem] md:h-[14.37rem] justify-between items-center px-8 py-6 gap-2 z-50"
       aria-label="Main Navigation"
     >
       <Link href="/" data-testid="navbar-brand" aria-label="Go to home">
         <img
           src="/images/donna-vino-logo-transparent.png"
           alt="Donna Vino logo"
-          className="w-[6.25rem] h-[4.31rem]"
+          className="w-[6.25rem] h-[4.31rem] md:w-[7.75rem] md:h-[5.37rem]"
         />
       </Link>
       <div className="sm:hidden w-[1.5rem] h-[1.5rem]">
@@ -55,7 +55,7 @@ const Navbar = () => {
       <div
         id="desktop-menu"
         role="menu"
-        className={`sm:flex sm:items-center sm:space-x-4 ${
+        className={`sm:flex sm:items-center md:space-x-4 ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
