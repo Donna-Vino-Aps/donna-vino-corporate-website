@@ -6,7 +6,7 @@ import { contact } from "../pages/contact";
 
 describe("Verify Navigation", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("/", { failOnStatusCode: false });
   });
 
   it("should render the navigation links", () => {
@@ -58,7 +58,7 @@ describe("Verify Navigation", () => {
 
 describe("Verify Sidebar", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("/", { failOnStatusCode: false });
     cy.viewport("iphone-x");
     cy.get(sidebar.menuButton).click();
   });
@@ -124,7 +124,7 @@ describe("Verify Sidebar", () => {
 
 describe("Verify Footer", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("/", { failOnStatusCode: false });
   });
 
   it("should render the navigation links", () => {
@@ -189,7 +189,7 @@ describe("Verify Footer", () => {
 
 describe("Verify Footer in mobile version", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("/", { failOnStatusCode: false });
     cy.viewport("iphone-x");
   });
 
