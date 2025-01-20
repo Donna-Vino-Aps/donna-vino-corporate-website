@@ -88,7 +88,7 @@ const OurTeam = () => {
 
         <div className="flex flex-col justify-center items-center w-full">
           <p
-            className="text-titleMedium text-tertiary1-gray mt-4 text-center mb-4 max-w-[476px]"
+            className="text-titleMedium text-tertiary1-gray mt-4 mx-2 text-center mb-4 max-w-[476px]"
             data-testid="our-team-description"
           >
             {translations["team.paragraph"]}
