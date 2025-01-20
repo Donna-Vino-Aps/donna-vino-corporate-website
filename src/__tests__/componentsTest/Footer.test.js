@@ -78,7 +78,7 @@ it("renders social media links", () => {
     },
     {
       alt: "LinkedIn Logo",
-      href: "/icons/footer/linkedin-alt.svg",
+      href: "https://www.linkedin.com/company/donna-vino-aps/",
       src: "/icons/footer/linkedin-alt.svg",
     },
   ];

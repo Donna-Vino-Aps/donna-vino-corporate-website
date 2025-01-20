@@ -7,6 +7,42 @@ import { useLanguage } from "@/app/context/LanguageContext";
 const Footer = () => {
   const { translations } = useLanguage();
 
+  const links = [
+    {
+      href: "/our-team",
+      label: translations["footer.team"],
+      dataTestId: "our-team",
+    },
+    {
+      href: "/our-values",
+      label: translations["footer.values"],
+      dataTestId: "our-values",
+    },
+    {
+      href: "/contact",
+      label: translations["footer.contact"],
+      dataTestId: "contact",
+    },
+  ];
+
+  const socialLinks = [
+    {
+      href: "https://www.facebook.com/donnavino.dk/",
+      src: "/icons/footer/facebook-line.svg",
+      alt: "Facebook Logo",
+    },
+    {
+      href: "https://www.instagram.com/donna_vino_winetastings/",
+      src: "/icons/footer/instagram-original.svg",
+      alt: "Instagram Logo",
+    },
+    {
+      href: "https://www.linkedin.com/company/donna-vino-aps/",
+      src: "/icons/footer/linkedin-alt.svg",
+      alt: "LinkedIn Logo",
+    },
+  ];
+
   return (
     <footer
       className="flex text-white text-center py-4 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
@@ -20,38 +56,22 @@ const Footer = () => {
             src="/images/donna-vino-logo-transparent.png"
             alt="Donna Vino Logo - Red background, white text saying 'Donna Vino'"
             data-testid="logo-footer"
-          ></img>
+          />
         </Link>
-        <Link
-          data-testid={"our-team"}
-          label={translations["footer.team"]}
-          href="/our-team"
-          className="rounded-md px-3 py-2 text-bodyLarge text-semibold order-4 md:order-1"
-          role="navigation"
-          aria-label={`Link to ${translations["footer.team"]}`}
-        >
-          {translations["footer.team"]}
-        </Link>
-        <Link
-          data-testid={"our-values"}
-          label={translations["footer.values"]}
-          href="/our-values"
-          className="rounded-md px-3 py-2 text-bodyLarge text-semibold order-3 md:order-2"
-          role="navigation"
-          aria-label={`Link to ${translations["footer.values"]}`}
-        >
-          {translations["footer.values"]}
-        </Link>
-        <Link
-          data-testid={"contact"}
-          label={translations["footer.contact"]}
-          href="/contact"
-          className="rounded-md px-3 py-2 text-bodyLarge text-semibold order-2 md:order-3"
-          role="navigation"
-          aria-label={`Link to ${translations["footer.contact"]}`}
-        >
-          {translations["footer.contact"]}
-        </Link>
+
+        {links.map(({ href, label, dataTestId }, index) => (
+          <Link
+            key={index}
+            data-testid={dataTestId}
+            href={href}
+            className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-${index + 2} md:order-${index + 1}`}
+            role="navigation"
+            aria-label={`Link to ${label}`}
+          >
+            {label}
+          </Link>
+        ))}
+
         <div className="flex flex-col order-1 md:order-4 items-center md:relative md:top-5">
           <h4 className="text-bodyLarge text-semibold mb-1 md:mb-3 md:mt-3">
             {translations["footer.follow"]}
@@ -60,37 +80,26 @@ const Footer = () => {
             className="flex gap-4 justify-center mt-3 mb-1"
             aria-label="Social media icons"
           >
-            <a
-              href="https://www.facebook.com/donnavino.dk/"
-              className="text-white"
-            >
-              <img
-                src="/icons/footer/facebook-line.svg"
-                alt="Facebook Logo"
-                className="h-[1.5rem] w-[1.5rem] filter brightness-0 invert"
-              ></img>
-            </a>
-            <a
-              href="https://www.instagram.com/donna_vino_winetastings/"
-              className="text-white"
-            >
-              <img
-                src="/icons/footer/instagram-original.svg"
-                alt="Instagram Logo"
-                className="h-[1.5rem] w-[1.5rem] filter brightness-0 invert"
-              ></img>
-            </a>
-            <a href="/icons/footer/linkedin-alt.svg" className="text-white">
-              <img
-                src="/icons/footer/linkedin-alt.svg"
-                alt="LinkedIn Logo"
-                className="h-[1.5rem] w-[1.5rem] filter brightness-0 invert"
-              ></img>
-            </a>
+            {socialLinks.map(({ href, src, alt }, index) => (
+              <a
+                key={index}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+              >
+                <img
+                  src={src}
+                  alt={alt}
+                  className="h-[1.5rem] w-[1.5rem] filter brightness-0 invert"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
 export default Footer;
