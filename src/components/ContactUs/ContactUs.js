@@ -39,7 +39,6 @@ const ContactUs = () => {
           </h2>
           <h1
             className="text-displayLarge text-tertiary1-darker font-barlow mt-0"
-            id="title"
             data-testid="title"
           >
             {translations["contact.upper.heading"]}
