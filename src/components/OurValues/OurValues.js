@@ -26,7 +26,7 @@ const OurValues = () => {
           >
             <div className="subtitle-container">
               <p
-                className="text:headlineMedium sm:text-headlineSmall md:text-headlineMedium text-primary-normal"
+                className="text-headlineMedium sm:text-headlineSmall md:text-headlineMedium text-primary-normal"
                 aria-label="Our Values Section Subtitle"
                 data-testid="subtitle"
               >

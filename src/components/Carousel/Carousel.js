@@ -37,7 +37,7 @@ const Carousel = () => {
       aria-label="Image carousel"
     >
       <div
-        className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] sm:mx-auto h-[25rem] rounded-[15px] overflow-hidden"
+        className="w-full sm:w-[80%] md:w-[70%] lg:w-[55%] sm:mx-auto h-[25rem] rounded-[15px] overflow-hidden"
         data-testid="carousel-image-container"
         role="img"
         aria-labelledby={`carousel-image-${currentImageIndex}`}
