@@ -63,7 +63,11 @@ const Carousel = () => {
           aria-label="Previous image"
           data-testid="carousel-previous-button"
         >
-          ←
+          <img
+            src="/icons/arrow-left.svg"
+            alt="Previous arrow"
+            data-testid="icon-previous-arrow"
+          ></img>
         </button>
         <button
           onClick={handleNext}
@@ -71,7 +75,11 @@ const Carousel = () => {
           aria-label="Next image"
           data-testid="carousel-next-button"
         >
-          →
+          <img
+            src="/icons/arrow-right.svg"
+            alt="Next arrow"
+            data-testid="icon-next-arrow"
+          ></img>
         </button>
       </div>
     </div>
