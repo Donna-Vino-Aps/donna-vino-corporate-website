@@ -31,13 +31,13 @@ const Carousel = () => {
 
   return (
     <div
-      className="relative flex flex-col w-full h-[30.25rem] gap-6 sm:hidden"
+      className="relative flex flex-col w-full h-[30.25rem] sm:top-7 gap-6 xl:hidden"
       data-testid="carousel"
       role="region"
       aria-label="Image carousel"
     >
       <div
-        className="w-full h-[25rem] rounded-[15px] overflow-hidden"
+        className="w-full sm:w-[80%] md:w-[70%] lg:w-[55%] sm:mx-auto h-[25rem] rounded-[15px] overflow-hidden"
         data-testid="carousel-image-container"
         role="img"
         aria-labelledby={`carousel-image-${currentImageIndex}`}
@@ -63,7 +63,11 @@ const Carousel = () => {
           aria-label="Previous image"
           data-testid="carousel-previous-button"
         >
-          ←
+          <img
+            src="/icons/arrow-left.svg"
+            alt="Previous arrow"
+            data-testid="icon-previous-arrow"
+          ></img>
         </button>
         <button
           onClick={handleNext}
@@ -71,7 +75,11 @@ const Carousel = () => {
           aria-label="Next image"
           data-testid="carousel-next-button"
         >
-          →
+          <img
+            src="/icons/arrow-right.svg"
+            alt="Next arrow"
+            data-testid="icon-next-arrow"
+          ></img>
         </button>
       </div>
     </div>
