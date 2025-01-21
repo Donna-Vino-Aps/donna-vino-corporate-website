@@ -31,13 +31,13 @@ const Carousel = () => {
 
   return (
     <div
-      className="relative flex flex-col w-full h-[30.25rem] gap-6 sm:hidden"
+      className="relative flex flex-col w-full h-[30.25rem] sm:top-7 gap-6 xl:hidden"
       data-testid="carousel"
       role="region"
       aria-label="Image carousel"
     >
       <div
-        className="w-full h-[25rem] rounded-[15px] overflow-hidden"
+        className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] sm:mx-auto h-[25rem] rounded-[15px] overflow-hidden"
         data-testid="carousel-image-container"
         role="img"
         aria-labelledby={`carousel-image-${currentImageIndex}`}
