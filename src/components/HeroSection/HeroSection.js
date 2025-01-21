@@ -13,11 +13,11 @@ const HeroSection = () => {
       data-testid="hero-section"
     >
       <div
-        className="relative flex flex-col p-4 md:p-8 pt-8 sm:pt-4 text-left justify-center md:w-1/2"
+        className="relative flex flex-col p-4 md:p-8 pt-8 sm:pt-4 text-left justify-center md:w-1/2 gap-8"
         data-testid="hero-text-container"
       >
-        <div className="absolute top-[0.7rem] right-[0.5rem] sm:top-[0rem] sm:right-[0rem] sm:relative flex justify-end sm:justify-start z-0 overflow-hidden">
-          <div className="relative w-[4.5rem] h-[6.75rem] sm:w-[10.35rem] sm:h-[6.93rem]">
+        <div className="absolute top-[0.7rem] right-[0.5rem] sm:right-auto sm:left-[2rem] sm:top-[2rem] flex justify-start z-0">
+          <div className="w-[4.5rem] h-[6.75rem] sm:w-[10.35rem] sm:h-[6.93rem]">
             <img
               src="/design-elements/Dotted Shape.svg"
               alt="Decorative shape"
@@ -33,20 +33,20 @@ const HeroSection = () => {
           </div>
         </div>
         <h1
-          className="text-displayMedium mt-8 md:text-displayLarge text-tertiary1-darker font-barlow z-10 w-[20.5rem] md:w-full xl:w-[40rem]"
+          className="text-displayMedium sm:bg-primary-light md:text-displayLarge text-tertiary1-darker font-barlow z-10 w-[20.5rem] md:w-full xl:w-[40rem]"
           id="title"
           data-testid="title"
         >
           {translations["hero.heading"]}
         </h1>
         <p
-          className="text-bodyLarge text-tertiary1-darker z-10 mt-8"
+          className="text-bodyLarge text-tertiary1-darker z-10"
           data-testid="description"
         >
           {translations["hero.paragraph"]}
         </p>
         <div className="flex flex-col w-full">
-          <div className="flex flex-col w-full gap-4 sm:flex-row z-10 mt-8">
+          <div className="flex flex-col w-full gap-4 sm:flex-row z-10 sm:bg-primary-light">
             <Button
               text={translations["hero.button-left"]}
               icon="/icons/cart.svg"
@@ -62,8 +62,8 @@ const HeroSection = () => {
               testId="secondary-button"
             />
           </div>
-          <div className="absolute bottom-[7.5rem] md:bottom-auto right-[0.5rem] sm:top-auto sm:right-auto sm:relative flex justify-end overflow-hidden">
-            <div className="relative w-[7.5rem] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem] mb-[1rem] sm:mb-[0rem] z-0">
+          <div className="absolute bottom-[8.75rem] right-[1rem] flex justify-end sm:right-[3rem] sm:bottom-[2rem]">
+            <div className="w-[7.5rem] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem] mb-[1rem] sm:mb-[0rem] z-0">
               <img
                 src="/design-elements/Dotted Shape.svg"
                 alt="Decorative shape"
