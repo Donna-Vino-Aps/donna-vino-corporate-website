@@ -20,13 +20,13 @@ const HeroSection = () => {
           <div className="w-[4.5rem] h-[6.75rem] sm:w-[10.35rem] sm:h-[6.93rem]">
             <img
               src="/design-elements/Dotted Shape.svg"
-              alt="Decorative shape"
+              alt=""
               className="absolute top-0 left:0 sm:top-auto sm:top-0 sm:right-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
               data-testid="dotted-shape-1"
             />
             <img
               src="/design-elements/Dotted Shape.svg"
-              alt="Decorative shape"
+              alt=""
               className="absolute bottom-0 right-0 sm:bottom-0 sm:left-0 w-[3rem] h-[3rem] sm:w-[4.6rem] sm:h-[4.6rem]"
               data-testid="dotted-shape-2"
             />
@@ -66,13 +66,13 @@ const HeroSection = () => {
             <div className="w-[7.5rem] h-[4.5rem] sm:w-[13.75rem] sm:h-[8.68rem] mb-[1rem] sm:mb-[0rem] z-0">
               <img
                 src="/design-elements/Dotted Shape.svg"
-                alt="Decorative shape"
+                alt=""
                 className="absolute top-0 right-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
                 data-testid="dotted-shape-3"
               />
               <img
                 src="/design-elements/Dotted Shape.svg"
-                alt="Decorative shape"
+                alt=""
                 className="absolute bottom-0 left-0 w-[3rem] h-[3rem] sm:w-[5.8rem] sm:h-[5.8rem]"
                 data-testid="dotted-shape-4"
               />
