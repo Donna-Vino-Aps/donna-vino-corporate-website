@@ -33,7 +33,7 @@ const ContactUs = () => {
           data-testid="oval"
           aria-hidden="true"
         />
-        <div className="relative lg:w-[526px] w-full left-2 md:ml-3 lg:ml-0 lg:pr-12 lg:bottom-2 xl:bottom-0">
+        <div className="relative lg:w-[526px] w-full left-2 md:left-0 md:ml-4 lg:ml-0 lg:pr-12 lg:bottom-2">
           <h2 className="text-headlineMedium md:text-headlineSmall lg:text-headlineMedium xl:text-headlineMedium text-primary-normal pt-3.5">
             {translations["contact.upper.subheading"]}
           </h2>
@@ -44,7 +44,7 @@ const ContactUs = () => {
             {translations["contact.upper.heading"]}
           </h1>
           <p
-            className="text-bodyLarge md:w-[80%] lg:w-[90%] md:text-bodyMedium lg:text-bodyLarge text-tertiary1-darker z-10"
+            className="text-bodyLarge md:w-[80%] lg:w-[95%] md:text-bodyMedium lg:text-bodyLarge text-tertiary1-darker z-10"
             data-testid="description"
           >
             {translations["contact.upper.paragraph"]}
@@ -75,7 +75,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className="md:w-[570px] lg:w-[380px] mt-4 md:mt-3 md:mr-1 lg:mt-0">
+        <div className="md:w-[570px] lg:w-[380px] mt-4 md:mt-3 md:mr-2 lg:mt-0">
           <div className="relative pb-3.5">
             <div className="bg-white p-8 rounded-lg shadow-md relative z-10">
               <form
