@@ -3,7 +3,7 @@ import React from "react";
 const PhotoGallery = () => {
   return (
     <section
-      className="grid grid-cols-2 w-[37.5rem] h-auto justify-between hidden sm:grid"
+      className="grid grid-cols-2 w-[37.5rem] h-auto justify-between hidden xl:grid"
       data-testid="photo-gallery"
       aria-labelledby="photo-gallery"
     >
