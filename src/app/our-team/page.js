@@ -58,7 +58,10 @@ const OurTeam = () => {
   ];
 
   return (
-    <div className="flex justify-center px-2" data-testid="our-team-container">
+    <div
+      className="flex justify-center px-2 py-4"
+      data-testid="our-team-container"
+    >
       <div className="w-full">
         <div className="py-4 sm:mx-8">
           <Button
