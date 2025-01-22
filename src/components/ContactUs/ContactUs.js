@@ -33,12 +33,12 @@ const ContactUs = () => {
           data-testid="oval"
           aria-hidden="true"
         />
-        <div className="lg:w-[526px] w-full md:ml-3 lg:ml-0 lg:pr-12">
-          <h2 className="text-headlineMedium lg:text-headlineMedium xl:text-headlineMedium text-primary-normal pt-3.5">
+        <div className="relative lg:w-[526px] w-full left-2 md:ml-3 lg:ml-0 lg:pr-12 lg:bottom-2 xl:bottom-0">
+          <h2 className="text-headlineMedium md:text-headlineSmall lg:text-headlineMedium xl:text-headlineMedium text-primary-normal pt-3.5">
             {translations["contact.upper.subheading"]}
           </h2>
           <h1
-            className="text-displayLarge md:text-displayMedium xl:text-displayLarge text-tertiary1-darker font-barlow mt-0"
+            className="text-displayLarge md:text-displaySmall lg:text-displayMedium xl:text-displayLarge text-tertiary1-darker font-barlow mt-0"
             data-testid="title"
           >
             {translations["contact.upper.heading"]}
