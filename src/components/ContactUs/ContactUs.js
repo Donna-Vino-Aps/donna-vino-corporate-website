@@ -25,7 +25,7 @@ const ContactUs = () => {
 
   return (
     <section>
-      <div className="flex flex-col lg:flex-row items-center justify-between lg:px-36 bg-primary-light lg:h-[829px] px-1.5">
+      <div className="flex flex-col md:flex-row items-center justify-between lg:px-36 bg-primary-light lg:h-[829px] px-1.5">
         <img
           src="/design-elements/OvalSmall.png"
           className="lg:hidden block absolute right-0"
@@ -33,27 +33,27 @@ const ContactUs = () => {
           data-testid="oval"
           aria-hidden="true"
         />
-        <div className="lg:w-[526px] w-full lg:pr-12">
-          <h2 className="text-headlineMedium text-primary-normal pt-3.5">
+        <div className="lg:w-[526px] w-full md:ml-3 lg:ml-0 lg:pr-12">
+          <h2 className="text-headlineMedium lg:text-headlineMedium xl:text-headlineMedium text-primary-normal pt-3.5">
             {translations["contact.upper.subheading"]}
           </h2>
           <h1
-            className="text-displayLarge text-tertiary1-darker font-barlow mt-0"
+            className="text-displayLarge md:text-displayMedium xl:text-displayLarge text-tertiary1-darker font-barlow mt-0"
             data-testid="title"
           >
             {translations["contact.upper.heading"]}
           </h1>
           <p
-            className="text-bodyLarge text-tertiary1-darker z-10"
+            className="text-bodyLarge md:w-[80%] lg:w-[90%] md:text-bodyMedium lg:text-bodyLarge text-tertiary1-darker z-10"
             data-testid="description"
           >
             {translations["contact.upper.paragraph"]}
           </p>
-          <div className="flex flex-col w-full hidden lg:block">
+          <div className="flex flex-col w-full hidden md:block">
             <div className="mt-6">
               {infoItems.map((item, index) => (
                 <div className="flex items-start mb-6" key={index}>
-                  <div className="p-2 md:w-16 md:h-16 w-9 h-9 bg-primary-active rounded-[5px] flex justify-center items-center">
+                  <div className="p-2 lg:w-16 lg:h-16 w-9 h-9 bg-primary-active rounded-[5px] flex justify-center items-center">
                     <img
                       src={item.icon}
                       alt={item.title}
@@ -61,11 +61,11 @@ const ContactUs = () => {
                       aria-hidden="true"
                     />
                   </div>
-                  <div className="ml-6 flex md:mt-1 flex-col justify-center h-full space-y-2">
-                    <h3 className="text-labelXLarge font-semibold text-tertiary1-darker">
+                  <div className="ml-6 flex md:relative md:bottom-1 lg:bottom-0 lg:mt-2 flex-col justify-center h-full space-y-2">
+                    <h3 className="text-labelXLarge md:text-labelLarge lg:text-labelXLarge font-semibold text-tertiary1-darker">
                       {item.title}
                     </h3>
-                    <p className="text-bodyLarge text-tertiary1-darker">
+                    <p className="text-bodyLarge md:text-bodyMedium lg:text-bodyLarge text-tertiary1-darker">
                       {item.description}
                     </p>
                   </div>
@@ -75,7 +75,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className="lg:w-[470px] mt-4 md:mt-0">
+        <div className="md:w-[570px] lg:w-[380px] mt-4 md:mt-3 md:mr-1 lg:mt-0">
           <div className="relative pb-3.5">
             <div className="bg-white p-8 rounded-lg shadow-md relative z-10">
               <form
@@ -131,7 +131,7 @@ const ContactUs = () => {
             <img
               src="/design-elements/DottedShapeSmall.svg"
               alt="Decorative dotted shape small"
-              className="lg:hidden block absolute right-0 top-[-26px]"
+              className="lg:absolute md:hidden block absolute right-0 top-[-26px]"
               data-testid="oval"
             />
             <img
