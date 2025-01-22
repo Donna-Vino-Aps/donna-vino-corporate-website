@@ -16,21 +16,23 @@ const MemberCard = (props) => {
 
   return (
     <div
-      className="relative overflow-hidden shadow-lg m-2 "
+      className="relative overflow-hidden shadow-lg rounded-[1rem]"
       aria-label="Team Card"
       data-testid="team-card"
     >
-      <img
-        className="h-[22rem] w-full cursor-pointer "
-        src={props.img}
-        alt="img"
-        data-testid="image"
-        onClick={openModal}
-      />
+      <figure className="rounded-[1rem] w-full h-[26rem] sm:w-full sm:h-[24rem]">
+        <img
+          className="object-contain w-[30rem] sm:w-full sm:h-[24rem]"
+          src={props.img}
+          alt="img"
+          data-testid="image"
+          onClick={openModal}
+        />
+      </figure>
 
       <button
         role="button"
-        className="absolute bottom-0 left-0 right-0 m-4 bg-primary-normal text-white 
+        className="absolute bottom-0 left-0 right-0 mb-4 mx-4 bg-primary-normal text-white 
              rounded px-6 hover:bg-primary-dark"
         onClick={openModal}
       >
