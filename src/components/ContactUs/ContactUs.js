@@ -38,7 +38,7 @@ const ContactUs = () => {
             {translations["contact.upper.subheading"]}
           </h2>
           <h1
-            className="text-displayLarge md:text-displaySmall lg:text-displayMedium xl:text-displayLarge text-tertiary1-darker font-barlow mt-0"
+            className="text-displayLarge md:text-displayMedium xl:text-displayLarge text-tertiary1-darker font-barlow mt-1 mb-2"
             data-testid="title"
           >
             {translations["contact.upper.heading"]}
@@ -130,27 +130,27 @@ const ContactUs = () => {
             </div>
             <img
               src="/design-elements/DottedShapeSmall.svg"
-              alt="Decorative dotted shape small"
+              alt=""
               className="lg:absolute md:hidden block absolute right-0 top-[-26px]"
               data-testid="oval"
             />
             <img
               src="/design-elements/Oval.svg"
-              alt="Decorative oval"
+              alt=""
               className="absolute z-0 -top-[50px] -right-[50px] hidden lg:block"
               data-testid="oval"
               aria-hidden="true"
             />
             <img
               src="/design-elements/DottedShapeBig.svg"
-              alt="Decorative dotted shape big"
+              alt=""
               className="absolute right-[-3rem] top-[5rem] w-28 h-28 hidden lg:block"
               data-testid="dotted-shape-big"
               aria-hidden="true"
             />
             <img
               src="/design-elements/DottedShapeBig.svg"
-              alt="Decorative dotted shape big"
+              alt=""
               className="absolute left-[-2rem] bottom-[-22px] w-28 h-28 hidden lg:block"
               data-testid="dotted-shape-big"
               aria-hidden="true"
