@@ -62,7 +62,7 @@ const MemberModal = (props) => {
                 </div>
                 <div className="md:w-40 md:h-40 order-1 md:order-2">
                   <img
-                    className="w-full h-full object-cover rounded-lg "
+                    className="h-[20rem] w-full object-fill sm:h-full rounded-lg "
                     src={props.img}
                     alt="Member Photo"
                     data-testid="member-image"
