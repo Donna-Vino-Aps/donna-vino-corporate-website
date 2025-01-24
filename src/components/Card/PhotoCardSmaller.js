@@ -23,31 +23,31 @@ const PhotoCardSmaller = ({
 
   return (
     <div
-      className={`relative flex flex-col rounded-[2rem] w-full h-[32.125rem] sm:h-[28.5rem] sm:flex-row items-center ${variantClass}`}
+      className={`relative flex flex-col rounded-[2rem] w-full xl:h-[28.5rem] sm:h-[25rem] sm:flex-row items-center ${variantClass}`}
       data-testid="photo-card-smaller"
       aria-labelledby="photo-card-title"
       aria-describedby="photo-card-description"
     >
       <figure
-        className={`overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem]`}
+        className={`overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem] w-full sm:min-w-[40%] sm:w-2/5 xl:min-w-[25.75rem] xl:w-[25.75rem] h-[12.375rem] sm:h-[25rem] w-full xl:h-[28.5rem]`}
         data-testid="photo-card-image"
         aria-labelledby="photo-card-title"
       >
         <img
           src={imageUrl}
           alt={title}
-          className="object-cover w-[21.25rem] h-[12.375rem] sm:w-[25.75rem] sm:h-[28.5rem]"
+          className="object-cover w-full h-full"
           data-testid="card-image"
           aria-label={`Image representing ${title}`}
         />
       </figure>
 
       <div
-        className="flex flex-col w-[18.5rem] sm:h-[28.5rem] gap-8 sm:p-6 sm:py-8 justify-center h-[19.75rem]"
+        className="flex flex-col gap-8 px-6 pb-10 justify-center sm:items-start md:pb-0 md:px-4"
         data-testid="photo-card-content"
       >
         <h3
-          className="text-displaySmall font-barlow font-medium"
+          className="text-displaySmall font-barlow font-medium mt-4 sm:mt-0"
           id="photo-card-title"
           data-testid="photo-card-title"
           aria-label={`Card title: ${title}`}
