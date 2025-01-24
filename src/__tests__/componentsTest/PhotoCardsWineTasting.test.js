@@ -61,7 +61,7 @@ describe("PhotoCardsWineTasting Component", () => {
 
     // Check grid layout for medium screens (above sm)
     const grid = screen.getByTestId("photo-cards-wine-tasting");
-    expect(grid).toHaveClass("sm:grid-cols-2");
+    expect(grid).toHaveClass("xl:grid-cols-2");
   });
 
   it("checks if the background and text color classes are correct in variant 1", () => {
