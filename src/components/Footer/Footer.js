@@ -45,7 +45,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="flex text-white text-center py-4 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
+      className="relative flex flex-col text-white text-center py-4 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
       data-testid="footer"
       aria-label="Footer"
     >
@@ -97,6 +97,11 @@ const Footer = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap text-bodySmall mt-1 mb-1 md:mt-0 md:mb-0 md:text-bodyMedium text-tertiary2-hover_dark">
+        <p className="company-number">
+          Donna Vino Aps - CVR-n. 45017567 - Donna Vino Aps ©
+        </p>
       </div>
     </footer>
   );
