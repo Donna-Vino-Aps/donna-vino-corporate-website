@@ -31,7 +31,7 @@ const CookieBanner = () => {
         </a>
         .
       </p>
-      <div className="flex gap-2">
+      <div className="flex gap-2 w-[14rem] md:w-[14.12rem]">
         <Button
           text="Accept"
           variant="redSubmit"
