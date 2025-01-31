@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
         />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-8">
+      <div className="p-8">
         <h1
           className="text-displayMedium md:text-displayLarge font-barlow mb-6"
           data-testid="privacy-policy-title"
@@ -76,11 +76,11 @@ const PrivacyPolicy = () => {
           </h2>
           <p className="text-bodyMedium">We use the collected data to:</p>
           <ul className="list-disc list-inside text-bodyMedium">
-            <li>Improve our website’s performance and user experience.</li>
+            <li>Improve the performance and user experience of our website.</li>
             <li>Respond to inquiries if you contact us.</li>
           </ul>
           <p className="text-bodyMedium mt-2">
-            We do <strong>not</strong> sell or share your data with third
+            We <strong>do not</strong> sell or share your data with third
             parties.
           </p>
         </section>
@@ -143,7 +143,7 @@ const PrivacyPolicy = () => {
             us:
           </p>
           <p className="text-bodyMedium">
-            📧 Email:{" "}
+            Email:{" "}
             <a
               href="mailto:info@donnavino.dk"
               className="text-primary-normal underline"
@@ -152,8 +152,8 @@ const PrivacyPolicy = () => {
             </a>
           </p>
           <p className="text-bodyMedium">
-            📍 Address: C/O Glenn Leervad Bjørnhart, Strandlodsvej 23C, 8. tv,
-            2300 København S
+            Address: C/O Glenn Leervad Bjørnhart, Strandlodsvej 23C, 8. tv, 2300
+            København S
           </p>
         </section>
       </div>
