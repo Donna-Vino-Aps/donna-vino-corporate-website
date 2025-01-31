@@ -41,4 +41,12 @@ describe("CookieBanner Component", () => {
     );
     expect(screen.queryByTestId("cookie-banner")).not.toBeInTheDocument();
   });
+
+  test("should contain a link to the Privacy Policy", () => {
+    render(<CookieBanner />);
+    const privacyLink = screen.getByTestId("privacy-policy-link");
+
+    expect(privacyLink).toBeInTheDocument();
+    expect(privacyLink).toHaveAttribute("href", "/privacy-policy");
+  });
 });

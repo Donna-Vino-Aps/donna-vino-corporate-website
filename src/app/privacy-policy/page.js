@@ -4,7 +4,7 @@ import React from "react";
 const PrivacyPolicy = () => {
   return (
     <section
-      className="mt-6 relative flex flex-col w-full p-4 md:p-8 bg-primary-light text-tertiary1-darker"
+      className="mt-6 relative flex flex-col w-full p-4 md:p-8 bg-white text-tertiary1-darker"
       role="main"
       aria-labelledby="privacy-policy-title"
       data-testid="privacy-policy"
