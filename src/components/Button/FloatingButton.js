@@ -1,60 +1,20 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import Button from "../Button/Button";
+import React from "react";
 
-const CookieBanner = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("cookieConsent");
-    if (!consent) {
-      setIsVisible(true);
-    }
-  }, []);
-
-  const handleConsent = (consent) => {
-    localStorage.setItem("cookieConsent", consent);
-    setIsVisible(false);
-  };
-
-  if (!isVisible) return null;
-
+const FloatingButton = () => {
   return (
-    <div
-      data-testid="cookie-banner"
-      className="fixed bottom-4 left-4 right-4 md:left-8 md:right-8 p-4 md:p-6 bg-white opacity-98 rounded-2xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-4 z-[9999]"
+    <button
+      className="bg-primary-active_normal w-8 h-8
+            rounded-full shadow-lg flex justify-center items-center"
+      data-testid="floating-button"
     >
-      <p className="text-bodyMedium font-medium" data-testid="cookie-text">
-        We use cookies to improve your experience. Read our
-        <a
-          href="/privacy-policy"
-          className="text-primary-normal hover:text-primary-hover ml-1 underline"
-          data-testid="privacy-policy-link"
-        >
-          Privacy Policy
-        </a>
-        .
-      </p>
-      <div className="flex gap-2 w-[14rem] md:w-[14.12rem]">
-        <Button
-          text="Accept"
-          variant="redSubmit"
-          onClick={() => handleConsent("accepted")}
-          ariaLabel="Accept Cookies"
-          testId="accept-button"
-          data-testid="accept-button"
-        />
-        <Button
-          text="Reject"
-          variant="redLine"
-          onClick={() => handleConsent("rejected")}
-          ariaLabel="Reject Cookies"
-          testId="reject-button"
-          data-testid="reject-button"
-        />
-      </div>
-    </div>
+      <img
+        src="/icons/linkedin-alt-light.svg"
+        alt="social media"
+        data-testid="social-icon"
+        className="w-4"
+      />
+    </button>
   );
 };
 
-export default CookieBanner;
+export default FloatingButton;
