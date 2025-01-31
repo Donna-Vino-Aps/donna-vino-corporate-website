@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import CookieBanner from "../CookieBanner";
+import CookieBanner from "../../components/CookieBanner/CookieBanner";
 
 // Mock localStorage
 beforeEach(() => {
