@@ -1,10 +1,23 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import PrivacyPolicy from "../../app/privacy-policy/page";
+import { LanguageProvider } from "../../app/context/LanguageContext";
+
+const mockTranslations = {
+  "button.go-back": "Go Back",
+};
 
 describe("PrivacyPolicy Component", () => {
   beforeEach(() => {
-    render(<PrivacyPolicy />);
+    render(
+      <LanguageProvider value={{ translations: mockTranslations }}>
+        <PrivacyPolicy />
+      </LanguageProvider>,
+    );
+  });
+
+  test("renders Go Back button with translation", () => {
+    expect(screen.getByTestId("go-back-button")).toHaveTextContent("Go back");
   });
 
   test("renders the Privacy Policy title", () => {
