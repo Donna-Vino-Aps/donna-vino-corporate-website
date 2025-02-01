@@ -93,7 +93,7 @@ const HeroSection = () => {
           data-testid="hero-video"
         >
           <source
-            src="https://res.cloudinary.com/dmjo57kua/video/upload/v1735578255/Sequence_01_dnkdcc.mp4"
+            src="https://res.cloudinary.com/dxnptdhrp/video/upload/v1735508300/sgx733bdfjq7rvcv9x7p.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
