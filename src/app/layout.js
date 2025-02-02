@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "../components/Footer/Footer.js";
 import Navbar from "../components/Navbar/Navbar.js";
 import { LanguageProvider } from "./context/LanguageContext";
+import CookieBanner from "../components/CookieBanner/CookieBanner";
 // import { logInfo } from "@/utils/logging";
 
 const RootLayout = ({ children }) => {
@@ -16,7 +17,7 @@ const RootLayout = ({ children }) => {
           <main className="flex-grow" role="main" data-testid="main-content">
             {children}
           </main>
-
+          <CookieBanner />
           <Footer />
         </body>
       </LanguageProvider>
