@@ -31,7 +31,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="flex flex-col-1 w-full h-[7.18rem] md:h-[14.37rem] justify-between items-center px-8 py-6 gap-2 z-50"
+      className="flex flex-col-1 w-full h-[7.18rem] md:h-[13.12rem] justify-between items-center px-8 py-6 gap-2 z-50"
       aria-label="Main Navigation"
     >
       <Link href="/" data-testid="navbar-brand" aria-label="Go to home">
