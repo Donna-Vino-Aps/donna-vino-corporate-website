@@ -1,8 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const CookieBanner = () => {
+  const { translations } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -25,20 +27,19 @@ const CookieBanner = () => {
       className="fixed bottom-4 left-4 right-4 md:left-8 md:right-8 p-4 md:p-6 bg-white opacity-98 rounded-2xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-4 z-[9999]"
     >
       <p className="text-bodyMedium font-medium" data-testid="cookie-text">
-        We use essential cookies to ensure the functionality of the site. By
-        continuing, you agree to the use of these cookies. Read our
+        {translations["cookie.p"]}
         <a
           href="/privacy-policy"
           className="text-primary-normal hover:text-primary-hover ml-1 underline"
           data-testid="privacy-policy-link"
         >
-          Privacy Policy
+          {translations["cookie.privacy"]}
         </a>
         .
       </p>
       <div className="flex gap-2 w-[14rem] md:w-[14.12rem]">
         <Button
-          text="Accept"
+          text={translations["cookie.accept"]}
           variant="redSubmit"
           onClick={() => handleConsent("accepted")}
           ariaLabel="Accept Cookies"
@@ -46,7 +47,7 @@ const CookieBanner = () => {
           data-testid="accept-button"
         />
         <Button
-          text="Reject"
+          text={translations["cookie.reject"]}
           variant="redLine"
           onClick={() => handleConsent("rejected")}
           ariaLabel="Reject Cookies"
