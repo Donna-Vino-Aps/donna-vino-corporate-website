@@ -13,6 +13,11 @@ const MockLanguageProvider = ({ children, language = "en" }) => {
   );
 };
 
+MockLanguageProvider.propTypes = {
+  children: PropTypes.node.isRequired, // Ensure children is provided and is a valid React node
+  language: PropTypes.oneOf(["en", "dk"]), // Restrict language to "en" or "dk"
+};
+
 const renderWithProvider = (language = "en") => {
   render(
     <MockLanguageProvider language={language}>
