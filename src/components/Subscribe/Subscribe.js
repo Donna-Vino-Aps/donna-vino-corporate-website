@@ -28,7 +28,7 @@ const Subscribe = () => {
 
   return (
     <div
-      className="my-6 flex flex-col justify-center items-center font-barlow bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
+      className="my-2 flex flex-col justify-center items-center font-barlow bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
       aria-labelledby="newsletter-title"
       aria-describedby="newsletter-description"
       data-testid="subscribe-section"
