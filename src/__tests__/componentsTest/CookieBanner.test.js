@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { render, screen, fireEvent } from "@testing-library/react";
 import CookieBanner from "../../components/CookieBanner/CookieBanner";
 import { LanguageProvider } from "@/app/context/LanguageContext";
