@@ -45,7 +45,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative flex flex-col text-white text-center py-4 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
+      className="relative flex flex-col text-white text-center py-4 md:mt-2 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
       data-testid="footer"
       aria-label="Footer"
     >

@@ -8,7 +8,7 @@ const ThematicCardsValues = () => {
   const { translations } = useLanguage();
   return (
     <div
-      className="flex flex-col justify-center items-center mx-1 -mt-12 mb-4 lg:-mt-8 lg:mb-8 lg:mx-2"
+      className="flex flex-col justify-center items-center mx-1 pt-4 mb-6 lg:pt-6 lg:mb-12 lg:mx-2"
       data-testid="thematicGrid"
     >
       <div

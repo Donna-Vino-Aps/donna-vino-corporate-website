@@ -8,7 +8,7 @@ const PhotoCardsWineTasting = () => {
   const { translations } = useLanguage();
   return (
     <div
-      className="grid grid-col-1 xl:grid-cols-2 w-full justify-center items-center gap-2 px-2 lg:p-2 place-items-center"
+      className="grid grid-col-1 xl:grid-cols-2 w-full justify-center items-center gap-4 px-2 lg:p-2 lg:mt-2 place-items-center"
       data-testid="photo-cards-wine-tasting"
     >
       <PhotoCard
