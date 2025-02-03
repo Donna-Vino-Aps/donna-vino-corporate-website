@@ -25,10 +25,10 @@ const PrivacyPolicy = () => {
           className="text-displayMedium md:text-displayLarge font-barlow mb-6"
           data-testid="privacy-policy-title"
         >
-          Privacy Policy
+          {translations["privacy.h1"]}
         </h1>
         <p className="text-bodyLarge mb-4" data-testid="last-updated">
-          Last updated: <strong>Jan. 2025</strong>
+          {translations["privacy.updated"]} <strong>Jan. 2025</strong>
         </p>
 
         <section className="mb-8">
@@ -36,13 +36,11 @@ const PrivacyPolicy = () => {
             className="text-headingMedium font-semibold mb-2"
             data-testid="intro-title"
           >
-            Introduction
+            {translations["privacy.h2-1"]}
           </h2>
           <p className="text-bodyMedium" data-testid="intro-text">
-            Welcome to <strong>Donna Vino ApS</strong> ("we", "us", or "our").
-            Your privacy is important to us. This Privacy Policy explains how we
-            collect, use, and protect your personal information when you visit
-            our website{" "}
+            {translations["privacy.p1"]} <strong>Donna Vino ApS</strong> (
+            {translations["privacy.variations"]}). {translations["privacy.p2"]}{" "}
             <a
               href="https://donnavino.dk/"
               className="text-primary-normal underline"
@@ -58,20 +56,19 @@ const PrivacyPolicy = () => {
             className="text-headingMedium font-semibold mb-2"
             data-testid="data-collection-title"
           >
-            What Data We Collect
+            {translations["privacy.h2-2"]}
           </h2>
           <p className="text-bodyMedium" data-testid="data-collection-text">
-            We do not collect personal data unless you contact us directly.
-            However, we may collect:
+            {translations["privacy.p3"]}
           </p>
           <ul className="list-disc list-inside text-bodyMedium">
             <li>
-              <strong>Cookies and Usage Data</strong>: To improve our website,
-              we use cookies and analytics tools.
+              <strong>{translations["privacy.item1-strong"]}</strong>:{" "}
+              {translations["privacy.item1-p"]}
             </li>
             <li>
-              <strong>Contact Information</strong> (only if you voluntarily
-              reach out via email or contact forms).
+              <strong>{translations["privacy.item2-strong"]}</strong> (
+              {translations["privacy.item1-p"]}).
             </li>
           </ul>
         </section>
@@ -81,18 +78,19 @@ const PrivacyPolicy = () => {
             className="text-headingMedium font-semibold mb-2"
             data-testid="usage-title"
           >
-            How We Use Your Data
+            {translations["privacy.h2-3"]}
           </h2>
           <p className="text-bodyMedium" data-testid="usage-text">
-            We use the collected data to:
+            {translations["privacy.p4"]}:
           </p>
           <ul className="list-disc list-inside text-bodyMedium">
-            <li>Improve the performance and user experience of our website.</li>
-            <li>Respond to inquiries if you contact us.</li>
+            <li>{translations["privacy.item3"]}</li>
+            <li>{translations["privacy.item4"]}</li>
           </ul>
           <p className="text-bodyMedium mt-2" data-testid="usage-footer">
-            We <strong>do not</strong> sell or share your data with third
-            parties.
+            {translations["privacy.p5-1"]}{" "}
+            <strong>{translations["privacy.p5-2"]}</strong>{" "}
+            {translations["privacy.p5-3"]}
           </p>
         </section>
 
@@ -101,13 +99,12 @@ const PrivacyPolicy = () => {
             className="text-headingMedium font-semibold mb-2"
             data-testid="cookies-title"
           >
-            Cookies and Tracking Technologies
+            {translations["privacy.h2-4"]}
           </h2>
           <p className="text-bodyMedium" data-testid="cookies-text">
-            We use cookies to analyze website traffic. You can accept or reject
-            cookies via your browser settings. For more details, see our{" "}
+            {translations["privacy.p5"]}{" "}
             <a href="#" className="text-primary-normal underline">
-              Cookie Policy
+              {translations["cookie.policy"]}
             </a>
             .
           </p>
@@ -118,19 +115,18 @@ const PrivacyPolicy = () => {
             className="text-headingMedium font-semibold mb-2"
             data-testid="rights-title"
           >
-            Your Rights Under GDPR
+            {translations["privacy.h2-5"]}
           </h2>
           <p className="text-bodyMedium" data-testid="rights-text">
-            As a visitor from Denmark or the EU, you have rights regarding your
-            personal data, including:
+            {translations["privacy.p6"]}
           </p>
           <ul className="list-disc list-inside text-bodyMedium">
-            <li>The right to access, correct, or delete your data.</li>
-            <li>The right to object to data processing.</li>
-            <li>The right to withdraw consent (e.g., disabling cookies).</li>
+            <li>{translations["privacy.item5"]}</li>
+            <li>{translations["privacy.item6"]}</li>
+            <li>{translations["privacy.item7"]}</li>
           </ul>
           <p className="text-bodyMedium mt-2" data-testid="rights-footer">
-            To exercise your rights, contact us at{" "}
+            {translations["privacy.p7"]}{" "}
             <a
               href="mailto:info@donnavino.dk"
               className="text-primary-normal underline"
@@ -146,11 +142,10 @@ const PrivacyPolicy = () => {
             className="text-headingMedium font-semibold mb-2"
             data-testid="changes-title"
           >
-            Changes to This Policy
+            {translations["privacy.h2-6"]}
           </h2>
           <p className="text-bodyMedium" data-testid="changes-text">
-            We may update this policy. Any changes will be posted on this page
-            with a revised "Last updated" date.
+            {translations["privacy.p8"]}
           </p>
         </section>
 
@@ -159,14 +154,13 @@ const PrivacyPolicy = () => {
             className="text-headingMedium font-semibold mb-2"
             data-testid="contact-title"
           >
-            Contact Information
+            {translations["privacy.h2-7"]}
           </h2>
           <p className="text-bodyMedium" data-testid="contact-text">
-            If you have any questions about this Privacy Policy, please contact
-            us:
+            {translations["privacy.p9"]}
           </p>
           <p className="text-bodyMedium" data-testid="contact-email">
-            Email:{" "}
+            {translations["privacy.mail"]}{" "}
             <a
               href="mailto:info@donnavino.dk"
               className="text-primary-normal underline"
@@ -175,8 +169,8 @@ const PrivacyPolicy = () => {
             </a>
           </p>
           <p className="text-bodyMedium" data-testid="contact-address">
-            Address: C/O Glenn Leervad Bjørnhart, Strandlodsvej 23C, 8. tv, 2300
-            København S
+            {translations["privacy.address"]}: C/O Glenn Leervad Bjørnhart,
+            Strandlodsvej 23C, 8. tv, 2300 København S
           </p>
         </section>
       </div>
