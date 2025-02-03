@@ -8,7 +8,7 @@ const PhotoCardsTeamValues = () => {
   const { translations } = useLanguage();
   return (
     <div
-      className="grid grid-col-1 xl:grid-cols-2 w-full justify-center items-center gap-4 px-2 lg:p-2 place-items-center mb-4"
+      className="grid grid-col-1 xl:grid-cols-2 w-full justify-center items-center gap-4 px-2 lg:p-2 place-items-center mb-2 lg:mb-4"
       data-testid="photo-cards-team-values"
     >
       <PhotoCardSmaller
