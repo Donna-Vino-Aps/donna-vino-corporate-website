@@ -38,7 +38,7 @@ const Navbar = () => {
         <Link href="/" data-testid="navbar-brand" aria-label="Go to home">
           <img
             src="/images/donna-vino-logo-transparent.png"
-            alt="Donna Vino Logo - a brand for wine tastings and experiences"
+            alt="Donna Vino Logo Navbar - a brand for wine tastings and experiences"
             className="w-[6.25rem] h-[4.31rem] md:w-[7.75rem] md:h-[5.37rem]"
           />
         </Link>

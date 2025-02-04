@@ -54,7 +54,7 @@ const Footer = () => {
           <img
             className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4 md:top-6"
             src="/images/donna-vino-logo-transparent.png"
-            alt="Donna Vino Logo - a brand for wine tastings and experiences"
+            alt="Donna Vino Logo Footer- a brand for wine tastings and experiences"
             data-testid="logo-footer"
           />
         </Link>

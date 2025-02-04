@@ -12,7 +12,7 @@ describe("Navbar component", () => {
     );
 
     const logo = screen.getByAltText(
-      "Donna Vino Logo - a brand for wine tastings and experiences",
+      "Donna Vino Logo Navbar - a brand for wine tastings and experiences",
     );
     expect(logo).toBeInTheDocument();
 
