@@ -22,7 +22,7 @@ const PhotoCardSmaller = ({
   const variantClass = VARIANT_CLASSES[cardVariant] || VARIANT_CLASSES.variant1; // Default to variant1
 
   return (
-    <div
+    <article
       className={`relative flex flex-col rounded-[2rem] w-full xl:h-[28.5rem] sm:h-[25rem] sm:flex-row items-center ${variantClass}`}
       data-testid="photo-card-smaller"
       aria-labelledby="photo-card-title"
@@ -72,7 +72,7 @@ const PhotoCardSmaller = ({
           />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

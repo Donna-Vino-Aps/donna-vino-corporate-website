@@ -2,12 +2,28 @@
 import React from "react";
 import Button from "@/components/Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
+import Head from "next/head";
+
+<Head>
+  <title>{translations["privacy.h1"]} | Donna Vino</title>
+  <meta
+    name="description"
+    content="Read Donna Vino's privacy policy regarding data collection and usage."
+  />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Privacy Policy | Donna Vino" />
+  <meta
+    property="og:description"
+    content="Learn about Donna Vino's data handling practices and rights."
+  />
+  <meta property="og:url" content="https://donnavino.dk/privacy-policy" />
+</Head>;
 
 const PrivacyPolicy = () => {
   const { translations } = useLanguage();
   return (
-    <div className="w-full flex flex-col gap-8">
-      <div className="px-2 pt-4 sm:mx-8">
+    <main className="w-full flex flex-col gap-8">
+      <section className="px-2 pt-4 sm:mx-8">
         <Button
           text={translations["button.go-back"]}
           icon="/icons/back-arrow.svg"
@@ -18,7 +34,7 @@ const PrivacyPolicy = () => {
             history.go(-1);
           }}
         />
-      </div>
+      </section>
 
       <div className="p-8">
         <h1
@@ -174,7 +190,7 @@ const PrivacyPolicy = () => {
           </p>
         </section>
       </div>
-    </div>
+    </main>
   );
 };
 

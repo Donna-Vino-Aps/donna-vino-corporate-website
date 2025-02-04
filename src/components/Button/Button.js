@@ -51,7 +51,9 @@ const Button = ({
         "Submitting..."
       ) : (
         <>
-          {icon && <img src={icon} alt="Icon" className="mr-2" />}
+          {icon && (
+            <img src={icon} alt="Icon" className="mr-2" loading="lazy" />
+          )}
           {text}
         </>
       )}

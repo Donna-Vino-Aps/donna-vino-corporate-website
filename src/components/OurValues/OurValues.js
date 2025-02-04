@@ -7,7 +7,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 const OurValues = () => {
   const { translations } = useLanguage();
   return (
-    <main className="relative pb-[2rem]">
+    <section className="relative pb-[2rem]">
       <section
         className="relative flex flex-col sm:flex-row items-center justify-center justify-start w-full h-auto sm:min-h-[56.87rem] p-4 pt-4 sm:p-0 sm:pt-0 bg-primary-light z-10"
         role="main"
@@ -71,7 +71,7 @@ const OurValues = () => {
 
         <Carousel />
       </section>
-    </main>
+    </section>
   );
 };
 
