@@ -10,7 +10,7 @@ const OurValuesPage = () => {
   const { translations } = useLanguage();
   return (
     <div className="w-full flex flex-col gap-8">
-      <div className="px-2 pt-4 sm:mx-8">
+      <section className="px-2 pt-4 sm:mx-8">
         <Button
           text={translations["button.go-back"]}
           icon="/icons/back-arrow.svg"
@@ -21,9 +21,15 @@ const OurValuesPage = () => {
             history.go(-1);
           }}
         />
-      </div>
-      <OurValues />
-      <ThematicCardsValues />
+      </section>
+
+      <section>
+        <OurValues />
+      </section>
+
+      <section>
+        <ThematicCardsValues />
+      </section>
     </div>
   );
 };

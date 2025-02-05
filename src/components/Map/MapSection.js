@@ -33,7 +33,7 @@ const MapSection = () => {
   ];
 
   return (
-    <div
+    <section
       className="flex lg:m-6 m-2 flex-col md:flex-row bg-tertiary1-hover max-w-full md:rounded-[32px] rounded-[32px]"
       data-testid="map-section"
     >
@@ -47,13 +47,13 @@ const MapSection = () => {
             allowFullScreen=""
             loading="lazy"
             className="md:rounded-l-[32px] rounded-t-[32px] min-h-[400px] "
-            title="Map"
+            title="Interactive map showing our company location in Copenhagen"
             aria-label="Interactive map showing our location"
           ></iframe>
         )}
       </div>
 
-      <div className="flex-1 bg-tertiary1-hover md:rounded-[32px] lg:my-6 my-2 rounded-b-[32px] w-full">
+      <article className="flex-1 bg-tertiary1-hover md:rounded-[32px] lg:my-6 my-2 rounded-b-[32px] w-full">
         <h2 className="lg:text-displayMedium text-displaySmall font-medium my-4 ml-8">
           {translations["contact.heading"]}
         </h2>
@@ -86,8 +86,8 @@ const MapSection = () => {
             testId="submit-button"
           />
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 };
 export default MapSection;

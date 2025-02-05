@@ -11,7 +11,9 @@ describe("Navbar component", () => {
       </LanguageProvider>,
     );
 
-    const logo = screen.getByAltText("Donna Vino logo");
+    const logo = screen.getByAltText(
+      "Donna Vino Logo Navbar - a brand for wine tastings and experiences",
+    );
     expect(logo).toBeInTheDocument();
 
     const homeLink = screen.getByTestId("nav-link-home");

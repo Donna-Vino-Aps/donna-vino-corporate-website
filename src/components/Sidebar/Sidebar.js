@@ -8,13 +8,14 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
   const { translations } = useLanguage();
 
   return (
-    <div
+    <aside
       className={`fixed right-0 top-0 w-full h-full sm:hidden z-40 ${
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
       data-testid="side-bar"
       role="dialog"
       aria-labelledby="menu-heading"
+      aria-describedby="menu-description"
       inert={!isMenuOpen}
     >
       <div className="flex flex-col h-full gap-16 p-8 bg-white">
@@ -22,7 +23,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
           <a href="/">
             <img
               src="/images/donna-vino-logo-transparent.png"
-              alt="Donna Vino's logo"
+              alt="Donna Vino Logo - a brand for wine tastings and experiences"
               className="w-[7.65rem] h-[5.37rem]"
             />
           </a>
@@ -116,7 +117,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 

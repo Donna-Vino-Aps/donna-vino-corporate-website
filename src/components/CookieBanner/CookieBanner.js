@@ -23,6 +23,8 @@ const CookieBanner = () => {
 
   return (
     <div
+      role="alert"
+      aria-live="assertive"
       data-testid="cookie-banner"
       className="fixed bottom-4 left-4 right-4 md:left-8 md:right-8 p-4 md:p-6 bg-white opacity-98 rounded-2xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-4 z-[9999]"
     >

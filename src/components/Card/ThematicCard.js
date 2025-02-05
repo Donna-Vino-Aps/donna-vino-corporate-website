@@ -45,7 +45,7 @@ const ThematicCard = ({
 
   const { translations } = useLanguage();
   return (
-    <div
+    <article
       className={`relative flex flex-col gap-2 lg:flex-row rounded-3xl overflow-hidden shadow-md mb-1 w-[21.5rem] transition-all duration-300 ${
         expanded
           ? smallCardSize === "small"
@@ -71,6 +71,7 @@ const ThematicCard = ({
         alt={title}
         className={`object-cover h-[12.375rem] w-[21.5rem] lg:w-[25.75rem] lg:h-[19.5rem] ${variantClassOrder}`}
         aria-label={`Image representing ${title}`}
+        loading="lazy"
       ></img>
       <div className="flex flex-col justify-center p-6 lg:pl-4 lg:pr-12 xl:pl-6 xl:pr-10 2xl:pl-8 2xl:pr-20">
         <h3
@@ -115,7 +116,7 @@ const ThematicCard = ({
           </button>
         )}
       </div>
-    </div>
+    </article>
   );
 };
 

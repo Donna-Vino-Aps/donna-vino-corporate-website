@@ -24,12 +24,13 @@ const MemberModal = (props) => {
                   className="text-headlineLarge text-tertiary1-normal"
                   data-testid="member-name"
                   arial-label="Team member name"
+                  id="modal-title"
                 >
                   {props.name}
                 </h3>
                 <button
                   role="button"
-                  aria-label="close"
+                  aria-label="Close modal"
                   onClick={props.onClose}
                 >
                   <img src="/icons/close.svg" alt="" className="w-4" />
@@ -64,7 +65,7 @@ const MemberModal = (props) => {
                   <img
                     className="h-[20rem] w-full object-fill sm:h-full rounded-lg "
                     src={props.img}
-                    alt="Member Photo"
+                    alt={`Photo of ${props.name}`}
                     data-testid="member-image"
                   />
                 </div>

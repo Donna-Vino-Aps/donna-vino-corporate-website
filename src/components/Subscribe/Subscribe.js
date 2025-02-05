@@ -27,7 +27,7 @@ const Subscribe = () => {
   };
 
   return (
-    <div
+    <section
       className="lg:my-2 flex flex-col justify-center items-center font-barlow bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
       aria-labelledby="newsletter-title"
       aria-describedby="newsletter-description"
@@ -98,7 +98,7 @@ const Subscribe = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

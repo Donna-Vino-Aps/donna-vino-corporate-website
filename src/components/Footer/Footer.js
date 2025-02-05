@@ -54,7 +54,7 @@ const Footer = () => {
           <img
             className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4 md:top-6"
             src="/images/donna-vino-logo-transparent.png"
-            alt="Donna Vino Logo - Red background, white text saying 'Donna Vino'"
+            alt="Donna Vino Logo Footer- a brand for wine tastings and experiences"
             data-testid="logo-footer"
           />
         </Link>
@@ -67,12 +67,13 @@ const Footer = () => {
             className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-${index + 2} md:order-${index + 1}`}
             role="navigation"
             aria-label={`Link to ${label}`}
+            title={`Go to the ${label} page`}
           >
             {label}
           </Link>
         ))}
 
-        <div className="flex flex-col order-1 md:order-4 items-center md:relative md:top-5">
+        <section className="flex flex-col order-1 md:order-4 items-center md:relative md:top-5">
           <h4 className="text-bodyLarge text-semibold mb-1 md:mb-3 md:mt-3">
             {translations["footer.follow"]}
           </h4>
@@ -96,7 +97,7 @@ const Footer = () => {
               </a>
             ))}
           </div>
-        </div>
+        </section>
       </div>
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap text-bodySmall mt-1 mb-1 md:mt-0 md:mb-0 md:text-bodyMedium text-tertiary2-hover_dark">
         <p className="company-number">
