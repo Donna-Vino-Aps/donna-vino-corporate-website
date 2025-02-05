@@ -34,7 +34,7 @@ const Footer = () => {
       <div className="flex flex-col relative md:items-start items-center gap-1 bottom-3 md:mb-32 md:flex-row md:gap-6 lg:gap-9 xl:gap-12">
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
-            className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4 md:top-6"
+            className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4"
             src="/images/donna-vino-logo-transparent.png"
             alt="Donna Vino Logo - Red background, white text saying 'Donna Vino'"
             data-testid="logo-footer"
