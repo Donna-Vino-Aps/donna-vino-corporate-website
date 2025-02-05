@@ -48,7 +48,7 @@ describe("SideBar Component", () => {
       </LanguageProvider>,
     );
 
-    const sideBar = screen.getByTestId("side-bar");
+    const sideBar = screen.getByTestId("sidebar");
 
     // Check that the sidebar is visually hidden
     expect(sideBar).toHaveClass("translate-x-full");
