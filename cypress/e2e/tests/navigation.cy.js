@@ -59,23 +59,19 @@ describe("Verify Navigation", () => {
 
 describe("Verify Sidebar", () => {
   beforeEach(() => {
-    cy.visit("/", { failOnStatusCode: false }); // Visit the page
-    cy.viewport("iphone-x"); // Set viewport to simulate an iPhone X
+    cy.visit("/", { failOnStatusCode: false });
+    cy.viewport("iphone-x");
 
-    // Ensure that the page is fully loaded and the menu button is present
-    cy.get(sidebar.menuButton).should("be.visible").click(); // Click the menu button to open the sidebar
+    cy.get(sidebar.menuButton).should("be.visible").click();
 
-    // Wait a little to ensure the sidebar has time to open
-    cy.wait(1000); // Adjust this duration if needed
+    cy.wait(1000);
 
-    // Verify that the sidebar is visible after the button is clicked
     cy.get(sidebar.sidebar).should("be.visible");
   });
 
   it("should render the navigation links", () => {
     cy.get('[aria-label="Social media icons"]').should("be.visible");
 
-    // Verify each navigation link is visible
     cy.get('[data-testid="nav-link-home"]').should("be.visible");
     cy.get('[data-testid="nav-link-our-values"]').should("be.visible");
     cy.get('[data-testid="nav-link-our-team"]').should("be.visible");
