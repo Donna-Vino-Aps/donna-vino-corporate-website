@@ -27,11 +27,11 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative flex flex-col text-white text-center py-4 md:mt-2 h-100 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
+      className="relative flex flex-col text-white text-center py-4 md:mt-2 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
       data-testid="footer"
       aria-label="Footer"
     >
-      <div className="flex flex-col relative md:items-start items-center gap-1 bottom-3 md:mb-32 md:flex-row md:gap-6 lg:gap-9 xl:gap-12">
+      <div className="flex flex-col relative md:items-start items-center gap-1 bottom-3 md:mb-32 md:flex-row md:gap-6 lg:gap-9 xl:gap-12 mb-4">
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
             className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4"
@@ -61,25 +61,15 @@ const Footer = () => {
           {translations["footer.values"]}
         </Link>
 
-        <div className="flex flex-col order-4 md:order-3">
-          <Link
-            data-testid="contact"
-            href="/contact"
-            className={`rounded-md px-3 py-2 text-bodyLarge text-semibold`}
-            role="navigation"
-            aria-label={`Link to ${translations["footer.contact"]}`}
-          >
-            {translations["footer.contact"]}
-          </Link>
-          <a
-            className="text-bodySmall md:text-bodyMedium text-tertiary2-hover_dark underline md:mt-3 md:mb-1 mt-1 mb-6"
-            href="/privacy-policy"
-            role="navigation"
-            aria-label={`Link to ${translations["footer.privacy-policy"]}`}
-          >
-            {translations["footer.privacy-policy"]}
-          </a>
-        </div>
+        <Link
+          data-testid="contact"
+          href="/contact"
+          className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-4 md:order-3`}
+          role="navigation"
+          aria-label={`Link to ${translations["footer.contact"]}`}
+        >
+          {translations["footer.contact"]}
+        </Link>
 
         <div className="flex flex-col order-1 md:order-5 items-center md:relative">
           <h4 className="text-bodyLarge text-semibold px-3 py-2">
@@ -109,7 +99,15 @@ const Footer = () => {
       </div>
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap text-bodySmall mt-1 mb-1 md:mt-0 md:mb-0 md:text-bodyMedium text-tertiary2-hover_dark">
         <p className="company-number">
-          Donna Vino Aps - CVR-n. 45017567 - Donna Vino Aps ©
+          &copy; {new Date().getFullYear()} Donna Vino Aps | CVR-n. 45017567 |{" "}
+          <a
+            className="underline"
+            href="/privacy-policy"
+            role="navigation"
+            aria-label={`Link to ${translations["footer.privacy-policy"]}`}
+          >
+            {translations["footer.privacy-policy"]}
+          </a>
         </p>
       </div>
     </footer>
