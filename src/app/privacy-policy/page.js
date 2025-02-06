@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Head>
-        <title>{translations["privacy.h1"]} | Donna Vino</title>
+        <title>{translations["privacy.h1"]} - Donna Vino</title>
         <meta
           name="description"
           content="Read Donna Vino's privacy policy regarding data collection and usage."

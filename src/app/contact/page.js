@@ -4,11 +4,19 @@ import ContactUs from "@/components/ContactUs/ContactUs";
 import React from "react";
 import Button from "@/components/Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
+import Head from "next/head";
 
 const Contact = () => {
   const { translations } = useLanguage();
   return (
     <div className="w-full" data-testid="contact-container">
+      <Head>
+        <title>Contact - Donna Vino</title>
+        <meta
+          name="description"
+          content="Have questions or need assistance? Reach out to Donna Vino — we’d love to hear from you!"
+        />
+      </Head>
       <section className="px-2 py-4 sm:mx-8">
         <Button
           text={translations["button.go-back"]}
