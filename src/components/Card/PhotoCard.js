@@ -39,6 +39,7 @@ const PhotoCard = ({
           className="object-cover h-full w-full"
           data-testid="card-image"
           aria-label={`Image representing ${title}`}
+          loading="lazy"
         />
       </figure>
 

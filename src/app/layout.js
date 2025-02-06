@@ -5,7 +5,6 @@ import Footer from "../components/Footer/Footer.js";
 import Navbar from "../components/Navbar/Navbar.js";
 import { LanguageProvider } from "./context/LanguageContext";
 import CookieBanner from "../components/CookieBanner/CookieBanner";
-// import { logInfo } from "@/utils/logging";
 
 const RootLayout = ({ children }) => {
   return (

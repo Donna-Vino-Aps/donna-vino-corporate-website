@@ -27,6 +27,7 @@ const MemberCard = (props) => {
           alt="img"
           data-testid="image"
           onClick={openModal}
+          loading="lazy"
         />
       </figure>
 

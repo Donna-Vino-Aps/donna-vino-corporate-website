@@ -12,7 +12,7 @@ const PhotoCardsWineTasting = () => {
       data-testid="photo-cards-wine-tasting"
     >
       <PhotoCard
-        imageUrl="/images/card-unsplash-wine-tasting.jpg"
+        imageUrl="/images/card-unsplash-wine-tasting.avif"
         title={translations["pcard.big-left.heading"]}
         description={translations["pcard.big-left.paragraph"]}
         buttonIcon="/icons/calender-alt-1-gray.svg"
@@ -22,7 +22,7 @@ const PhotoCardsWineTasting = () => {
         cardVariant="variant1"
       />
       <PhotoCard
-        imageUrl="/images/card-unsplash-wine-table.jpg"
+        imageUrl="/images/card-unsplash-wine-table.avif"
         title={translations["pcard.big-right.heading"]}
         description={translations["pcard.big-right.paragraph"]}
         buttonIcon="/icons/phone.svg"
