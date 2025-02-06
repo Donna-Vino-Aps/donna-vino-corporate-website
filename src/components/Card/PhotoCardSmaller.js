@@ -39,6 +39,7 @@ const PhotoCardSmaller = ({
           className="object-cover w-full h-full"
           data-testid="card-image"
           aria-label={`Image representing ${title}`}
+          loading="lazy"
         />
       </figure>
 
