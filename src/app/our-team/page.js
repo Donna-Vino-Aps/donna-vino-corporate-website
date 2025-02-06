@@ -3,7 +3,6 @@ import React from "react";
 import MemberCard from "@/components/Card/MemberCard";
 import Button from "@/components/Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
-import Head from "next/head";
 
 const OurTeam = () => {
   const { translations } = useLanguage();
@@ -60,13 +59,6 @@ const OurTeam = () => {
 
   return (
     <div className="flex justify-center px-2" data-testid="our-team-container">
-      <Head>
-        <title>Our Team - Donna Vino</title>
-        <meta
-          name="description"
-          content="Meet our team—passionate, balanced, and full-bodied, like a fine wine. Discover the people behind our exceptional wine tastings and selections."
-        />
-      </Head>
       <div className="w-full">
         <section className="py-4 sm:mx-8">
           <Button

@@ -5,6 +5,11 @@ import Footer from "../components/Footer/Footer.js";
 import Navbar from "../components/Navbar/Navbar.js";
 import { LanguageProvider } from "./context/LanguageContext";
 import CookieBanner from "../components/CookieBanner/CookieBanner";
+export const metadata = {
+  title: "Donna Vino",
+  description:
+    "Welcome to Donna Vino, where passion meets fine wine. Explore our curated selection, wine tasting experiences, and expert insights.",
+};
 
 const RootLayout = ({ children }) => {
   return (
