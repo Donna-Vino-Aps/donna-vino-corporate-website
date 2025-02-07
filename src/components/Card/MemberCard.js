@@ -15,7 +15,7 @@ const MemberCard = (props) => {
   };
 
   return (
-    <div
+    <article
       className="relative overflow-hidden shadow-lg rounded-[1rem]"
       aria-label="Team Card"
       data-testid="team-card"
@@ -27,6 +27,7 @@ const MemberCard = (props) => {
           alt="img"
           data-testid="image"
           onClick={openModal}
+          loading="lazy"
         />
       </figure>
 
@@ -74,7 +75,7 @@ const MemberCard = (props) => {
           onClose={closeModal}
         />
       )}
-    </div>
+    </article>
   );
 };
 

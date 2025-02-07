@@ -30,7 +30,7 @@ const Carousel = () => {
   };
 
   return (
-    <div
+    <section
       className="relative flex flex-col w-full h-[30.25rem] sm:top-7 gap-6 xl:hidden"
       data-testid="carousel"
       role="region"
@@ -48,6 +48,7 @@ const Carousel = () => {
           className="w-full h-full object-cover"
           data-testid="carousel-image"
           id={`carousel-image-${currentImageIndex}`}
+          loading="lazy"
         />
       </div>
 
@@ -67,6 +68,8 @@ const Carousel = () => {
             src="/icons/arrow-left.svg"
             alt="Previous arrow"
             data-testid="icon-previous-arrow"
+            loading="lazy"
+            role="presentation"
           ></img>
         </button>
         <button
@@ -79,10 +82,12 @@ const Carousel = () => {
             src="/icons/arrow-right.svg"
             alt="Next arrow"
             data-testid="icon-next-arrow"
+            loading="lazy"
+            role="presentation"
           ></img>
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

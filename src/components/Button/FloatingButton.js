@@ -12,6 +12,7 @@ const FloatingButton = () => {
         alt="social media"
         data-testid="social-icon"
         className="w-4"
+        loading="lazy"
       />
     </button>
   );

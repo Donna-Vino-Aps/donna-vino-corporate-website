@@ -68,7 +68,9 @@ describe("MapSection Component", () => {
 
   test("renders the map iframe", () => {
     renderWithProvider();
-    const mapIframe = screen.getByTitle("Map");
+    const mapIframe = screen.getByTitle(
+      "Interactive map showing our company location in Copenhagen",
+    );
     expect(mapIframe).toBeInTheDocument();
     expect(mapIframe).toHaveAttribute(
       "src",

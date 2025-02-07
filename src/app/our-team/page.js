@@ -60,7 +60,7 @@ const OurTeam = () => {
   return (
     <div className="flex justify-center px-2" data-testid="our-team-container">
       <div className="w-full">
-        <div className="py-4 sm:mx-8">
+        <section className="py-4 sm:mx-8">
           <Button
             text={translations["button.go-back"]}
             icon="/icons/back-arrow.svg"
@@ -71,32 +71,34 @@ const OurTeam = () => {
               history.go(-1);
             }}
           />
-        </div>
-        <p
-          className="text-center text-primary-normal mt-6"
-          data-testid="our-team-tagline"
-        >
-          {translations["team.hashtag"]}
-        </p>
+        </section>
+        <header>
+          <p
+            className="text-center text-primary-normal mt-6"
+            data-testid="our-team-tagline"
+          >
+            {translations["team.hashtag"]}
+          </p>
 
-        <h2
-          className="text-displayMedium md:text-displayLarge text-center"
-          data-testid="our-team-title"
-        >
-          {translations["team.heading"]}
-        </h2>
-
-        <div className="flex flex-col justify-center items-center w-full">
+          <h2
+            className="text-displayMedium md:text-displayLarge text-center"
+            data-testid="our-team-title"
+          >
+            {translations["team.heading"]}
+          </h2>
+        </header>
+        <section className="flex flex-col justify-center items-center w-full">
           <p
             className="text-titleMedium text-tertiary1-gray mt-4 text-center mb-4 max-w-[476px]"
             data-testid="our-team-description"
           >
             {translations["team.paragraph"]}
           </p>
-        </div>
-        <div
+        </section>
+        <section
           className="flex flex-wrap gap-4 justify-center py-8"
           data-testid="team-cards-container"
+          aria-labelledby="our-team-title"
         >
           {teamMembers.map((teamMember) => (
             <MemberCard
@@ -108,7 +110,7 @@ const OurTeam = () => {
               links={teamMember.links}
             />
           ))}
-        </div>
+        </section>
       </div>
     </div>
   );

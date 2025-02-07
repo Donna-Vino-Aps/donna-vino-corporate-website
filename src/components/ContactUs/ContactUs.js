@@ -4,6 +4,10 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 const ContactUs = () => {
   const { translations } = useLanguage();
+  <meta
+    name="description"
+    content="Get in touch with us. We are located in Copenhagen. Contact us for inquiries about our products or services."
+  ></meta>;
 
   const infoItems = [
     {
@@ -33,7 +37,7 @@ const ContactUs = () => {
           data-testid="oval"
           aria-hidden="true"
         />
-        <div className="relative lg:w-[526px] w-full left-2 md:left-0 md:ml-4 lg:ml-0 lg:pr-12 lg:bottom-2">
+        <section className="relative lg:w-[526px] w-full left-2 md:left-0 md:ml-4 lg:ml-0 lg:pr-12 lg:bottom-2">
           <h2 className="text-headlineMedium md:text-headlineSmall lg:text-headlineMedium xl:text-headlineMedium text-primary-normal pt-3.5">
             {translations["contact.upper.subheading"]}
           </h2>
@@ -73,11 +77,11 @@ const ContactUs = () => {
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
         <div className="md:w-[570px] lg:w-[380px] mt-4 md:mt-3 md:mr-2 lg:mt-0">
           <div className="relative pb-3.5">
-            <div className="bg-white p-8 rounded-lg shadow-md relative z-10">
+            <section className="bg-white p-8 rounded-lg shadow-md relative z-10">
               <form
                 action="#"
                 method="POST"
@@ -127,7 +131,7 @@ const ContactUs = () => {
                   testId="secondary-normal-send-message-button"
                 />
               </form>
-            </div>
+            </section>
             <img
               src="/design-elements/DottedShapeSmall.svg"
               alt=""

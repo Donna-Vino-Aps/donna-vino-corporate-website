@@ -9,7 +9,7 @@ const Contact = () => {
   const { translations } = useLanguage();
   return (
     <div className="w-full" data-testid="contact-container">
-      <div className="px-2 py-4 sm:mx-8">
+      <section className="px-2 py-4 sm:mx-8">
         <Button
           text={translations["button.go-back"]}
           icon="/icons/back-arrow.svg"
@@ -20,7 +20,7 @@ const Contact = () => {
             history.go(-1);
           }}
         />
-      </div>
+      </section>
       <ContactUs />
       <MapSection data-testid="map-section" />
     </div>

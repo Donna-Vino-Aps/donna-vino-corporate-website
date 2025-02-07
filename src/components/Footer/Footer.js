@@ -36,7 +36,7 @@ const Footer = () => {
           <img
             className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4"
             src="/images/donna-vino-logo-transparent.png"
-            alt="Donna Vino Logo - Red background, white text saying 'Donna Vino'"
+            alt="Donna Vino Logo Footer- a brand for wine tastings and experiences"
             data-testid="logo-footer"
           />
         </Link>
@@ -71,7 +71,7 @@ const Footer = () => {
           {translations["footer.contact"]}
         </Link>
 
-        <div className="flex flex-col order-1 md:order-5 items-center md:relative">
+        <section className="flex flex-col order-1 md:order-5 items-center md:relative">
           <h4 className="text-bodyLarge text-semibold px-3 py-2">
             {translations["footer.follow"]}
           </h4>
@@ -95,7 +95,7 @@ const Footer = () => {
               </a>
             ))}
           </div>
-        </div>
+        </section>
       </div>
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap text-bodySmall mt-1 mb-1 md:mt-0 md:mb-0 md:text-bodyMedium text-tertiary2-hover_dark">
         <p className="company-number">
