@@ -7,24 +7,6 @@ import { useLanguage } from "@/app/context/LanguageContext";
 const Footer = () => {
   const { translations } = useLanguage();
 
-  const links = [
-    {
-      href: "/our-team",
-      label: translations["footer.team"],
-      dataTestId: "our-team",
-    },
-    {
-      href: "/our-values",
-      label: translations["footer.values"],
-      dataTestId: "our-values",
-    },
-    {
-      href: "/contact",
-      label: translations["footer.contact"],
-      dataTestId: "contact",
-    },
-  ];
-
   const socialLinks = [
     {
       href: "https://www.facebook.com/donnavino.dk/",
@@ -49,32 +31,48 @@ const Footer = () => {
       data-testid="footer"
       aria-label="Footer"
     >
-      <div className="flex flex-col relative items-center gap-1 bottom-3 md:mb-32 md:flex-row md:gap-6 lg:gap-9 xl:gap-12">
+      <div className="flex flex-col relative md:items-start items-center gap-1 bottom-3 md:mb-32 md:flex-row md:gap-6 lg:gap-9 xl:gap-12 mb-4">
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
-            className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4 md:top-6"
+            className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4"
             src="/images/donna-vino-logo-transparent.png"
             alt="Donna Vino Logo Footer- a brand for wine tastings and experiences"
             data-testid="logo-footer"
           />
         </Link>
 
-        {links.map(({ href, label, dataTestId }, index) => (
-          <Link
-            key={index}
-            data-testid={dataTestId}
-            href={href}
-            className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-${index + 2} md:order-${index + 1}`}
-            role="navigation"
-            aria-label={`Link to ${label}`}
-            title={`Go to the ${label} page`}
-          >
-            {label}
-          </Link>
-        ))}
+        <Link
+          data-testid="our-team"
+          href="/our-team"
+          className={`rounded-md px-3 py-2  text-bodyLarge text-semibold order-2 md:order-1`}
+          role="navigation"
+          aria-label={`Link to ${translations["footer.team"]}`}
+        >
+          {translations["footer.team"]}
+        </Link>
 
-        <section className="flex flex-col order-1 md:order-4 items-center md:relative md:top-5">
-          <h4 className="text-bodyLarge text-semibold mb-1 md:mb-3 md:mt-3">
+        <Link
+          data-testid="our-values"
+          href="/our-values"
+          className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-3 md:order-2`}
+          role="navigation"
+          aria-label={`Link to ${translations["footer.values"]}`}
+        >
+          {translations["footer.values"]}
+        </Link>
+
+        <Link
+          data-testid="contact"
+          href="/contact"
+          className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-4 md:order-3`}
+          role="navigation"
+          aria-label={`Link to ${translations["footer.contact"]}`}
+        >
+          {translations["footer.contact"]}
+        </Link>
+
+        <section className="flex flex-col order-1 md:order-5 items-center md:relative">
+          <h4 className="text-bodyLarge text-semibold px-3 py-2">
             {translations["footer.follow"]}
           </h4>
           <div
@@ -101,7 +99,15 @@ const Footer = () => {
       </div>
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap text-bodySmall mt-1 mb-1 md:mt-0 md:mb-0 md:text-bodyMedium text-tertiary2-hover_dark">
         <p className="company-number">
-          Donna Vino Aps - CVR-n. 45017567 - Donna Vino Aps ©
+          &copy; {new Date().getFullYear()} Donna Vino Aps | CVR-n. 45017567 |{" "}
+          <a
+            className="underline"
+            href="/privacy-policy"
+            role="navigation"
+            aria-label={`Link to ${translations["footer.privacy-policy"]}`}
+          >
+            {translations["footer.privacy-policy"]}
+          </a>
         </p>
       </div>
     </footer>
