@@ -12,7 +12,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
       className={`fixed right-0 top-0 w-full h-full sm:hidden z-40 ${
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
-      data-testid="side-bar"
+      data-testid="sidebar"
       role="dialog"
       aria-labelledby="menu-heading"
       aria-describedby="menu-description"
@@ -88,7 +88,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
             >
               <img
                 src="/icons/instagram-original.svg"
-                className="h-[1.5rem] filter brightness-0"
+                className="h-[1.5rem]"
                 alt="Instagram"
               />
             </a>
@@ -99,7 +99,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
             >
               <img
                 src="/icons/linkedin-alt.svg"
-                className="h-[1.5rem] filter brightness-0"
+                className="h-[1.5rem]"
                 alt="LinkedIn"
               />
             </a>
@@ -110,7 +110,7 @@ const SideBar = ({ isMenuOpen, toggleMenu, navLinks }) => {
             >
               <img
                 src="/icons/facebook-line.svg"
-                className="h-[1.5rem] filter brightness-0"
+                className="h-[1.5rem]"
                 alt="Facebook"
               />
             </a>
