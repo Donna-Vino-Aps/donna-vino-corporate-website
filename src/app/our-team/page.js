@@ -6,7 +6,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 const OurTeam = () => {
   const { translations } = useLanguage();
-  const teamMembers = [
+  const teamMembersCore = [
     {
       tabindex: 0,
       img: "/images/team/photo-katrine.png",
@@ -17,18 +17,18 @@ const OurTeam = () => {
     },
     {
       tabindex: 1,
-      img: "/images/team/photo-davide.png",
-      name: "Davide Zampieri",
-      title: translations["team.dav.title"],
-      description: translations["team.dav.description"],
-      links: "/icons/linkedin-alt-light.svg",
-    },
-    {
-      tabindex: 2,
       img: "/images/team/photo-ricardo.png",
       name: "Ricardo Lara",
       title: translations["team.ric.title"],
       description: translations["team.ric.description"],
+      links: "/icons/linkedin-alt-light.svg",
+    },
+    {
+      tabindex: 2,
+      img: "/images/team/photo-davide.png",
+      name: "Davide Zampieri",
+      title: translations["team.dav.title"],
+      description: translations["team.dav.description"],
       links: "/icons/linkedin-alt-light.svg",
     },
     {
@@ -95,22 +95,48 @@ const OurTeam = () => {
             {translations["team.paragraph"]}
           </p>
         </section>
-        <section
-          className="flex flex-wrap gap-4 justify-center py-8"
-          data-testid="team-cards-container"
-          aria-labelledby="our-team-title"
-        >
-          {teamMembers.map((teamMember) => (
-            <MemberCard
-              key={teamMember.tabindex}
-              img={teamMember.img}
-              name={teamMember.name}
-              description={teamMember.description}
-              title={teamMember.title}
-              links={teamMember.links}
-            />
-          ))}
-        </section>
+        <div>
+          <h3 className="text-displaySmall font-roboto text-tertiary1-normal text-center mt-5">
+            {translations["team.core-h3"]}
+          </h3>
+          <section
+            className="flex flex-wrap gap-4 justify-center py-8"
+            data-testid="team-cards-container"
+            aria-labelledby="our-team-title"
+          >
+            {teamMembersCore.slice(0, 2).map((teamMember) => (
+              <MemberCard
+                key={teamMember.tabindex}
+                img={teamMember.img}
+                name={teamMember.name}
+                description={teamMember.description}
+                title={teamMember.title}
+                links={teamMember.links}
+              />
+            ))}
+          </section>
+        </div>
+        <div>
+          <h3 className="text-displaySmall font-roboto text-tertiary1-normal text-center mt-5">
+            {translations["team.tech-h3"]}
+          </h3>
+          <section
+            className="flex flex-wrap gap-4 justify-center py-8"
+            data-testid="team-cards-container"
+            aria-labelledby="our-team-title"
+          >
+            {teamMembersCore.slice(2, 6).map((teamMember) => (
+              <MemberCard
+                key={teamMember.tabindex}
+                img={teamMember.img}
+                name={teamMember.name}
+                description={teamMember.description}
+                title={teamMember.title}
+                links={teamMember.links}
+              />
+            ))}
+          </section>
+        </div>
       </div>
     </div>
   );
