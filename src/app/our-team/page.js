@@ -6,7 +6,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 const OurTeam = () => {
   const { translations } = useLanguage();
-  const teamMembersCore = [
+  const teamMembers = [
     {
       tabindex: 0,
       img: "/images/team/photo-katrine.png",
@@ -136,7 +136,7 @@ const OurTeam = () => {
             data-testid="team-cards-container"
             aria-labelledby="our-team-title"
           >
-            {teamMembersCore.slice(0, 2).map((teamMember) => (
+            {teamMembers.slice(0, 2).map((teamMember) => (
               <MemberCard
                 key={teamMember.tabindex}
                 img={teamMember.img}
@@ -157,7 +157,7 @@ const OurTeam = () => {
             data-testid="team-cards-container"
             aria-labelledby="our-team-title"
           >
-            {teamMembersCore.slice(2, 10).map((teamMember) => (
+            {teamMembers.slice(2, 10).map((teamMember) => (
               <MemberCard
                 key={teamMember.tabindex}
                 img={teamMember.img}
