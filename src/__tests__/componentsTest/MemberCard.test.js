@@ -28,20 +28,6 @@ describe("MemberCard Component", () => {
       title: "Head Chef & Cibi e Vini Owner",
       links: "/icons/linkedin-alt-light.svg",
     },
-    {
-      tabindex: 3,
-      img: "/images/team/photo-rick.png",
-      name: "Andrea Braschi",
-      title: "Sales & BDR",
-      links: "/icons/linkedin-alt-light.svg",
-    },
-    {
-      tabindex: 4,
-      img: "/images/team/photo-diana.png",
-      name: "Diana Lorens",
-      title: "FullStack Developer",
-      links: "/icons/linkedin-alt-light.svg",
-    },
   ];
 
   const renderMemberCard = (locale, member) => {
@@ -63,7 +49,7 @@ describe("MemberCard Component", () => {
     const member = teamMembers[0];
     renderMemberCard("en", member);
 
-    const teamImage = screen.getByAltText("img");
+    const teamImage = screen.getByRole("figure");
     expect(teamImage).toBeInTheDocument();
   });
 
