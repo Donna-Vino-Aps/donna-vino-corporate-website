@@ -91,7 +91,7 @@ const OurTeam = () => {
 
   return (
     <div className="flex justify-center px-2" data-testid="our-team-container">
-      <div className="w-full">
+      <div className="w-full max-w-[84rem]">
         <section className="py-4 sm:mx-8">
           <Button
             text={translations["button.go-back"]}
