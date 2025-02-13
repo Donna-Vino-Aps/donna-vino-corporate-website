@@ -22,9 +22,9 @@ const MemberCard = (props) => {
     >
       <figure className="overflow-hidden rounded-[1rem] h-[22rem] sm:h-full">
         <img
-          className="object-fit w-[26rem] h-[22rem] sm:w-full sm:h-[24rem]"
+          className="object-cover h-[20.625] w-[21.5rem] sm:w-full sm:h-[24rem]"
           src={props.img}
-          alt="img"
+          alt={`{props.name}'s photo`}
           data-testid="image"
           onClick={openModal}
           loading="lazy"
