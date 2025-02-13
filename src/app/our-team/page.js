@@ -33,7 +33,7 @@ const OurTeam = () => {
     },
     {
       tabindex: 3,
-      img: "/images/team/photo-rick.png",
+      img: "/images/team/dv-lenin-resize.jpg",
       name: "Lenin Del Rio",
       title: translations["team.lead-fullstack"],
       description: translations["team.1.description"],
@@ -41,7 +41,7 @@ const OurTeam = () => {
     },
     {
       tabindex: 4,
-      img: "/images/team/photo-diana.png",
+      img: "/images/team/dv-ana-resize.jpg",
       name: "Ana Gabriela Guzman",
       title: translations["team.fullstack"],
       description: translations["team.2.description"],
@@ -49,7 +49,7 @@ const OurTeam = () => {
     },
     {
       tabindex: 5,
-      img: "/images/team/photo-pablo.png",
+      img: "/images/team/dv-yuejiao-resize.jpg",
       name: "Yuejiao Shi",
       title: translations["team.fullstack"],
       description: translations["team.3.description"],
@@ -57,7 +57,7 @@ const OurTeam = () => {
     },
     {
       tabindex: 6,
-      img: "/images/team/photo-pablo.png",
+      img: "/images/team/dv-lenin-resize.jpg",
       name: "Simon Berglund",
       title: translations["team.fullstack"],
       description: translations["team.4.description"],
@@ -65,7 +65,7 @@ const OurTeam = () => {
     },
     {
       tabindex: 7,
-      img: "/images/team/photo-pablo.png",
+      img: "/images/team/dv-alejandro-resize.jpg",
       name: "Alejandro Gispert",
       title: translations["team.fullstack"],
       description: translations["team.5.description"],
@@ -73,15 +73,15 @@ const OurTeam = () => {
     },
     {
       tabindex: 8,
-      img: "/images/team/photo-pablo.png",
+      img: "/images/team/dv-fransisco-resize.jpg",
       name: "Fransisco Estrada",
       title: translations["team.fullstack"],
       description: translations["team.6.description"],
       links: "/icons/linkedin-alt-light.svg",
     },
     {
-      tabindex: 8,
-      img: "/images/team/photo-pablo.png",
+      tabindex: 9,
+      img: "/images/team/dv-kritika-resize.jpg",
       name: "Kritika Shenoy",
       title: translations["team.social-media"],
       description: translations["team.7.description"],
@@ -128,11 +128,11 @@ const OurTeam = () => {
           </p>
         </section>
         <div>
-          <h3 className="text-displaySmall font-roboto text-tertiary1-normal text-center mt-5">
+          <h3 className="text-displaySmall font-roboto text-tertiary1-normal text-center mt-2 md:mt-5">
             {translations["team.core-h3"]}
           </h3>
           <section
-            className="flex flex-wrap gap-4 justify-center py-8"
+            className="flex flex-wrap gap-4 justify-center py-6"
             data-testid="team-cards-container"
             aria-labelledby="our-team-title"
           >
@@ -149,15 +149,15 @@ const OurTeam = () => {
           </section>
         </div>
         <div>
-          <h3 className="text-displaySmall font-roboto text-tertiary1-normal text-center mt-5">
+          <h3 className="text-displaySmall font-roboto text-tertiary1-normal text-center mt-2 md:mt-5">
             {translations["team.tech-h3"]}
           </h3>
           <section
-            className="flex flex-wrap gap-4 justify-center py-8"
+            className="flex flex-wrap gap-4 justify-center py-6"
             data-testid="team-cards-container"
             aria-labelledby="our-team-title"
           >
-            {teamMembersCore.slice(2, 6).map((teamMember) => (
+            {teamMembersCore.slice(2, 10).map((teamMember) => (
               <MemberCard
                 key={teamMember.tabindex}
                 img={teamMember.img}
