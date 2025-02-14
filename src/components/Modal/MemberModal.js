@@ -3,6 +3,14 @@ import PropTypes from "prop-types";
 import FloatingButton from "../Button/FloatingButton";
 
 const MemberModal = (props) => {
+  const renderSocialLinks = () => {
+    if (props.links && props.links.length > 0) {
+      return props.links.map((link, index) => (
+        <FloatingButton key={index} icon={link.icon} url={link.url} />
+      ));
+    }
+    return null;
+  };
   return (
     <div
       className="relative z-10 "
@@ -55,10 +63,9 @@ const MemberModal = (props) => {
                   >
                     {props.description}
                   </p>
+
                   <div className="flex items-center justify-center sm:justify-start space-x-2 mt-5 mb-1">
-                    <FloatingButton />
-                    <FloatingButton />
-                    <FloatingButton />
+                    {renderSocialLinks()}
                   </div>
                 </div>
 
@@ -78,13 +85,14 @@ const MemberModal = (props) => {
     </div>
   );
 };
+const socialLinks = [];
 
 MemberModal.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  links: PropTypes.string,
+  links: { socialLinks },
   onClose: PropTypes.func,
 };
 
