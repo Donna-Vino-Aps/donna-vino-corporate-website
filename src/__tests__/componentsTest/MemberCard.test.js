@@ -12,21 +12,48 @@ describe("MemberCard Component", () => {
       img: "/images/team/photo-katrine.png",
       name: "Katrine Giogio",
       title: "Founder",
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/katrine-giorgio-bj%C3%B8rnhart-9468b127a/",
+        },
+        {
+          icon: "/icons/instagram-original.svg",
+          url: "https://www.instagram.com/donna_vino_winetastings/",
+        },
+      ],
     },
     {
       tabindex: 1,
-      img: "/images/team/photo-davide.png",
-      name: "Davide Zampieri",
-      title: "Co-Founder & Project Manager",
-      links: "/icons/linkedin-alt-light.svg",
-    },
-    {
-      tabindex: 2,
       img: "/images/team/photo-ricardo.png",
       name: "Ricardo Lara",
       title: "Head Chef & Cibi e Vini Owner",
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/riccardo-lara-47268b284/",
+        },
+        {
+          icon: "/icons/instagram-original.svg",
+          url: "https://www.instagram.com/riccardo_lara_/",
+        },
+      ],
+    },
+    {
+      tabindex: 2,
+      img: "/images/team/photo-davide.png",
+      name: "Davide Zampieri",
+      title: "Co-Founder & Project Manager",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/davidezampieri12/",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://zampieridavide.com/",
+        },
+      ],
     },
   ];
 

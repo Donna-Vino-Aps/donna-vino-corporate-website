@@ -111,7 +111,7 @@ const OurTeam = () => {
     },
     {
       tabindex: 6,
-      img: "/images/team/dv-lenin-resize.jpg",
+      img: "/images/team/dv-simon-resize.jpg",
       name: "Simon Berglund",
       title: translations["team.fullstack"],
       description: translations["team.4.description"],
