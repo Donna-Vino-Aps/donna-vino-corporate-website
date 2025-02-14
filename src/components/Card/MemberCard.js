@@ -20,7 +20,7 @@ const MemberCard = (props) => {
       aria-label="Team Card"
       data-testid="team-card"
     >
-      <figure className="overflow-hidden rounded-[1rem] sm:h-full">
+      <figure className="overflow-hidden rounded-[1rem] h-full">
         <img
           className="object-cover w-full h-[24rem]"
           src={props.img}
