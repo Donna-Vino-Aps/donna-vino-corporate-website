@@ -12,7 +12,7 @@ const FloatingButton = ({ icon, url }) => {
         src={icon}
         alt="social media"
         data-testid="social-icon"
-        className="w-4"
+        className="w-4 filter brightness-0 invert"
         loading="lazy"
       />
     </a>
