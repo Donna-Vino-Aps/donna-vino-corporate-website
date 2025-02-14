@@ -24,7 +24,7 @@ const MemberCard = (props) => {
         <img
           className="object-cover h-[20.625] w-[21.5rem] sm:w-full sm:h-[24rem]"
           src={props.img}
-          alt={`{props.name}'s photo`}
+          alt={`${props.name}'s photo`}
           data-testid="image"
           onClick={openModal}
           loading="lazy"
@@ -51,8 +51,21 @@ const MemberCard = (props) => {
             {props.title}
           </p>
 
-          <div className="flex justify-center text-white">
-            <img src={props.links} className="h-4" alt="LinkedIn" />
+          <div className="social-links flex justify-center gap-[6px]">
+            {props.links.map(({ icon, url }, index) => (
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={icon}
+                  alt="Social link"
+                  className="h-4 filter brightness-0 invert"
+                />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -84,7 +97,7 @@ MemberCard.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  links: PropTypes.string,
+  links: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
 };
 
 export default MemberCard;
