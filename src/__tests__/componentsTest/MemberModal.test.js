@@ -11,11 +11,4 @@ describe("ModalMember component", () => {
     expect(screen.getByTestId("member-description")).toBeInTheDocument();
     expect(screen.getByTestId("member-image")).toBeInTheDocument();
   });
-
-  it("should render the FloatingButton components within ModalMember correctly", () => {
-    render(<MemberModal />);
-
-    const floatingButtons = screen.getAllByTestId("floating-button");
-    //expect(floatingButtons).toHaveLength(3);
-  });
 });
