@@ -20,9 +20,9 @@ const MemberCard = (props) => {
       aria-label="Team Card"
       data-testid="team-card"
     >
-      <figure className="overflow-hidden rounded-[1rem] h-[22rem] sm:h-full">
+      <figure className="overflow-hidden rounded-[1rem] sm:h-full">
         <img
-          className="object-cover h-[20.625] w-[21.5rem] sm:w-full sm:h-[24rem]"
+          className="object-cover w-full h-[24rem]"
           src={props.img}
           alt={`${props.name}'s photo`}
           data-testid="image"
@@ -97,7 +97,12 @@ MemberCard.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  links: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ),
 };
 
 export default MemberCard;
