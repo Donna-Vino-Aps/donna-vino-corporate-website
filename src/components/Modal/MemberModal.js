@@ -62,7 +62,7 @@ const MemberModal = (props) => {
                   </div>
                 </div>
 
-                <figure className="flex justify-center items-center -mt-2 -mb-4 h-[26rem] md:[28rem] w-full overflow-hidden rounded-[1rem] order-1 md:order-2 md:h-[17.375rem] md:relative md:bottom-12 md:left-11">
+                <figure className="flex justify-center items-center h-[26rem] md:[28rem] w-full overflow-hidden rounded-[1rem] order-1 md:order-2 md:h-[17.375rem] md:relative md:bottom-12 md:left-11">
                   <img
                     className="object-cover h-auto w-full md:w-[82%] h-auto max-h-full rounded-lg object-top"
                     src={props.img}

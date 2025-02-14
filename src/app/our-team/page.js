@@ -9,7 +9,7 @@ const OurTeam = () => {
   const teamMembers = [
     {
       tabindex: 0,
-      img: "/images/team/photo-katrine.png",
+      img: "/images/team/dv-katrine-resized.jpg",
       name: "Katrine Giogio",
       title: translations["team.kat.title"],
       description: translations["team.kat.description"],
@@ -162,7 +162,7 @@ const OurTeam = () => {
     },
     {
       tabindex: 9,
-      img: "/images/team/dv-kritika-resize.jpg",
+      img: "/images/team/dv-kritika-resized2.jpg",
       name: "Kritika Shenoy",
       title: translations["team.social-media"],
       description: translations["team.7.description"],
