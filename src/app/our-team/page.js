@@ -13,7 +13,16 @@ const OurTeam = () => {
       name: "Katrine Giogio",
       title: translations["team.kat.title"],
       description: translations["team.kat.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/katrine-giorgio-bj%C3%B8rnhart-9468b127a/",
+        },
+        {
+          icon: "/icons/instagram-original.svg",
+          url: "https://www.instagram.com/donna_vino_winetastings/",
+        },
+      ],
     },
     {
       tabindex: 1,
@@ -21,7 +30,16 @@ const OurTeam = () => {
       name: "Ricardo Lara",
       title: translations["team.ric.title"],
       description: translations["team.ric.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/riccardo-lara-47268b284/",
+        },
+        {
+          icon: "/icons/instagram-original.svg",
+          url: "https://www.instagram.com/riccardo_lara_/",
+        },
+      ],
     },
     {
       tabindex: 2,
@@ -29,7 +47,16 @@ const OurTeam = () => {
       name: "Davide Zampieri",
       title: translations["team.dav.title"],
       description: translations["team.dav.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/davidezampieri12/",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://zampieridavide.com/",
+        },
+      ],
     },
     {
       tabindex: 3,
@@ -37,7 +64,16 @@ const OurTeam = () => {
       name: "Lenin Del Rio",
       title: translations["team.lead-fullstack"],
       description: translations["team.1.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/len-del-rio-31a2882ab/",
+        },
+        {
+          icon: "/icons/github.svg",
+          url: "https://github.com/Lenindelrionicaragua",
+        },
+      ],
     },
     {
       tabindex: 4,
@@ -45,15 +81,33 @@ const OurTeam = () => {
       name: "Ana Gabriela Guzman",
       title: translations["team.fullstack"],
       description: translations["team.2.description"],
-      links: "/icons/github.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/ana-gabriela-guzman-625ba3148/",
+        },
+        {
+          icon: "/icons/github.svg",
+          url: "https://github.com/anaCode26",
+        },
+      ],
     },
     {
       tabindex: 5,
-      img: "/images/team/dv-yuejiao-resize.jpg",
+      img: "/images/team/dv-yuejiao-resized2.jpg",
       name: "Yuejiao Shi",
       title: translations["team.fullstack"],
       description: translations["team.3.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/yuejiao-shi/",
+        },
+        {
+          icon: "/icons/github.svg",
+          url: "https://github.com/YuejiaoShi",
+        },
+      ],
     },
     {
       tabindex: 6,
@@ -61,7 +115,16 @@ const OurTeam = () => {
       name: "Simon Berglund",
       title: translations["team.fullstack"],
       description: translations["team.4.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/simon-berglund-75b15393/",
+        },
+        {
+          icon: "/icons/github.svg",
+          url: "https://github.com/SimonFromSweden",
+        },
+      ],
     },
     {
       tabindex: 7,
@@ -69,7 +132,16 @@ const OurTeam = () => {
       name: "Alejandro Gispert",
       title: translations["team.fullstack"],
       description: translations["team.5.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/alejandro-gispert/",
+        },
+        {
+          icon: "/icons/github.svg",
+          url: "https://github.com/AlejandroGispert",
+        },
+      ],
     },
     {
       tabindex: 8,
@@ -77,7 +149,16 @@ const OurTeam = () => {
       name: "Fransisco Estrada",
       title: translations["team.fullstack"],
       description: translations["team.6.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/francisco-estrada-webdeveloper/",
+        },
+        {
+          icon: "/icons/github.svg",
+          url: "https://github.com/FranciscoEstrada02",
+        },
+      ],
     },
     {
       tabindex: 9,
@@ -85,7 +166,16 @@ const OurTeam = () => {
       name: "Kritika Shenoy",
       title: translations["team.social-media"],
       description: translations["team.7.description"],
-      links: "/icons/linkedin-alt-light.svg",
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/kritika-shenoy-204994127/",
+        },
+        {
+          icon: "/icons/instagram-original.svg",
+          url: "https://www.instagram.com/shenoysketches?igsh=MWd0MTBodDY2cWx5Yw==",
+        },
+      ],
     },
   ];
 
