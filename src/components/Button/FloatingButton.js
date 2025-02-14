@@ -7,6 +7,7 @@ const FloatingButton = ({ icon, url }) => {
       href={url}
       className="bg-primary-active_normal w-8 h-8 rounded-full shadow-lg flex justify-center items-center"
       data-testid="floating-button"
+      target="_blank"
     >
       <img
         src={icon}

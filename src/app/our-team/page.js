@@ -70,7 +70,7 @@ const OurTeam = () => {
           url: "https://www.linkedin.com/in/len-del-rio-31a2882ab/",
         },
         {
-          icon: "/icons/github.svg",
+          icon: "/icons/github-original.svg",
           url: "https://github.com/Lenindelrionicaragua",
         },
       ],
@@ -87,7 +87,7 @@ const OurTeam = () => {
           url: "https://www.linkedin.com/in/ana-gabriela-guzman-625ba3148/",
         },
         {
-          icon: "/icons/github.svg",
+          icon: "/icons/github-original.svg",
           url: "https://github.com/anaCode26",
         },
       ],
@@ -104,7 +104,7 @@ const OurTeam = () => {
           url: "https://www.linkedin.com/in/yuejiao-shi/",
         },
         {
-          icon: "/icons/github.svg",
+          icon: "/icons/github-original.svg",
           url: "https://github.com/YuejiaoShi",
         },
       ],
@@ -121,7 +121,7 @@ const OurTeam = () => {
           url: "https://www.linkedin.com/in/simon-berglund-75b15393/",
         },
         {
-          icon: "/icons/github.svg",
+          icon: "/icons/github-original.svg",
           url: "https://github.com/SimonFromSweden",
         },
       ],
@@ -138,7 +138,7 @@ const OurTeam = () => {
           url: "https://www.linkedin.com/in/alejandro-gispert/",
         },
         {
-          icon: "/icons/github.svg",
+          icon: "/icons/github-original.svg",
           url: "https://github.com/AlejandroGispert",
         },
       ],
@@ -155,7 +155,7 @@ const OurTeam = () => {
           url: "https://www.linkedin.com/in/francisco-estrada-webdeveloper/",
         },
         {
-          icon: "/icons/github.svg",
+          icon: "/icons/github-original.svg",
           url: "https://github.com/FranciscoEstrada02",
         },
       ],
