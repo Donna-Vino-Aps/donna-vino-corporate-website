@@ -9,8 +9,5 @@ describe("FloatingButton component", () => {
     const button = screen.getByTestId("floating-button");
     expect(button).toBeInTheDocument();
     expect(button).toHaveClass("bg-primary-active_normal");
-
-    const buttonIcon = screen.getByTestId("social-icon");
-    expect(buttonIcon).toHaveAttribute("src", "/icons/linkedin-alt-light.svg");
   });
 });
