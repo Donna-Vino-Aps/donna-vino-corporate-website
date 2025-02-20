@@ -53,7 +53,9 @@ const Subscribe = () => {
 
   React.useEffect(() => {
     if (data && data.success) {
-      setSuccessMessage(data.message || "Subscription successful!");
+      setSuccessMessage(
+        "Subscription successful! Check your email for confirmation.",
+      );
     }
   }, [data]);
 
@@ -106,6 +108,7 @@ const Subscribe = () => {
               <div
                 className="sm:mx-8 mx-4 pb-2 text-red-500"
                 aria-live="assertive"
+                data-testid="error-message"
               >
                 {errors.message}
               </div>
@@ -115,6 +118,7 @@ const Subscribe = () => {
               <div
                 className="sm:mx-8 mx-4 pb-2 text-green-500"
                 aria-live="assertive"
+                data-testid="success-message"
               >
                 {successMessage}
               </div>
@@ -129,6 +133,7 @@ const Subscribe = () => {
                 onChange={() => setAgreed(!agreed)}
                 aria-label={translations["subscribe.terms"]}
                 className="form-checkbox h-5 w-5 accent-secondary-hover_normal"
+                data-testid="terms-checkbox"
               />
               <span className="ml-3 w-full text-bodyLarge">
                 {translations["subscribe.terms"]}
