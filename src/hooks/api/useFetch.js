@@ -33,7 +33,7 @@ const useFetch = (
   // Store multiple cancel tokens
   const cancelTokens = useRef({});
 
-  const performFetch = async (options = {}, newUrl) => {
+  const performFetch = async (body, options = {}, newUrl) => {
     if (newUrl) {
       cancelFetch(newUrl); // Cancel the previous request if URL changes
       setRoute(newUrl);
@@ -73,21 +73,16 @@ const useFetch = (
         return;
       }
 
-      if (Object.keys(response.data).length === 0) {
-        setError(new Error("Empty response from server"));
-        return;
-      }
+      logInfo(`Response Data: ${JSON.stringify(response.data)}`);
 
-      const { success, msg, message, error: serverError } = response.data;
-
-      logInfo(`Response Data: ${JSON.stringify(response.data, null, 2)}`);
-
-      if (success) {
+      if (response.data.success) {
         setData(response.data);
-        onReceived(response.data); // Pass data to the onReceived callback
+        onReceived(response.data);
       } else {
         const errorMsg =
-          serverError || msg || message || "Unexpected server error";
+          response.data.error ||
+          response.data.message ||
+          "Unexpected server error";
         setError(new Error(errorMsg));
       }
     } catch (error) {
@@ -95,7 +90,10 @@ const useFetch = (
         setError(new Error("Fetch was canceled"));
       } else {
         const errorMsg =
-          error.response?.data?.msg || error.message || "Unexpected error";
+          error.response?.data?.error ||
+          error.response?.data?.message ||
+          error.message ||
+          "Unexpected error";
         setError(new Error(errorMsg));
       }
     } finally {
