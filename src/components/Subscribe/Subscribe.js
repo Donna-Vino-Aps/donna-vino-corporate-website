@@ -3,13 +3,19 @@ import useFetch from "@/hooks/api/useFetch";
 import React, { useState } from "react";
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { logInfo } from "@/utils/logging";
 
 const Subscribe = () => {
   const { translations } = useLanguage();
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(false);
+  const [errors, setErrors] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
 
-  const { isLoading, error, performFetch } = useFetch("/subscribe", "POST");
+  const { isLoading, error, data, performFetch } = useFetch(
+    "/send-email",
+    "POST",
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,13 +24,38 @@ const Subscribe = () => {
       return;
     }
 
-    const success = await performFetch({}, { email });
+    setErrors(null);
+    setSuccessMessage(null);
 
-    if (success) {
+    try {
+      await performFetch(
+        {
+          to: email,
+          subject: "Subscription",
+          templateName: "emailWelcomeTemplate",
+        },
+        {},
+      );
+
       setEmail("");
       setAgreed(false);
+    } catch (err) {
+      logInfo(err);
+      setErrors(err);
     }
   };
+
+  React.useEffect(() => {
+    if (error) {
+      setErrors(error);
+    }
+  }, [error]);
+
+  React.useEffect(() => {
+    if (data && data.success) {
+      setSuccessMessage(data.message || "Subscription successful!");
+    }
+  }, [data]);
 
   return (
     <section
@@ -71,13 +102,21 @@ const Subscribe = () => {
                 testId="submit-button"
               />
             </div>
-            {/* temporary display error message here as plain text */}
-            {error && (
+            {errors && (
               <div
                 className="sm:mx-8 mx-4 pb-2 text-red-500"
                 aria-live="assertive"
               >
-                {error.message}
+                {errors.message}
+              </div>
+            )}
+
+            {successMessage && (
+              <div
+                className="sm:mx-8 mx-4 pb-2 text-green-500"
+                aria-live="assertive"
+              >
+                {successMessage}
               </div>
             )}
           </form>
