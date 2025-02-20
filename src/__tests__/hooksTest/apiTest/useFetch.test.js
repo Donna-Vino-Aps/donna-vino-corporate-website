@@ -27,6 +27,12 @@ describe("useFetch Hook", () => {
         renderHook(() => useFetch(null, "GET", null, {}, jest.fn())),
       ).toThrow("Invalid route provided");
     });
+
+    it("should handle undefined request parameters", () => {
+      expect(() =>
+        renderHook(() => useFetch(undefined, "GET", null, {}, jest.fn())),
+      ).toThrow("Invalid route provided");
+    });
   });
 
   // Tests for HTTP methods
@@ -158,7 +164,7 @@ describe("useFetch Hook", () => {
       });
 
       expect(result.current.error).toBeInstanceOf(Error);
-      expect(result.current.error.message).toBe("Empty response from server");
+      expect(result.current.error.message).toBe("Unexpected server error");
     });
 
     it("should handle generic server error", async () => {
