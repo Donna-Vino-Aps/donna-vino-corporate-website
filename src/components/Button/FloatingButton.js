@@ -1,21 +1,28 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const FloatingButton = () => {
+const FloatingButton = ({ icon, url }) => {
   return (
-    <button
-      className="bg-primary-active_normal w-8 h-8
-            rounded-full shadow-lg flex justify-center items-center"
+    <a
+      href={url}
+      className="bg-primary-active_normal w-8 h-8 rounded-full shadow-lg flex justify-center items-center"
       data-testid="floating-button"
+      target="_blank"
     >
       <img
-        src="/icons/linkedin-alt-light.svg"
+        src={icon}
         alt="social media"
         data-testid="social-icon"
-        className="w-4"
+        className="w-4 filter brightness-0 invert"
         loading="lazy"
       />
-    </button>
+    </a>
   );
+};
+
+FloatingButton.propTypes = {
+  icon: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default FloatingButton;

@@ -20,11 +20,11 @@ const MemberCard = (props) => {
       aria-label="Team Card"
       data-testid="team-card"
     >
-      <figure className="overflow-hidden rounded-[1rem] h-[22rem] sm:h-full">
+      <figure className="overflow-hidden rounded-[1rem] h-full">
         <img
-          className="object-fit w-[26rem] h-[22rem] sm:w-full sm:h-[24rem]"
+          className="object-cover w-full h-[24rem]"
           src={props.img}
-          alt="img"
+          alt={`${props.name}'s photo`}
           data-testid="image"
           onClick={openModal}
           loading="lazy"
@@ -51,8 +51,21 @@ const MemberCard = (props) => {
             {props.title}
           </p>
 
-          <div className="flex justify-center text-white">
-            <img src={props.links} className="h-4" alt="LinkedIn" />
+          <div className="social-links flex justify-center gap-[6px]">
+            {props.links.map(({ icon, url }, index) => (
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={icon}
+                  alt="Social link"
+                  className="h-4 filter brightness-0 invert"
+                />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -84,7 +97,12 @@ MemberCard.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  links: PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ),
 };
 
 export default MemberCard;
