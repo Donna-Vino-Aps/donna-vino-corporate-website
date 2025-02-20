@@ -60,7 +60,7 @@ const useFetch = (
         // Use the route as a unique identifier
         cancelTokens.current[route] = cancel;
       }),
-      ...{ data: requestBody },
+      ...(requestBody ? { data: requestBody } : {}),
       ...options, // Spread other options last
     };
 
@@ -90,6 +90,7 @@ const useFetch = (
         setError(new Error("Fetch was canceled"));
       } else {
         const errorMsg =
+          error.response?.data?.msg ||
           error.response?.data?.error ||
           error.response?.data?.message ||
           error.message ||
