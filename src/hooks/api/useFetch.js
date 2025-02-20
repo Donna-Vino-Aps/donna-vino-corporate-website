@@ -50,16 +50,18 @@ const useFetch = (
       return;
     }
 
+    const requestBody = body || options.body || null;
+
     const baseOptions = {
-      method: method, // Allow other HTTP methods (GET, POST, PUT, DELETE)
+      method,
       headers: { "Content-Type": "application/json", ...customHeaders },
       withCredentials: true,
       cancelToken: new axios.CancelToken((cancel) => {
         // Use the route as a unique identifier
         cancelTokens.current[route] = cancel;
       }),
-      ...(body && { data: body }), // Attach the body for POST, PUT, etc.
-      ...options, // Allow additional custom options
+      ...{ data: requestBody },
+      ...options, // Spread other options last
     };
 
     try {
