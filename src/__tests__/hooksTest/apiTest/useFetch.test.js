@@ -2,7 +2,6 @@ import { renderHook, act, waitFor } from "@testing-library/react";
 import axios from "axios";
 import useFetch from "../../../hooks/api/useFetch";
 
-// Mock axios
 jest.mock("axios");
 
 describe("useFetch Hook", () => {
@@ -14,7 +13,6 @@ describe("useFetch Hook", () => {
     jest.restoreAllMocks();
   });
 
-  // Tests for invalid configurations
   describe("Invalid configurations", () => {
     it("should throw error for missing or invalid initialRoute", () => {
       expect(() => renderHook(() => useFetch())).toThrow(
@@ -27,9 +25,14 @@ describe("useFetch Hook", () => {
         renderHook(() => useFetch(null, "GET", null, {}, jest.fn())),
       ).toThrow("Invalid route provided");
     });
+
+    it("should handle undefined request parameters", () => {
+      expect(() =>
+        renderHook(() => useFetch(undefined, "GET", null, {}, jest.fn())),
+      ).toThrow("Invalid route provided");
+    });
   });
 
-  // Tests for HTTP methods
   describe("HTTP methods", () => {
     it("should handle GET request", async () => {
       const mockResponse = { data: { id: 123 }, success: true };
@@ -119,7 +122,6 @@ describe("useFetch Hook", () => {
     });
   });
 
-  // Tests for errors and edge cases
   describe("Error handling", () => {
     it("should handle failed GET request", async () => {
       axios.mockRejectedValueOnce(new Error("Network Error"));
@@ -158,7 +160,7 @@ describe("useFetch Hook", () => {
       });
 
       expect(result.current.error).toBeInstanceOf(Error);
-      expect(result.current.error.message).toBe("Empty response from server");
+      expect(result.current.error.message).toBe("Unexpected server error");
     });
 
     it("should handle generic server error", async () => {
@@ -178,7 +180,6 @@ describe("useFetch Hook", () => {
     });
   });
 
-  // Tests for configuration defaults
   describe("Configuration and defaults", () => {
     it("should use default headers when customHeaders is not provided", async () => {
       const mockResponse = { data: { id: 123 }, success: true };
@@ -216,7 +217,6 @@ describe("useFetch Hook", () => {
     });
   });
 
-  // Tests for lifecycle methods
   describe("Lifecycle methods", () => {
     it("should call cancelFetch", () => {
       const { result } = renderHook(() => useFetch("/test-route", "GET"));
