@@ -26,7 +26,6 @@ const ContactUs = () => {
   };
 
   const handleSubmit = async (e) => {
-    logInfo("error");
     e.preventDefault();
 
     if (!isValidEmail(formData.email)) {
@@ -36,7 +35,7 @@ const ContactUs = () => {
 
     await performFetch(formData);
 
-    logInfo(`request data: ${JSON.stringify(formData)}`);
+    logInfo(`formData: ${JSON.stringify(formData)}`);
 
     if (data?.success) {
       alert("Message sent successfully");
