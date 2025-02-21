@@ -1,9 +1,36 @@
 import React from "react";
+import { useState } from "react";
 import Button from "../Button/Button";
+import useFetch from "@/hooks/api/useFetch";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const ContactUs = () => {
   const { translations } = useLanguage();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const { performFetch, isLoading, error, data } = useFetch("/contact", "POST");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await performFetch(formData);
+
+    if (data?.success) {
+      alert("Mensaje enviado correctamente");
+      setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
+    }
+  };
+
   <meta
     name="description"
     content="Get in touch with us. We are located in Copenhagen. Contact us for inquiries about our products or services."
@@ -13,12 +40,12 @@ const ContactUs = () => {
     {
       icon: "/icons/location-red.svg",
       title: translations["contact.subheading1"],
-      description: "Christianshavn, Copenhagen",
+      description: "Christianshavns Voldgade 54, 1424 København",
     },
     {
       icon: "/icons/phone-map-red.svg",
       title: translations["contact.subheading2"],
-      description: "(+45) 12 34 56 78",
+      description: "(+45) 31 62 06 93",
     },
     {
       icon: "/icons/email-red.svg",
