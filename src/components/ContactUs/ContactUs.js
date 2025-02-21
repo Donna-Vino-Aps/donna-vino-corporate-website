@@ -26,7 +26,7 @@ const ContactUs = () => {
     await performFetch(formData);
 
     if (data?.success) {
-      alert("Mensaje enviado correctamente");
+      alert("Message sent successfully");
       setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
     }
   };
