@@ -1,8 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import useFetch from "@/hooks/api/useFetch";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { isValidEmail } from "@/utils/validators";
+import { logInfo } from "@/utils/logging";
 
 const ContactUs = () => {
   const { translations } = useLanguage();
@@ -14,27 +16,40 @@ const ContactUs = () => {
     message: "",
   });
 
-  const { performFetch, isLoading, error, data } = useFetch("/contact", "POST");
+  const { performFetch, isLoading, error, data } = useFetch(
+    "/web/contact",
+    "POST",
+  );
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
+    logInfo("error");
     e.preventDefault();
+
+    if (!isValidEmail(formData.email)) {
+      alert("The email format is invalid. Please enter a valid email address.");
+      return;
+    }
 
     await performFetch(formData);
 
+    logInfo(`request data: ${JSON.stringify(formData)}`);
+
     if (data?.success) {
       alert("Message sent successfully");
-      setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
+      setFormData({ name: "", email: "", phone: "", message: "" });
     }
   };
 
-  <meta
-    name="description"
-    content="Get in touch with us. We are located in Copenhagen. Contact us for inquiries about our products or services."
-  ></meta>;
+  // Error handling
+  useEffect(() => {
+    if (error) {
+      alert("Message could not be sent. Please try again later.");
+    }
+  }, [error]);
 
   const infoItems = [
     {
@@ -112,6 +127,7 @@ const ContactUs = () => {
               <form
                 action="#"
                 method="POST"
+                onSubmit={handleSubmit}
                 className="space-y-4 z-50"
                 aria-labelledby="contact-us-form"
               >
@@ -122,6 +138,8 @@ const ContactUs = () => {
                   type="text"
                   name="name"
                   placeholder={translations["contact.label-name"]}
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
                 <label htmlFor="email" className="sr-only">
@@ -131,6 +149,8 @@ const ContactUs = () => {
                   type="email"
                   name="email"
                   placeholder={translations["contact.label-mail"]}
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
                 <label htmlFor="phone" className="sr-only">
@@ -140,6 +160,8 @@ const ContactUs = () => {
                   type="tel"
                   name="phone"
                   placeholder={translations["contact.label-phone"]}
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
                 <label htmlFor="message" className="sr-only">
@@ -149,14 +171,24 @@ const ContactUs = () => {
                   placeholder={translations["contact.label-message"]}
                   name="message"
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows="4"
                 ></textarea>
-                <Button
-                  text={translations["contact.button-submit"]}
-                  variant="greenSubmit"
-                  ariaLabel="Send Message"
-                  testId="secondary-normal-send-message-button"
-                />
+                {isLoading ? (
+                  <div className="flex justify-center">
+                    <div className="spinner border-4 border-t-4 border-gray-300 border-t-[#22AD5C] rounded-full w-10 h-10 animate-spin"></div>
+                  </div>
+                ) : (
+                  <Button
+                    type="submit"
+                    onClick={handleSubmit}
+                    text={translations["contact.button-submit"]}
+                    variant="greenSubmit"
+                    ariaLabel="Send Message"
+                    testId="secondary-normal-send-message-button"
+                  />
+                )}
               </form>
             </section>
             <img
