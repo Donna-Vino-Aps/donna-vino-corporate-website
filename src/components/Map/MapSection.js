@@ -54,18 +54,26 @@ const MapSection = () => {
             className="md:rounded-l-[32px] rounded-t-[32px] min-h-[400px] "
             title="Interactive map showing our company location in Copenhagen"
             aria-label="Interactive map showing our location"
+            role="region"
+            aria-live="polite"
           ></iframe>
         )}
       </div>
 
-      <article className="flex-1 bg-tertiary1-hover md:rounded-[32px] lg:my-6 my-2 rounded-b-[32px] w-full">
+      <article
+        className="flex-1 bg-tertiary1-hover md:rounded-[32px] lg:my-6 my-2 rounded-b-[32px] w-full"
+        aria-labelledby="contact-info"
+      >
         <h2 className="lg:text-displayMedium text-displaySmall font-medium my-4 ml-8">
           {translations["contact.heading"]}
         </h2>
         <div className="space-y-8 mt-6 mb-4 lg:mx-8 m-6">
           {infoItems.map((item, index) => (
             <div className="flex items-start" key={index}>
-              <div className="p-2 md:w-16 md:h-16 w-9 h-9 bg-secondary-active rounded-[5px] flex justify-center items-center">
+              <div
+                aria-hidden="true"
+                className="p-2 md:w-16 md:h-16 w-9 h-9 bg-secondary-active rounded-[5px] flex justify-center items-center"
+              >
                 <img
                   src={item.icon}
                   alt={item.title}
