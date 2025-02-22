@@ -11,6 +11,11 @@ const MapSection = () => {
     setIsClient(true);
   }, []);
 
+  const destination = encodeURIComponent(
+    "Christianshavns Voldgade 54 - 1424 København",
+  );
+  const directionsUrl = `https://www.google.com/maps/dir//${destination}`;
+
   const locationUrl =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5241.493541829231!2d12.58358672190343!3d55.67324322733157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652533e8d361235%3A0xc1ba3e3332796500!2sWildersgade%2023%2C%201408%20K%C3%B8benhavn!5e0!3m2!1sen!2sdk!4v1736181373995!5m2!1sen!2sdk";
 
@@ -18,17 +23,17 @@ const MapSection = () => {
     {
       icon: "/icons/location.svg",
       title: translations["contact.subheading1"],
-      description: "Wildersgade 23, 1408 København K",
+      description: "Christianshavns Voldgade 54 - 1424 København",
     },
     {
       icon: "/icons/phone-map.svg",
       title: translations["contact.subheading2"],
-      description: "+45 12 34 56 78",
+      description: "+45 31 62 06 93",
     },
     {
       icon: "/icons/email.svg",
       title: translations["contact.subheading3"],
-      description: "info@donnvino.dk",
+      description: <a href="mailto:info@donnvino.dk">info@donnvino.dk</a>,
     },
   ];
 
@@ -80,7 +85,7 @@ const MapSection = () => {
           <Button
             text={translations["contact.button-check"]}
             icon="/icons/map.svg"
-            onClick={() => {}}
+            onClick={() => window.open(directionsUrl, "_blank")}
             variant="gray"
             ariaLabel="Check our location on Google Maps"
             testId="submit-button"
