@@ -30,6 +30,7 @@ const PhotoCardsWineTasting = () => {
         buttonVariant="grayGreen"
         buttonTestId="contact-us-button"
         cardVariant="variant2"
+        linkUrl="/contact"
       />
     </div>
   );

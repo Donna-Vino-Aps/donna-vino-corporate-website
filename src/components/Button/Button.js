@@ -2,6 +2,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 const BASE_BUTTON_CLASSES = `
   flex justify-center items-center h-[3rem] rounded-[0.3rem] bodyLarge
@@ -31,20 +32,21 @@ const Button = ({
   ariaLabel,
   testId,
   isLoading = false,
+  linkUrl,
 }) => {
   const buttonClass = `
-  ${BASE_BUTTON_CLASSES}
-  ${VARIANT_CLASSES[variant] || ""}
-  ${disabled || isLoading ? "opacity-50 cursor-not-allowed" : ""}
-`.trim();
+    ${BASE_BUTTON_CLASSES}
+    ${VARIANT_CLASSES[variant] || ""}
+    ${disabled || isLoading ? "opacity-50 cursor-not-allowed" : ""}
+  `.trim();
 
-  return (
+  const buttonContent = (
     <button
       className={buttonClass}
       onClick={onClick}
       disabled={disabled || isLoading}
       aria-label={ariaLabel}
-      data-testid={testId}
+      data-testid={linkUrl ? undefined : testId}
       type={variant === "submit" ? "submit" : "button"}
     >
       {isLoading ? (
@@ -58,6 +60,14 @@ const Button = ({
         </>
       )}
     </button>
+  );
+
+  return linkUrl ? (
+    <Link href={linkUrl} data-testid={testId}>
+      {buttonContent}
+    </Link>
+  ) : (
+    buttonContent
   );
 };
 
@@ -77,6 +87,7 @@ Button.propTypes = {
   ariaLabel: PropTypes.string,
   testId: PropTypes.string,
   isLoading: PropTypes.bool,
+  linkUrl: PropTypes.string, // optional
 };
 
 export default Button;
