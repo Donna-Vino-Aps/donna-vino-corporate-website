@@ -20,6 +20,7 @@ const PhotoCardsTeamValues = () => {
         buttonVariant="grayGreen"
         buttonTestId="read-more-button-team"
         cardVariant="variant1"
+        linkUrl="/our-team"
       />
       <PhotoCardSmaller
         imageUrl="/images/card-unsplash-wine-glasses.svg"
@@ -30,6 +31,7 @@ const PhotoCardsTeamValues = () => {
         buttonVariant="darkGreen"
         buttonTestId="read-more-button-values"
         cardVariant="variant2"
+        linkUrl="/our-values"
       />
     </div>
   );

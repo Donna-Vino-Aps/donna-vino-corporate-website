@@ -18,6 +18,7 @@ const PhotoCard = ({
   buttonVariant,
   buttonTestId,
   cardVariant,
+  linkUrl,
 }) => {
   const variantClass = VARIANT_CLASSES[cardVariant] || VARIANT_CLASSES.variant1; // Default to variant1
 
@@ -70,6 +71,7 @@ const PhotoCard = ({
             variant={buttonVariant}
             testId={buttonTestId}
             ariaLabel={buttonLabel}
+            linkUrl={linkUrl}
           />
         </div>
       </div>
@@ -86,11 +88,13 @@ PhotoCard.propTypes = {
   buttonVariant: PropTypes.string.isRequired,
   buttonTestId: PropTypes.string.isRequired,
   cardVariant: PropTypes.oneOf(["variant1", "variant2"]),
+  linkUrl: PropTypes.string,
 };
 
 PhotoCard.defaultProps = {
   buttonIcon: null,
   cardVariant: "variant1", // Default variant
+  linkUrl: null,
 };
 
 export default PhotoCard;

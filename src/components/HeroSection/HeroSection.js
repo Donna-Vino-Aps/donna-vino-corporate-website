@@ -60,6 +60,7 @@ const HeroSection = () => {
               variant="redLine"
               ariaLabel="Contact us"
               testId="secondary-button"
+              linkUrl="/contact"
             />
           </div>
           <div className="absolute bottom-[8.75rem] right-[1rem] flex justify-end sm:right-[3rem] sm:bottom-[2rem]">

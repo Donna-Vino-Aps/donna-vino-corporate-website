@@ -2,6 +2,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 import Button from "../Button/Button";
 
 const VARIANT_CLASSES = {
@@ -18,9 +19,19 @@ const PhotoCardSmaller = ({
   buttonVariant,
   buttonTestId,
   cardVariant,
+  linkUrl,
 }) => {
   const variantClass = VARIANT_CLASSES[cardVariant] || VARIANT_CLASSES.variant1; // Default to variant1
 
+  const buttonComponent = (
+    <Button
+      text={buttonLabel}
+      icon={buttonIcon}
+      variant={buttonVariant}
+      testId={buttonTestId}
+      ariaLabel={buttonLabel}
+    />
+  );
   return (
     <article
       className={`relative flex flex-col rounded-[2rem] w-full xl:h-[28.5rem] sm:h-[25rem] sm:flex-row items-center ${variantClass}`}
@@ -64,13 +75,13 @@ const PhotoCardSmaller = ({
           {description}
         </p>
         <div className="flex justify-center items-center">
-          <Button
-            text={buttonLabel}
-            icon={buttonIcon}
-            variant={buttonVariant}
-            testId={buttonTestId}
-            ariaLabel={buttonLabel}
-          />
+          {linkUrl ? (
+            <Link href={linkUrl} data-testid={buttonTestId}>
+              {buttonComponent}
+            </Link>
+          ) : (
+            buttonComponent
+          )}
         </div>
       </div>
     </article>
@@ -86,11 +97,13 @@ PhotoCardSmaller.propTypes = {
   buttonVariant: PropTypes.string.isRequired,
   buttonTestId: PropTypes.string.isRequired,
   cardVariant: PropTypes.oneOf(["variant1", "variant2"]),
+  linkUrl: PropTypes.string,
 };
 
 PhotoCardSmaller.defaultProps = {
   buttonIcon: null,
   cardVariant: "variant1",
+  linkUrl: null,
 };
 
 export default PhotoCardSmaller;
