@@ -11,6 +11,11 @@ const MapSection = () => {
     setIsClient(true);
   }, []);
 
+  const destination = encodeURIComponent(
+    "Christianshavns Voldgade 54 - 1424 København",
+  );
+  const directionsUrl = `https://www.google.com/maps/dir//${destination}`;
+
   const locationUrl =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5241.493541829231!2d12.58358672190343!3d55.67324322733157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652533e8d361235%3A0xc1ba3e3332796500!2sWildersgade%2023%2C%201408%20K%C3%B8benhavn!5e0!3m2!1sen!2sdk!4v1736181373995!5m2!1sen!2sdk";
 
@@ -18,17 +23,17 @@ const MapSection = () => {
     {
       icon: "/icons/location.svg",
       title: translations["contact.subheading1"],
-      description: "Wildersgade 23, 1408 København K",
+      description: "Christianshavns Voldgade 54 - 1424 København",
     },
     {
       icon: "/icons/phone-map.svg",
       title: translations["contact.subheading2"],
-      description: "+45 12 34 56 78",
+      description: "+45 31 62 06 93",
     },
     {
       icon: "/icons/email.svg",
       title: translations["contact.subheading3"],
-      description: "info@donnvino.dk",
+      description: <a href="mailto:info@donnvino.dk">info@donnvino.dk</a>,
     },
   ];
 
@@ -49,18 +54,26 @@ const MapSection = () => {
             className="md:rounded-l-[32px] rounded-t-[32px] min-h-[400px] "
             title="Interactive map showing our company location in Copenhagen"
             aria-label="Interactive map showing our location"
+            role="region"
+            aria-live="polite"
           ></iframe>
         )}
       </div>
 
-      <article className="flex-1 bg-tertiary1-hover md:rounded-[32px] lg:my-6 my-2 rounded-b-[32px] w-full">
+      <article
+        className="flex-1 bg-tertiary1-hover md:rounded-[32px] lg:my-6 my-2 rounded-b-[32px] w-full"
+        aria-labelledby="contact-info"
+      >
         <h2 className="lg:text-displayMedium text-displaySmall font-medium my-4 ml-8">
           {translations["contact.heading"]}
         </h2>
         <div className="space-y-8 mt-6 mb-4 lg:mx-8 m-6">
           {infoItems.map((item, index) => (
             <div className="flex items-start" key={index}>
-              <div className="p-2 md:w-16 md:h-16 w-9 h-9 bg-secondary-active rounded-[5px] flex justify-center items-center">
+              <div
+                aria-hidden="true"
+                className="p-2 md:w-16 md:h-16 w-9 h-9 bg-secondary-active rounded-[5px] flex justify-center items-center"
+              >
                 <img
                   src={item.icon}
                   alt={item.title}
@@ -80,7 +93,7 @@ const MapSection = () => {
           <Button
             text={translations["contact.button-check"]}
             icon="/icons/map.svg"
-            onClick={() => {}}
+            onClick={() => window.open(directionsUrl, "_blank")}
             variant="gray"
             ariaLabel="Check our location on Google Maps"
             testId="submit-button"

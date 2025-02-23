@@ -33,13 +33,13 @@ describe("MapSection Component", () => {
 
     const locationTitle = screen.getByText("Our Location");
     const locationDescription = screen.getByText(
-      "Wildersgade 23, 1408 København K",
+      "Christianshavns Voldgade 54 - 1424 København",
     );
     expect(locationTitle).toBeInTheDocument();
     expect(locationDescription).toBeInTheDocument();
 
     const phoneTitle = screen.getByText("Phone Number");
-    const phoneDescription = screen.getByText("+45 12 34 56 78");
+    const phoneDescription = screen.getByText("+45 31 62 06 93");
     expect(phoneTitle).toBeInTheDocument();
     expect(phoneDescription).toBeInTheDocument();
 
@@ -83,10 +83,10 @@ describe("MapSection Component", () => {
 
     const locationTitle = screen.getByText(/Our Location/i);
     const locationDescription = screen.getByText(
-      /Wildersgade 23, 1408 København K/i,
+      /Christianshavns Voldgade 54 - 1424 København/i,
     );
     const phoneTitle = screen.getByText(/Phone Number/i);
-    const phoneDescription = screen.getByText(/\+45 12 34 56 78/i);
+    const phoneDescription = screen.getByText(/\+45 31 62 06 93/i);
     const emailTitle = screen.getByText(/Email Address/i);
     const emailDescription = screen.getByText(/info@donnvino.dk/i);
 
