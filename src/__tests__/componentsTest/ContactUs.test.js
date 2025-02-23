@@ -31,12 +31,14 @@ describe("ContactUs Component", () => {
     renderWithProvider("en");
 
     const locationTitle = screen.getByText("Our Location");
-    const locationDescription = screen.getByText("Christianshavn, Copenhagen");
+    const locationDescription = screen.getByText(
+      "Christianshavns Voldgade 54, 1424 København",
+    );
     expect(locationTitle).toBeInTheDocument();
     expect(locationDescription).toBeInTheDocument();
 
     const phoneTitle = screen.getByText("Phone Number");
-    const phoneDescription = screen.getByText("(+45) 12 34 56 78");
+    const phoneDescription = screen.getByText("(+45) 31 62 06 93");
     expect(phoneTitle).toBeInTheDocument();
     expect(phoneDescription).toBeInTheDocument();
 

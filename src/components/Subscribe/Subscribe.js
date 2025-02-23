@@ -106,7 +106,7 @@ const Subscribe = () => {
             </div>
             {errors && (
               <div
-                className="sm:mx-8 mx-4 pb-2 text-red-500"
+                className="sm:mx-8 mx-4 pb-2 text-red-500 text-center"
                 aria-live="assertive"
                 data-testid="error-message"
               >
@@ -116,7 +116,7 @@ const Subscribe = () => {
 
             {successMessage && (
               <div
-                className="sm:mx-8 mx-4 pb-2 text-green-500"
+                className="sm:mx-8 mx-4 pb-2 text-green-500 text-center"
                 aria-live="assertive"
                 data-testid="success-message"
               >
