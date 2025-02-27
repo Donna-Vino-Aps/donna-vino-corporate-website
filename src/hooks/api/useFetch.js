@@ -6,6 +6,7 @@ import { logInfo } from "@/utils/logging";
 const useFetch = (
   initialRoute,
   method = "GET",
+  body = null,
   customHeaders = {},
   onReceived = () => {},
 ) => {
@@ -49,7 +50,7 @@ const useFetch = (
       return;
     }
 
-    const requestBody = options.body || null;
+    const requestBody = body || options.body || null;
 
     const baseOptions = {
       method,

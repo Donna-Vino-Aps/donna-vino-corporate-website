@@ -51,6 +51,7 @@ const Subscribe = () => {
   };
 
   const handleCheckboxChange = () => {
+    setMessage("");
     setAgreed(!agreed);
     if (errors) {
       setErrors(null);
@@ -92,6 +93,8 @@ const Subscribe = () => {
   const { isLoading, error, data, performFetch } = useFetch(
     "/send-email",
     "POST",
+    {},
+    {},
     onReceived,
   );
 
@@ -107,6 +110,9 @@ const Subscribe = () => {
     performFetch({
       method: "POST",
       data: { email: savedEmail, userId },
+      onReceived: (response) => {
+        logInfo("Este onReceived es distinto");
+      },
     });
   };
 
@@ -121,13 +127,14 @@ const Subscribe = () => {
     setMessage(null);
 
     try {
-      await performFetch({
-        data: {
+      await performFetch(
+        {
           to: email,
           subject: "Subscription",
           templateName: "emailWelcomeTemplate",
         },
-      });
+        {},
+      );
 
       setEmail("");
       setAgreed(false);
@@ -139,6 +146,7 @@ const Subscribe = () => {
 
   React.useEffect(() => {
     if (error) {
+      setMessage("");
       setErrors(error.message || error);
     }
   }, [error]);
