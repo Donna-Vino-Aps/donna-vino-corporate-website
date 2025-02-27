@@ -1,7 +1,7 @@
 "use client";
 
 import useFetch from "@/hooks/api/useFetch";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { logInfo } from "@/utils/logging";
@@ -12,7 +12,7 @@ const Subscribe = () => {
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
+  const [message, setMessage] = useState(null);
   const [emailSent, setEmailSent] = useState(false);
 
   // Resend verification email
@@ -68,11 +68,11 @@ const Subscribe = () => {
       setSavedEmail(email);
       setUserId(userId);
       setEmailSent(true);
-      alert(msg);
+      setMessage(msg);
     } else {
       setResendStatus("Failed");
       setActiveResend(false);
-      alert(`Resending email failed! ${serverError || msg}`);
+      setErrors(`Resending email failed! ${serverError || msg}`);
     }
 
     // Reset the resend button state after 5 seconds
@@ -90,7 +90,7 @@ const Subscribe = () => {
 
   const resendEmail = () => {
     if (!savedEmail || !userId) {
-      alert("Error: Missing email or userId. Please subscribe again.");
+      setErrors("Error: Missing email or userId. Please subscribe again.");
       return;
     }
 
@@ -106,12 +106,12 @@ const Subscribe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!agreed) {
-      alert("Please agree to the terms and conditions.");
+      setErrors("Please agree to the terms and conditions.");
       return;
     }
 
     setErrors(null);
-    setSuccessMessage(null);
+    setMessage(null);
 
     try {
       await performFetch({
@@ -138,9 +138,7 @@ const Subscribe = () => {
 
   React.useEffect(() => {
     if (data && data.success) {
-      setSuccessMessage(
-        "Subscription successful! Check your email for confirmation.",
-      );
+      setMessage("Subscription successful! Check your email for confirmation.");
     }
   }, [data]);
 
@@ -199,13 +197,13 @@ const Subscribe = () => {
               </div>
             )}
 
-            {successMessage && (
+            {message && (
               <div
                 className="sm:mx-8 mx-4 pb-2 text-green-500 text-center"
                 aria-live="assertive"
                 data-testid="success-message"
               >
-                {successMessage}
+                {message}
               </div>
             )}
           </form>
