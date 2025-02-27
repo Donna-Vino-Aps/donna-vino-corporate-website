@@ -1,9 +1,11 @@
 "use client";
+
 import useFetch from "@/hooks/api/useFetch";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { logInfo } from "@/utils/logging";
+import ResendTimer from "../ResendTimer/ResendTimer";
 
 const Subscribe = () => {
   const { translations } = useLanguage();
@@ -15,10 +17,15 @@ const Subscribe = () => {
   // Resend verification email
   const [resendingEmail, setResendingEmail] = useState(false);
   const [resendStatus, setResendStatus] = useState("Please wait");
+  const [savedEmail, setSavedEmail] = useState(null);
+  const [userId, setUserId] = useState(null);
+
   // Resend timer
   const [timeLeft, setTimeLeft] = useState(null);
   const [targetTime, setTargetTime] = useState(null);
   const [activeResend, setActiveResend] = useState(false);
+
+  const resendTimerRef = React.useRef(null);
 
   const calculateTimeLeft = (finalTime) => {
     const seconds = finalTime - +new Date();
@@ -26,34 +33,39 @@ const Subscribe = () => {
       setTimeLeft(Math.round(seconds / 1000));
     } else {
       setTimeLeft(null);
-      clearInterval(resendTimerInterval);
+      clearInterval(resendTimerRef.current);
       setActiveResend(true);
       setResendStatus("Resend");
     }
+  };
+
+  const triggerTimer = (targetTimeInSeconds = 30) => {
+    setTargetTime(targetTimeInSeconds);
+    setActiveResend(false);
+    const finalTime = +new Date() + targetTimeInSeconds * 1000;
+    resendTimerRef.current = setInterval(
+      () => calculateTimeLeft(finalTime),
+      1000,
+    );
   };
 
   useEffect(() => {
     triggerTimer();
 
     return () => {
-      clearInterval(resendTimerInterval);
+      clearInterval(resendTimerRef.current);
     };
   }, []);
 
-  const triggerTimer = (targetTimeInSeconds = 30) => {
-    setTargetTime(targetTimeInSeconds);
-    setActiveResend(false);
-    const finalTime = +new Date() + targetTimeInSeconds * 1000;
-    resendTimerInterval = setInterval(() => calculateTimeLeft(finalTime), 1000);
-  };
-
   // Handler for receiving API responses
   const onReceived = (response) => {
-    const { success, msg, error: serverError } = response;
+    const { success, msg, error: serverError, email, userId } = response;
 
     if (success) {
       setResendStatus("Sent!");
       setActiveResend(false);
+      setSavedEmail(email);
+      setUserId(userId);
       alert(msg);
     } else {
       setResendStatus("Failed");
@@ -75,48 +87,19 @@ const Subscribe = () => {
   );
 
   const resendEmail = () => {
+    if (!savedEmail || !userId) {
+      alert("Error: Missing email or userId. Please subscribe again.");
+      return;
+    }
+
     setResendStatus("Sending...");
     setResendingEmail(true);
 
-    // Perform the fetch request with email and userId
     performFetch({
       method: "POST",
-      data: { email, userId },
+      data: { email: savedEmail, userId },
     });
   };
-
-  // Update resend status based on loading state
-  useEffect(() => {
-    const handleTimerReset = () => {
-      setTimeout(() => {
-        setResendStatus("Please wait");
-        triggerTimer();
-      }, 5000);
-    };
-
-    if (isLoading) {
-      setResendStatus("Sending...");
-    } else if (data) {
-      if (data.success) {
-        setResendStatus("Sent!");
-        setActiveResend(false);
-        alert(data.msg);
-        handleTimerReset();
-      } else {
-        setResendStatus("Failed");
-        setActiveResend(false);
-        alert(`Error: ${data.error || "An unknown error occurred."}`);
-        handleTimerReset();
-      }
-    } else if (error) {
-      setResendStatus("Failed to send!");
-      setActiveResend(false);
-
-      const errorMessage = error.response?.data?.error || error.message;
-      alert(`Network error: ${errorMessage}`);
-      handleTimerReset();
-    }
-  }, [isLoading, data, error]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -129,14 +112,13 @@ const Subscribe = () => {
     setSuccessMessage(null);
 
     try {
-      await performFetch(
-        {
+      await performFetch({
+        data: {
           to: email,
           subject: "Subscription",
           templateName: "emailWelcomeTemplate",
         },
-        {},
-      );
+      });
 
       setEmail("");
       setAgreed(false);
@@ -199,31 +181,9 @@ const Subscribe = () => {
                 }
                 variant="redSubmit"
                 isLoading={isLoading}
-                onClick={handleSubmit}
                 disabled={isLoading}
-                ariaLabel="Submit form"
-                testId="submit-button"
               />
             </div>
-            {errors && (
-              <div
-                className="sm:mx-8 mx-4 pb-2 text-red-500 text-center"
-                aria-live="assertive"
-                data-testid="error-message"
-              >
-                {errors.message}
-              </div>
-            )}
-
-            {successMessage && (
-              <div
-                className="sm:mx-8 mx-4 pb-2 text-green-500 text-center"
-                aria-live="assertive"
-                data-testid="success-message"
-              >
-                {successMessage}
-              </div>
-            )}
           </form>
 
           <div className="md:my-4 my-2 mb-4">
@@ -234,12 +194,20 @@ const Subscribe = () => {
                 onChange={() => setAgreed(!agreed)}
                 aria-label={translations["subscribe.terms"]}
                 className="form-checkbox h-5 w-5 accent-secondary-hover_normal"
-                data-testid="terms-checkbox"
               />
               <span className="ml-3 w-full text-bodyLarge">
                 {translations["subscribe.terms"]}
               </span>
             </label>
+            <ResendTimer
+              activeResend={activeResend}
+              isLoading={isLoading}
+              resendStatus={resendStatus}
+              timeLeft={timeLeft}
+              targetTime={targetTime}
+              resendEmail={resendEmail}
+              resendingEmail={resendingEmail}
+            />
           </div>
         </div>
       </div>
