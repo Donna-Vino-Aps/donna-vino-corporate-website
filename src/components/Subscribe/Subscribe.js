@@ -1,6 +1,6 @@
 "use client";
 import useFetch from "@/hooks/api/useFetch";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { logInfo } from "@/utils/logging";
@@ -12,10 +12,111 @@ const Subscribe = () => {
   const [errors, setErrors] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
 
+  // Resend verification email
+  const [resendingEmail, setResendingEmail] = useState(false);
+  const [resendStatus, setResendStatus] = useState("Please wait");
+  // Resend timer
+  const [timeLeft, setTimeLeft] = useState(null);
+  const [targetTime, setTargetTime] = useState(null);
+  const [activeResend, setActiveResend] = useState(false);
+
+  const calculateTimeLeft = (finalTime) => {
+    const seconds = finalTime - +new Date();
+    if (seconds >= 0) {
+      setTimeLeft(Math.round(seconds / 1000));
+    } else {
+      setTimeLeft(null);
+      clearInterval(resendTimerInterval);
+      setActiveResend(true);
+      setResendStatus("Resend");
+    }
+  };
+
+  useEffect(() => {
+    triggerTimer();
+
+    return () => {
+      clearInterval(resendTimerInterval);
+    };
+  }, []);
+
+  const triggerTimer = (targetTimeInSeconds = 30) => {
+    setTargetTime(targetTimeInSeconds);
+    setActiveResend(false);
+    const finalTime = +new Date() + targetTimeInSeconds * 1000;
+    resendTimerInterval = setInterval(() => calculateTimeLeft(finalTime), 1000);
+  };
+
+  // Handler for receiving API responses
+  const onReceived = (response) => {
+    const { success, msg, error: serverError } = response;
+
+    if (success) {
+      setResendStatus("Sent!");
+      setActiveResend(false);
+      alert(msg);
+    } else {
+      setResendStatus("Failed");
+      setActiveResend(false);
+      alert(`Resending email failed! ${serverError || msg}`);
+    }
+
+    // Reset the resend button state after 5 seconds
+    setTimeout(() => {
+      setResendStatus("Please wait");
+      triggerTimer();
+    }, 5000);
+  };
+
   const { isLoading, error, data, performFetch } = useFetch(
     "/send-email",
     "POST",
+    onReceived,
   );
+
+  const resendEmail = () => {
+    setResendStatus("Sending...");
+    setResendingEmail(true);
+
+    // Perform the fetch request with email and userId
+    performFetch({
+      method: "POST",
+      data: { email, userId },
+    });
+  };
+
+  // Update resend status based on loading state
+  useEffect(() => {
+    const handleTimerReset = () => {
+      setTimeout(() => {
+        setResendStatus("Please wait");
+        triggerTimer();
+      }, 5000);
+    };
+
+    if (isLoading) {
+      setResendStatus("Sending...");
+    } else if (data) {
+      if (data.success) {
+        setResendStatus("Sent!");
+        setActiveResend(false);
+        alert(data.msg);
+        handleTimerReset();
+      } else {
+        setResendStatus("Failed");
+        setActiveResend(false);
+        alert(`Error: ${data.error || "An unknown error occurred."}`);
+        handleTimerReset();
+      }
+    } else if (error) {
+      setResendStatus("Failed to send!");
+      setActiveResend(false);
+
+      const errorMessage = error.response?.data?.error || error.message;
+      alert(`Network error: ${errorMessage}`);
+      handleTimerReset();
+    }
+  }, [isLoading, data, error]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
