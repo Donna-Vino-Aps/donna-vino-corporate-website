@@ -50,6 +50,13 @@ const Subscribe = () => {
     );
   };
 
+  const handleCheckboxChange = () => {
+    setAgreed(!agreed);
+    if (errors) {
+      setErrors(null);
+    }
+  };
+
   useEffect(() => {
     triggerTimer();
 
@@ -132,7 +139,7 @@ const Subscribe = () => {
 
   React.useEffect(() => {
     if (error) {
-      setErrors(error);
+      setErrors(error.message || error);
     }
   }, [error]);
 
@@ -193,7 +200,7 @@ const Subscribe = () => {
                 aria-live="assertive"
                 data-testid="error-message"
               >
-                {errors.message}
+                {errors}
               </div>
             )}
 
@@ -213,7 +220,7 @@ const Subscribe = () => {
               <input
                 type="checkbox"
                 checked={agreed}
-                onChange={() => setAgreed(!agreed)}
+                onChange={handleCheckboxChange}
                 aria-label={translations["subscribe.terms"]}
                 className="form-checkbox h-5 w-5 accent-secondary-hover_normal"
                 data-testid="terms-checkbox"
