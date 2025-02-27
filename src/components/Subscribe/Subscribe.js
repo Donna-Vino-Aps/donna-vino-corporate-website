@@ -13,6 +13,7 @@ const Subscribe = () => {
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [emailSent, setEmailSent] = useState(false);
 
   // Resend verification email
   const [resendingEmail, setResendingEmail] = useState(false);
@@ -66,6 +67,7 @@ const Subscribe = () => {
       setActiveResend(false);
       setSavedEmail(email);
       setUserId(userId);
+      setEmailSent(true);
       alert(msg);
     } else {
       setResendStatus("Failed");
@@ -181,9 +183,31 @@ const Subscribe = () => {
                 }
                 variant="redSubmit"
                 isLoading={isLoading}
+                onClick={handleSubmit}
                 disabled={isLoading}
+                ariaLabel="Submit form"
+                testId="submit-button"
               />
             </div>
+            {errors && (
+              <div
+                className="sm:mx-8 mx-4 pb-2 text-red-500 text-center"
+                aria-live="assertive"
+                data-testid="error-message"
+              >
+                {errors.message}
+              </div>
+            )}
+
+            {successMessage && (
+              <div
+                className="sm:mx-8 mx-4 pb-2 text-green-500 text-center"
+                aria-live="assertive"
+                data-testid="success-message"
+              >
+                {successMessage}
+              </div>
+            )}
           </form>
 
           <div className="md:my-4 my-2 mb-4">
@@ -194,20 +218,23 @@ const Subscribe = () => {
                 onChange={() => setAgreed(!agreed)}
                 aria-label={translations["subscribe.terms"]}
                 className="form-checkbox h-5 w-5 accent-secondary-hover_normal"
+                data-testid="terms-checkbox"
               />
               <span className="ml-3 w-full text-bodyLarge">
                 {translations["subscribe.terms"]}
               </span>
             </label>
-            <ResendTimer
-              activeResend={activeResend}
-              isLoading={isLoading}
-              resendStatus={resendStatus}
-              timeLeft={timeLeft}
-              targetTime={targetTime}
-              resendEmail={resendEmail}
-              resendingEmail={resendingEmail}
-            />
+            {emailSent && (
+              <ResendTimer
+                activeResend={activeResend}
+                isLoading={isLoading}
+                resendStatus={resendStatus}
+                timeLeft={timeLeft}
+                targetTime={targetTime}
+                resendEmail={resendEmail}
+                resendingEmail={resendingEmail}
+              />
+            )}
           </div>
         </div>
       </div>
