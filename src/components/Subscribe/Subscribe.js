@@ -91,7 +91,7 @@ const Subscribe = () => {
   };
 
   const { isLoading, error, data, performFetch } = useFetch(
-    "/send-email",
+    "/pre-subscribe",
     "POST",
     {},
     {},
