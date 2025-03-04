@@ -68,7 +68,7 @@ const Subscribe = () => {
 
   // Handler for receiving API responses
   const onReceived = (response) => {
-    const { success, msg, error: serverError, email, userId } = response;
+    const { success, message, error: serverError, email, userId } = response;
 
     if (success) {
       setResendStatus("Sent!");
@@ -76,11 +76,11 @@ const Subscribe = () => {
       setSavedEmail(email);
       setUserId(userId);
       setEmailSent(true);
-      setMessage(msg);
+      setMessage(message);
     } else {
       setResendStatus("Failed");
       setActiveResend(false);
-      setErrors(`Resending email failed! ${serverError || msg}`);
+      setErrors(`Resending email failed! ${serverError || message}`);
     }
 
     // Reset the resend button state after 5 seconds
@@ -91,7 +91,7 @@ const Subscribe = () => {
   };
 
   const { isLoading, error, data, performFetch } = useFetch(
-    "/pre-subscribe",
+    "/subscribe/pre-subscribe",
     "POST",
     {},
     {},
@@ -131,7 +131,7 @@ const Subscribe = () => {
         {
           to: email,
           subject: "Subscription",
-          templateName: "emailWelcomeTemplate",
+          templateName: "confirmSubscriptionTemplate",
         },
         {},
       );
@@ -153,7 +153,7 @@ const Subscribe = () => {
 
   React.useEffect(() => {
     if (data && data.success) {
-      setMessage("Subscription successful! Check your email for confirmation.");
+      setMessage(data.message);
     }
   }, [data]);
 
