@@ -30,14 +30,15 @@ const PhotoCard = ({
       aria-describedby="photo-card-description"
     >
       <figure
-        className={`overflow-hidden rounded-tl-[2rem] w-full h-[12.375rem] sm:min-w-[40%] sm:w-2/5 xl:min-w-[25.75rem] xl:w-[25.75rem] sm:h-[25rem] xl:h-[33.5rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem]`}
+        className={`overflow-hidden rounded-tl-[2rem] w-full h-[16rem] sm:min-w-[50%] sm:w-2/5 xl:min-w-[25.75rem] xl:w-[25.75rem] 
+  sm:h-[25rem] xl:h-[33.5rem] rounded-tr-[2rem] sm:rounded-tr-none sm:rounded-tl-[2rem] sm:rounded-bl-[2rem]`}
         data-testid="photo-card-image"
         aria-labelledby="photo-card-title"
       >
         <img
           src={imageUrl}
           alt={title}
-          className="object-cover h-full w-full"
+          className="object-cover h-full w-full "
           data-testid="card-image"
           aria-label={`Image representing ${title}`}
           loading="lazy"
