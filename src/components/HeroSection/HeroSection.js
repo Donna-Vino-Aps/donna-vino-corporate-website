@@ -33,7 +33,7 @@ const HeroSection = () => {
           </div>
         </div>
         <h1
-          className="text-displayMedium sm:bg-primary-light md:text-displayLarge text-tertiary1-darker font-barlow z-10 w-[20.5rem] md:w-full xl:w-[40rem]"
+          className="text-displayMedium sm:bg-primary-light md:text-displayLarge text-tertiary1-darker font-barlow z-10 w-[20.5rem] md:w-full xl:w-[35rem]"
           id="title"
           data-testid="title"
         >
