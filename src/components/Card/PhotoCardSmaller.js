@@ -76,7 +76,11 @@ const PhotoCardSmaller = ({
         </p>
         <div className="flex justify-center items-center">
           {linkUrl ? (
-            <Link href={linkUrl} data-testid={buttonTestId}>
+            <Link
+              href={linkUrl}
+              data-testid={buttonTestId}
+              className="w-full sm:w-[10.8rem]"
+            >
               {buttonComponent}
             </Link>
           ) : (
