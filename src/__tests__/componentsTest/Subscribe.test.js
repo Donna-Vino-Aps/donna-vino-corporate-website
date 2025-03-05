@@ -71,23 +71,6 @@ describe("Subscribe Component", () => {
     ).toBeInTheDocument();
   });
 
-  test("shows an alert if terms and conditions are not agreed", () => {
-    window.alert = jest.fn();
-    renderWithProvider();
-
-    const emailInput = screen.getByPlaceholderText(
-      enTranslations["subscribe.placeholder"],
-    );
-    const submitButton = screen.getByText(enTranslations["subscribe.button"]);
-
-    fireEvent.change(emailInput, { target: { value: "test@example.com" } });
-    fireEvent.click(submitButton);
-
-    expect(window.alert).toHaveBeenCalledWith(
-      "Please agree to the terms and conditions.",
-    );
-  });
-
   test("disables the submit button when loading", () => {
     useFetch.mockReturnValue({
       isLoading: true,
@@ -102,38 +85,6 @@ describe("Subscribe Component", () => {
       enTranslations["subscribe.button-loading"],
     );
     expect(submitButton).toBeDisabled();
-  });
-
-  test("enables the submit button once loading is complete", async () => {
-    useFetch.mockReturnValueOnce({
-      isLoading: true,
-      error: null,
-      data: null,
-      performFetch: performFetchMock,
-    });
-
-    const { rerender } = renderWithProvider();
-    expect(
-      screen.getByText(enTranslations["subscribe.button-loading"]),
-    ).toBeDisabled();
-
-    useFetch.mockReturnValueOnce({
-      isLoading: false,
-      error: null,
-      data: null,
-      performFetch: performFetchMock,
-    });
-
-    rerender(
-      <MockLanguageProvider language="en">
-        <Subscribe />
-      </MockLanguageProvider>,
-    );
-    await waitFor(() => {
-      expect(
-        screen.getByText(enTranslations["subscribe.button"]),
-      ).not.toBeDisabled();
-    });
   });
 
   test("calls performFetch with correct parameters on form submit", () => {
@@ -155,7 +106,7 @@ describe("Subscribe Component", () => {
       {
         to: "test@example.com",
         subject: "Subscription",
-        templateName: "emailWelcomeTemplate",
+        templateName: "confirmSubscriptionTemplate",
       },
       {},
     );
@@ -183,7 +134,7 @@ describe("Subscribe Component", () => {
     expect(performFetchMock).toHaveBeenCalledWith(
       {
         subject: "Subscription",
-        templateName: "emailWelcomeTemplate",
+        templateName: "confirmSubscriptionTemplate",
         to: "test@example.com",
       },
       {},

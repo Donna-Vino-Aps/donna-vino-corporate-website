@@ -17,7 +17,7 @@ const ContactUs = () => {
   });
 
   const { performFetch, isLoading, error, data } = useFetch(
-    "/web/contact",
+    "/contact-us",
     "POST",
   );
 

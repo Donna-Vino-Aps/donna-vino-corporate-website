@@ -1,38 +1,137 @@
 "use client";
+
 import useFetch from "@/hooks/api/useFetch";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { logInfo } from "@/utils/logging";
+import ResendTimer from "../ResendTimer/ResendTimer";
 
 const Subscribe = () => {
   const { translations } = useLanguage();
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
+  const [message, setMessage] = useState(null);
+  const [emailSent, setEmailSent] = useState(false);
+
+  // Resend verification email
+  const [resendingEmail, setResendingEmail] = useState(false);
+  const [resendStatus, setResendStatus] = useState("Please wait");
+  const [savedEmail, setSavedEmail] = useState(null);
+  const [userId, setUserId] = useState(null);
+
+  // Resend timer
+  const [timeLeft, setTimeLeft] = useState(null);
+  const [targetTime, setTargetTime] = useState(null);
+  const [activeResend, setActiveResend] = useState(false);
+
+  const resendTimerRef = React.useRef(null);
+
+  const calculateTimeLeft = (finalTime) => {
+    const seconds = finalTime - +new Date();
+    if (seconds >= 0) {
+      setTimeLeft(Math.round(seconds / 1000));
+    } else {
+      setTimeLeft(null);
+      clearInterval(resendTimerRef.current);
+      setActiveResend(true);
+      setResendStatus("Resend");
+    }
+  };
+
+  const triggerTimer = (targetTimeInSeconds = 30) => {
+    setTargetTime(targetTimeInSeconds);
+    setActiveResend(false);
+    const finalTime = +new Date() + targetTimeInSeconds * 1000;
+    resendTimerRef.current = setInterval(
+      () => calculateTimeLeft(finalTime),
+      1000,
+    );
+  };
+
+  const handleCheckboxChange = () => {
+    setMessage("");
+    setAgreed(!agreed);
+    if (errors) {
+      setErrors(null);
+    }
+  };
+
+  useEffect(() => {
+    triggerTimer();
+
+    return () => {
+      clearInterval(resendTimerRef.current);
+    };
+  }, []);
+
+  // Handler for receiving API responses
+  const onReceived = (response) => {
+    const { success, message, error: serverError, email, userId } = response;
+
+    if (success) {
+      setResendStatus("Sent!");
+      setActiveResend(false);
+      setSavedEmail(email);
+      setUserId(userId);
+      setEmailSent(true);
+      setMessage(message);
+    } else {
+      setResendStatus("Failed");
+      setActiveResend(false);
+      setErrors(`Resending email failed! ${serverError || message}`);
+    }
+
+    // Reset the resend button state after 5 seconds
+    setTimeout(() => {
+      setResendStatus("Please wait");
+      triggerTimer();
+    }, 5000);
+  };
 
   const { isLoading, error, data, performFetch } = useFetch(
-    "/send-email",
+    "/subscribe/pre-subscribe",
     "POST",
+    {},
+    {},
+    onReceived,
   );
+
+  const resendEmail = () => {
+    if (!savedEmail || !userId) {
+      setErrors("Error: Missing email or userId. Please subscribe again.");
+      return;
+    }
+
+    setResendStatus("Sending...");
+    setResendingEmail(true);
+
+    performFetch({
+      method: "POST",
+      data: { email: savedEmail, userId },
+      onReceived: (response) => {
+        logInfo("Este onReceived es distinto");
+      },
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!agreed) {
-      alert("Please agree to the terms and conditions.");
+      setErrors("Please agree to the terms and conditions.");
       return;
     }
 
     setErrors(null);
-    setSuccessMessage(null);
+    setMessage(null);
 
     try {
       await performFetch(
         {
           to: email,
           subject: "Subscription",
-          templateName: "emailWelcomeTemplate",
+          templateName: "confirmSubscriptionTemplate",
         },
         {},
       );
@@ -47,15 +146,14 @@ const Subscribe = () => {
 
   React.useEffect(() => {
     if (error) {
-      setErrors(error);
+      setMessage("");
+      setErrors(error.message || error);
     }
   }, [error]);
 
   React.useEffect(() => {
     if (data && data.success) {
-      setSuccessMessage(
-        "Subscription successful! Check your email for confirmation.",
-      );
+      setMessage(data.message);
     }
   }, [data]);
 
@@ -110,17 +208,17 @@ const Subscribe = () => {
                 aria-live="assertive"
                 data-testid="error-message"
               >
-                {errors.message}
+                {errors}
               </div>
             )}
 
-            {successMessage && (
+            {message && (
               <div
                 className="sm:mx-8 mx-4 pb-2 text-green-500 text-center"
                 aria-live="assertive"
                 data-testid="success-message"
               >
-                {successMessage}
+                {message}
               </div>
             )}
           </form>
@@ -130,7 +228,7 @@ const Subscribe = () => {
               <input
                 type="checkbox"
                 checked={agreed}
-                onChange={() => setAgreed(!agreed)}
+                onChange={handleCheckboxChange}
                 aria-label={translations["subscribe.terms"]}
                 className="form-checkbox h-5 w-5 accent-secondary-hover_normal"
                 data-testid="terms-checkbox"
@@ -139,6 +237,17 @@ const Subscribe = () => {
                 {translations["subscribe.terms"]}
               </span>
             </label>
+            {emailSent && (
+              <ResendTimer
+                activeResend={activeResend}
+                isLoading={isLoading}
+                resendStatus={resendStatus}
+                timeLeft={timeLeft}
+                targetTime={targetTime}
+                resendEmail={resendEmail}
+                resendingEmail={resendingEmail}
+              />
+            )}
           </div>
         </div>
       </div>
