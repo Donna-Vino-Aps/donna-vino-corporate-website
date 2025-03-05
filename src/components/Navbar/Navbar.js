@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import LanguageSwitch from "./LanguageSwitch";
 import SideBar from "../Sidebar/Sidebar";
@@ -7,8 +8,8 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 const Navbar = () => {
   const { translations } = useLanguage();
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("/");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,10 +25,6 @@ const Navbar = () => {
     { id: "our-team", href: "/our-team", label: translations["navbar.team"] },
     { id: "contact", href: "/contact", label: translations["navbar.contact"] },
   ];
-
-  const handleClick = (href) => {
-    setActiveLink(href);
-  };
 
   return (
     <header>
@@ -65,11 +62,10 @@ const Navbar = () => {
               key={link.label}
               href={link.href}
               className={`rounded-md px-3 py-2 text-titleMedium ${
-                activeLink === link.href
-                  ? "text-tertiary1-gray"
-                  : "text-tertiary2-active_dark"
+                pathname === link.href
+                  ? "font-bold underline"
+                  : "opacity-70 hover:opacity-100"
               }`}
-              onClick={() => handleClick(link.href)}
               data-testid={`nav-link-${link.id}`}
             >
               {link.label}
