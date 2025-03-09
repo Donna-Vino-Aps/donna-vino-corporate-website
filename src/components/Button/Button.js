@@ -24,7 +24,7 @@ const VARIANT_CLASSES = {
   redVerify:
     "bg-primary-normal hover:bg-primary-hover_normal text-primary-light font-medium w-full sm:w-[20rem]",
   greenGoHome:
-    "bg-secondary-normal hover:bg-secondary-hover_normal text-white font-medium w-full sm:w-[14.5rem]",
+    "bg-[#183F27] hover:bg-[#153823] text-white font-medium w-full sm:w-[14.5rem]",
 };
 
 const Button = ({
