@@ -37,6 +37,7 @@ const Button = ({
   testId,
   isLoading = false,
   linkUrl,
+  linkWidth,
 }) => {
   const buttonClass = `
     ${BASE_BUTTON_CLASSES}
@@ -67,7 +68,11 @@ const Button = ({
   );
 
   return linkUrl ? (
-    <Link href={linkUrl} data-testid={testId} className="w-full sm:w-[10.8rem]">
+    <Link
+      href={linkUrl}
+      data-testid={testId}
+      className={linkWidth || "w-full sm:w-[10.8rem]"}
+    >
       {buttonContent}
     </Link>
   ) : (
@@ -94,6 +99,7 @@ Button.propTypes = {
   testId: PropTypes.string,
   isLoading: PropTypes.bool,
   linkUrl: PropTypes.string, // optional
+  linkWidth: PropTypes.string, // optional
 };
 
 export default Button;
