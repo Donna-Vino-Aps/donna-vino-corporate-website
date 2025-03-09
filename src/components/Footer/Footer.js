@@ -2,10 +2,16 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const Footer = () => {
   const { translations } = useLanguage();
+  const pathname = usePathname();
+
+  const isSubscriptionPage =
+    pathname === "/subscription/verify" ||
+    pathname === "/subscription/confirmed";
 
   const socialLinks = [
     {
@@ -27,49 +33,55 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative flex flex-col text-white text-center py-4 md:mt-2 h-96 bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center"
+      className={`relative flex flex-col text-white text-center py-4 md:mt-2 ${isSubscriptionPage ? "h-72" : "h-96"} bg-[#2F2E2E] md:h-[26.625rem] items-center justify-center`}
       data-testid="footer"
       aria-label="Footer"
     >
-      <div className="flex flex-col relative md:items-start items-center gap-1 bottom-3 md:mb-32 md:flex-row md:gap-6 lg:gap-9 xl:gap-12 mb-4">
+      <div
+        className={`flex flex-col relative md:items-start items-center gap-1 bottom-3 md:mb-32 md:flex-row md:gap-6 lg:gap-9 xl:gap-12 mb-4 ${isSubscriptionPage ? "md:justify-between w-full max-w-4xl px-4" : ""}`}
+      >
         <Link href="/" className="navbar-brand" aria-label="logo">
           <img
-            className="h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 md:right-4"
+            className={`h-[5.351rem] w-[7.75rem] rounded relative mt-6 mb-4 md:mt-0 md:mb-0 ${isSubscriptionPage ? "" : "md:right-4"}`}
             src="/images/donna-vino-logo-transparent.png"
             alt="Donna Vino Logo Footer- a brand for wine tastings and experiences"
             data-testid="logo-footer"
           />
         </Link>
 
-        <Link
-          data-testid="our-team"
-          href="/our-team"
-          className={`rounded-md px-3 py-2  text-bodyLarge text-semibold order-2 md:order-1`}
-          role="navigation"
-          aria-label={`Link to ${translations["footer.team"]}`}
-        >
-          {translations["footer.team"]}
-        </Link>
+        {!isSubscriptionPage && (
+          <>
+            <Link
+              data-testid="our-team"
+              href="/our-team"
+              className={`rounded-md px-3 py-2  text-bodyLarge text-semibold order-2 md:order-1`}
+              role="navigation"
+              aria-label={`Link to ${translations["footer.team"]}`}
+            >
+              {translations["footer.team"]}
+            </Link>
 
-        <Link
-          data-testid="our-values"
-          href="/our-values"
-          className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-3 md:order-2`}
-          role="navigation"
-          aria-label={`Link to ${translations["footer.values"]}`}
-        >
-          {translations["footer.values"]}
-        </Link>
+            <Link
+              data-testid="our-values"
+              href="/our-values"
+              className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-3 md:order-2`}
+              role="navigation"
+              aria-label={`Link to ${translations["footer.values"]}`}
+            >
+              {translations["footer.values"]}
+            </Link>
 
-        <Link
-          data-testid="contact"
-          href="/contact"
-          className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-4 md:order-3`}
-          role="navigation"
-          aria-label={`Link to ${translations["footer.contact"]}`}
-        >
-          {translations["footer.contact"]}
-        </Link>
+            <Link
+              data-testid="contact"
+              href="/contact"
+              className={`rounded-md px-3 py-2 text-bodyLarge text-semibold order-4 md:order-3`}
+              role="navigation"
+              aria-label={`Link to ${translations["footer.contact"]}`}
+            >
+              {translations["footer.contact"]}
+            </Link>
+          </>
+        )}
 
         <section className="flex flex-col order-1 md:order-5 items-center md:relative">
           <h4 className="text-bodyLarge text-semibold px-3 py-2">
