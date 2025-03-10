@@ -41,6 +41,39 @@ describe("Button Component", () => {
     expect(button.type).toBe("submit");
   });
 
+  it("should set aria-label attribute when provided", () => {
+    render(<Button text="Accessible" ariaLabel="Accessible button" />);
+    const button = screen.getByText("Accessible");
+    expect(button).toHaveAttribute("aria-label", "Accessible button");
+  });
+
+  it("should render as a Link component when linkUrl is provided", () => {
+    render(<Button text="Go to Home" linkUrl="/" testId="link-button" />);
+    const link = screen.getByTestId("link-button");
+    expect(link).toHaveAttribute("href", "/");
+  });
+
+  it("should use default linkWidth when not provided with linkUrl", () => {
+    render(
+      <Button text="Default Width" linkUrl="/" testId="default-width-button" />,
+    );
+    const link = screen.getByTestId("default-width-button");
+    expect(link).toHaveClass("w-full sm:w-[10.8rem]");
+  });
+
+  it("should apply custom link width when linkWidth is provided", () => {
+    render(
+      <Button
+        text="Custom Width"
+        linkUrl="/"
+        linkWidth="w-[15rem]"
+        testId="custom-width-button"
+      />,
+    );
+    const link = screen.getByTestId("custom-width-button");
+    expect(link).toHaveClass("w-[15rem]");
+  });
+
   const variantTests = [
     {
       variant: "red",
@@ -103,6 +136,28 @@ describe("Button Component", () => {
         "text-tertiary1-light",
         "w-full",
         "sm:w-[10.8rem]",
+      ],
+    },
+    {
+      variant: "redVerify",
+      expectedClasses: [
+        "bg-primary-normal",
+        "hover:bg-primary-hover_normal",
+        "text-primary-light",
+        "font-medium",
+        "w-full",
+        "sm:w-[20rem]",
+      ],
+    },
+    {
+      variant: "greenGoHome",
+      expectedClasses: [
+        "bg-[#183F27]",
+        "hover:bg-[#153823]",
+        "text-white",
+        "font-medium",
+        "w-full",
+        "sm:w-[14.5rem]",
       ],
     },
   ];
