@@ -5,11 +5,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Button from "@/components/Button/Button";
 import useFetch from "@/hooks/api/useFetch";
 import { logInfo } from "@/utils/logging";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const VerifyEmail = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  const { translations } = useLanguage();
 
   const [verificationStatus, setVerificationStatus] = useState({
     isVerifying: false,
@@ -25,7 +27,7 @@ const VerifyEmail = () => {
     if (!token) {
       setVerificationStatus({
         isVerifying: false,
-        error: "Verification token is missing. Please check your email link.",
+        error: translations["verify.error-token"],
       });
       return;
     }
@@ -45,7 +47,7 @@ const VerifyEmail = () => {
       logInfo("Verification error:", err);
       setVerificationStatus({
         isVerifying: false,
-        error: "An error occurred during verification. Please try again.",
+        error: translations["verify.error-general"],
       });
     }
   };
@@ -54,11 +56,10 @@ const VerifyEmail = () => {
     if (error) {
       setVerificationStatus({
         isVerifying: false,
-        error:
-          error.message || "Failed to verify subscription. Please try again.",
+        error: error.message || translations["verify.error-general"],
       });
     }
-  }, [error]);
+  }, [error, translations]);
 
   useEffect(() => {
     if (data && data.success) {
@@ -76,33 +77,32 @@ const VerifyEmail = () => {
           id="subscription-verification-title"
           className="text-displaySmall sm:text-displayMedium text-center mb-4 sm:mb-6 md:mb-8"
         >
-          Finalize your subscription
+          {translations["verify.heading"]}
         </h1>
 
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
-          Thank you for signing up and verifying your email!
+          {translations["verify.paragraph1"]}
           <span role="img" aria-label="checkmark">
-            &nbsp;✅
+            ✅
           </span>
         </p>
 
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
-          To complete the verification of your newsletter subscription, please
-          click the button below to confirm your email.
+          {translations["verify.paragraph2"]}
         </p>
 
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
-          This will ensure you receive our exclusive updates, special offers,
-          and curated wine experiences. We look forward to welcoming you on this
-          exciting journey with us!
+          {translations["verify.paragraph3"]}
           <span role="img" aria-label="wine glass">
-            &nbsp;🍷
+            🍷
           </span>
         </p>
 
         <Button
           text={
-            isLoading ? "Verifying..." : "Verify your newsletter subscription"
+            isLoading
+              ? translations["verify.button-loading"]
+              : translations["verify.button"]
           }
           variant="redVerify"
           icon="/icons/checkmark-circle.svg"
@@ -113,7 +113,7 @@ const VerifyEmail = () => {
             verificationStatus.isVerifying ||
             (data && data.success)
           }
-          ariaLabel="Verify subscription"
+          ariaLabel={translations["verify.button"]}
         />
 
         {verificationStatus.error && (
