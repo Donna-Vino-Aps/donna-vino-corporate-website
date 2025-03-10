@@ -3,8 +3,19 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import Navbar from "@/components/Navbar/Navbar";
 import { LanguageProvider } from "@/app/context/LanguageContext";
 
+jest.mock("next/navigation", () => ({
+  usePathname: jest.fn(),
+}));
+
+import { usePathname } from "next/navigation";
+
 describe("Navbar component", () => {
-  test("should render the Navbar component correctly", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    usePathname.mockReturnValue("/");
+  });
+
+  test("should render the Navbar component correctly on regular pages", () => {
     render(
       <LanguageProvider>
         <Navbar />
@@ -71,5 +82,125 @@ describe("Navbar component", () => {
 
     fireEvent.click(menuToggleButton);
     expect(mobileMenu).toHaveClass("hidden");
+  });
+
+  describe("on subscription verify page", () => {
+    beforeEach(() => {
+      usePathname.mockReturnValue("/subscription/verify");
+    });
+
+    test("should not render navigation links", () => {
+      render(
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>,
+      );
+
+      const logo = screen.getByAltText(
+        "Donna Vino Logo Navbar - a brand for wine tastings and experiences",
+      );
+      expect(logo).toBeInTheDocument();
+
+      expect(screen.queryByTestId("nav-link-home")).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId("nav-link-our-values"),
+      ).not.toBeInTheDocument();
+      expect(screen.queryByTestId("nav-link-our-team")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("nav-link-contact")).not.toBeInTheDocument();
+    });
+
+    test("should not render the menu toggle button", () => {
+      render(
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>,
+      );
+
+      expect(screen.queryByTestId("menu-toggle")).not.toBeInTheDocument();
+    });
+
+    test("should not render the sidebar", () => {
+      render(
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>,
+      );
+
+      expect(screen.queryByRole("menu")).not.toBeInTheDocument();
+    });
+
+    test("should display the language switch", () => {
+      render(
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>,
+      );
+
+      const languageSwitchContainer = document.querySelector(
+        'div[class*="block w-[5.12rem]"]',
+      );
+      expect(languageSwitchContainer).toBeInTheDocument();
+      expect(languageSwitchContainer).not.toHaveClass("hidden");
+    });
+  });
+
+  describe("on subscription confirmed page", () => {
+    beforeEach(() => {
+      usePathname.mockReturnValue("/subscription/confirmed");
+    });
+
+    test("should not render navigation links", () => {
+      render(
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>,
+      );
+
+      const logo = screen.getByAltText(
+        "Donna Vino Logo Navbar - a brand for wine tastings and experiences",
+      );
+      expect(logo).toBeInTheDocument();
+
+      expect(screen.queryByTestId("nav-link-home")).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId("nav-link-our-values"),
+      ).not.toBeInTheDocument();
+      expect(screen.queryByTestId("nav-link-our-team")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("nav-link-contact")).not.toBeInTheDocument();
+    });
+
+    test("should display the language switch", () => {
+      render(
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>,
+      );
+
+      const languageSwitchContainer = document.querySelector(
+        'div[class*="block w-[5.12rem]"]',
+      );
+      expect(languageSwitchContainer).toBeInTheDocument();
+      expect(languageSwitchContainer).not.toHaveClass("hidden");
+    });
+  });
+
+  describe("on regular pages", () => {
+    beforeEach(() => {
+      usePathname.mockReturnValue("/");
+    });
+
+    test("should hide language switch on small screens", () => {
+      render(
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>,
+      );
+
+      const languageSwitchContainer = document.querySelector(
+        'div[class*="w-[5.12rem]"]',
+      );
+      expect(languageSwitchContainer).toHaveClass("hidden");
+      expect(languageSwitchContainer).toHaveClass("sm:block");
+    });
   });
 });
