@@ -1,9 +1,71 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Button from "@/components/Button/Button";
+import useFetch from "@/hooks/api/useFetch";
+import { logInfo } from "@/utils/logging";
 
 const VerifyEmail = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
+
+  const [verificationStatus, setVerificationStatus] = useState({
+    isVerifying: false,
+    error: null,
+  });
+
+  const { isLoading, error, data, performFetch } = useFetch(
+    "/subscribe/confirm-subscription",
+    "POST",
+  );
+
+  const handleVerification = async () => {
+    if (!token) {
+      setVerificationStatus({
+        isVerifying: false,
+        error: "Verification token is missing. Please check your email link.",
+      });
+      return;
+    }
+
+    setVerificationStatus({
+      isVerifying: true,
+      error: null,
+    });
+
+    try {
+      await performFetch({
+        token: token,
+        subject: "Welcome to Donna Vino Newsletter",
+        templateName: "emailWelcomeTemplate",
+      });
+    } catch (err) {
+      logInfo("Verification error:", err);
+      setVerificationStatus({
+        isVerifying: false,
+        error: "An error occurred during verification. Please try again.",
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (error) {
+      setVerificationStatus({
+        isVerifying: false,
+        error:
+          error.message || "Failed to verify subscription. Please try again.",
+      });
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (data && data.success) {
+      router.push("/subscription/confirmed");
+    }
+  }, [data, router]);
+
   return (
     <section
       className="lg:my-4 flex flex-col justify-center items-center bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
@@ -39,11 +101,31 @@ const VerifyEmail = () => {
         </p>
 
         <Button
-          text="Verify your newsletter subscription"
+          text={
+            isLoading ? "Verifying..." : "Verify your newsletter subscription"
+          }
           variant="redVerify"
           icon="/icons/checkmark-circle.svg"
           testId="verify-button"
+          onClick={handleVerification}
+          disabled={
+            isLoading ||
+            verificationStatus.isVerifying ||
+            (data && data.success)
+          }
+          ariaLabel="Verify subscription"
         />
+
+        {verificationStatus.error && (
+          <div
+            className="text-primary-normal text-bodyMedium my-6 text-center"
+            aria-live="assertive"
+            role="alert"
+            data-testid="error-message"
+          >
+            {verificationStatus.error}
+          </div>
+        )}
       </div>
     </section>
   );
