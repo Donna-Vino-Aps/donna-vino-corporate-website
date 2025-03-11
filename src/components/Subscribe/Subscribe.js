@@ -111,7 +111,7 @@ const Subscribe = () => {
       method: "POST",
       data: { email: savedEmail, userId },
       onReceived: (response) => {
-        logInfo("Este onReceived es distinto");
+        logInfo("Need other onReceived function");
       },
     });
   };
