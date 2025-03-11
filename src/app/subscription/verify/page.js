@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Button from "@/components/Button/Button";
 import useFetch from "@/hooks/api/useFetch";
 import { logInfo } from "@/utils/logging";
 import { useLanguage } from "@/app/context/LanguageContext";
 
-const VerifyEmail = () => {
+function VerifyEmailContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
@@ -128,6 +128,14 @@ const VerifyEmail = () => {
         )}
       </div>
     </section>
+  );
+}
+
+const VerifyEmail = () => {
+  return (
+    <Suspense fallback={<div>Loading verification page...</div>}>
+      <VerifyEmailContent />
+    </Suspense>
   );
 };
 
