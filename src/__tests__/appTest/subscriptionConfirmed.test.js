@@ -19,16 +19,13 @@ describe("SubscriptionConfirmed Page", () => {
   });
 
   it("renders the confirmation page correctly", () => {
-    // Check that the main heading is rendered
     const heading = screen.getByRole("heading", { level: 1 });
     expect(heading).toBeInTheDocument();
     expect(heading).toHaveAttribute("id", "subscription-confirmed-title");
 
-    // Check that the paragraphs are rendered
     const paragraphs = screen.getAllByText(/.+/);
     expect(paragraphs.length).toBeGreaterThan(0);
 
-    // Check for the wine glass emoji
     const wineGlassEmoji = screen.getByRole("img", { name: /wine glass/i });
     expect(wineGlassEmoji).toBeInTheDocument();
   });
@@ -37,10 +34,8 @@ describe("SubscriptionConfirmed Page", () => {
     const homeButton = screen.getByTestId("home-button");
     expect(homeButton).toBeInTheDocument();
 
-    // Check that the button has the correct link
     expect(homeButton).toHaveAttribute("href", "/");
 
-    // Check that the button has the correct width class
     expect(homeButton).toHaveClass("w-full");
     expect(homeButton).toHaveClass("sm:w-[14.5rem]");
   });
