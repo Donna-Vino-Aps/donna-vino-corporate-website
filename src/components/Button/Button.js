@@ -21,6 +21,10 @@ const VARIANT_CLASSES = {
   redSubmit:
     "bg-primary-normal hover:bg-primary-hover_normal text-white rounded-lg w-full sm:w-[10.8rem]",
   gray: "bg-tertiary1-normal hover:bg-tertiary1-dark text-tertiary1-light w-full sm:w-[10.8rem]",
+  redVerify:
+    "bg-primary-normal hover:bg-primary-hover_normal text-primary-light font-medium w-full sm:w-[20rem]",
+  greenGoHome:
+    "bg-[#183F27] hover:bg-[#153823] text-white font-medium w-full sm:w-[14.5rem]",
 };
 
 const Button = ({
@@ -33,6 +37,7 @@ const Button = ({
   testId,
   isLoading = false,
   linkUrl,
+  linkWidth,
 }) => {
   const buttonClass = `
     ${BASE_BUTTON_CLASSES}
@@ -63,7 +68,11 @@ const Button = ({
   );
 
   return linkUrl ? (
-    <Link href={linkUrl} data-testid={testId} className="w-full sm:w-[10.8rem]">
+    <Link
+      href={linkUrl}
+      data-testid={testId}
+      className={linkWidth || "w-full sm:w-[10.8rem]"}
+    >
       {buttonContent}
     </Link>
   ) : (
@@ -81,6 +90,8 @@ Button.propTypes = {
     "grayGreen",
     "redSubmit",
     "gray",
+    "redVerify",
+    "greenGoHome",
   ]),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
@@ -88,6 +99,7 @@ Button.propTypes = {
   testId: PropTypes.string,
   isLoading: PropTypes.bool,
   linkUrl: PropTypes.string, // optional
+  linkWidth: PropTypes.string, // optional
 };
 
 export default Button;

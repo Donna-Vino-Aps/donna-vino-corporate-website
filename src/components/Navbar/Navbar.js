@@ -11,6 +11,10 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const isSubscriptionPage =
+    pathname === "/subscription/verify" ||
+    pathname === "/subscription/confirmed";
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -39,48 +43,56 @@ const Navbar = () => {
             className="w-[6.25rem] h-[4.31rem] md:w-[7.75rem] md:h-[5.37rem]"
           />
         </Link>
-        <div className="sm:hidden w-[1.5rem] h-[1.5rem]">
-          <button
-            onClick={toggleMenu}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            data-testid="menu-toggle"
-          >
-            <img src="/icons/menu.svg" alt="" />
-          </button>
-        </div>
-        <div
-          id="desktop-menu"
-          role="menu"
-          className={`sm:flex sm:items-center md:space-x-4 ${
-            isMenuOpen ? "block" : "hidden"
-          }`}
-        >
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={`rounded-md px-3 py-2 text-titleMedium ${
-                pathname === link.href
-                  ? "font-bold underline"
-                  : "opacity-70 hover:opacity-100"
+        {!isSubscriptionPage && (
+          <>
+            <div className="sm:hidden w-[1.5rem] h-[1.5rem]">
+              <button
+                onClick={toggleMenu}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                data-testid="menu-toggle"
+              >
+                <img src="/icons/menu.svg" alt="" />
+              </button>
+            </div>
+            <div
+              id="desktop-menu"
+              role="menu"
+              className={`sm:flex sm:items-center md:space-x-4 ${
+                isMenuOpen ? "block" : "hidden"
               }`}
-              data-testid={`nav-link-${link.id}`}
             >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-        <div className="hidden sm:block w-[5.12rem] h-[2.87rem]">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`rounded-md px-3 py-2 text-titleMedium ${
+                    pathname === link.href
+                      ? "font-bold underline"
+                      : "opacity-70 hover:opacity-100"
+                  }`}
+                  data-testid={`nav-link-${link.id}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
+        <div
+          className={`${isSubscriptionPage ? "block" : "hidden sm:block"} w-[5.12rem] h-[2.87rem]`}
+        >
           <LanguageSwitch />
         </div>
-        <SideBar
-          id="mobile-menu"
-          isMenuOpen={isMenuOpen}
-          toggleMenu={toggleMenu}
-          navLinks={navLinks}
-        />
+        {!isSubscriptionPage && (
+          <SideBar
+            id="mobile-menu"
+            isMenuOpen={isMenuOpen}
+            toggleMenu={toggleMenu}
+            navLinks={navLinks}
+          />
+        )}
       </nav>
     </header>
   );
