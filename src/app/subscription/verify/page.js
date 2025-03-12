@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Button from "@/components/Button/Button";
 import useFetch from "@/hooks/api/useFetch";
@@ -18,9 +18,32 @@ function VerifyEmailContent() {
     error: null,
   });
 
-  const { isLoading, error, data, performFetch } = useFetch(
+  const handleResponse = (response, error) => {
+    if (error) {
+      logInfo("Verification error:", error);
+      setVerificationStatus({
+        isVerifying: false,
+        error: error?.message || translations["verify.error-general"],
+      });
+      return;
+    }
+
+    if (response?.success) {
+      router.push("/subscription/confirmed");
+    } else {
+      setVerificationStatus({
+        isVerifying: false,
+        error: translations["verify.error-general"],
+      });
+    }
+  };
+
+  const { isLoading, performFetch } = useFetch(
     "/subscribe/confirm-subscription",
     "POST",
+    {},
+    {},
+    handleResponse,
   );
 
   const handleVerification = async () => {
@@ -32,40 +55,14 @@ function VerifyEmailContent() {
       return;
     }
 
-    setVerificationStatus({
-      isVerifying: true,
-      error: null,
+    setVerificationStatus({ isVerifying: true, error: null });
+
+    await performFetch({
+      token,
+      subject: "Welcome to Donna Vino Newsletter",
+      templateName: "emailWelcomeTemplate",
     });
-
-    try {
-      await performFetch({
-        token: token,
-        subject: "Welcome to Donna Vino Newsletter",
-        templateName: "emailWelcomeTemplate",
-      });
-    } catch (err) {
-      logInfo("Verification error:", err);
-      setVerificationStatus({
-        isVerifying: false,
-        error: translations["verify.error-general"],
-      });
-    }
   };
-
-  useEffect(() => {
-    if (error) {
-      setVerificationStatus({
-        isVerifying: false,
-        error: error.message || translations["verify.error-general"],
-      });
-    }
-  }, [error, translations]);
-
-  useEffect(() => {
-    if (data && data.success) {
-      router.push("/subscription/confirmed");
-    }
-  }, [data, router]);
 
   return (
     <section
@@ -81,10 +78,7 @@ function VerifyEmailContent() {
         </h1>
 
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
-          {translations["verify.paragraph1"]}
-          <span role="img" aria-label="checkmark">
-            ✅
-          </span>
+          {translations["verify.paragraph1"]} ✅
         </p>
 
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
@@ -92,10 +86,7 @@ function VerifyEmailContent() {
         </p>
 
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
-          {translations["verify.paragraph3"]}
-          <span role="img" aria-label="wine glass">
-            🍷
-          </span>
+          {translations["verify.paragraph3"]} 🍷
         </p>
 
         <Button
@@ -108,11 +99,7 @@ function VerifyEmailContent() {
           icon="/icons/checkmark-circle.svg"
           testId="verify-button"
           onClick={handleVerification}
-          disabled={
-            isLoading ||
-            verificationStatus.isVerifying ||
-            (data && data.success)
-          }
+          disabled={isLoading || verificationStatus.isVerifying}
           ariaLabel={translations["verify.button"]}
         />
 
@@ -131,12 +118,10 @@ function VerifyEmailContent() {
   );
 }
 
-const VerifyEmail = () => {
-  return (
-    <Suspense fallback={<div>Loading verification page...</div>}>
-      <VerifyEmailContent />
-    </Suspense>
-  );
-};
+const VerifyEmail = () => (
+  <Suspense fallback={<div>Verifying your email, please wait...</div>}>
+    <VerifyEmailContent />
+  </Suspense>
+);
 
 export default VerifyEmail;
