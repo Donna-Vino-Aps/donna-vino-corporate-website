@@ -85,8 +85,12 @@ describe("VerifyEmail Page", () => {
 
     renderWithLanguage();
 
-    expect(screen.getByTestId("error-message")).toBeInTheDocument();
-    expect(screen.getByTestId("error-message")).toHaveTextContent("API Error");
+    await waitFor(() => {
+      expect(screen.getByTestId("error-message")).toBeInTheDocument();
+      expect(screen.getByTestId("error-message")).toHaveTextContent(
+        "API Error",
+      );
+    });
   });
 
   it("does not redirect when verification fails", async () => {
@@ -104,7 +108,9 @@ describe("VerifyEmail Page", () => {
     const verifyButton = screen.getByTestId("verify-button");
     expect(verifyButton).not.toBeDisabled();
 
-    expect(router.push).not.toHaveBeenCalled();
+    await waitFor(() => {
+      expect(router.push).not.toHaveBeenCalled();
+    });
   });
 
   it("handles verification process correctly", async () => {
@@ -117,10 +123,12 @@ describe("VerifyEmail Page", () => {
     const verifyButton = screen.getByTestId("verify-button");
     fireEvent.click(verifyButton);
 
-    expect(performFetchMock).toHaveBeenCalledWith({
-      token: "valid-token",
-      subject: "Welcome to Donna Vino Newsletter",
-      templateName: "emailWelcomeTemplate",
+    await waitFor(() => {
+      expect(performFetchMock).toHaveBeenCalledWith({
+        token: "valid-token",
+        subject: "Welcome to Donna Vino Newsletter",
+        templateName: "emailWelcomeTemplate",
+      });
     });
 
     useFetch.mockReturnValue({
@@ -148,7 +156,9 @@ describe("VerifyEmail Page", () => {
     renderWithLanguage();
 
     const verifyButton = screen.getByTestId("verify-button");
-    expect(verifyButton).toBeDisabled();
+    await waitFor(() => {
+      expect(verifyButton).toBeDisabled();
+    });
   });
 
   it("shows correct error message when API returns specific error", async () => {
@@ -162,9 +172,11 @@ describe("VerifyEmail Page", () => {
 
     renderWithLanguage();
 
-    expect(screen.getByTestId("error-message")).toHaveTextContent(
-      customError.message,
-    );
+    await waitFor(() => {
+      expect(screen.getByTestId("error-message")).toHaveTextContent(
+        customError.message,
+      );
+    });
   });
 
   it("updates verification status when token is present but verification fails", async () => {
@@ -172,7 +184,10 @@ describe("VerifyEmail Page", () => {
       get: jest.fn(() => "invalid-token"),
     });
 
-    performFetchMock.mockRejectedValueOnce(new Error("Verification failed"));
+    const apiError = new Error(
+      "An error occurred during verification. Please try again.",
+    );
+    performFetchMock.mockRejectedValueOnce(apiError);
 
     renderWithLanguage();
 
@@ -180,7 +195,35 @@ describe("VerifyEmail Page", () => {
     fireEvent.click(verifyButton);
 
     await waitFor(() => {
-      expect(screen.getByTestId("error-message")).toBeInTheDocument();
+      const errorMessage = screen.getByTestId("error-message");
+      expect(errorMessage).toBeInTheDocument();
+      expect(errorMessage).toHaveTextContent(
+        "An error occurred during verification. Please try again.",
+      );
+    });
+  });
+
+  it("updates verification status when token is present but verification fails", async () => {
+    require("next/navigation").useSearchParams.mockReturnValue({
+      get: jest.fn(() => "invalid-token"),
+    });
+
+    const apiError = new Error(
+      "An error occurred during verification. Please try again.",
+    );
+    performFetchMock.mockRejectedValueOnce(apiError);
+
+    renderWithLanguage();
+
+    const verifyButton = screen.getByTestId("verify-button");
+    fireEvent.click(verifyButton);
+
+    await waitFor(() => {
+      const errorMessage = screen.getByTestId("error-message");
+      expect(errorMessage).toBeInTheDocument();
+      expect(errorMessage).toHaveTextContent(
+        "An error occurred during verification. Please try again.",
+      );
     });
   });
 });
