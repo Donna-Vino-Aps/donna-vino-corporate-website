@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { logInfo } from "@/utils/logging";
 import ResendTimer from "../ResendTimer/ResendTimer";
+import validator from "validator";
 
 const Subscribe = () => {
   const { translations } = useLanguage();
@@ -111,13 +112,19 @@ const Subscribe = () => {
       method: "POST",
       data: { email: savedEmail, userId },
       onReceived: (response) => {
-        logInfo("Este onReceived es distinto");
+        logInfo("Need other onReceived function");
       },
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!email || !validator.isEmail(email)) {
+      setErrors("Please enter a valid email address first.");
+      return;
+    }
+
     if (!agreed) {
       setErrors("Please agree to the terms and conditions.");
       return;
