@@ -80,147 +80,107 @@ describe("VerifyEmail Page", () => {
       isLoading: false,
       error: { message: "API Error" },
       data: null,
-      performFetch: jest.fn(),
+      performFetch: performFetchMock,
     });
 
     renderWithLanguage();
 
-    const errorMessage = await screen.findByTestId("error-message");
-    expect(errorMessage).toBeInTheDocument();
-    expect(errorMessage).toHaveTextContent("API Error");
+    expect(screen.getByTestId("error-message")).toBeInTheDocument();
+    expect(screen.getByTestId("error-message")).toHaveTextContent("API Error");
   });
 
-  // it("does not redirect when verification fails", async () => {
-  //   const router = require("next/navigation").useRouter();
+  it("does not redirect when verification fails", async () => {
+    const router = require("next/navigation").useRouter();
 
-  //   useFetch.mockReturnValue({
-  //     isLoading: false,
-  //     error: null,
-  //     data: { success: false },
-  //     performFetch: performFetchMock.mockResolvedValue({ success: false }),
-  //   });
+    useFetch.mockReturnValue({
+      isLoading: false,
+      error: null,
+      data: { success: false },
+      performFetch: performFetchMock.mockResolvedValue({ success: false }),
+    });
 
-  //   renderWithLanguage();
+    renderWithLanguage();
 
-  //   const verifyButton = screen.getByTestId("verify-button");
-  //   expect(verifyButton).not.toBeDisabled();
+    const verifyButton = screen.getByTestId("verify-button");
+    expect(verifyButton).not.toBeDisabled();
 
-  //   await waitFor(() => {
-  //     expect(router.push).not.toHaveBeenCalled();
-  //   });
-  // });
+    expect(router.push).not.toHaveBeenCalled();
+  });
 
-  // it("handles verification process correctly", async () => {
-  //   require("next/navigation").useSearchParams.mockReturnValue({
-  //     get: jest.fn(() => "valid-token"),
-  //   });
+  it("handles verification process correctly", async () => {
+    require("next/navigation").useSearchParams.mockReturnValue({
+      get: jest.fn(() => "valid-token"),
+    });
 
-  //   const { rerender } = renderWithLanguage();
+    const { rerender } = renderWithLanguage();
 
-  //   const verifyButton = screen.getByTestId("verify-button");
-  //   fireEvent.click(verifyButton);
+    const verifyButton = screen.getByTestId("verify-button");
+    fireEvent.click(verifyButton);
 
-  //   await waitFor(() => {
-  //     expect(performFetchMock).toHaveBeenCalledWith({
-  //       token: "valid-token",
-  //       subject: "Welcome to Donna Vino Newsletter",
-  //       templateName: "emailWelcomeTemplate",
-  //     });
-  //   });
+    expect(performFetchMock).toHaveBeenCalledWith({
+      token: "valid-token",
+      subject: "Welcome to Donna Vino Newsletter",
+      templateName: "emailWelcomeTemplate",
+    });
 
-  //   useFetch.mockReturnValue({
-  //     isLoading: true,
-  //     error: null,
-  //     data: null,
-  //     performFetch: performFetchMock,
-  //   });
-  //   rerender(
-  //     <LanguageProvider value={{ translations: enTranslations }}>
-  //       <VerifyEmail />
-  //     </LanguageProvider>,
-  //   );
-  //   expect(screen.getByTestId("verify-button")).toBeDisabled();
-  // });
+    useFetch.mockReturnValue({
+      isLoading: true,
+      error: null,
+      data: null,
+      performFetch: performFetchMock,
+    });
+    rerender(
+      <LanguageProvider value={{ translations: enTranslations }}>
+        <VerifyEmail />
+      </LanguageProvider>,
+    );
+    expect(screen.getByTestId("verify-button")).toBeDisabled();
+  });
 
-  // it("disables button when verification is successful", async () => {
-  //   useFetch.mockReturnValue({
-  //     isLoading: false,
-  //     error: null,
-  //     data: { success: true },
-  //     performFetch: performFetchMock,
-  //   });
+  it("disables button when verification is successful", async () => {
+    useFetch.mockReturnValue({
+      isLoading: false,
+      error: null,
+      data: { success: true },
+      performFetch: performFetchMock,
+    });
 
-  //   renderWithLanguage();
+    renderWithLanguage();
 
-  //   const verifyButton = screen.getByTestId("verify-button");
-  //   await waitFor(() => {
-  //     expect(verifyButton).toBeDisabled();
-  //   });
-  // });
+    const verifyButton = screen.getByTestId("verify-button");
+    expect(verifyButton).toBeDisabled();
+  });
 
-  // it("shows correct error message when API returns specific error", async () => {
-  //   const customError = { message: "Custom API Error Message" };
-  //   useFetch.mockReturnValue({
-  //     isLoading: false,
-  //     error: customError,
-  //     data: null,
-  //     performFetch: performFetchMock,
-  //   });
+  it("shows correct error message when API returns specific error", async () => {
+    const customError = { message: "Custom API Error Message" };
+    useFetch.mockReturnValue({
+      isLoading: false,
+      error: customError,
+      data: null,
+      performFetch: performFetchMock,
+    });
 
-  //   renderWithLanguage();
+    renderWithLanguage();
 
-  //   await waitFor(() => {
-  //     expect(screen.getByTestId("error-message")).toHaveTextContent(
-  //       customError.message,
-  //     );
-  //   });
-  // });
+    expect(screen.getByTestId("error-message")).toHaveTextContent(
+      customError.message,
+    );
+  });
 
-  // it("updates verification status when token is present but verification fails", async () => {
-  //   require("next/navigation").useSearchParams.mockReturnValue({
-  //     get: jest.fn(() => "invalid-token"),
-  //   });
+  it("updates verification status when token is present but verification fails", async () => {
+    require("next/navigation").useSearchParams.mockReturnValue({
+      get: jest.fn(() => "invalid-token"),
+    });
 
-  //   const apiError = new Error(
-  //     "An error occurred during verification. Please try again.",
-  //   );
-  //   performFetchMock.mockRejectedValueOnce(apiError);
+    performFetchMock.mockRejectedValueOnce(new Error("Verification failed"));
 
-  //   renderWithLanguage();
+    renderWithLanguage();
 
-  //   const verifyButton = screen.getByTestId("verify-button");
-  //   fireEvent.click(verifyButton);
+    const verifyButton = screen.getByTestId("verify-button");
+    fireEvent.click(verifyButton);
 
-  //   await waitFor(() => {
-  //     const errorMessage = screen.getByTestId("error-message");
-  //     expect(errorMessage).toBeInTheDocument();
-  //     expect(errorMessage).toHaveTextContent(
-  //       "An error occurred during verification. Please try again.",
-  //     );
-  //   });
-  // });
-
-  // it("updates verification status when token is present but verification fails", async () => {
-  //   require("next/navigation").useSearchParams.mockReturnValue({
-  //     get: jest.fn(() => "invalid-token"),
-  //   });
-
-  //   const apiError = new Error(
-  //     "An error occurred during verification. Please try again.",
-  //   );
-  //   performFetchMock.mockRejectedValueOnce(apiError);
-
-  //   renderWithLanguage();
-
-  //   const verifyButton = screen.getByTestId("verify-button");
-  //   fireEvent.click(verifyButton);
-
-  //   await waitFor(() => {
-  //     const errorMessage = screen.getByTestId("error-message");
-  //     expect(errorMessage).toBeInTheDocument();
-  //     expect(errorMessage).toHaveTextContent(
-  //       "An error occurred during verification. Please try again.",
-  //     );
-  //   });
-  // });
+    await waitFor(() => {
+      expect(screen.getByTestId("error-message")).toBeInTheDocument();
+    });
+  });
 });
