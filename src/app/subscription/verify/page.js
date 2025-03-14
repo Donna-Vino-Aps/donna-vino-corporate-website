@@ -41,7 +41,7 @@ function VerifyEmailContent() {
       await performFetch({
         token: token,
         subject: "Welcome to Donna Vino Newsletter",
-        templateName: "emailWelcomeTemplate",
+        templateName: "emailWelcomeToOurNewsLetter",
       });
     } catch (err) {
       logInfo("Verification error:", err);
