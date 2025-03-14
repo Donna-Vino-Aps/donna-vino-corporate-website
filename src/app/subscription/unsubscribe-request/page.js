@@ -7,11 +7,10 @@ import useFetch from "@/hooks/api/useFetch";
 import { logInfo } from "@/utils/logging";
 import { useLanguage } from "@/app/context/LanguageContext";
 
-function UnsubscribeRequestContent() {
+function UnsubscribeRequestContent({ translations }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
-  const { translations } = useLanguage();
 
   const [unsubscribeRequestStatus, setUnsubscribeRequestStatus] = useState({
     isRequesting: false,
@@ -64,7 +63,7 @@ function UnsubscribeRequestContent() {
 
   useEffect(() => {
     if (data && data.success) {
-      router.push("/subscription/unsubscribed"); // Redirige al usuario a la página de confirmación de desuscripción
+      router.push("/subscription/unsubscribed");
     }
   }, [data, router]);
 
@@ -85,7 +84,6 @@ function UnsubscribeRequestContent() {
           {translations["unsubscribe-request.paragraph1"]}
         </p>
 
-        {/* Se agrega el segundo párrafo */}
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
           {translations["unsubscribe-request.paragraph2"]}
         </p>
