@@ -6,6 +6,7 @@ import Button from "@/components/Button/Button";
 import useFetch from "@/hooks/api/useFetch";
 import { logInfo } from "@/utils/logging";
 import { useLanguage } from "@/app/context/LanguageContext";
+import PropTypes from "prop-types"; // Importa PropTypes
 
 function UnsubscribeRequestContent({ translations }) {
   const router = useRouter();
@@ -84,6 +85,7 @@ function UnsubscribeRequestContent({ translations }) {
           {translations["unsubscribe-request.paragraph1"]}
         </p>
 
+        {/* Se agrega el segundo párrafo */}
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
           {translations["unsubscribe-request.paragraph2"]}
         </p>
@@ -120,6 +122,18 @@ function UnsubscribeRequestContent({ translations }) {
     </section>
   );
 }
+
+UnsubscribeRequestContent.propTypes = {
+  translations: PropTypes.shape({
+    "unsubscribe-request.error-token": PropTypes.string.isRequired,
+    "unsubscribe-request.error-general": PropTypes.string.isRequired,
+    "unsubscribe-request.heading": PropTypes.string.isRequired,
+    "unsubscribe-request.paragraph1": PropTypes.string.isRequired,
+    "unsubscribe-request.paragraph2": PropTypes.string.isRequired,
+    "unsubscribe-request.button-loading": PropTypes.string.isRequired,
+    "unsubscribe-request.button": PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 const UnsubscribeRequestPage = () => {
   const { translations } = useLanguage();
