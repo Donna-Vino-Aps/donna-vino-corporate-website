@@ -9,9 +9,7 @@ const Footer = () => {
   const { translations } = useLanguage();
   const pathname = usePathname();
 
-  const isSubscriptionPage =
-    pathname === "/subscription/verify" ||
-    pathname === "/subscription/confirmed";
+  const isSubscriptionPage = pathname.startsWith("/subscription/");
 
   const socialLinks = [
     {
