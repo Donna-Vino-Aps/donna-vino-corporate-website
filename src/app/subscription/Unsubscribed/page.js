@@ -1,4 +1,4 @@
-// src/app/subscription/unsubscribed/page.js
+"use client";
 
 import React from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
