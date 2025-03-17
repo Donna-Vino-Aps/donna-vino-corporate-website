@@ -6,7 +6,7 @@ import Button from "@/components/Button/Button";
 import useFetch from "@/hooks/api/useFetch";
 import { logInfo } from "@/utils/logging";
 import { useLanguage } from "@/app/context/LanguageContext";
-import PropTypes from "prop-types"; // Importa PropTypes
+import PropTypes from "prop-types";
 
 function UnsubscribeRequestContent({ translations }) {
   const router = useRouter();
@@ -41,7 +41,6 @@ function UnsubscribeRequestContent({ translations }) {
       await performFetch({
         token: token,
         subject: "Unsubscribe Request",
-        templateName: "unsubscribeSuccessTemplate",
       });
     } catch (err) {
       logInfo("Unsubscribe request error:", err);
@@ -85,7 +84,6 @@ function UnsubscribeRequestContent({ translations }) {
           {translations["unsubscribe-request.paragraph1"]}
         </p>
 
-        {/* Se agrega el segundo párrafo */}
         <p className="text-bodySmall sm:text-bodyMedium md:text-bodyLarge mb-4 sm:mb-6 md:mb-8 text-center">
           {translations["unsubscribe-request.paragraph2"]}
         </p>
