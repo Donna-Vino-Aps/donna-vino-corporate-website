@@ -1,11 +1,10 @@
 "use client";
 
 import useFetch from "@/hooks/api/useFetch";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { logInfo } from "@/utils/logging";
-import ResendTimer from "../ResendTimer/ResendTimer";
 import validator from "validator";
 
 const Subscribe = () => {
@@ -16,40 +15,25 @@ const Subscribe = () => {
   const [message, setMessage] = useState(null);
   const [emailSent, setEmailSent] = useState(false);
 
-  // Resend verification email
-  const [resendingEmail, setResendingEmail] = useState(false);
-  const [resendStatus, setResendStatus] = useState("Please wait");
-  const [savedEmail, setSavedEmail] = useState(null);
-  const [userId, setUserId] = useState(null);
+  // Handler for receiving API responses for subscription
+  const onReceived = (response) => {
+    const { success, message, error: serverError } = response;
 
-  // Resend timer
-  const [timeLeft, setTimeLeft] = useState(null);
-  const [targetTime, setTargetTime] = useState(null);
-  const [activeResend, setActiveResend] = useState(false);
-
-  const resendTimerRef = React.useRef(null);
-
-  const calculateTimeLeft = (finalTime) => {
-    const seconds = finalTime - +new Date();
-    if (seconds >= 0) {
-      setTimeLeft(Math.round(seconds / 1000));
+    if (success) {
+      setEmailSent(true);
+      setMessage(message);
     } else {
-      setTimeLeft(null);
-      clearInterval(resendTimerRef.current);
-      setActiveResend(true);
-      setResendStatus("Resend");
+      setErrors(`Subscription failed! ${serverError || message}`);
     }
   };
 
-  const triggerTimer = (targetTimeInSeconds = 30) => {
-    setTargetTime(targetTimeInSeconds);
-    setActiveResend(false);
-    const finalTime = +new Date() + targetTimeInSeconds * 1000;
-    resendTimerRef.current = setInterval(
-      () => calculateTimeLeft(finalTime),
-      1000,
-    );
-  };
+  // UseFetch hooks
+  const {
+    isLoading: subscribeLoading,
+    error: subscribeError,
+    data: subscribeData,
+    performFetch: subscribeFetch,
+  } = useFetch("/subscribe/pre-subscribe", "POST", {}, {}, onReceived);
 
   const handleCheckboxChange = () => {
     setMessage("");
@@ -57,64 +41,6 @@ const Subscribe = () => {
     if (errors) {
       setErrors(null);
     }
-  };
-
-  useEffect(() => {
-    triggerTimer();
-
-    return () => {
-      clearInterval(resendTimerRef.current);
-    };
-  }, []);
-
-  // Handler for receiving API responses
-  const onReceived = (response) => {
-    const { success, message, error: serverError, email, userId } = response;
-
-    if (success) {
-      setResendStatus("Sent!");
-      setActiveResend(false);
-      setSavedEmail(email);
-      setUserId(userId);
-      setEmailSent(true);
-      setMessage(message);
-    } else {
-      setResendStatus("Failed");
-      setActiveResend(false);
-      setErrors(`Resending email failed! ${serverError || message}`);
-    }
-
-    // Reset the resend button state after 5 seconds
-    setTimeout(() => {
-      setResendStatus("Please wait");
-      triggerTimer();
-    }, 5000);
-  };
-
-  const { isLoading, error, data, performFetch } = useFetch(
-    "/subscribe/pre-subscribe",
-    "POST",
-    {},
-    {},
-    onReceived,
-  );
-
-  const resendEmail = () => {
-    if (!savedEmail || !userId) {
-      setErrors("Error: Missing email or userId. Please subscribe again.");
-      return;
-    }
-
-    setResendStatus("Sending...");
-    setResendingEmail(true);
-
-    performFetch({
-      method: "POST",
-      data: { email: savedEmail, userId },
-      onReceived: (response) => {
-        logInfo("Need other onReceived function");
-      },
-    });
   };
 
   const handleSubmit = async (e) => {
@@ -134,7 +60,7 @@ const Subscribe = () => {
     setMessage(null);
 
     try {
-      await performFetch(
+      await subscribeFetch(
         {
           to: email,
           subject: "Subscription",
@@ -152,17 +78,17 @@ const Subscribe = () => {
   };
 
   React.useEffect(() => {
-    if (error) {
+    if (subscribeError) {
       setMessage("");
-      setErrors(error.message || error);
+      setErrors(subscribeError.message || subscribeError);
     }
-  }, [error]);
+  }, [subscribeError]);
 
   React.useEffect(() => {
-    if (data && data.success) {
-      setMessage(data.message);
+    if (subscribeData && subscribeData.success) {
+      setMessage(subscribeData.message);
     }
-  }, [data]);
+  }, [subscribeData]);
 
   return (
     <section
@@ -197,14 +123,14 @@ const Subscribe = () => {
 
               <Button
                 text={
-                  isLoading
+                  subscribeLoading
                     ? translations["subscribe.button-loading"]
                     : translations["subscribe.button"]
                 }
                 variant="redSubmit"
-                isLoading={isLoading}
+                isLoading={subscribeLoading}
                 onClick={handleSubmit}
-                disabled={isLoading}
+                disabled={subscribeLoading}
                 ariaLabel="Submit form"
                 testId="submit-button"
               />
@@ -244,17 +170,6 @@ const Subscribe = () => {
                 {translations["subscribe.terms"]}
               </span>
             </label>
-            {emailSent && (
-              <ResendTimer
-                activeResend={activeResend}
-                isLoading={isLoading}
-                resendStatus={resendStatus}
-                timeLeft={timeLeft}
-                targetTime={targetTime}
-                resendEmail={resendEmail}
-                resendingEmail={resendingEmail}
-              />
-            )}
           </div>
         </div>
       </div>
