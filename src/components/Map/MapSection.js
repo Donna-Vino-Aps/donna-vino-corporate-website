@@ -17,7 +17,7 @@ const MapSection = () => {
   const directionsUrl = `https://www.google.com/maps/dir//${destination}`;
 
   const locationUrl =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5241.493541829231!2d12.58358672190343!3d55.67324322733157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652533e8d361235%3A0xc1ba3e3332796500!2sWildersgade%2023%2C%201408%20K%C3%B8benhavn!5e0!3m2!1sen!2sdk!4v1736181373995!5m2!1sen!2sdk";
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5241.322070410948!2d12.592179421903685!3d55.67275652738062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465253212a6354fd%3A0x64f7c10eacb3d4b!2sChristianshavns%20Voldgade%2054%2C%201424%20K%C3%B8benhavn!5e0!3m2!1sen!2sdk!4v1736181373995!5m2!1sen!2sdk";
 
   const infoItems = [
     {
