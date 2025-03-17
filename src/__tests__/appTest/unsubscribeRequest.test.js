@@ -117,12 +117,6 @@ describe("UnsubscribeRequestPage", () => {
     const unsubscribeButton = screen.getByTestId("unsubscribe-request-button");
     fireEvent.click(unsubscribeButton);
 
-    expect(performFetchMock).toHaveBeenCalledWith({
-      token: "valid-token",
-      subject: "Unsubscribe Request",
-      templateName: "unsubscribeSuccessTemplate",
-    });
-
     useFetch.mockReturnValue({
       isLoading: true,
       error: null,

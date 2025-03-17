@@ -13,21 +13,21 @@ const Subscribe = () => {
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState(null);
   const [message, setMessage] = useState(null);
-  const [emailSent, setEmailSent] = useState(false);
 
   // Handler for receiving API responses for subscription
   const onReceived = (response) => {
     const { success, message, error: serverError } = response;
 
+    setMessage(null);
+    setErrors(null);
+
     if (success) {
-      setEmailSent(true);
       setMessage(message);
     } else {
       setErrors(`Subscription failed! ${serverError || message}`);
     }
   };
 
-  // UseFetch hooks
   const {
     isLoading: subscribeLoading,
     error: subscribeError,
@@ -36,15 +36,16 @@ const Subscribe = () => {
   } = useFetch("/subscribe/pre-subscribe", "POST", {}, {}, onReceived);
 
   const handleCheckboxChange = () => {
-    setMessage("");
+    setMessage(null);
+    setErrors(null);
     setAgreed(!agreed);
-    if (errors) {
-      setErrors(null);
-    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setMessage(null);
+    setErrors(null);
 
     if (!email || !validator.isEmail(email)) {
       setErrors("Please enter a valid email address first.");
@@ -55,9 +56,6 @@ const Subscribe = () => {
       setErrors("Please agree to the terms and conditions.");
       return;
     }
-
-    setErrors(null);
-    setMessage(null);
 
     try {
       await subscribeFetch(
@@ -79,7 +77,7 @@ const Subscribe = () => {
 
   React.useEffect(() => {
     if (subscribeError) {
-      setMessage("");
+      setMessage(null);
       setErrors(subscribeError.message || subscribeError);
     }
   }, [subscribeError]);
