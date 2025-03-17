@@ -1,11 +1,10 @@
 "use client";
 
 import useFetch from "@/hooks/api/useFetch";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { logInfo } from "@/utils/logging";
-import ResendTimer from "../ResendTimer/ResendTimer";
 import validator from "validator";
 
 const Subscribe = () => {
@@ -14,111 +13,39 @@ const Subscribe = () => {
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState(null);
   const [message, setMessage] = useState(null);
-  const [emailSent, setEmailSent] = useState(false);
 
-  // Resend verification email
-  const [resendingEmail, setResendingEmail] = useState(false);
-  const [resendStatus, setResendStatus] = useState("Please wait");
-  const [savedEmail, setSavedEmail] = useState(null);
-  const [userId, setUserId] = useState(null);
-
-  // Resend timer
-  const [timeLeft, setTimeLeft] = useState(null);
-  const [targetTime, setTargetTime] = useState(null);
-  const [activeResend, setActiveResend] = useState(false);
-
-  const resendTimerRef = React.useRef(null);
-
-  const calculateTimeLeft = (finalTime) => {
-    const seconds = finalTime - +new Date();
-    if (seconds >= 0) {
-      setTimeLeft(Math.round(seconds / 1000));
-    } else {
-      setTimeLeft(null);
-      clearInterval(resendTimerRef.current);
-      setActiveResend(true);
-      setResendStatus("Resend");
-    }
-  };
-
-  const triggerTimer = (targetTimeInSeconds = 30) => {
-    setTargetTime(targetTimeInSeconds);
-    setActiveResend(false);
-    const finalTime = +new Date() + targetTimeInSeconds * 1000;
-    resendTimerRef.current = setInterval(
-      () => calculateTimeLeft(finalTime),
-      1000,
-    );
-  };
-
-  const handleCheckboxChange = () => {
-    setMessage("");
-    setAgreed(!agreed);
-    if (errors) {
-      setErrors(null);
-    }
-  };
-
-  useEffect(() => {
-    triggerTimer();
-
-    return () => {
-      clearInterval(resendTimerRef.current);
-    };
-  }, []);
-
-  // Handler for receiving API responses
+  // Handler for receiving API responses for subscription
   const onReceived = (response) => {
-    const { success, message, error: serverError, email, userId } = response;
+    const { success, message, error: serverError } = response;
+
+    setMessage(null);
+    setErrors(null);
 
     if (success) {
-      setResendStatus("Sent!");
-      setActiveResend(false);
-      setSavedEmail(email);
-      setUserId(userId);
-      setEmailSent(true);
       setMessage(message);
     } else {
-      setResendStatus("Failed");
-      setActiveResend(false);
-      setErrors(`Resending email failed! ${serverError || message}`);
+      setErrors(`Subscription failed! ${serverError || message}`);
     }
-
-    // Reset the resend button state after 5 seconds
-    setTimeout(() => {
-      setResendStatus("Please wait");
-      triggerTimer();
-    }, 5000);
   };
 
-  const { isLoading, error, data, performFetch } = useFetch(
-    "/subscribe/pre-subscribe",
-    "POST",
-    {},
-    {},
-    onReceived,
-  );
+  const {
+    isLoading: subscribeLoading,
+    error: subscribeError,
+    data: subscribeData,
+    performFetch: subscribeFetch,
+  } = useFetch("/subscribe/pre-subscribe", "POST", {}, {}, onReceived);
 
-  const resendEmail = () => {
-    if (!savedEmail || !userId) {
-      setErrors("Error: Missing email or userId. Please subscribe again.");
-      return;
-    }
-
-    setResendStatus("Sending...");
-    setResendingEmail(true);
-
-    performFetch({
-      method: "POST",
-      data: { email: savedEmail, userId },
-      onReceived: (response) => {
-        logInfo("Need other onReceived function");
-      },
-    });
+  const handleCheckboxChange = () => {
+    setMessage(null);
+    setErrors(null);
+    setAgreed(!agreed);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setMessage(null);
+    setErrors(null);
 
     if (!email || !validator.isEmail(email)) {
       setErrors("Please enter a valid email address first.");
@@ -130,11 +57,8 @@ const Subscribe = () => {
       return;
     }
 
-    setErrors(null);
-    setMessage(null);
-
     try {
-      await performFetch(
+      await subscribeFetch(
         {
           to: email,
           subject: "Subscription",
@@ -152,17 +76,17 @@ const Subscribe = () => {
   };
 
   React.useEffect(() => {
-    if (error) {
-      setMessage("");
-      setErrors(error.message || error);
+    if (subscribeError) {
+      setMessage(null);
+      setErrors(subscribeError.message || subscribeError);
     }
-  }, [error]);
+  }, [subscribeError]);
 
   React.useEffect(() => {
-    if (data && data.success) {
-      setMessage(data.message);
+    if (subscribeData && subscribeData.success) {
+      setMessage(subscribeData.message);
     }
-  }, [data]);
+  }, [subscribeData]);
 
   return (
     <section
@@ -197,14 +121,14 @@ const Subscribe = () => {
 
               <Button
                 text={
-                  isLoading
+                  subscribeLoading
                     ? translations["subscribe.button-loading"]
                     : translations["subscribe.button"]
                 }
                 variant="redSubmit"
-                isLoading={isLoading}
+                isLoading={subscribeLoading}
                 onClick={handleSubmit}
-                disabled={isLoading}
+                disabled={subscribeLoading}
                 ariaLabel="Submit form"
                 testId="submit-button"
               />
@@ -244,17 +168,6 @@ const Subscribe = () => {
                 {translations["subscribe.terms"]}
               </span>
             </label>
-            {emailSent && (
-              <ResendTimer
-                activeResend={activeResend}
-                isLoading={isLoading}
-                resendStatus={resendStatus}
-                timeLeft={timeLeft}
-                targetTime={targetTime}
-                resendEmail={resendEmail}
-                resendingEmail={resendingEmail}
-              />
-            )}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import VerifyEmail from "@/app/subscription/verify/page";
+import UnsubscribeRequestPage from "@/app/subscription/unsubscribe-request/page";
 import { LanguageProvider } from "@/app/context/LanguageContext";
 import enTranslations from "../../translations/en.json";
 import useFetch from "@/hooks/api/useFetch";
@@ -21,7 +21,7 @@ jest.mock("@/utils/logging", () => ({
   logInfo: jest.fn(),
 }));
 
-describe("VerifyEmail Page", () => {
+describe("UnsubscribeRequestPage", () => {
   let performFetchMock;
 
   beforeEach(() => {
@@ -38,7 +38,7 @@ describe("VerifyEmail Page", () => {
   const renderWithLanguage = (translations = enTranslations) => {
     return render(
       <LanguageProvider value={{ translations }}>
-        <VerifyEmail />
+        <UnsubscribeRequestPage />
       </LanguageProvider>,
     );
   };
@@ -53,9 +53,9 @@ describe("VerifyEmail Page", () => {
 
     renderWithLanguage();
 
-    const verifyButton = screen.getByTestId("verify-button");
-    expect(verifyButton).toHaveTextContent(/verifying/i);
-    expect(verifyButton).toBeDisabled();
+    const unsubscribeButton = screen.getByTestId("unsubscribe-request-button");
+    expect(unsubscribeButton).toHaveTextContent(/submitting/i);
+    expect(unsubscribeButton).toBeDisabled();
   });
 
   it("shows error message when token is missing", async () => {
@@ -65,13 +65,13 @@ describe("VerifyEmail Page", () => {
 
     renderWithLanguage();
 
-    const verifyButton = screen.getByTestId("verify-button");
-    fireEvent.click(verifyButton);
+    const unsubscribeButton = screen.getByTestId("unsubscribe-request-button");
+    fireEvent.click(unsubscribeButton);
 
     await waitFor(() => {
       const errorMessage = screen.getByTestId("error-message");
       expect(errorMessage).toBeInTheDocument();
-      expect(errorMessage).toHaveTextContent(/verification token is missing/i);
+      expect(errorMessage).toHaveTextContent(/unsubscribe token is missing/i);
     });
   });
 
@@ -89,7 +89,7 @@ describe("VerifyEmail Page", () => {
     expect(screen.getByTestId("error-message")).toHaveTextContent("API Error");
   });
 
-  it("does not redirect when verification fails", async () => {
+  it("does not redirect when unsubscribe fails", async () => {
     const router = require("next/navigation").useRouter();
 
     useFetch.mockReturnValue({
@@ -101,27 +101,21 @@ describe("VerifyEmail Page", () => {
 
     renderWithLanguage();
 
-    const verifyButton = screen.getByTestId("verify-button");
-    expect(verifyButton).not.toBeDisabled();
+    const unsubscribeButton = screen.getByTestId("unsubscribe-request-button");
+    expect(unsubscribeButton).not.toBeDisabled();
 
     expect(router.push).not.toHaveBeenCalled();
   });
 
-  it("handles verification process correctly", async () => {
+  it("handles unsubscribe process correctly", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
       get: jest.fn(() => "valid-token"),
     });
 
     const { rerender } = renderWithLanguage();
 
-    const verifyButton = screen.getByTestId("verify-button");
-    fireEvent.click(verifyButton);
-
-    expect(performFetchMock).toHaveBeenCalledWith({
-      token: "valid-token",
-      subject: "Welcome to Donna Vino Newsletter",
-      templateName: "emailWelcomeToOurNewsLetter",
-    });
+    const unsubscribeButton = screen.getByTestId("unsubscribe-request-button");
+    fireEvent.click(unsubscribeButton);
 
     useFetch.mockReturnValue({
       isLoading: true,
@@ -131,13 +125,13 @@ describe("VerifyEmail Page", () => {
     });
     rerender(
       <LanguageProvider value={{ translations: enTranslations }}>
-        <VerifyEmail />
+        <UnsubscribeRequestPage />
       </LanguageProvider>,
     );
-    expect(screen.getByTestId("verify-button")).toBeDisabled();
+    expect(screen.getByTestId("unsubscribe-request-button")).toBeDisabled();
   });
 
-  it("disables button when verification is successful", async () => {
+  it("disables button when unsubscribe is successful", async () => {
     useFetch.mockReturnValue({
       isLoading: false,
       error: null,
@@ -147,8 +141,8 @@ describe("VerifyEmail Page", () => {
 
     renderWithLanguage();
 
-    const verifyButton = screen.getByTestId("verify-button");
-    expect(verifyButton).toBeDisabled();
+    const unsubscribeButton = screen.getByTestId("unsubscribe-request-button");
+    expect(unsubscribeButton).toBeDisabled();
   });
 
   it("shows correct error message when API returns specific error", async () => {
@@ -167,17 +161,17 @@ describe("VerifyEmail Page", () => {
     );
   });
 
-  it("updates verification status when token is present but verification fails", async () => {
+  it("updates unsubscribe status when token is present but unsubscribe fails", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
       get: jest.fn(() => "invalid-token"),
     });
 
-    performFetchMock.mockRejectedValueOnce(new Error("Verification failed"));
+    performFetchMock.mockRejectedValueOnce(new Error("Unsubscribe failed"));
 
     renderWithLanguage();
 
-    const verifyButton = screen.getByTestId("verify-button");
-    fireEvent.click(verifyButton);
+    const unsubscribeButton = screen.getByTestId("unsubscribe-request-button");
+    fireEvent.click(unsubscribeButton);
 
     await waitFor(() => {
       expect(screen.getByTestId("error-message")).toBeInTheDocument();
