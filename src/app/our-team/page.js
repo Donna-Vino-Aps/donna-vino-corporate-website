@@ -9,7 +9,7 @@ const OurTeam = () => {
   const teamMembers = [
     {
       tabindex: 0,
-      img: "/images/team/dv-katrine-resized.jpg",
+      img: "/images/team/kat-giorgio-full-resize.png",
       name: "Katrine Giogio",
       title: translations["team.kat.title"],
       description: translations["team.kat.description"],
@@ -27,7 +27,7 @@ const OurTeam = () => {
     {
       tabindex: 1,
       img: "/images/team/photo-ricardo.png",
-      name: "Ricardo Lara",
+      name: "Riccardo Lara",
       title: translations["team.ric.title"],
       description: translations["team.ric.description"],
       links: [
@@ -232,6 +232,7 @@ const OurTeam = () => {
                 img={teamMember.img}
                 name={teamMember.name}
                 description={teamMember.description}
+                variant="core"
                 title={teamMember.title}
                 links={teamMember.links}
               />
@@ -252,6 +253,7 @@ const OurTeam = () => {
                 key={teamMember.tabindex}
                 img={teamMember.img}
                 name={teamMember.name}
+                variant="tech"
                 description={teamMember.description}
                 title={teamMember.title}
                 links={teamMember.links}
