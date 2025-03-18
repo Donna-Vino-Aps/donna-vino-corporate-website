@@ -16,7 +16,9 @@ jobs:
 
     env:
       API_URL_LOCAL: ${{ secrets.API_URL_LOCAL }}
-      API_URL_HEROKU: ${{ secrets.API_URL_HEROKU }}
+      API_URL_PRODUCTION: ${{ secrets.API_URL_PRODUCTION }}
+      API_URL_STAGING: ${{ secrets.API_URL_STAGING }}
+      APP_ENV: ${{ secrets.APP_ENV }}
 
     steps:
       # 1. Checkout the code
