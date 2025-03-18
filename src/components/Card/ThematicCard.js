@@ -49,9 +49,9 @@ const ThematicCard = ({
       className={`relative flex flex-col gap-2 lg:flex-row rounded-3xl overflow-hidden shadow-md mb-1 w-[21.5rem] transition-all duration-300 ${
         expanded
           ? smallCardSize === "small"
-            ? "h-[52.25rem]"
+            ? "h-[47.25rem]"
             : smallCardSize === "medium"
-              ? "h-[49.75rem]"
+              ? "h-[47.75rem]"
               : smallCardSize === "big"
                 ? "h-[58.5rem]"
                 : "h-[49.75rem]"
