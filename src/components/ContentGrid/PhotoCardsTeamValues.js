@@ -12,7 +12,7 @@ const PhotoCardsTeamValues = () => {
       data-testid="photo-cards-team-values"
     >
       <PhotoCardSmaller
-        imageUrl="/images/card-unsplash-team-meeting.svg"
+        imageUrl="/images/card-unsplash-team-meeting.jpg"
         title={translations["pcard.small-left.heading"]}
         description={translations["pcard.small-left.paragraph"]}
         buttonIcon="/icons/team.svg"
