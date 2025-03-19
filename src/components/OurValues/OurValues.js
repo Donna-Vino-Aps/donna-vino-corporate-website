@@ -61,7 +61,7 @@ const OurValues = () => {
             </p>
 
             <p
-              className="text-bodyMedium md:text-titleMedium text-tertiary1-darker mb-6"
+              className="text-bodyMedium md:text-titleMedium text-tertiary1-darker mb-4"
               data-testid="description-paragraph"
             >
               {translations["values.p3"]}
