@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
+import ComingSoonModal from "../Modal/ComingSoonModal";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const HeroSection = () => {
   const { translations } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       className="mt-6 relative flex justify-between flex-col w-full md:h-[44rem] md:flex-row bg-primary-light"
@@ -12,6 +15,16 @@ const HeroSection = () => {
       aria-labelledby="title"
       data-testid="hero-section"
     >
+      {/* Modal "Coming Soon" */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+          <ComingSoonModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
+        </div>
+      )}
+
       <div
         className="relative flex flex-col p-4 md:p-8 pt-8 sm:pt-4 text-left justify-center md:w-1/2 gap-8"
         data-testid="hero-text-container"
@@ -53,6 +66,7 @@ const HeroSection = () => {
               variant="red"
               ariaLabel="Visit our shop"
               testId="get-started-button"
+              onClick={() => setIsModalOpen(true)}
             />
             <Button
               text={translations["hero.button-right"]}
