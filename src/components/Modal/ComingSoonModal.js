@@ -6,7 +6,6 @@ import { propTypes } from "react-bootstrap/esm/Image";
 
 const ComingSoonModal = ({ isOpen, onClose }) => {
   const { translations } = useLanguage();
-  //   const { isOpen, onClose } = useModal();
 
   if (!isOpen) return null;
   return (
