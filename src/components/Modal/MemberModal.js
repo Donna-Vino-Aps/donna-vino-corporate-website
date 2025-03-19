@@ -69,7 +69,9 @@ const MemberModal = (props) => {
                   </div>
                 </div>
 
-                <figure className="flex justify-center items-center mt-2 mb-2 h-[26rem] w-full overflow-hidden rounded-[1rem] order-1 md:order-2 md:h-[17.375rem] md:relative md:bottom-16 md:left-11">
+                <figure
+                  className={`flex justify-center items-center mt-2 mb-2 h-[26rem] w-full overflow-hidden rounded-[1rem] order-1 min-h-[20.625rem] min-w-[16.875rem] md:order-2 md:h-[17.375rem] md:relative ${props.variant === "core" ? "md:bottom-0" : "md:bottom-16"} md:left-11`}
+                >
                   <img
                     className="object-cover h-auto w-full md:w-[82%] max-h-full rounded-lg object-top"
                     src={props.img}
@@ -89,6 +91,7 @@ const socialLinks = [];
 
 MemberModal.propTypes = {
   img: PropTypes.string.isRequired,
+  variant: PropTypes.string,
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

@@ -83,6 +83,7 @@ const MemberCard = (props) => {
           name={props.name}
           title={props.title}
           img={props.img}
+          variant={props.variant}
           description={props.description}
           links={props.links}
           onClose={closeModal}
@@ -97,6 +98,7 @@ MemberCard.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  variant: PropTypes.string,
   links: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.string.isRequired,

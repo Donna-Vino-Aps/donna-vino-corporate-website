@@ -10,6 +10,11 @@ const VARIANT_CLASSES = {
   variant2: "bg-tertiary1-hover text-tertiary1-darker",
 };
 
+const IMAGE_POSITION_CLASSES = {
+  variant1: "object-[25%_68%] object-cover sm:object-center ",
+  variant2: "object-cover ",
+};
+
 const PhotoCardSmaller = ({
   imageUrl,
   title,
@@ -22,6 +27,8 @@ const PhotoCardSmaller = ({
   linkUrl,
 }) => {
   const variantClass = VARIANT_CLASSES[cardVariant] || VARIANT_CLASSES.variant1; // Default to variant1
+  const photoPositionClass =
+    IMAGE_POSITION_CLASSES[cardVariant] || VARIANT_CLASSES.variant1;
 
   const buttonComponent = (
     <Button
@@ -47,7 +54,7 @@ const PhotoCardSmaller = ({
         <img
           src={imageUrl}
           alt={title}
-          className="object-cover w-full h-full"
+          className={`${photoPositionClass} w-full h-full`}
           data-testid="card-image"
           aria-label={`Image representing ${title}`}
           loading="lazy"
