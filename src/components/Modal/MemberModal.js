@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import FloatingButton from "../Button/FloatingButton";
 
 const MemberModal = (props) => {
@@ -89,14 +89,14 @@ const MemberModal = (props) => {
 };
 const socialLinks = [];
 
-MemberModal.propTypes = {
-  img: PropTypes.string.isRequired,
-  variant: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  links: { socialLinks },
-  onClose: PropTypes.func,
-};
+// MemberModal.propTypes = {
+//   img: PropTypes.string.isRequired,
+//   variant: PropTypes.string,
+//   name: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   description: PropTypes.string.isRequired,
+//   links: { socialLinks },
+//   onClose: PropTypes.func,
+// };
 
 export default MemberModal;

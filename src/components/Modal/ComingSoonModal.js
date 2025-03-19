@@ -2,7 +2,7 @@ import React from "react";
 
 import Button from "../Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { propTypes } from "react-bootstrap/esm/Image";
+import PropTypes from "prop-types";
 
 const ComingSoonModal = ({ isOpen, onClose }) => {
   const { translations } = useLanguage();
@@ -40,8 +40,8 @@ const ComingSoonModal = ({ isOpen, onClose }) => {
 };
 
 ComingSoonModal.propTypes = {
-  isOpen: propTypes.bool,
-  onClose: propTypes.func,
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
 };
 
 export default ComingSoonModal;
