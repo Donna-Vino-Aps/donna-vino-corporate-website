@@ -1,16 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import PhotoCard from "../Card/PhotoCard";
 import { useLanguage } from "@/app/context/LanguageContext";
+import ComingSoonModal from "../Modal/ComingSoonModal";
 
 const PhotoCardsWineTasting = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { translations } = useLanguage();
   return (
     <div
       className="grid grid-col-1 xl:grid-cols-2 w-full justify-center items-center gap-4 px-2 lg:p-2 lg:mt-2 place-items-center"
       data-testid="photo-cards-wine-tasting"
     >
+      {/* Modal "Coming Soon" */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+          <ComingSoonModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
+        </div>
+      )}
+
       <PhotoCard
         imageUrl="/images/wine_tasting_with_dinner.jpeg"
         title={translations["pcard.big-left.heading"]}
@@ -20,6 +32,7 @@ const PhotoCardsWineTasting = () => {
         buttonVariant="darkGreen"
         buttonTestId="book-in-shop-button"
         cardVariant="variant1"
+        onClick={() => setIsModalOpen(true)}
       />
       <PhotoCard
         imageUrl="/images/wine_tasting_with_dinner_for_companies.jpeg"

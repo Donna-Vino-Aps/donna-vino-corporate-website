@@ -152,5 +152,9 @@
   "privacy.h2-7": "Kontaktoplysninger",
   "privacy.p9": "Hvis du har spørgsmål om denne fortrolighedspolitik, bedes du kontakte os:",
   "privacy.mail": "E-mail:",
-  "privacy.address": "Adresse"
+  "privacy.address": "Adresse",
+  "modal.h1": "Vi arbejder på det!",
+  "modal.p": "Vores e-handelsplatform og bookingkalender er i øjeblikket ved at blive oprettet og opdateret og vil være live så hurtigt som muligt. I mellemtiden er du velkommen til at kontakte os for eventuelle forespørgsler.",
+  "modal.button-left": "Tæt",
+  "modal.button-right": "Kontakt os"
 }
