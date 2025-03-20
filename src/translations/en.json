@@ -153,5 +153,9 @@
   "privacy.h2-7": "Contact Information",
   "privacy.p9": "If you have any questions about this Privacy Policy, please contact us:",
   "privacy.mail": "Email:",
-  "privacy.address": "Address"
+  "privacy.address": "Address",
+  "modal.h1": "We're working on it!",
+  "modal.p": "Our eCommerce platform and booking calendar are currently being created and updated and will be live as soon as possible. In the meantime, feel free to contact us for any inquiries, or you can simply close this modal.",
+  "modal.button-left": "Close",
+  "modal.button-right": "Contact us"
 }
