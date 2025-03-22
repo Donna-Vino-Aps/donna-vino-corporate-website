@@ -1,5 +1,3 @@
-import { logInfo } from "@/utils/logging";
-
 const env = process.env.NODE_ENV || "development";
 
 export const baseApiUrl =
@@ -8,5 +6,3 @@ export const baseApiUrl =
     : env === "staging"
       ? process.env.NEXT_PUBLIC_API_URL_STAGING
       : process.env.NEXT_PUBLIC_API_URL_LOCAL;
-
-logInfo(`🌐 Server API URL: ${baseApiUrl}`);
