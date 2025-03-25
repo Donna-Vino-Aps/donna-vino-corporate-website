@@ -102,6 +102,8 @@ const HeroSection = () => {
           autoPlay
           loop
           muted
+          playsInline
+          webkit-playsinline="true"
           role="region"
           aria-label="Background video for Hero Section"
           aria-hidden="true"
