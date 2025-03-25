@@ -1,14 +1,14 @@
-import React from "react";
-import { useState, useEffect } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import useFetch from "@/hooks/api/useFetch";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { isValidEmail } from "@/utils/validators";
 import { logInfo } from "@/utils/logging";
+import ContactMessage from "@/components/ContactMessage/ContactMessage";
 
 const ContactUs = () => {
   const { translations } = useLanguage();
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +21,16 @@ const ContactUs = () => {
     "POST",
   );
 
+  const [toast, setToast] = useState({
+    isShown: false,
+    message: "",
+    type: "success", // or "error"
+  });
+
+  const handleCloseToast = () => {
+    setToast({ isShown: false, message: "", type: "success" });
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -29,26 +39,47 @@ const ContactUs = () => {
     e.preventDefault();
 
     if (!isValidEmail(formData.email)) {
-      alert("The email format is invalid. Please enter a valid email address.");
+      setToast({
+        isShown: true,
+        message:
+          "The email format is invalid. Please enter a valid email address.",
+        type: "error",
+      });
       return;
     }
 
     await performFetch(formData);
-
     logInfo(`formData: ${JSON.stringify(formData)}`);
 
     if (data?.success) {
-      alert("Message sent successfully");
+      setToast({
+        isShown: true,
+        message: "Message sent successfully",
+        type: "success",
+      });
       setFormData({ name: "", email: "", phone: "", message: "" });
     }
   };
 
-  // Error handling
   useEffect(() => {
     if (error) {
-      alert("Message could not be sent. Please try again later.");
+      setToast({
+        isShown: true,
+        message: "Message could not be sent. Please try again later.",
+        type: "error",
+      });
     }
   }, [error]);
+
+  useEffect(() => {
+    if (data && data.success === false) {
+      setToast({
+        isShown: true,
+        message: data.message || "Something went wrong on the server.",
+        type: "error",
+      });
+    }
+  }, [data]);
 
   const infoItems = [
     {
@@ -70,7 +101,14 @@ const ContactUs = () => {
 
   return (
     <section>
+      <ContactMessage
+        isShown={toast.isShown}
+        message={toast.message}
+        type={toast.type}
+        onClose={handleCloseToast}
+      />
       <div className="flex flex-col md:flex-row items-center justify-between lg:px-36 bg-primary-light lg:h-[829px] px-1.5">
+        {/* 左侧介绍 */}
         <img
           src="/design-elements/OvalSmall.png"
           className="lg:hidden block absolute right-0"
@@ -174,6 +212,7 @@ const ContactUs = () => {
                   onChange={handleChange}
                   rows="4"
                 ></textarea>
+
                 {isLoading ? (
                   <div className="flex justify-center">
                     <div className="spinner border-4 border-t-4 border-gray-300 border-t-[#22AD5C] rounded-full w-10 h-10 animate-spin"></div>
@@ -190,6 +229,7 @@ const ContactUs = () => {
                 )}
               </form>
             </section>
+
             <img
               src="/design-elements/DottedShapeSmall.svg"
               alt=""
