@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 
 /**
  * ContactMessage Component:
@@ -24,34 +25,53 @@ const ContactMessage = ({ isShown, message, type, onClose }) => {
   );
 };
 
+/**
+ * PropTypes 校验
+ * - isShown: 是否显示提示
+ * - message: 提示内容
+ * - type: 提示类型（"success" | "error"）
+ * - onClose: 关闭提示的回调函数
+ */
+ContactMessage.propTypes = {
+  isShown: PropTypes.bool.isRequired,
+  message: PropTypes.string,
+  type: PropTypes.oneOf(["success", "error"]),
+  onClose: PropTypes.func.isRequired,
+};
+
+ContactMessage.defaultProps = {
+  message: "",
+  type: "success",
+};
+
 export default ContactMessage;
 
-/**
- * Fixed-position Success Alert
- * - Desktop: large icon + thick border
- * - Mobile: small icon + thin border
- */
 function SuccessAlert({ message }) {
   return (
-    <>
+    <div
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label="Success message"
+    >
       {/* Desktop success alert (md+) */}
       <div
         className="
-    hidden md:flex 
-    fixed top-8 left-1/2 transform -translate-x-1/2
-    z-50
-    w-[859px]
-    bg-[#DAF8E6]
-    border-l-[6px] border-l-[#22AD5C]
-    rounded-[8px]
-    p-[30px] h-[114px]
-    items-start gap-[25px]
-  "
+          hidden md:flex 
+          fixed top-8 left-1/2 transform -translate-x-1/2
+          z-50
+          w-[859px]
+          bg-[#DAF8E6]
+          border-l-[6px] border-l-[#22AD5C]
+          rounded-[8px]
+          p-[30px] h-[114px]
+          items-start gap-[25px]
+        "
       >
         <div className="w-[34px] h-[34px] bg-[#22AD5C] rounded-[8px] flex items-center justify-center">
           <img
             src="/icons/alert-success-desktop.svg"
-            alt="success-desktop"
+            alt="success-desktop-icon"
             className="w-[34px] h-[34px]"
           />
         </div>
@@ -61,7 +81,7 @@ function SuccessAlert({ message }) {
             Message Sent Successfully
           </p>
           <p className="text-bodyMedium font-normal mt-[15px] text-[#637381]">
-            Your message has been successfully sent, you will be contacted soon
+            Your message has been successfully sent, you will be contacted soon"
           </p>
         </div>
       </div>
@@ -81,7 +101,7 @@ function SuccessAlert({ message }) {
       >
         <img
           src="/icons/alert-success-mobile.svg"
-          alt="success-mobile"
+          alt="success-mobile-icon"
           className="w-5 h-5 mt-1"
         />
         <div>
@@ -90,45 +110,49 @@ function SuccessAlert({ message }) {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-/**
- * Fixed-position Error Alert
- * - Desktop: #FCEAE8 background, #EA3D2F border
- * - Mobile: same styling adapted for mobile view
- */
+SuccessAlert.propTypes = {
+  message: PropTypes.string,
+};
+
 function ErrorAlert({ message }) {
   return (
-    <>
+    <div
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      aria-label="Error message"
+    >
       {/* Desktop error alert (md+) */}
       <div
         className="
-    hidden md:flex 
-    fixed top-8 left-1/2 transform -translate-x-1/2
-    z-50
-    w-[859px]
-    bg-[#FEF3F3]
-    border-l-[6px] border-l-[#F23030]
-    rounded-[8px]
-    p-[30px] h-[114px]
-    items-start gap-[25px]
-  "
+          hidden md:flex 
+          fixed top-8 left-1/2 transform -translate-x-1/2
+          z-50
+          w-[859px]
+          bg-[#FEF3F3]
+          border-l-[6px] border-l-[#F23030]
+          rounded-[8px]
+          p-[30px] h-[114px]
+          items-start gap-[25px]
+        "
       >
         <div className="w-[34px] h-[34px] bg-[#F23030] rounded-[8px] flex items-center justify-center">
           <img
             src="/icons/alert-error-desktop.svg"
-            alt="error-desktop"
+            alt="error-desktop-icon"
             className="w-[34px] h-[34px]"
           />
         </div>
 
         <div>
-          <p className="font-inter text-bodyMedium font-semibold text-[#BC1C21]">
+          <p className="text-bodyMedium font-semibold text-[#BC1C21]">
             Some errors occurred. Please try again.
           </p>
-          <p className="font-inter text-bodyMedium font-normal mt-[15px] text-[#F56060]">
+          <p className="text-bodyMedium font-normal mt-[15px] text-[#F56060]">
             {message}
           </p>
         </div>
@@ -148,7 +172,7 @@ function ErrorAlert({ message }) {
       >
         <img
           src="/icons/alert-error-mobile.svg"
-          alt="error-mobile"
+          alt="error-mobile-icon"
           className="w-5 h-5 mt-1"
         />
         <div>
@@ -157,6 +181,10 @@ function ErrorAlert({ message }) {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
+
+ErrorAlert.propTypes = {
+  message: PropTypes.string,
+};
