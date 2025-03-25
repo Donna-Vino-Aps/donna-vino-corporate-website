@@ -1,14 +1,14 @@
-import React from "react";
-import { useState, useEffect } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import useFetch from "@/hooks/api/useFetch";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { isValidEmail } from "@/utils/validators";
+import validator from "validator"; // Example of using validator library
 import { logInfo } from "@/utils/logging";
+import ContactMessage from "@/components/ContactMessage/ContactMessage";
 
 const ContactUs = () => {
   const { translations } = useLanguage();
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +21,16 @@ const ContactUs = () => {
     "POST",
   );
 
+  const [toast, setToast] = useState({
+    isShown: false,
+    message: "",
+    type: "success", // or "error"
+  });
+
+  const handleCloseToast = () => {
+    setToast({ isShown: false, message: "", type: "success" });
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -28,28 +38,59 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!isValidEmail(formData.email)) {
-      alert("The email format is invalid. Please enter a valid email address.");
+    // Validate email using validator library
+    if (!validator.isEmail(formData.email)) {
+      setToast({
+        isShown: true,
+        message:
+          "The email format is invalid. Please enter a valid email address.",
+        type: "error",
+      });
       return;
     }
 
+    // Send the form data to the server
     await performFetch(formData);
-
     logInfo(`formData: ${JSON.stringify(formData)}`);
 
+    // If the response indicates success
     if (data?.success) {
-      alert("Message sent successfully");
+      setToast({
+        isShown: true,
+        message: "Message sent successfully",
+        type: "success",
+      });
       setFormData({ name: "", email: "", phone: "", message: "" });
     }
   };
 
-  // Error handling
+  /**
+   * If there's an error from the server (network or otherwise),
+   * display an error toast
+   */
   useEffect(() => {
     if (error) {
-      alert("Message could not be sent. Please try again later.");
+      setToast({
+        isShown: true,
+        message: "Message could not be sent. Please try again later.",
+        type: "error",
+      });
     }
   }, [error]);
 
+  useEffect(() => {
+    if (data && data.success === false) {
+      setToast({
+        isShown: true,
+        message: data.message || "Something went wrong on the server.",
+        type: "error",
+      });
+    }
+  }, [data]);
+
+  /**
+   * infoItems is used to display location, phone, and email details
+   */
   const infoItems = [
     {
       icon: "/icons/location-red.svg",
@@ -70,7 +111,15 @@ const ContactUs = () => {
 
   return (
     <section>
+      <ContactMessage
+        isShown={toast.isShown}
+        message={toast.message}
+        type={toast.type}
+        onClose={handleCloseToast}
+      />
+
       <div className="flex flex-col md:flex-row items-center justify-between lg:px-36 bg-primary-light lg:h-[829px] px-1.5">
+        {/* Left section with descriptive text */}
         <img
           src="/design-elements/OvalSmall.png"
           className="lg:hidden block absolute right-0"
@@ -120,6 +169,7 @@ const ContactUs = () => {
           </div>
         </section>
 
+        {/* Right section with the contact form */}
         <div className="md:w-[570px] lg:w-[380px] mt-4 md:mt-3 md:mr-2 lg:mt-0">
           <div className="relative pb-3.5">
             <section className="bg-white p-8 rounded-lg shadow-md relative z-10">
@@ -141,6 +191,7 @@ const ContactUs = () => {
                   onChange={handleChange}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
+
                 <label htmlFor="email" className="sr-only">
                   {translations["contact.label-mail"]}
                 </label>
@@ -152,6 +203,7 @@ const ContactUs = () => {
                   onChange={handleChange}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
+
                 <label htmlFor="phone" className="sr-only">
                   {translations["contact.label-phone"]}
                 </label>
@@ -163,6 +215,7 @@ const ContactUs = () => {
                   onChange={handleChange}
                   className="w-full border border-[#DFE4EA] rounded-md p-3 focus:outline-none focus:border-[#22AD5C]"
                 />
+
                 <label htmlFor="message" className="sr-only">
                   {translations["contact.label-message"]}
                 </label>
@@ -174,6 +227,7 @@ const ContactUs = () => {
                   onChange={handleChange}
                   rows="4"
                 ></textarea>
+
                 {isLoading ? (
                   <div className="flex justify-center">
                     <div className="spinner border-4 border-t-4 border-gray-300 border-t-[#22AD5C] rounded-full w-10 h-10 animate-spin"></div>
@@ -190,6 +244,7 @@ const ContactUs = () => {
                 )}
               </form>
             </section>
+
             <img
               src="/design-elements/DottedShapeSmall.svg"
               alt=""
