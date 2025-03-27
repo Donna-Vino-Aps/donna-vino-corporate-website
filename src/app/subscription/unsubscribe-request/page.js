@@ -63,7 +63,7 @@ function UnsubscribeRequestContent({ translations }) {
 
   useEffect(() => {
     if (data && data.success) {
-      router.push("/subscription/unsubscribed");
+      router.push("/subscription/Unsubscribed");
     }
   }, [data, router]);
 
