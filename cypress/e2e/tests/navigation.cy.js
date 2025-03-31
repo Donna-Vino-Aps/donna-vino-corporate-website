@@ -8,7 +8,7 @@ describe("Verify Navigation", () => {
   beforeEach(() => {
     cy.visit("/", { failOnStatusCode: false });
   });
-
+  
   it("should render the navigation links", () => {
     cy.get(navbar.home).should("be.visible");
     cy.get(navbar.ourValues).should("be.visible");
@@ -52,7 +52,7 @@ describe("Verify Navigation", () => {
     cy.get(contact.description)
       .should("be.visible")
       .contains(
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua.",
+        "We’d love to hear from you! If you have any questions, feedback, or need assistance, feel free to reach out. You can use the contact form here, and our team will get back to you as soon as possible.",
       );
   });
 });
