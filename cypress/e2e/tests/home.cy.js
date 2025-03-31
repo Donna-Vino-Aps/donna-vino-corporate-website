@@ -200,7 +200,7 @@ describe("Verify WineTasting section elements", () => {
   });
 });
 
-describe.only("verify subscribe section elements ", () => {
+describe("verify subscribe section elements ", () => {
   beforeEach(() => {
     cy.visit("/", { failOnStatusCode: false });
   });
