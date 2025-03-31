@@ -4,6 +4,10 @@ export const navbar = {
   ourValues: "[data-testid='nav-link-our-values']",
   ourTeam: "[data-testid='nav-link-our-team']",
   contact: "[data-testid='nav-link-contact']",
+  navBrand: "[data-testid=navbar-brand]",
+  languageSwitchContainer: "[data-testid=language-switch]",
+  enIcon: "[data-testid=en-icon]",
+  dkIcon: "[data-testid=dk-icon]"
 };
 
 export const footer = {

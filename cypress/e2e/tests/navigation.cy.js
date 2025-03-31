@@ -8,7 +8,7 @@ describe("Verify Navigation", () => {
   beforeEach(() => {
     cy.visit("/", { failOnStatusCode: false });
   });
-
+  
   it("should render the navigation links", () => {
     cy.get(navbar.home).should("be.visible");
     cy.get(navbar.ourValues).should("be.visible");
