@@ -94,6 +94,7 @@ const Subscribe = () => {
       aria-labelledby="newsletter-title"
       aria-describedby="newsletter-description"
       data-testid="subscribe-section"
+      id="subscribe"
     >
       <div className="flex flex-col justify-center items-center sm:py-24 py-4 mx-2">
         <h2 className="text-displayMedium md:text-displayLarge text-center">
