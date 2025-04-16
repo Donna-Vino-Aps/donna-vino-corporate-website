@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import ComingSoonModal from "../Modal/ComingSoonModal";
 import { useLanguage } from "@/app/context/LanguageContext";
+import PropTypes from "prop-types";
 
-const HeroSection = () => {
-  const hasCredits = false;
+const HeroSection = ({ hasCredits = false }) => {
   const { translations } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -121,11 +121,16 @@ const HeroSection = () => {
           <img
             src="/images/card-unsplash-wine-tasting.avif"
             className="inset-0 h-[22rem] rounded-t-[6.8rem] md:h-[44rem] md:rounded-tl-[6.8rem] rounded-b-[0.5rem] md:rounded-b-none md:rounded-tr-none object-cover w-full"
+            data-testid="fallback-image"
           />
         )}
       </div>
     </section>
   );
+};
+
+HeroSection.propTypes = {
+  hasCredits: PropTypes.bool,
 };
 
 export default HeroSection;
