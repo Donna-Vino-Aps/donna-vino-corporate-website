@@ -45,10 +45,6 @@ describe("HeroSection Component", () => {
       "Discover unique wine stories told by your sommelier while your private chef customizes the menu.",
     );
 
-    // Check that the video is present
-    const video = screen.getByTestId("hero-video");
-    expect(video).toBeInTheDocument();
-
     // Check that the dotted shapes images are present
     const dottedShape1 = screen.getByTestId("dotted-shape-1");
     expect(dottedShape1).toBeInTheDocument();
@@ -68,9 +64,26 @@ describe("HeroSection Component", () => {
 
     const secondaryButton = screen.getByTestId("secondary-button");
     expect(secondaryButton).toBeInTheDocument();
+  });
+  it("should render the video if hasCredits is true", () => {
+    render(
+      <MockLanguageProvider>
+        <HeroSection hasCredits={true} />
+      </MockLanguageProvider>,
+    );
 
-    // Check the video presence
-    const heroVideo = screen.getByTestId("hero-video");
-    expect(heroVideo).toBeInTheDocument();
+    const video = screen.getByTestId("hero-video");
+    expect(video).toBeInTheDocument();
+  });
+
+  it("should render the fallback image if hasCredits is false", () => {
+    render(
+      <MockLanguageProvider>
+        <HeroSection hasCredits={false} />
+      </MockLanguageProvider>,
+    );
+
+    const fallbackImage = screen.getByTestId("fallback-image");
+    expect(fallbackImage).toBeInTheDocument();
   });
 });

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import ComingSoonModal from "../Modal/ComingSoonModal";
 import { useLanguage } from "@/app/context/LanguageContext";
+import PropTypes from "prop-types";
 
-const HeroSection = () => {
+const HeroSection = ({ hasCredits = false }) => {
   const { translations } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -97,27 +98,39 @@ const HeroSection = () => {
       </div>
 
       <div className="relative justify-center h-[22rem] md:h-[44rem] md:w-1/2 w-full">
-        <video
-          className="inset-0 h-[22rem] rounded-t-[6.8rem] md:h-[44rem] md:rounded-tl-[6.8rem] rounded-b-[0.5rem] md:rounded-b-none md:rounded-tr-none object-cover w-full"
-          autoPlay
-          loop
-          muted
-          playsInline
-          webkit-playsinline="true"
-          role="region"
-          aria-label="Background video for Hero Section"
-          aria-hidden="true"
-          data-testid="hero-video"
-        >
-          <source
-            src="https://res.cloudinary.com/db3h63tns/video/upload/v1741092242/web-coorporate-hero-section_xi6jod.mp4"
-            type="video/mp4"
+        {hasCredits ? (
+          <video
+            className="inset-0 h-[22rem] rounded-t-[6.8rem] md:h-[44rem] md:rounded-tl-[6.8rem] rounded-b-[0.5rem] md:rounded-b-none md:rounded-tr-none object-cover w-full"
+            autoPlay
+            loop
+            muted
+            playsInline
+            webkit-playsinline="true"
+            role="region"
+            aria-label="Background video for Hero Section"
+            aria-hidden="true"
+            data-testid="hero-video"
+          >
+            <source
+              src="https://res.cloudinary.com/db3h63tns/video/upload/v1741092242/web-coorporate-hero-section_xi6jod.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <img
+            src="/images/card-unsplash-wine-tasting.avif"
+            className="inset-0 h-[22rem] rounded-t-[6.8rem] md:h-[44rem] md:rounded-tl-[6.8rem] rounded-b-[0.5rem] md:rounded-b-none md:rounded-tr-none object-cover w-full"
+            data-testid="fallback-image"
           />
-          Your browser does not support the video tag.
-        </video>
+        )}
       </div>
     </section>
   );
+};
+
+HeroSection.propTypes = {
+  hasCredits: PropTypes.bool,
 };
 
 export default HeroSection;
