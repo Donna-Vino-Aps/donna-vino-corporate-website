@@ -64,26 +64,26 @@ describe("HeroSection Component", () => {
 
     const secondaryButton = screen.getByTestId("secondary-button");
     expect(secondaryButton).toBeInTheDocument();
-    it("should render the video if hasCredits is true", () => {
-      render(
-        <MockLanguageProvider>
-          <HeroSection hasCredits={true} />
-        </MockLanguageProvider>,
-      );
+  });
+  it("should render the video if hasCredits is true", () => {
+    render(
+      <MockLanguageProvider>
+        <HeroSection hasCredits={true} />
+      </MockLanguageProvider>,
+    );
 
-      const video = screen.getByTestId("hero-video");
-      expect(video).toBeInTheDocument();
-    });
+    const video = screen.getByTestId("hero-video");
+    expect(video).toBeInTheDocument();
+  });
 
-    it("should render the fallback image if hasCredits is false", () => {
-      render(
-        <MockLanguageProvider>
-          <HeroSection hasCredits={false} />
-        </MockLanguageProvider>,
-      );
+  it("should render the fallback image if hasCredits is false", () => {
+    render(
+      <MockLanguageProvider>
+        <HeroSection hasCredits={false} />
+      </MockLanguageProvider>,
+    );
 
-      const fallbackImage = screen.getByTestId("fallback-image");
-      expect(fallbackImage).toBeInTheDocument();
-    });
+    const fallbackImage = screen.getByTestId("fallback-image");
+    expect(fallbackImage).toBeInTheDocument();
   });
 });
