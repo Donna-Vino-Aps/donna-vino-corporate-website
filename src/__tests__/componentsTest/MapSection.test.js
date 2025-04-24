@@ -44,7 +44,7 @@ describe("MapSection Component", () => {
     expect(phoneDescription).toBeInTheDocument();
 
     const emailTitle = screen.getByText("Email Address");
-    const emailDescription = screen.getByText("info@donnvino.dk");
+    const emailDescription = screen.getByText("info@donnavino.dk");
     expect(emailTitle).toBeInTheDocument();
     expect(emailDescription).toBeInTheDocument();
   });
@@ -88,7 +88,7 @@ describe("MapSection Component", () => {
     const phoneTitle = screen.getByText(/Phone Number/i);
     const phoneDescription = screen.getByText(/\+45 31 62 06 93/i);
     const emailTitle = screen.getByText(/Email Address/i);
-    const emailDescription = screen.getByText(/info@donnvino.dk/i);
+    const emailDescription = screen.getByText(/info@donnavino.dk/i);
 
     expect(locationTitle).toBeInTheDocument();
     expect(locationDescription).toBeInTheDocument();

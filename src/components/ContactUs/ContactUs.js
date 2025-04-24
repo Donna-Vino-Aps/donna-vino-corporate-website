@@ -105,7 +105,7 @@ const ContactUs = () => {
     {
       icon: "/icons/email-red.svg",
       title: translations["contact.subheading3"],
-      description: "info@donnvino.dk",
+      description: "info@donnavino.dk",
     },
   ];
 
