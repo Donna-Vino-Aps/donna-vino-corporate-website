@@ -33,7 +33,7 @@ const MapSection = () => {
     {
       icon: "/icons/email.svg",
       title: translations["contact.subheading3"],
-      description: <a href="mailto:info@donnvino.dk">info@donnvino.dk</a>,
+      description: <a href="mailto:info@donnavino.dk">info@donnavino.dk</a>,
     },
   ];
 

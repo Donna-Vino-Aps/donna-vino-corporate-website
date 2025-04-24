@@ -43,7 +43,7 @@ describe("ContactUs Component", () => {
     expect(phoneDescription).toBeInTheDocument();
 
     const emailTitle = screen.getByText("Email Address");
-    const emailDescription = screen.getByText("info@donnvino.dk");
+    const emailDescription = screen.getByText("info@donnavino.dk");
     expect(emailTitle).toBeInTheDocument();
     expect(emailDescription).toBeInTheDocument();
   });
