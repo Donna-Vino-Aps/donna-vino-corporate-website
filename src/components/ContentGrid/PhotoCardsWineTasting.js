@@ -32,7 +32,7 @@ const PhotoCardsWineTasting = () => {
         buttonVariant="darkGreen"
         buttonTestId="book-in-shop-button"
         cardVariant="variant1"
-        linkUrl="http://shop.donnavino.dk/"
+        linkUrl="https://shop.donnavino.dk/"
       />
       <PhotoCard
         imageUrl="/images/wine_tasting_with_dinner_for_companies.jpeg"
