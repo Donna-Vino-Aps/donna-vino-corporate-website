@@ -67,7 +67,7 @@ const HeroSection = ({ hasCredits = false }) => {
               variant="red"
               ariaLabel="Visit our shop"
               testId="get-started-button"
-              linkUrl="https://shop.donnavino.dk/"
+              linkUrl="http://shop.donnavino.dk/"
             />
             <Button
               text={translations["hero.button-right"]}
