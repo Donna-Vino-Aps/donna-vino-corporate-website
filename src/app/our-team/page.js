@@ -43,23 +43,6 @@ const OurTeam = () => {
     },
     {
       tabindex: 2,
-      img: "/images/team/photo-davide.png",
-      name: "Davide Zampieri",
-      title: translations["team.dav.title"],
-      description: translations["team.dav.description"],
-      links: [
-        {
-          icon: "/icons/linkedin-alt-light.svg",
-          url: "https://www.linkedin.com/in/davidezampieri12/",
-        },
-        {
-          icon: "/icons/globe.svg",
-          url: "https://zampieridavide.com/",
-        },
-      ],
-    },
-    {
-      tabindex: 3,
       img: "/images/team/dv-lenin-resize.jpg",
       name: "Lenin Del Rio",
       title: translations["team.lead-fullstack"],
@@ -76,7 +59,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 4,
+      tabindex: 3,
       img: "/images/team/dv-ana-resize.jpg",
       name: "Ana Gabriela Guzman",
       title: translations["team.fullstack"],
@@ -93,7 +76,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 5,
+      tabindex: 4,
       img: "/images/team/dv-yuejiao-resized2.jpg",
       name: "Yuejiao Shi",
       title: translations["team.fullstack"],
@@ -110,7 +93,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 6,
+      tabindex: 5,
       img: "/images/team/dv-simon-resize.jpg",
       name: "Simon Berglund",
       title: translations["team.fullstack"],
@@ -127,7 +110,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 7,
+      tabindex: 6,
       img: "/images/team/dv-alejandro-resize.jpg",
       name: "Alejandro Gispert",
       title: translations["team.fullstack"],
@@ -144,7 +127,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 8,
+      tabindex: 7,
       img: "/images/team/dv-fransisco-resize.jpg",
       name: "Fransisco Estrada",
       title: translations["team.fullstack"],
@@ -161,7 +144,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 9,
+      tabindex: 8,
       img: "/images/team/dv-kritika-resized2.jpg",
       name: "Kritika Shenoy",
       title: translations["team.social-media"],
@@ -174,6 +157,342 @@ const OurTeam = () => {
         {
           icon: "/icons/instagram-original.svg",
           url: "https://www.instagram.com/shenoysketches?igsh=MWd0MTBodDY2cWx5Yw==",
+        },
+      ],
+    },
+    {
+      tabindex: 9,
+      img: "/images/team/photo-lilia.jpg",
+      name: "Lilia Fois",
+      title: translations["team.fullstack"],
+      description: translations["team.8.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/liliafois/",
+        },
+        {
+          icon: "/icons/github-original.svg",
+          url: "https://github.com/LilynTech",
+        },
+      ],
+    },
+    {
+      tabindex: 10,
+      img: "/images/team/photo-natalia.jpg",
+      name: "Natalia Lapina",
+      title: translations["team.fullstack"],
+      description: translations["team.9.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/natalia-lapina",
+        },
+        {
+          icon: "/icons/github-original.svg",
+          url: "https://github.com/Natata08",
+        },
+      ],
+    },
+    {
+      tabindex: 11,
+      img: "/images/team/photo-yingping.jpg",
+      name: "Yingping Ma",
+      title: translations["team.fullstack"],
+      description: translations["team.10.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/yingping-ma/",
+        },
+        {
+          icon: "/icons/github-original.svg",
+          url: "https://github.com/YingpMa",
+        },
+      ],
+    },
+    {
+      tabindex: 12,
+      img: "/images/team/photo-anna .jpg",
+      name: "Anna",
+      title: translations["team.fullstack"],
+      description: translations["team.11.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "http://linkedin.com/in/anna-rozenbachs-bb3a3a8b",
+        },
+        {
+          icon: "/icons/github-original.svg",
+          url: "https://github.com/AnnaRozenbachs",
+        },
+      ],
+    },
+    {
+      tabindex: 13,
+      img: "/images/team/photo-halyna.jpg",
+      name: "Halyna Bondar",
+      title: translations["team.fullstack"],
+      description: translations["team.12.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/halyna-bondar-a5854b261/",
+        },
+        {
+          icon: "/icons/github-original.svg",
+          url: "https://github.com/halynabondar",
+        },
+      ],
+    },
+    {
+      tabindex: 14,
+      img: "/images/team/photo-carlos.jpg",
+      name: "Carlos Andrade",
+      title: translations["team.fullstack"],
+      description: translations["team.13.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/carlandrade13/",
+        },
+        {
+          icon: "/icons/github-original.svg",
+          url: "https://github.com/carlandrade",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://carlosandrade.dev/",
+        },
+      ],
+    },
+    {
+      tabindex: 15,
+      img: "",
+      name: "",
+      title: translations[""],
+      description: translations[""],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "",
+        },
+      ],
+    },
+    {
+      tabindex: 16,
+      img: "",
+      name: "",
+      title: translations[""],
+      description: translations[""],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "",
+        },
+      ],
+    },
+    {
+      tabindex: 17,
+      img: "/images/team/photo-davide.png",
+      name: "Davide Zampieri",
+      title: translations["team.dav.title"],
+      description: translations["team.dav.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/davidezampieri12/",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://zampieridavide.com/",
+        },
+      ],
+    },
+    {
+      tabindex: 18,
+      img: "/images/team/photo-chiara.jpg",
+      name: "Chiara Esposito",
+      title: translations["team.ux/ui"],
+      description: translations["team.19.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/chiara-esposito-jpen/",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://chiaraespositoportfolio.framer.website/",
+        },
+      ],
+    },
+    {
+      tabindex: 19,
+      img: "/images/team/photo-lazar.jpg",
+      name: "Lazar Gheorghe Alexandru",
+      title: translations["team.ux/ui"],
+      description: translations["team.20.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/gheorghe-alexandru-lazar/",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://lazaralexandru.my.canva.site/",
+        },
+      ],
+    },
+    {
+      tabindex: 20,
+      img: "/images/team/photo-alessandra.jpg",
+      name: "Alessandra Annoni",
+      title: translations["team.ux/ui"],
+      description: translations["team.21.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/alessandra-annoni-1a3aa2204/",
+        },
+      ],
+    },
+    {
+      tabindex: 21,
+      img: "/images/team/photo-brenda.jpg",
+      name: "Brenda Novella Ragazzini",
+      title: translations["team.ux/ui"],
+      description: translations["team.22.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "www.linkedin.com/in/brenda-novella-ragazzini-788b342a4",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "www.brendauxdesign.com",
+        },
+      ],
+    },
+    {
+      tabindex: 22,
+      img: "/images/team/photo-florencia.jpg",
+      name: "Maria Florencia Martinez",
+      title: translations["team.ux/ui"],
+      description: translations["team.23.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/maria-florencia-martinez-uxuidesigner/",
+        },
+      ],
+    },
+    {
+      tabindex: 23,
+      img: "/images/team/photo-serena.jpg",
+      name: "Serena Tizzano",
+      title: translations["team.ux/ui"],
+      description: translations["team.24.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/seretizz",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://serenatizzano0.wixstudio.com/seretizz",
+        },
+      ],
+    },
+    {
+      tabindex: 24,
+      img: "/images/team/photo-daniela.jpg",
+      name: "Daniela Ronchetti",
+      title: translations["team.ux/ui"],
+      description: translations["team.25.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/daniela-ronchetti-2869a4244/",
+        },
+        {
+          icon: "/icons/instagram-original.svg",
+          url: "https://www.instagram.com/dani.ronchetti/?next=%2F",
+        },
+      ],
+    },
+    {
+      tabindex: 25,
+      img: "/images/team/photo-federica.jpg",
+      name: "Federica Catastini",
+      title: translations["team.ux/ui"],
+      description: translations["team.26.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/federica-catastini/",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://www.behance.net/federicacatastini",
+        },
+      ],
+    },
+    {
+      tabindex: 26,
+      img: "",
+      name: "",
+      title: translations[""],
+      description: translations[""],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "",
+        },
+      ],
+    },
+    {
+      tabindex: 27,
+      img: "",
+      name: "",
+      title: translations[""],
+      description: translations[""],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "",
+        },
+      ],
+    },
+    {
+      tabindex: 28,
+      img: "",
+      name: "",
+      title: translations[""],
+      description: translations[""],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "",
         },
       ],
     },
@@ -248,7 +567,29 @@ const OurTeam = () => {
             data-testid="team-cards-container"
             aria-labelledby="our-team-title"
           >
-            {teamMembers.slice(2, 10).map((teamMember) => (
+            {teamMembers.slice(2, 15).map((teamMember) => (
+              <MemberCard
+                key={teamMember.tabindex}
+                img={teamMember.img}
+                name={teamMember.name}
+                variant="tech"
+                description={teamMember.description}
+                title={teamMember.title}
+                links={teamMember.links}
+              />
+            ))}
+          </section>
+        </div>
+        <div>
+          <h3 className="text-displaySmall font-roboto text-tertiary1-normal text-center mt-2 md:mt-5">
+            {translations["team.designers"]}
+          </h3>
+          <section
+            className="flex flex-wrap gap-4 justify-center py-6"
+            data-testid="team-cards-container"
+            aria-labelledby="our-team-title"
+          >
+            {teamMembers.slice(17, 26).map((teamMember) => (
               <MemberCard
                 key={teamMember.tabindex}
                 img={teamMember.img}
