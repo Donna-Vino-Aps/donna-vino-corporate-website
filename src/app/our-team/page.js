@@ -551,7 +551,7 @@ const OurTeam = () => {
             data-testid="team-cards-container"
             aria-labelledby="our-team-title"
           >
-            {teamMembers.slice(2, 15).map((teamMember) => (
+            {teamMembers.slice(2, 14).map((teamMember) => (
               <MemberCard
                 key={teamMember.tabindex}
                 img={teamMember.img}
@@ -573,7 +573,7 @@ const OurTeam = () => {
             data-testid="team-cards-container"
             aria-labelledby="our-team-title"
           >
-            {teamMembers.slice(17, 26).map((teamMember) => (
+            {teamMembers.slice(17, 25).map((teamMember) => (
               <MemberCard
                 key={teamMember.tabindex}
                 img={teamMember.img}
