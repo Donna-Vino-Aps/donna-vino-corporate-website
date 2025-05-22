@@ -10,7 +10,7 @@ const OurTeam = () => {
     {
       tabindex: 0,
       img: "/images/team/kat-giorgio-full-resize.png",
-      name: "Katrine Giogio",
+      name: "Katrine Giorgio",
       title: translations["team.kat.title"],
       description: translations["team.kat.description"],
       links: [
@@ -145,23 +145,6 @@ const OurTeam = () => {
     },
     {
       tabindex: 8,
-      img: "/images/team/dv-kritika-resized2.jpg",
-      name: "Kritika Shenoy",
-      title: translations["team.social-media"],
-      description: translations["team.7.description"],
-      links: [
-        {
-          icon: "/icons/linkedin-alt-light.svg",
-          url: "https://www.linkedin.com/in/kritika-shenoy-204994127/",
-        },
-        {
-          icon: "/icons/instagram-original.svg",
-          url: "https://www.instagram.com/shenoysketches?igsh=MWd0MTBodDY2cWx5Yw==",
-        },
-      ],
-    },
-    {
-      tabindex: 9,
       img: "/images/team/photo-lilia.jpg",
       name: "Lilia Fois",
       title: translations["team.fullstack"],
@@ -178,7 +161,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 10,
+      tabindex: 9,
       img: "/images/team/photo-natalia.jpg",
       name: "Natalia Lapina",
       title: translations["team.fullstack"],
@@ -195,7 +178,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 11,
+      tabindex: 10,
       img: "/images/team/photo-yingping.jpg",
       name: "Yingping Ma",
       title: translations["team.fullstack"],
@@ -212,7 +195,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 12,
+      tabindex: 11,
       img: "/images/team/photo-anna .jpg",
       name: "Anna",
       title: translations["team.fullstack"],
@@ -229,7 +212,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 13,
+      tabindex: 12,
       img: "/images/team/photo-halyna.jpg",
       name: "Halyna Bondar",
       title: translations["team.fullstack"],
@@ -246,7 +229,7 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 14,
+      tabindex: 13,
       img: "/images/team/photo-carlos.jpg",
       name: "Carlos Andrade",
       title: translations["team.fullstack"],
@@ -263,6 +246,23 @@ const OurTeam = () => {
         {
           icon: "/icons/globe.svg",
           url: "https://carlosandrade.dev/",
+        },
+      ],
+    },
+    {
+      tabindex: 14,
+      img: "",
+      name: "",
+      title: translations[""],
+      description: translations[""],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "",
         },
       ],
     },
@@ -285,23 +285,6 @@ const OurTeam = () => {
     },
     {
       tabindex: 16,
-      img: "",
-      name: "",
-      title: translations[""],
-      description: translations[""],
-      links: [
-        {
-          icon: "/icons/linkedin-alt-light.svg",
-          url: "",
-        },
-        {
-          icon: "/icons/globe.svg",
-          url: "",
-        },
-      ],
-    },
-    {
-      tabindex: 17,
       img: "/images/team/photo-davide.png",
       name: "Davide Zampieri",
       title: translations["team.dav.title"],
@@ -318,11 +301,28 @@ const OurTeam = () => {
       ],
     },
     {
+      tabindex: 17,
+      img: "/images/team/photo-brenda.jpg",
+      name: "Brenda Novella Ragazzini",
+      title: translations["team.ux/ui-project-manager"],
+      description: translations["team.20.description"],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "https://www.linkedin.com/in/brenda-novella-ragazzini-788b342a4",
+        },
+        {
+          icon: "/icons/globe.svg",
+          url: "https://www.brendauxdesign.com",
+        },
+      ],
+    },
+    {
       tabindex: 18,
       img: "/images/team/photo-chiara.jpg",
       name: "Chiara Esposito",
-      title: translations["team.ux/ui"],
-      description: translations["team.19.description"],
+      title: translations["team.ux/ui-project-manager"],
+      description: translations["team.21.description"],
       links: [
         {
           icon: "/icons/linkedin-alt-light.svg",
@@ -339,7 +339,7 @@ const OurTeam = () => {
       img: "/images/team/photo-lazar.jpg",
       name: "Lazar Gheorghe Alexandru",
       title: translations["team.ux/ui"],
-      description: translations["team.20.description"],
+      description: translations["team.22.description"],
       links: [
         {
           icon: "/icons/linkedin-alt-light.svg",
@@ -356,7 +356,7 @@ const OurTeam = () => {
       img: "/images/team/photo-alessandra.jpg",
       name: "Alessandra Annoni",
       title: translations["team.ux/ui"],
-      description: translations["team.21.description"],
+      description: translations["team.23.description"],
       links: [
         {
           icon: "/icons/linkedin-alt-light.svg",
@@ -364,29 +364,13 @@ const OurTeam = () => {
         },
       ],
     },
+
     {
       tabindex: 21,
-      img: "/images/team/photo-brenda.jpg",
-      name: "Brenda Novella Ragazzini",
-      title: translations["team.ux/ui"],
-      description: translations["team.22.description"],
-      links: [
-        {
-          icon: "/icons/linkedin-alt-light.svg",
-          url: "www.linkedin.com/in/brenda-novella-ragazzini-788b342a4",
-        },
-        {
-          icon: "/icons/globe.svg",
-          url: "www.brendauxdesign.com",
-        },
-      ],
-    },
-    {
-      tabindex: 22,
       img: "/images/team/photo-florencia.jpg",
       name: "Maria Florencia Martinez",
       title: translations["team.ux/ui"],
-      description: translations["team.23.description"],
+      description: translations["team.24.description"],
       links: [
         {
           icon: "/icons/linkedin-alt-light.svg",
@@ -395,11 +379,11 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 23,
+      tabindex: 22,
       img: "/images/team/photo-serena.jpg",
       name: "Serena Tizzano",
       title: translations["team.ux/ui"],
-      description: translations["team.24.description"],
+      description: translations["team.25.description"],
       links: [
         {
           icon: "/icons/linkedin-alt-light.svg",
@@ -412,11 +396,11 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 24,
+      tabindex: 23,
       img: "/images/team/photo-daniela.jpg",
       name: "Daniela Ronchetti",
       title: translations["team.ux/ui"],
-      description: translations["team.25.description"],
+      description: translations["team.26.description"],
       links: [
         {
           icon: "/icons/linkedin-alt-light.svg",
@@ -429,11 +413,11 @@ const OurTeam = () => {
       ],
     },
     {
-      tabindex: 25,
+      tabindex: 24,
       img: "/images/team/photo-federica.jpg",
       name: "Federica Catastini",
       title: translations["team.ux/ui"],
-      description: translations["team.26.description"],
+      description: translations["team.27.description"],
       links: [
         {
           icon: "/icons/linkedin-alt-light.svg",
@@ -442,6 +426,23 @@ const OurTeam = () => {
         {
           icon: "/icons/globe.svg",
           url: "https://www.behance.net/federicacatastini",
+        },
+      ],
+    },
+    {
+      tabindex: 25,
+      img: "",
+      name: "",
+      title: translations[""],
+      description: translations[""],
+      links: [
+        {
+          icon: "/icons/linkedin-alt-light.svg",
+          url: "",
+        },
+        {
+          icon: "/icons/instagram-original.svg",
+          url: "",
         },
       ],
     },
@@ -464,23 +465,6 @@ const OurTeam = () => {
     },
     {
       tabindex: 27,
-      img: "",
-      name: "",
-      title: translations[""],
-      description: translations[""],
-      links: [
-        {
-          icon: "/icons/linkedin-alt-light.svg",
-          url: "",
-        },
-        {
-          icon: "/icons/globe.svg",
-          url: "",
-        },
-      ],
-    },
-    {
-      tabindex: 28,
       img: "",
       name: "",
       title: translations[""],
