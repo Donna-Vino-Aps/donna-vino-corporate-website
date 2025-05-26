@@ -4,7 +4,7 @@ import PrivacyPolicy from "../../app/privacy-policy/page";
 import { LanguageProvider } from "../../app/context/LanguageContext";
 
 const mockTranslations = {
-  "button.go-back": "Go Back",
+  "button.go-back": "Tilbage",
   "privacy.h1": "Privacy Policy",
   "privacy.updated": "Last updated:",
   "privacy.h2-1": "Introduction",
@@ -60,7 +60,7 @@ describe("PrivacyPolicy Component", () => {
   });
 
   test("renders Go Back button with translation", () => {
-    expect(screen.getByTestId("go-back-button")).toHaveTextContent("Go back");
+    expect(screen.getByTestId("go-back-button")).toHaveTextContent("Tilbage");
   });
 
   test("renders the Privacy Policy title", () => {

@@ -26,7 +26,7 @@ MockLanguageProvider.propTypes = {
   language: PropTypes.oneOf(["en", "dk"]), // Restrict language to "en" or "dk"
 };
 
-const renderWithProvider = (language = "en", pathname = "/") => {
+const renderWithProvider = (language = "dk", pathname = "/") => {
   usePathname.mockReturnValue(pathname);
 
   render(
@@ -53,9 +53,9 @@ describe("on regular pages", () => {
   it("renders all navigation links", () => {
     renderWithProvider("en");
     const links = [
-      { id: "our-values", href: "/our-values", label: "Our Values" },
-      { id: "our-team", href: "/our-team", label: "Our Team" },
-      { id: "contact", href: "/contact", label: "Contact" },
+      { id: "our-values", href: "/our-values", label: "Vores Værdier" },
+      { id: "our-team", href: "/our-team", label: "Vores Team" },
+      { id: "contact", href: "/contact", label: "Kontakte" },
     ];
 
     links.forEach((link) => {

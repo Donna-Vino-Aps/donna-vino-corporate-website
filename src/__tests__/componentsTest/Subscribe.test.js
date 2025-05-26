@@ -12,7 +12,7 @@ import useFetch from "@/hooks/api/useFetch";
 jest.mock("@/hooks/api/useFetch", () => jest.fn());
 
 // Mock the LanguageProvider
-const MockLanguageProvider = ({ children, language = "en" }) => {
+const MockLanguageProvider = ({ children, language = "dk" }) => {
   const translations = language === "en" ? enTranslations : dkTranslations;
 
   return (
@@ -26,7 +26,7 @@ MockLanguageProvider.propTypes = {
 };
 
 // Helper function to render the component with the LanguageProvider
-const renderWithProvider = (language = "en") => {
+const renderWithProvider = (language = "dk") => {
   return render(
     <MockLanguageProvider language={language}>
       <Subscribe />
@@ -55,19 +55,19 @@ describe("Subscribe Component", () => {
     renderWithProvider();
 
     expect(
-      screen.getByText(enTranslations["subscribe.heading"]),
+      screen.getByText(dkTranslations["subscribe.heading"]),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(enTranslations["subscribe.paragraph"]),
+      screen.getByText(dkTranslations["subscribe.paragraph"]),
     ).toBeInTheDocument();
     expect(
-      screen.getByPlaceholderText(enTranslations["subscribe.placeholder"]),
+      screen.getByPlaceholderText(dkTranslations["subscribe.placeholder"]),
     ).toBeInTheDocument();
     expect(
-      screen.getByLabelText(enTranslations["subscribe.terms"]),
+      screen.getByLabelText(dkTranslations["subscribe.terms"]),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(enTranslations["subscribe.button"]),
+      screen.getByText(dkTranslations["subscribe.button"]),
     ).toBeInTheDocument();
   });
 
@@ -91,12 +91,12 @@ describe("Subscribe Component", () => {
     renderWithProvider();
 
     const emailInput = screen.getByPlaceholderText(
-      enTranslations["subscribe.placeholder"],
+      dkTranslations["subscribe.placeholder"],
     );
     const termsCheckbox = screen.getByLabelText(
-      enTranslations["subscribe.terms"],
+      dkTranslations["subscribe.terms"],
     );
-    const submitButton = screen.getByText(enTranslations["subscribe.button"]);
+    const submitButton = screen.getByText(dkTranslations["subscribe.button"]);
 
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
     fireEvent.click(termsCheckbox);
@@ -122,11 +122,11 @@ describe("Subscribe Component", () => {
 
     renderWithProvider();
 
-    const emailInput = screen.getByPlaceholderText(/Enter your email/i);
+    const emailInput = screen.getByPlaceholderText(/Indtast din e-mail/i);
     const termsCheckbox = screen.getByLabelText(
-      /I agree with the terms and conditions/i,
+      /Jeg accepterer vilkår og betingelser for tilmelding til nyhedsbrevet/i,
     );
-    const submitButton = screen.getByText(/Submit/i);
+    const submitButton = screen.getByText(/Indsend/i);
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
     fireEvent.click(termsCheckbox);
     fireEvent.click(submitButton);
@@ -166,7 +166,7 @@ describe("Subscribe Component", () => {
     renderWithProvider();
 
     const termsCheckbox = screen.getByLabelText(
-      enTranslations["subscribe.terms"],
+      dkTranslations["subscribe.terms"],
     );
 
     fireEvent.click(termsCheckbox);

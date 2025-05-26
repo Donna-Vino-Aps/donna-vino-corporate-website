@@ -41,9 +41,7 @@ describe("SubscriptionConfirmed Page", () => {
   });
 
   it("renders with the correct background styles", () => {
-    const section = screen.getByLabelText(
-      /Thank you for verifying your email/i,
-    );
+    const section = screen.getByLabelText(/Tak for at verificere din e-mail/i);
     expect(section).toHaveClass("bg-primary-light");
     expect(section).toHaveClass("sm:bg-dots-lg");
     expect(section).toHaveClass("bg-dots-sm");

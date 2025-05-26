@@ -29,19 +29,19 @@ describe("Navbar component", () => {
 
     const homeLink = screen.getByTestId("nav-link-home");
     expect(homeLink).toBeInTheDocument();
-    expect(homeLink).toHaveTextContent("Home");
+    expect(homeLink).toHaveTextContent("Hjem");
 
     const ourValuesLink = screen.getByTestId("nav-link-our-values");
     expect(ourValuesLink).toBeInTheDocument();
-    expect(ourValuesLink).toHaveTextContent("Our Values");
+    expect(ourValuesLink).toHaveTextContent("Vores Værdier");
 
     const ourTeamLink = screen.getByTestId("nav-link-our-team");
     expect(ourTeamLink).toBeInTheDocument();
-    expect(ourTeamLink).toHaveTextContent("Our Team");
+    expect(ourTeamLink).toHaveTextContent("Vores Team");
 
     const contactLink = screen.getByTestId("nav-link-contact");
     expect(contactLink).toBeInTheDocument();
-    expect(contactLink).toHaveTextContent("Contact");
+    expect(contactLink).toHaveTextContent("Kontakte");
   });
 
   test("should have the correct links to pages", () => {

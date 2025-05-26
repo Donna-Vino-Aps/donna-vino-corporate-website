@@ -7,7 +7,7 @@ import { LanguageProvider } from "@/app/context/LanguageContext";
 import enTranslations from "../../translations/en.json";
 import dkTranslations from "../../translations/dk.json";
 
-const MockLanguageProvider = ({ children, language = "en" }) => {
+const MockLanguageProvider = ({ children, language = "dk" }) => {
   const translations = language === "en" ? enTranslations : dkTranslations;
 
   return (
@@ -20,7 +20,7 @@ MockLanguageProvider.propTypes = {
   language: PropTypes.oneOf(["en", "dk"]),
 };
 
-const renderWithProvider = (language = "en") => {
+const renderWithProvider = (language = "dk") => {
   render(
     <MockLanguageProvider language={language}>
       <HeroSection />
@@ -34,7 +34,7 @@ describe("HeroSection Component", () => {
 
     // Check the heading text
     const heading = screen.getByText(
-      /Welcome to Donna Vino, your unique wine experience\./i,
+      /Velkommen til Donna Vino, din unikke vinoplevelse./i,
     );
     expect(heading).toBeInTheDocument();
 
@@ -42,7 +42,7 @@ describe("HeroSection Component", () => {
     const description = screen.getByTestId("description");
     expect(description).toBeInTheDocument();
     expect(description).toHaveTextContent(
-      "Discover unique wine stories told by your sommelier while your private chef customizes the menu.",
+      "Oplev unikke vinhistorier fortalt af din sommelier, mens din private kok tilpasser menuen.",
     );
 
     // Check that the dotted shapes images are present

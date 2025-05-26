@@ -3,7 +3,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import UnsubscribeRequestPage from "@/app/subscription/unsubscribe-request/page";
 import { LanguageProvider } from "@/app/context/LanguageContext";
-import enTranslations from "../../translations/en.json";
+import dkTranslations from "../../translations/dk.json";
 import useFetch from "@/hooks/api/useFetch";
 
 jest.mock("next/navigation", () => ({
@@ -35,7 +35,7 @@ describe("UnsubscribeRequestPage", () => {
     jest.clearAllMocks();
   });
 
-  const renderWithLanguage = (translations = enTranslations) => {
+  const renderWithLanguage = (translations = dkTranslations) => {
     return render(
       <LanguageProvider value={{ translations }}>
         <UnsubscribeRequestPage />
@@ -54,7 +54,7 @@ describe("UnsubscribeRequestPage", () => {
     renderWithLanguage();
 
     const unsubscribeButton = screen.getByTestId("unsubscribe-request-button");
-    expect(unsubscribeButton).toHaveTextContent(/submitting/i);
+    expect(unsubscribeButton).toHaveTextContent(/Indsender.../i);
     expect(unsubscribeButton).toBeDisabled();
   });
 
@@ -71,7 +71,9 @@ describe("UnsubscribeRequestPage", () => {
     await waitFor(() => {
       const errorMessage = screen.getByTestId("error-message");
       expect(errorMessage).toBeInTheDocument();
-      expect(errorMessage).toHaveTextContent(/unsubscribe token is missing/i);
+      expect(errorMessage).toHaveTextContent(
+        /Afmeldings-token mangler eller er ugyldigt. Tjek venligst din e-mail eller kontakt os for hjælp./i,
+      );
     });
   });
 
@@ -124,7 +126,7 @@ describe("UnsubscribeRequestPage", () => {
       performFetch: performFetchMock,
     });
     rerender(
-      <LanguageProvider value={{ translations: enTranslations }}>
+      <LanguageProvider value={{ translations: dkTranslations }}>
         <UnsubscribeRequestPage />
       </LanguageProvider>,
     );
