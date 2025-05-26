@@ -47,7 +47,7 @@ describe("ThematicCardsValues Component", () => {
     );
 
     // Verify 'Show more' button is visible on small screens
-    const showMoreButton = screen.queryByText("Show more");
+    const showMoreButton = screen.queryByText("Vise mere");
     expect(showMoreButton).toBeInTheDocument();
   });
 

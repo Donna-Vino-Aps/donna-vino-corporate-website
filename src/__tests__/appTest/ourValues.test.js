@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import OurValuesPage from "@/app/our-values/page";
 import { LanguageProvider } from "@/app/context/LanguageContext";
-import enTranslations from "../../translations/en.json";
+import dkTranslations from "../../translations/dk.json";
 
 jest.mock("../../components/OurValues/OurValues", () => {
   return jest.fn(() => (
@@ -12,7 +12,7 @@ jest.mock("../../components/OurValues/OurValues", () => {
 
 describe("OurValuesPage", () => {
   // Mock the screen size adjustment for small screens
-  const renderWithLanguage = (translations = enTranslations) => {
+  const renderWithLanguage = (translations = dkTranslations) => {
     return render(
       <LanguageProvider value={translations}>
         <OurValuesPage />
@@ -30,12 +30,12 @@ describe("OurValuesPage", () => {
 
     const goBackButton = screen.getByTestId("go-back-button");
     expect(goBackButton).toBeInTheDocument();
-    expect(goBackButton).toHaveTextContent("Go back");
+    expect(goBackButton).toHaveTextContent("Tilbage");
   });
 
   it("should render goBackButton", () => {
     const goBackButton = screen.getByTestId("go-back-button");
     expect(goBackButton).toBeInTheDocument();
-    expect(goBackButton).toHaveTextContent("Go back");
+    expect(goBackButton).toHaveTextContent("Tilbage");
   });
 });

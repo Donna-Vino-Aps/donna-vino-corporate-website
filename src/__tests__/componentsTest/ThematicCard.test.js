@@ -92,7 +92,7 @@ describe("ThematicCard Component", () => {
     descriptionEnd = screen.queryByText("This is the end of the description.");
     expect(descriptionEnd).toBeInTheDocument();
     expect(descriptionEnd).not.toHaveClass("hidden"); // Ensure it's visible
-    expect(button).toHaveTextContent("Show less");
+    expect(button).toHaveTextContent("Vise mindre");
 
     // Collapse the description
     act(() => {
@@ -103,21 +103,21 @@ describe("ThematicCard Component", () => {
     descriptionEnd = screen.queryByText("This is the end of the description.");
     expect(descriptionEnd).toBeInTheDocument();
     expect(descriptionEnd).toHaveClass("hidden"); // Ensure it's hidden, not removed
-    expect(button).toHaveTextContent("Show more");
+    expect(button).toHaveTextContent("Vise mere");
   });
 
   it("renders different layouts for small and large screens", async () => {
     renderWithSize(500); // Ensure small screen size
 
     // Ensure the layout for small screen
-    expect(screen.queryByText("Show more")).toBeInTheDocument();
+    expect(screen.queryByText("Vise mere")).toBeInTheDocument();
 
     // Mock large screen size inside the test and trigger a resize event
     renderWithSize(1200); // Simulate larger screen size
 
     // Wait for layout to update after resize
     await waitFor(() => {
-      expect(screen.queryByText("Show more")).not.toBeInTheDocument();
+      expect(screen.queryByText("Vise mere")).not.toBeInTheDocument();
     });
   });
 });

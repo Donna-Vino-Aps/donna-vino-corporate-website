@@ -31,19 +31,19 @@ describe("MapSection Component", () => {
   test("renders all info items correctly", () => {
     renderWithProvider();
 
-    const locationTitle = screen.getByText("Our Location");
+    const locationTitle = screen.getByText("Vores placering");
     const locationDescription = screen.getByText(
       "Christianshavns Voldgade 54 - 1424 København",
     );
     expect(locationTitle).toBeInTheDocument();
     expect(locationDescription).toBeInTheDocument();
 
-    const phoneTitle = screen.getByText("Phone Number");
+    const phoneTitle = screen.getByText("Telefonnummer");
     const phoneDescription = screen.getByText("+45 31 62 06 93");
     expect(phoneTitle).toBeInTheDocument();
     expect(phoneDescription).toBeInTheDocument();
 
-    const emailTitle = screen.getByText("Email Address");
+    const emailTitle = screen.getByText("E-mailadresse");
     const emailDescription = screen.getByText("info@donnavino.dk");
     expect(emailTitle).toBeInTheDocument();
     expect(emailDescription).toBeInTheDocument();
@@ -57,9 +57,9 @@ describe("MapSection Component", () => {
 
   test("renders correct icons for each info item", () => {
     renderWithProvider();
-    const locationIcon = screen.getByAltText("Our Location");
-    const phoneIcon = screen.getByAltText("Phone Number");
-    const emailIcon = screen.getByAltText("Email Address");
+    const locationIcon = screen.getByAltText("Vores placering");
+    const phoneIcon = screen.getByAltText("Telefonnummer");
+    const emailIcon = screen.getByAltText("E-mailadresse");
 
     expect(locationIcon).toHaveAttribute("src", "/icons/location.svg");
     expect(phoneIcon).toHaveAttribute("src", "/icons/phone-map.svg");
@@ -81,13 +81,13 @@ describe("MapSection Component", () => {
   test("displays the correct information items", () => {
     renderWithProvider();
 
-    const locationTitle = screen.getByText(/Our Location/i);
+    const locationTitle = screen.getByText(/Vores placering/i);
     const locationDescription = screen.getByText(
       /Christianshavns Voldgade 54 - 1424 København/i,
     );
-    const phoneTitle = screen.getByText(/Phone Number/i);
+    const phoneTitle = screen.getByText(/Telefonnummer/i);
     const phoneDescription = screen.getByText(/\+45 31 62 06 93/i);
-    const emailTitle = screen.getByText(/Email Address/i);
+    const emailTitle = screen.getByText(/E-mailadresse/i);
     const emailDescription = screen.getByText(/info@donnavino.dk/i);
 
     expect(locationTitle).toBeInTheDocument();
@@ -101,7 +101,7 @@ describe("MapSection Component", () => {
   test('checks if the "Check on Maps" button is present and clickable', () => {
     renderWithProvider();
 
-    const checkMapsButton = screen.getByText(/Check on Maps/i);
+    const checkMapsButton = screen.getByText(/Tjek på Maps/i);
 
     expect(checkMapsButton).toBeInTheDocument();
 

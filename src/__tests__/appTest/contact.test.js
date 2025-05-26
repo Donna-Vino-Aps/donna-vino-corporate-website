@@ -32,6 +32,6 @@ describe("Contact Page", () => {
   it("should render goBackButton", () => {
     const goBackButton = screen.getByTestId("go-back-button");
     expect(goBackButton).toBeInTheDocument();
-    expect(goBackButton).toHaveTextContent("Go back");
+    expect(goBackButton).toHaveTextContent("Tilbage");
   });
 });

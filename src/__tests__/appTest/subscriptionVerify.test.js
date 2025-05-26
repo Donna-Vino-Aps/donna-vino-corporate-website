@@ -54,7 +54,7 @@ describe("VerifyEmail Page", () => {
     renderWithLanguage();
 
     const verifyButton = screen.getByTestId("verify-button");
-    expect(verifyButton).toHaveTextContent(/verifying/i);
+    expect(verifyButton).toHaveTextContent(/Verificerer.../i);
     expect(verifyButton).toBeDisabled();
   });
 
@@ -71,7 +71,9 @@ describe("VerifyEmail Page", () => {
     await waitFor(() => {
       const errorMessage = screen.getByTestId("error-message");
       expect(errorMessage).toBeInTheDocument();
-      expect(errorMessage).toHaveTextContent(/verification token is missing/i);
+      expect(errorMessage).toHaveTextContent(
+        /Verifikationstoken mangler. Tjek venligst dit e-mail-link./i,
+      );
     });
   });
 

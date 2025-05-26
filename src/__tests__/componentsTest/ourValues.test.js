@@ -7,7 +7,7 @@ import enTranslations from "../../translations/en.json";
 import dkTranslations from "../../translations/dk.json";
 import PropTypes from "prop-types";
 
-const MockLanguageProvider = ({ children, language = "en" }) => {
+const MockLanguageProvider = ({ children, language = "dk" }) => {
   const translations = language === "en" ? enTranslations : dkTranslations;
 
   return (
@@ -20,7 +20,7 @@ MockLanguageProvider.propTypes = {
   language: PropTypes.oneOf(["en", "dk"]),
 };
 
-const renderWithProvider = (language = "en") => {
+const renderWithProvider = (language = "dk") => {
   render(
     <MockLanguageProvider language={language}>
       <OurValuesPage />
@@ -39,7 +39,7 @@ describe("OurValues Component", () => {
     // Check the title
     const title = screen.getByTestId("title");
     expect(title).toBeInTheDocument();
-    expect(title).toHaveTextContent("Donna Vino Values");
+    expect(title).toHaveTextContent("Donna Vino Værdier");
 
     // Check the PhotoGallery container
     const photoGalleryContainer = screen.getByTestId("photoGallery-container");
@@ -70,20 +70,14 @@ describe("OurValues Component", () => {
     // Check the text content in the article
     const introParagraph = screen.getByTestId("intro-paragraph");
     expect(introParagraph).toBeInTheDocument();
-    expect(introParagraph).toHaveTextContent("Welcome to Donna Vino");
+    expect(introParagraph).toHaveTextContent("Velkommen til Donna Vino");
 
     const introParagraphDescription = screen.getByTestId(
       "intro-paragraph-description",
     );
     expect(introParagraphDescription).toBeInTheDocument();
     expect(introParagraphDescription).toHaveTextContent(
-      "Your destination for authentic Italian flavours.",
-    );
-
-    const descriptionParagraph = screen.getByTestId("description-paragraph");
-    expect(descriptionParagraph).toBeInTheDocument();
-    expect(descriptionParagraph).toHaveTextContent(
-      "Donna Vino is the result of former Michelin sommelier Katrine Giorgio's passion",
+      "Donna Vino fungerer som bindeleddet mellem passionerede italienske vinproducenter og vinelskere i Danmark. Vi tilbyder en vinoplevelse, hvor hver flaske afspejler sin oprindelse og det håndværk, der ligger bag. Vores fokus er på bæredygtig produktion, og vi giver dig mulighed for at opdage vine, der både udtrykker deres terroir og er ansvarligt produceret.",
     );
 
     // Check the Carousel component
