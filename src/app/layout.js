@@ -25,7 +25,7 @@ const RootLayout = ({ children }) => {
           <CookieBanner />
           <Footer />
 
-          {process.env.NEXT_PUBLIC_UMAMI_ENABLED === "true" && (
+          {process.env.NEXT_PUBLIC_NODE_ENV === "production" && (
             <Script
               defer
               src="https://cloud.umami.is/script.js"
