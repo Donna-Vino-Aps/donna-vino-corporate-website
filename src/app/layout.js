@@ -24,7 +24,6 @@ const RootLayout = ({ children }) => {
           </main>
           <CookieBanner />
           <Footer />
-
           <Script
             defer
             src="https://cloud.umami.is/script.js"
