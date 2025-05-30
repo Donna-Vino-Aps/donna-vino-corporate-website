@@ -25,11 +25,13 @@ const RootLayout = ({ children }) => {
           <CookieBanner />
           <Footer />
 
+
           <Script
             defer
             src="https://cloud.umami.is/script.js"
             data-website-id="26acc54d-5e47-483a-b38c-3c39a489f00c"
           />
+
         </body>
       </LanguageProvider>
     </html>
