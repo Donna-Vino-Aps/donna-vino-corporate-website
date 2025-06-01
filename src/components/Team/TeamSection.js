@@ -5,11 +5,11 @@ import MemberCard from "@/components/Card/MemberCard";
 
 const TeamSection = ({ title, members }) => {
   return (
-    <div>
+    <section>
       <h3 className="text-displaySmall font-roboto text-tertiary1-normal text-center mt-2 md:mt-5">
         {title}
       </h3>
-      <section
+      <div
         className="flex flex-wrap gap-4 justify-center py-6"
         data-testid="team-cards-container"
         aria-labelledby="our-team-title"
@@ -25,8 +25,8 @@ const TeamSection = ({ title, members }) => {
             links={teamMember.links}
           />
         ))}
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
