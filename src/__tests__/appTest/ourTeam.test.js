@@ -26,7 +26,7 @@ describe("OurTeam Page", () => {
     expect(screen.getByTestId("our-team-title")).toBeInTheDocument();
     expect(screen.getByTestId("our-team-tagline")).toBeInTheDocument();
     expect(screen.getByTestId("our-team-description")).toBeInTheDocument();
-    expect(screen.getAllByTestId("team-card-mock")).toHaveLength(22);
+    expect(screen.getAllByTestId("team-card-mock")).toHaveLength(23);
 
     const firstTeamCard = screen.getAllByTestId("team-card-mock")[0];
     expect(firstTeamCard).toHaveTextContent("Team Card");
