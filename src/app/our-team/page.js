@@ -4,6 +4,7 @@ import Button from "@/components/Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { getTeamMembers } from "@/data/teamMembers";
 import TeamSection from "@/components/Team/TeamSection";
+import SEO from "@/components/SEO/SEO";
 
 const OurTeam = () => {
   const { translations } = useLanguage();
@@ -21,6 +22,10 @@ const OurTeam = () => {
 
   return (
     <div className="flex justify-center px-2" data-testid="our-team-container">
+      <SEO
+        title={translations["team.title"]}
+        description={translations["team.description"]}
+      />
       <div className="w-full max-w-[84rem]">
         <section className="py-4 sm:mx-8">
           <Button
