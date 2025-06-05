@@ -3,26 +3,20 @@ import React from "react";
 import Button from "@/components/Button/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import Head from "next/head";
+import SEO from "@/components/SEO/SEO";
 
 const PrivacyPolicy = () => {
   const { translations } = useLanguage();
 
   return (
     <>
-      <Head>
-        <title>{translations["privacy.h1"]} - Donna Vino</title>
-        <meta
-          name="description"
-          content="Read Donna Vino's privacy policy regarding data collection and usage."
-        />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Privacy Policy | Donna Vino" />
-        <meta
-          property="og:description"
-          content="Learn about Donna Vino's data handling practices and rights."
-        />
-        <meta property="og:url" content="https://donnavino.dk/privacy-policy" />
-      </Head>
+      <SEO
+        title={translations["privacy.title"]}
+        description={translations["privacy.description"]}
+        includeOpenGraph={true}
+        url="https://donnavino.dk/privacy-policy"
+      />
+
       <main className="w-full flex flex-col gap-8">
         <section className="px-2 pt-4 sm:mx-8">
           <Button

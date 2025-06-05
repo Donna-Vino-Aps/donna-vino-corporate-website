@@ -120,6 +120,7 @@ const HeroSection = ({ hasCredits = false }) => {
         ) : (
           <img
             src="/images/card-unsplash-wine-tasting.avif"
+            alt="Wine tasting card with glasses and people"
             className="inset-0 h-[22rem] rounded-t-[6.8rem] md:h-[44rem] md:rounded-tl-[6.8rem] rounded-b-[0.5rem] md:rounded-b-none md:rounded-tr-none object-cover w-full"
             data-testid="fallback-image"
           />
