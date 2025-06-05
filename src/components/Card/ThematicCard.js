@@ -100,14 +100,22 @@ const ThematicCard = ({
           >
             {expanded ? (
               <div className="flex">
-                <img className="" alt="Chevron up icon inside a circle" src="/icons/chevron-up-circle.svg"></img>
+                <img
+                  className=""
+                  alt="Chevron up icon inside a circle"
+                  src="/icons/chevron-up-circle.svg"
+                ></img>
                 <p className="text-titleMedium font-medium mb-[3px] ml-2">
                   {translations["thematic.button-less"]}
                 </p>
               </div>
             ) : (
               <div className="flex">
-                <img className="" alt="Chevron down icon inside a circle" src="/icons/chevron-down-circle.svg"></img>
+                <img
+                  className=""
+                  alt="Chevron down icon inside a circle"
+                  src="/icons/chevron-down-circle.svg"
+                ></img>
                 <p className="text-titleMedium font-medium mb-[3px] ml-2">
                   {translations["thematic.button-more"]}
                 </p>
