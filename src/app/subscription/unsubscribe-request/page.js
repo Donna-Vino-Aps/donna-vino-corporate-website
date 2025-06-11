@@ -7,6 +7,7 @@ import useFetch from "@/hooks/api/useFetch";
 import { logInfo } from "@/utils/logging";
 import { useLanguage } from "@/app/context/LanguageContext";
 import PropTypes from "prop-types";
+import SEO from "@/components/SEO/SEO";
 
 function UnsubscribeRequestContent({ translations }) {
   const router = useRouter();
@@ -72,6 +73,10 @@ function UnsubscribeRequestContent({ translations }) {
       className="lg:my-4 flex flex-col justify-center items-center bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
       aria-labelledby="unsubscribe-request-title"
     >
+      <SEO
+        title={translations["unsubscribe-request.title"]}
+        description={translations["unsubscribe-request.description"]}
+      />
       <div className="flex flex-col justify-center items-center sm:py-24 py-4 mx-2 max-w-[45rem]">
         <h1
           id="unsubscribe-request-title"
@@ -130,6 +135,8 @@ UnsubscribeRequestContent.propTypes = {
     "unsubscribe-request.paragraph2": PropTypes.string.isRequired,
     "unsubscribe-request.button-loading": PropTypes.string.isRequired,
     "unsubscribe-request.button": PropTypes.string.isRequired,
+    "unsubscribe-request.title": PropTypes.string.isRequired,
+    "unsubscribe-request.description": PropTypes.string.isRequired,
   }).isRequired,
 };
 

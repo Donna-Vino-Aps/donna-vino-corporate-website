@@ -6,6 +6,7 @@ import Button from "@/components/Button/Button";
 import useFetch from "@/hooks/api/useFetch";
 import { logInfo } from "@/utils/logging";
 import { useLanguage } from "@/app/context/LanguageContext";
+import SEO from "@/components/SEO/SEO";
 
 function VerifyEmailContent() {
   const router = useRouter();
@@ -72,6 +73,10 @@ function VerifyEmailContent() {
       className="lg:my-4 flex flex-col justify-center items-center bg-primary-light sm:bg-dots-lg sm:bg-dots-size-lg bg-dots-sm bg-dots-size-sm"
       aria-labelledby="subscription-verification-title"
     >
+      <SEO
+        title={translations["verify.title"]}
+        description={translations["verify.description"]}
+      />
       <div className="flex flex-col justify-center items-center sm:py-24 py-4 mx-2 max-w-[45rem]">
         <h1
           id="subscription-verification-title"
