@@ -58,7 +58,7 @@ describe("UnsubscribeRequestPage", () => {
     expect(unsubscribeButton).toBeDisabled();
   });
 
-  it("shows error message when token is missing", async () => {
+  it("shows error message when email is missing", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
       get: jest.fn(() => null),
     });
@@ -72,7 +72,7 @@ describe("UnsubscribeRequestPage", () => {
       const errorMessage = screen.getByTestId("error-message");
       expect(errorMessage).toBeInTheDocument();
       expect(errorMessage).toHaveTextContent(
-        /Afmeldings-token mangler eller er ugyldigt. Tjek venligst din e-mail eller kontakt os for hjælp./i,
+        /E-mailadresse er påkrævet for at afmelde dig./i,
       );
     });
   });
@@ -109,9 +109,9 @@ describe("UnsubscribeRequestPage", () => {
     expect(router.push).not.toHaveBeenCalled();
   });
 
-  it("handles unsubscribe process correctly", async () => {
+  it("handles unsubscribe process correctly when email is present", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
-      get: jest.fn(() => "valid-token"),
+      get: jest.fn(() => "test@example.com"),
     });
 
     const { rerender } = renderWithLanguage();
@@ -163,9 +163,11 @@ describe("UnsubscribeRequestPage", () => {
     );
   });
 
-  it("updates unsubscribe status when token is present but unsubscribe fails", async () => {
+  it("updates unsubscribe status when email is present but unsubscribe fails", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
-      get: jest.fn(() => "invalid-token"),
+      get: jest.fn((key) =>
+        key === "email" ? "invalid@example.com@invalid.com" : null,
+      ),
     });
 
     performFetchMock.mockRejectedValueOnce(new Error("Unsubscribe failed"));
