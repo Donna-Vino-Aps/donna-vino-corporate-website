@@ -128,6 +128,7 @@ function UnsubscribeRequestContent({ translations }) {
 UnsubscribeRequestContent.propTypes = {
   translations: PropTypes.shape({
     "unsubscribe-request.error-token": PropTypes.string.isRequired,
+    "unsubscribe-request.error-email": PropTypes.string.isRequired,
     "unsubscribe-request.error-general": PropTypes.string.isRequired,
     "unsubscribe-request.heading": PropTypes.string.isRequired,
     "unsubscribe-request.paragraph1": PropTypes.string.isRequired,
