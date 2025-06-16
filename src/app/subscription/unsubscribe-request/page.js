@@ -12,7 +12,7 @@ import SEO from "@/components/SEO/SEO";
 function UnsubscribeRequestContent({ translations }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const token = searchParams.get("token");
+  const email = searchParams.get("email");
 
   const [unsubscribeRequestStatus, setUnsubscribeRequestStatus] = useState({
     isRequesting: false,
@@ -25,10 +25,10 @@ function UnsubscribeRequestContent({ translations }) {
   );
 
   const handleUnsubscribeRequest = async () => {
-    if (!token) {
+    if (!email) {
       setUnsubscribeRequestStatus({
         isRequesting: false,
-        error: translations["unsubscribe-request.error-token"],
+        error: translations["unsubscribe-request.error-email"],
       });
       return;
     }
@@ -40,8 +40,7 @@ function UnsubscribeRequestContent({ translations }) {
 
     try {
       await performFetch({
-        token: token,
-        subject: "Unsubscribe Request",
+        email: email,
       });
     } catch (err) {
       logInfo("Unsubscribe request error:", err);
