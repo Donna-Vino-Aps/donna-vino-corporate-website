@@ -25,6 +25,8 @@ describe("UnsubscribeRequestPage", () => {
   let performFetchMock;
 
   beforeEach(() => {
+    jest.clearAllMocks();
+
     performFetchMock = jest.fn().mockResolvedValue({ success: true });
     useFetch.mockReturnValue({
       isLoading: false,
@@ -32,7 +34,6 @@ describe("UnsubscribeRequestPage", () => {
       data: null,
       performFetch: performFetchMock,
     });
-    jest.clearAllMocks();
   });
 
   const renderWithLanguage = (translations = dkTranslations) => {
@@ -60,7 +61,11 @@ describe("UnsubscribeRequestPage", () => {
 
   it("shows error message when email is missing", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
-      get: jest.fn(() => null),
+      get: jest.fn((key) => {
+        if (key === "uid") return "123456";
+        if (key === "sig") return "validsignature";
+        return null;
+      }),
     });
 
     renderWithLanguage();
@@ -111,7 +116,11 @@ describe("UnsubscribeRequestPage", () => {
 
   it("handles unsubscribe process correctly when email is present", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
-      get: jest.fn(() => "test@example.com"),
+      get: jest.fn((key) => {
+        if (key === "uid") return "123456";
+        if (key === "sig") return "validsignature";
+        return null;
+      }),
     });
 
     const { rerender } = renderWithLanguage();
@@ -165,9 +174,11 @@ describe("UnsubscribeRequestPage", () => {
 
   it("updates unsubscribe status when email is present but unsubscribe fails", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
-      get: jest.fn((key) =>
-        key === "email" ? "invalid@example.com@invalid.com" : null,
-      ),
+      get: jest.fn((key) => {
+        if (key === "uid") return "123456";
+        if (key === "sig") return "validsignature";
+        return null;
+      }),
     });
 
     performFetchMock.mockRejectedValueOnce(new Error("Unsubscribe failed"));
