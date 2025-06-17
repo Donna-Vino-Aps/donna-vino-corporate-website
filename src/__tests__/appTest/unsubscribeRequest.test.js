@@ -61,11 +61,7 @@ describe("UnsubscribeRequestPage", () => {
 
   it("shows error message when email is missing", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
-      get: jest.fn((key) => {
-        if (key === "uid") return "123456";
-        if (key === "sig") return "validsignature";
-        return null;
-      }),
+      get: jest.fn(() => null),
     });
 
     renderWithLanguage();
@@ -114,7 +110,7 @@ describe("UnsubscribeRequestPage", () => {
     expect(router.push).not.toHaveBeenCalled();
   });
 
-  it("handles unsubscribe process correctly when email is present", async () => {
+  it("handles unsubscribe process correctly when params are present", async () => {
     require("next/navigation").useSearchParams.mockReturnValue({
       get: jest.fn((key) => {
         if (key === "uid") return "123456";
