@@ -72,7 +72,7 @@ describe("UnsubscribeRequestPage", () => {
       const errorMessage = screen.getByTestId("error-message");
       expect(errorMessage).toBeInTheDocument();
       expect(errorMessage).toHaveTextContent(
-        /E-mailadresse er påkrævet for at afmelde dig./i,
+        /e angivne parametre er ugyldige. Kontroller venligst dine input, og prøv igen./i,
       );
     });
   });
