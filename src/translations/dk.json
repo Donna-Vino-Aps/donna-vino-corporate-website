@@ -42,6 +42,8 @@
   "unsubscribe-request.button": "Indsend anmodning om afmelding",
   "unsubscribe-request.button-loading": "Indsender...",
   "unsubscribe-request.error-token": "Afmeldings-token mangler eller er ugyldigt. Tjek venligst din e-mail eller kontakt os for hjælp.",
+  "unsubscribe-request.error-email": "E-mailadresse er påkrævet for at afmelde dig.",
+  "unsubscribe-request.error-params": "De angivne parametre er ugyldige. Kontroller venligst dine input, og prøv igen.",
   "unsubscribe-request.error-general": "Der opstod en fejl under behandlingen af din afmeldingsanmodning. Prøv venligst igen senere.",
   "unsubscribed.title": "Afmeldt | Donna Vino",
   "unsubscribed.description": "Du er nu afmeldt Donna Vinos nyhedsbrev. Vi er kede af at se dig gå.",

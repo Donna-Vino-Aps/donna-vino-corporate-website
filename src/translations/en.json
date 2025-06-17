@@ -42,6 +42,8 @@
   "unsubscribe-request.button": "Submit Unsubscribe Request",
   "unsubscribe-request.button-loading": "Submitting...",
   "unsubscribe-request.error-token": "The unsubscribe token is missing or invalid. Please check your email or contact us for assistance.",
+  "unsubscribe-request.error-email": "Email is required to unsubscribe.",
+  "unsubscribe-request.error-params": "The provided parameters are invalid. Please check your input and try again.",
   "unsubscribe-request.error-general": "An error occurred while processing your unsubscribe request. Please try again later.",
   "unsubscribed.title": "Unsubscribed | Donna Vino",
   "unsubscribed.description": "You have successfully unsubscribed from the Donna Vino newsletter. We're sorry to see you go.",

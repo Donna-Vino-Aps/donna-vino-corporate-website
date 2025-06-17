@@ -12,7 +12,8 @@ import SEO from "@/components/SEO/SEO";
 function UnsubscribeRequestContent({ translations }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const token = searchParams.get("token");
+  const uid = searchParams.get("uid");
+  const sig = searchParams.get("sig");
 
   const [unsubscribeRequestStatus, setUnsubscribeRequestStatus] = useState({
     isRequesting: false,
@@ -25,10 +26,10 @@ function UnsubscribeRequestContent({ translations }) {
   );
 
   const handleUnsubscribeRequest = async () => {
-    if (!token) {
+    if (!uid || !sig) {
       setUnsubscribeRequestStatus({
         isRequesting: false,
-        error: translations["unsubscribe-request.error-token"],
+        error: translations["unsubscribe-request.error-params"],
       });
       return;
     }
@@ -40,8 +41,8 @@ function UnsubscribeRequestContent({ translations }) {
 
     try {
       await performFetch({
-        token: token,
-        subject: "Unsubscribe Request",
+        uid,
+        sig,
       });
     } catch (err) {
       logInfo("Unsubscribe request error:", err);
@@ -129,6 +130,8 @@ function UnsubscribeRequestContent({ translations }) {
 UnsubscribeRequestContent.propTypes = {
   translations: PropTypes.shape({
     "unsubscribe-request.error-token": PropTypes.string.isRequired,
+    "unsubscribe-request.error-email": PropTypes.string.isRequired,
+    "unsubscribe-request.error-params": PropTypes.string.isRequired,
     "unsubscribe-request.error-general": PropTypes.string.isRequired,
     "unsubscribe-request.heading": PropTypes.string.isRequired,
     "unsubscribe-request.paragraph1": PropTypes.string.isRequired,
